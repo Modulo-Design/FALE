@@ -1,3 +1,23 @@
+// Maps Sleeper username (lowercase) → Governor display name.
+export const GOVERNOR_NAMES: Record<string, string> = {
+  jmignanelli: "Josh",
+  fierst: "Mark",
+  starzofthenorth: "Mark",
+  koldre: "Knute",
+  samdahl3: "Sam",
+  jdub21: "Jeremy",
+  soloeli: "Eli",
+  dhkrause: "DanK",
+  johnathan: "Johnathan",
+  loondog: "Matt",
+  pb4kk: "Peter",
+  prostrollod89: "DanP",
+  gorter33: "Brent",
+  bbakk: "Ben",
+  mittens7: "Ben",
+  saltyminnesotan: "Chris",
+};
+
 // Sleeper league IDs for each season.
 // Find your league ID in the Sleeper app URL: sleeper.com/leagues/LEAGUE_ID
 export const LEAGUE_IDS: Record<string, string> = {
