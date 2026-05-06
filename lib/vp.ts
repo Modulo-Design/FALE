@@ -2,10 +2,12 @@ import { SleeperMatchup } from "./sleeper";
 
 export interface WeeklyResult {
   rosterId: number;
+  week: number;
   points: number;
   won: boolean;
   vpMatchup: number; // 2 for win, 0 for loss
   vpScoring: number; // 1 for top half, 0 for bottom half
+  vpAdjustment: number; // commissioner override delta
   vp: number;
 }
 
@@ -53,10 +55,12 @@ export function calculateWeekVPs(
       const vpScoring = finale ? (inTopHalf ? 3 : 0) : inTopHalf ? 1 : 0;
       results.push({
         rosterId: team.roster_id,
+        week,
         points: team.points,
         won,
         vpMatchup,
         vpScoring,
+        vpAdjustment: 0,
         vp: vpMatchup + vpScoring,
       });
     }
@@ -74,7 +78,7 @@ export function applyVPOverrides(
   return results.map((r) => {
     const adj = adjustments.find((a) => a.rosterId === r.rosterId);
     if (!adj) return r;
-    return { ...r, vp: r.vp + adj.vpDelta };
+    return { ...r, vpAdjustment: adj.vpDelta, vp: r.vp + adj.vpDelta };
   });
 }
 
