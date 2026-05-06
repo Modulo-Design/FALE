@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { LEAGUE_IDS, CURRENT_SEASON, SEASONS } from "@/lib/config";
+import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES } from "@/lib/config";
 import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
 import { calculateWeekVPs, aggregateStandings } from "@/lib/vp";
 import SeasonSelector from "@/components/SeasonSelector";
@@ -56,10 +56,12 @@ async function LeagueData({ season }: { season: string }) {
       .map((s) => {
         const ownerId = rosterOwnerMap.get(s.rosterId);
         const user = ownerId ? userMap.get(ownerId) : undefined;
+        const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
+        const governorName = GOVERNOR_NAMES[sleeperName];
         return {
           rosterId: s.rosterId,
           userId: ownerId,
-          displayName: user?.display_name ?? user?.username ?? `Team ${s.rosterId}`,
+          displayName: governorName ?? user?.display_name ?? user?.username ?? `Team ${s.rosterId}`,
           avatar: user?.avatar ?? null,
           totalVP: s.totalVP,
           totalPoints: Math.round(s.totalPoints * 100) / 100,
