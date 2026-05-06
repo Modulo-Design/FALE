@@ -10,10 +10,12 @@ const PointsChart = dynamic(() => import("./PointsChart"), { ssr: false });
 
 interface WeeklyResult {
   rosterId: number;
+  week: number;
   points: number;
   won: boolean;
   vpMatchup: number;
   vpScoring: number;
+  vpAdjustment: number;
   vp: number;
 }
 

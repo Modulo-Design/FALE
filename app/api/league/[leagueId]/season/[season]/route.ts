@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
-import { calculateWeekVPs, aggregateStandings } from "@/lib/vp";
+import { calculateWeekVPs, applyVPOverrides, aggregateStandings } from "@/lib/vp";
+import { VP_OVERRIDES, GOVERNOR_NAMES } from "@/lib/config";
 
 export async function GET(
   _req: NextRequest,
@@ -17,6 +18,14 @@ export async function GET(
 
     const userMap = new Map(users.map((u) => [u.user_id, u]));
     const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
+    const governorToRoster = new Map(
+      rosters.map((r) => {
+        const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
+        const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
+        const governorName = GOVERNOR_NAMES[sleeperName] ?? user?.display_name ?? `Team ${r.roster_id}`;
+        return [governorName, r.roster_id];
+      })
+    );
 
     const REGULAR_SEASON_WEEKS = 14;
     const weekPromises = Array.from({ length: REGULAR_SEASON_WEEKS }, (_, i) =>
@@ -28,9 +37,14 @@ export async function GET(
       .map((week, i) => ({ week, weekNum: i + 1 }))
       .filter(({ week }) => week.length > 0 && week.some((m) => m.points > 0));
 
-    const weeklyVPs = completedWeeks.map(({ week, weekNum }) =>
-      calculateWeekVPs(week, rosters.length, weekNum, season)
-    );
+    const weeklyVPs = completedWeeks.map(({ week, weekNum }) => {
+      const raw = calculateWeekVPs(week, rosters.length, weekNum, season);
+      const adjustments = VP_OVERRIDES
+        .filter((o) => o.season === season && o.week === weekNum)
+        .map((o) => ({ rosterId: governorToRoster.get(o.governorName) ?? -1, vpDelta: o.vpDelta }))
+        .filter((a) => a.rosterId !== -1);
+      return applyVPOverrides(raw, adjustments);
+    });
 
     const standings = aggregateStandings(weeklyVPs);
 

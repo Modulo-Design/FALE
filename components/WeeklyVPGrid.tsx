@@ -2,10 +2,12 @@
 
 interface WeeklyResult {
   rosterId: number;
+  week: number;
   points: number;
   won: boolean;
   vpMatchup: number;
   vpScoring: number;
+  vpAdjustment: number;
   vp: number;
 }
 
@@ -21,7 +23,7 @@ interface Props {
 }
 
 function vpColor(vp: number) {
-  if (vp === 3) return "bg-green-500 text-white";
+  if (vp >= 3) return "bg-green-500 text-white";
   if (vp === 2) return "bg-green-200 text-green-900 dark:bg-green-800 dark:text-green-100";
   if (vp === 1) return "bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100";
   return "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300";
@@ -50,7 +52,7 @@ export default function WeeklyVPGrid({ standings, weeksCompleted }: Props) {
         </thead>
         <tbody>
           {standings.map((team) => {
-            const byWeek = new Map(team.weeklyResults.map((r, i) => [i + 1, r]));
+            const byWeek = new Map(team.weeklyResults.map((r) => [r.week, r]));
             const total = team.weeklyResults.reduce((s, r) => s + r.vp, 0);
             return (
               <tr key={team.rosterId} className="border-t border-gray-100 dark:border-gray-700">
@@ -64,7 +66,7 @@ export default function WeeklyVPGrid({ standings, weeksCompleted }: Props) {
                       {result ? (
                         <span
                           className={`inline-block w-7 h-7 rounded text-xs font-bold leading-7 ${vpColor(result.vp)}`}
-                          title={`${result.points.toFixed(2)} pts | ${result.won ? "W" : "L"} | ${result.vpMatchup}+${result.vpScoring} VP`}
+                          title={`${result.points.toFixed(2)} pts | ${result.won ? "W" : "L"} | ${result.vpMatchup}+${result.vpScoring}${result.vpAdjustment !== 0 ? `${result.vpAdjustment > 0 ? "+" : ""}${result.vpAdjustment}` : ""} VP`}
                         >
                           {result.vp}
                         </span>

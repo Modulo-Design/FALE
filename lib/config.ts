@@ -18,6 +18,33 @@ export const GOVERNOR_NAMES: Record<string, string> = {
   saltyminnesotan: "Chris",
 };
 
+// Commissioner-ruled VP adjustments. Add one entry per affected team per ruling.
+// governorName must match a value in GOVERNOR_NAMES exactly.
+export interface VPOverride {
+  season: string;
+  week: number;
+  governorName: string;
+  vpDelta: number;
+  reason: string;
+}
+
+export const VP_OVERRIDES: VPOverride[] = [
+  {
+    season: "2025",
+    week: 6,
+    governorName: "DanK",
+    vpDelta: 2,
+    reason: "Illegal lineup submitted by opponent; commissioner auto-win awarded",
+  },
+  {
+    season: "2025",
+    week: 6,
+    governorName: "Chris",
+    vpDelta: -2,
+    reason: "Illegal lineup submitted; commissioner auto-loss awarded",
+  },
+];
+
 // Sleeper league IDs for each season.
 // Find your league ID in the Sleeper app URL: sleeper.com/leagues/LEAGUE_ID
 export const LEAGUE_IDS: Record<string, string> = {
