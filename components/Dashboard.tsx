@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import StandingsTable from "./StandingsTable";
 import WeeklyVPGrid from "./WeeklyVPGrid";
@@ -36,12 +37,13 @@ interface Props {
   weeksCompleted: number;
   season: string;
   leagueName: string;
+  historicalSlot: ReactNode;
 }
 
-const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid"] as const;
+const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid", "Historical"] as const;
 type Tab = (typeof TABS)[number];
 
-export default function Dashboard({ standings, weeksCompleted, season, leagueName }: Props) {
+export default function Dashboard({ standings, weeksCompleted, season, leagueName, historicalSlot }: Props) {
   const [tab, setTab] = useState<Tab>("Standings");
 
   return (
@@ -81,6 +83,15 @@ export default function Dashboard({ standings, weeksCompleted, season, leagueNam
       )}
 
       {tab === "Points" && <PointsChart standings={standings} />}
+
+      {tab === "Historical" && (
+        <div>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
+            All-time scoring stats across every regular season week. Click any column header to sort.
+          </p>
+          {historicalSlot}
+        </div>
+      )}
 
       {tab === "Weekly Grid" && (
         <div>
