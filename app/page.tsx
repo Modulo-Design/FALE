@@ -38,11 +38,13 @@ async function LeagueData({ season }: { season: string }) {
 
     const userMap = new Map(users.map((u) => [u.user_id, u]));
     const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
-    // username (lowercase) → rosterId, for override lookups
-    const usernameToRoster = new Map(
+    // governorName → rosterId, for override lookups
+    const governorToRoster = new Map(
       rosters.map((r) => {
         const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
-        return [(user?.username ?? "").toLowerCase(), r.roster_id];
+        const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
+        const governorName = GOVERNOR_NAMES[sleeperName] ?? user?.display_name ?? `Team ${r.roster_id}`;
+        return [governorName, r.roster_id];
       })
     );
 
@@ -60,7 +62,7 @@ async function LeagueData({ season }: { season: string }) {
       const raw = calculateWeekVPs(week, rosters.length, weekNum, season);
       const adjustments = VP_OVERRIDES
         .filter((o) => o.season === season && o.week === weekNum)
-        .map((o) => ({ rosterId: usernameToRoster.get(o.sleeperUsername) ?? -1, vpDelta: o.vpDelta }))
+        .map((o) => ({ rosterId: governorToRoster.get(o.governorName) ?? -1, vpDelta: o.vpDelta }))
         .filter((a) => a.rosterId !== -1);
       return applyVPOverrides(raw, adjustments);
     });

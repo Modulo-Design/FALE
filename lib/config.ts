@@ -19,11 +19,11 @@ export const GOVERNOR_NAMES: Record<string, string> = {
 };
 
 // Commissioner-ruled VP adjustments. Add one entry per affected team per ruling.
-// sleeperUsername must be lowercase. vpDelta is added on top of calculated VPs for that week.
+// governorName must match a value in GOVERNOR_NAMES exactly.
 export interface VPOverride {
   season: string;
   week: number;
-  sleeperUsername: string;
+  governorName: string;
   vpDelta: number;
   reason: string;
 }
@@ -32,14 +32,14 @@ export const VP_OVERRIDES: VPOverride[] = [
   {
     season: "2025",
     week: 6,
-    sleeperUsername: "dhkrause",
+    governorName: "DanK",
     vpDelta: 2,
     reason: "Illegal lineup submitted by opponent; commissioner auto-win awarded",
   },
   {
     season: "2025",
     week: 6,
-    sleeperUsername: "saltyminnesotan",
+    governorName: "Chris",
     vpDelta: -2,
     reason: "Illegal lineup submitted; commissioner auto-loss awarded",
   },
