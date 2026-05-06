@@ -6,9 +6,11 @@ export const LEAGUE_IDS: Record<string, string> = {
   "2022": "",
   "2023": "",
   "2024": "",
+  "2025": "",
+  "2026": "",
 };
 
-export const CURRENT_SEASON = "2024";
+export const CURRENT_SEASON = "2026";
 
 export const SEASONS = Object.keys(LEAGUE_IDS)
   .filter((y) => LEAGUE_IDS[y])
