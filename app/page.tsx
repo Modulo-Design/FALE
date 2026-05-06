@@ -45,11 +45,13 @@ async function LeagueData({ season }: { season: string }) {
     );
     const allWeekMatchups = await Promise.all(weekPromises);
 
-    const completedWeeks = allWeekMatchups.filter(
-      (week) => week.length > 0 && week.some((m) => m.points > 0)
-    );
+    const completedWeeks = allWeekMatchups
+      .map((week, i) => ({ week, weekNum: i + 1 }))
+      .filter(({ week }) => week.length > 0 && week.some((m) => m.points > 0));
 
-    const weeklyVPs = completedWeeks.map((week) => calculateWeekVPs(week, rosters.length));
+    const weeklyVPs = completedWeeks.map(({ week, weekNum }) =>
+      calculateWeekVPs(week, rosters.length, weekNum, season)
+    );
     const standings = aggregateStandings(weeklyVPs);
 
     const standingsArray = Array.from(standings.values())
