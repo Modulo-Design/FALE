@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES } from "@/lib/config";
+import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES, VP_OVERRIDES } from "@/lib/config";
 import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
-import { calculateWeekVPs, aggregateStandings } from "@/lib/vp";
+import { calculateWeekVPs, applyVPOverrides, aggregateStandings } from "@/lib/vp";
 import SeasonSelector from "@/components/SeasonSelector";
 import Dashboard from "@/components/Dashboard";
 
@@ -38,6 +38,13 @@ async function LeagueData({ season }: { season: string }) {
 
     const userMap = new Map(users.map((u) => [u.user_id, u]));
     const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
+    // username (lowercase) → rosterId, for override lookups
+    const usernameToRoster = new Map(
+      rosters.map((r) => {
+        const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
+        return [(user?.username ?? "").toLowerCase(), r.roster_id];
+      })
+    );
 
     const REGULAR_SEASON_WEEKS = 14;
     const weekPromises = Array.from({ length: REGULAR_SEASON_WEEKS }, (_, i) =>
@@ -49,9 +56,14 @@ async function LeagueData({ season }: { season: string }) {
       .map((week, i) => ({ week, weekNum: i + 1 }))
       .filter(({ week }) => week.length > 0 && week.some((m) => m.points > 0));
 
-    const weeklyVPs = completedWeeks.map(({ week, weekNum }) =>
-      calculateWeekVPs(week, rosters.length, weekNum, season)
-    );
+    const weeklyVPs = completedWeeks.map(({ week, weekNum }) => {
+      const raw = calculateWeekVPs(week, rosters.length, weekNum, season);
+      const adjustments = VP_OVERRIDES
+        .filter((o) => o.season === season && o.week === weekNum)
+        .map((o) => ({ rosterId: usernameToRoster.get(o.sleeperUsername) ?? -1, vpDelta: o.vpDelta }))
+        .filter((a) => a.rosterId !== -1);
+      return applyVPOverrides(raw, adjustments);
+    });
     const standings = aggregateStandings(weeklyVPs);
 
     const standingsArray = Array.from(standings.values())

@@ -64,6 +64,20 @@ export function calculateWeekVPs(
   return results;
 }
 
+// Applies commissioner VP adjustments to a single week's results.
+// rosterForUsername maps lowercase Sleeper username → rosterId.
+export function applyVPOverrides(
+  results: WeeklyResult[],
+  adjustments: { rosterId: number; vpDelta: number }[]
+): WeeklyResult[] {
+  if (adjustments.length === 0) return results;
+  return results.map((r) => {
+    const adj = adjustments.find((a) => a.rosterId === r.rosterId);
+    if (!adj) return r;
+    return { ...r, vp: r.vp + adj.vpDelta };
+  });
+}
+
 export function aggregateStandings(weeklyData: WeeklyResult[][]): Map<number, TeamStanding> {
   const standings = new Map<number, TeamStanding>();
 
