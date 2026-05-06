@@ -2,8 +2,10 @@ import { Suspense } from "react";
 import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES, VP_OVERRIDES } from "@/lib/config";
 import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
 import { calculateWeekVPs, applyVPOverrides, aggregateStandings } from "@/lib/vp";
+import { fetchHistoricalStats } from "@/lib/historical";
 import SeasonSelector from "@/components/SeasonSelector";
 import Dashboard from "@/components/Dashboard";
+import HistoricalStats from "@/components/HistoricalStats";
 
 interface PageProps {
   searchParams: Promise<{ season?: string }>;
@@ -88,12 +90,23 @@ async function LeagueData({ season }: { season: string }) {
       })
       .sort((a, b) => b.totalVP - a.totalVP || b.totalPoints - a.totalPoints);
 
+    const historicalFallback = (
+      <div className="flex items-center justify-center py-12">
+        <div className="animate-spin w-6 h-6 border-4 border-green-500 border-t-transparent rounded-full" />
+      </div>
+    );
+
     return (
       <Dashboard
         standings={standingsArray}
         weeksCompleted={completedWeeks.length}
         season={season}
         leagueName={league.name}
+        historicalSlot={
+          <Suspense fallback={historicalFallback}>
+            <HistoricalDataLoader />
+          </Suspense>
+        }
       />
     );
   } catch {
@@ -105,6 +118,11 @@ async function LeagueData({ season }: { season: string }) {
       </div>
     );
   }
+}
+
+async function HistoricalDataLoader() {
+  const stats = await fetchHistoricalStats();
+  return <HistoricalStats stats={stats} />;
 }
 
 export default async function Home({ searchParams }: PageProps) {
