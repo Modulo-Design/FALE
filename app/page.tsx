@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import { LEAGUE_IDS, CURRENT_SEASON, SEASONS } from "@/lib/config";
+import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
+import { calculateWeekVPs, aggregateStandings } from "@/lib/vp";
 import SeasonSelector from "@/components/SeasonSelector";
 import Dashboard from "@/components/Dashboard";
 
@@ -27,15 +29,56 @@ async function LeagueData({ season }: { season: string }) {
     );
   }
 
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
+  try {
+    const [league, rosters, users] = await Promise.all([
+      getLeague(leagueId),
+      getRosters(leagueId),
+      getUsers(leagueId),
+    ]);
 
-  const res = await fetch(`${baseUrl}/api/league/${leagueId}/season/${season}`, {
-    next: { revalidate: 300 },
-  });
+    const userMap = new Map(users.map((u) => [u.user_id, u]));
+    const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
 
-  if (!res.ok) {
+    const REGULAR_SEASON_WEEKS = 14;
+    const weekPromises = Array.from({ length: REGULAR_SEASON_WEEKS }, (_, i) =>
+      getMatchups(leagueId, i + 1).catch(() => [])
+    );
+    const allWeekMatchups = await Promise.all(weekPromises);
+
+    const completedWeeks = allWeekMatchups.filter(
+      (week) => week.length > 0 && week.some((m) => m.points > 0)
+    );
+
+    const weeklyVPs = completedWeeks.map((week) => calculateWeekVPs(week, rosters.length));
+    const standings = aggregateStandings(weeklyVPs);
+
+    const standingsArray = Array.from(standings.values())
+      .map((s) => {
+        const ownerId = rosterOwnerMap.get(s.rosterId);
+        const user = ownerId ? userMap.get(ownerId) : undefined;
+        return {
+          rosterId: s.rosterId,
+          userId: ownerId,
+          displayName: user?.display_name ?? user?.username ?? `Team ${s.rosterId}`,
+          avatar: user?.avatar ?? null,
+          totalVP: s.totalVP,
+          totalPoints: Math.round(s.totalPoints * 100) / 100,
+          wins: s.wins,
+          losses: s.losses,
+          weeklyResults: s.weeklyResults,
+        };
+      })
+      .sort((a, b) => b.totalVP - a.totalVP || b.totalPoints - a.totalPoints);
+
+    return (
+      <Dashboard
+        standings={standingsArray}
+        weeksCompleted={completedWeeks.length}
+        season={season}
+        leagueName={league.name}
+      />
+    );
+  } catch {
     return (
       <div className="rounded-lg border border-red-200 bg-red-50 dark:bg-red-900/20 p-6 text-center">
         <p className="text-red-700 dark:text-red-300">
@@ -44,17 +87,6 @@ async function LeagueData({ season }: { season: string }) {
       </div>
     );
   }
-
-  const data = await res.json();
-
-  return (
-    <Dashboard
-      standings={data.standings}
-      weeksCompleted={data.weeksCompleted}
-      season={season}
-      leagueName={data.league.name}
-    />
-  );
 }
 
 export default async function Home({ searchParams }: PageProps) {
