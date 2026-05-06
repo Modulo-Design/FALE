@@ -18,20 +18,18 @@ export async function GET(
     const userMap = new Map(users.map((u) => [u.user_id, u]));
     const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
 
-    // Fetch all regular season weeks (1-14 typical, up to 18)
     const REGULAR_SEASON_WEEKS = 14;
     const weekPromises = Array.from({ length: REGULAR_SEASON_WEEKS }, (_, i) =>
       getMatchups(leagueId, i + 1).catch(() => [])
     );
     const allWeekMatchups = await Promise.all(weekPromises);
 
-    // Filter out empty weeks (season not started or bye weeks)
-    const completedWeeks = allWeekMatchups.filter(
-      (week) => week.length > 0 && week.some((m) => m.points > 0)
-    );
+    const completedWeeks = allWeekMatchups
+      .map((week, i) => ({ week, weekNum: i + 1 }))
+      .filter(({ week }) => week.length > 0 && week.some((m) => m.points > 0));
 
-    const weeklyVPs = completedWeeks.map((week) =>
-      calculateWeekVPs(week, rosters.length)
+    const weeklyVPs = completedWeeks.map(({ week, weekNum }) =>
+      calculateWeekVPs(week, rosters.length, weekNum, season)
     );
 
     const standings = aggregateStandings(weeklyVPs);

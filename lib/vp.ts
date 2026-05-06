@@ -18,17 +18,26 @@ export interface TeamStanding {
   weeklyResults: WeeklyResult[];
 }
 
-export function calculateWeekVPs(matchups: SleeperMatchup[], totalTeams: number): WeeklyResult[] {
-  const halfCount = Math.ceil(totalTeams / 2);
+// Week 14 finale rule (2021+): no H2H VPs, but 3 VPs for top-half scoring.
+function isFinaleWeek(week: number, season: string): boolean {
+  return week === 14 && Number(season) >= 2021;
+}
 
-  // Determine winners per matchup
+export function calculateWeekVPs(
+  matchups: SleeperMatchup[],
+  totalTeams: number,
+  week: number,
+  season: string
+): WeeklyResult[] {
+  const halfCount = Math.ceil(totalTeams / 2);
+  const finale = isFinaleWeek(week, season);
+
   const matchupGroups = new Map<number, SleeperMatchup[]>();
   for (const m of matchups) {
     if (!matchupGroups.has(m.matchup_id)) matchupGroups.set(m.matchup_id, []);
     matchupGroups.get(m.matchup_id)!.push(m);
   }
 
-  // Sort all teams by points to determine top half
   const sorted = [...matchups].sort((a, b) => b.points - a.points);
   const topHalf = new Set(sorted.slice(0, halfCount).map((m) => m.roster_id));
 
@@ -39,8 +48,9 @@ export function calculateWeekVPs(matchups: SleeperMatchup[], totalTeams: number)
     const aWon = a.points > b.points;
     for (const team of [a, b]) {
       const won = team === a ? aWon : !aWon;
-      const vpMatchup = won ? 2 : 0;
-      const vpScoring = topHalf.has(team.roster_id) ? 1 : 0;
+      const inTopHalf = topHalf.has(team.roster_id);
+      const vpMatchup = finale ? 0 : won ? 2 : 0;
+      const vpScoring = finale ? (inTopHalf ? 3 : 0) : inTopHalf ? 1 : 0;
       results.push({
         rosterId: team.roster_id,
         points: team.points,
