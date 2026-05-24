@@ -1,10 +1,10 @@
 // Maps Sleeper username (lowercase) → Governor display name.
 export const GOVERNOR_NAMES: Record<string, string> = {
-  jmignanelli: "Josh",
+  yank4225: "Mike",
+  goldre15: "Gunnar",
   fierst: "Mark",
   starzofthenorth: "Mark",
   koldre: "Knute",
-  samdahl3: "Sam",
   jdub21: "Jeremy",
   soloeli: "Eli",
   dhkrause: "DanK",

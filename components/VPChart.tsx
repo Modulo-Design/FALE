@@ -11,11 +11,18 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+interface WeeklyResult {
+  vpMatchup: number;
+  vpScoring: number;
+  vpAdjustment: number;
+}
+
 interface TeamStanding {
   displayName: string;
   totalVP: number;
   wins: number;
   losses: number;
+  weeklyResults: WeeklyResult[];
 }
 
 interface Props {
@@ -27,8 +34,8 @@ export default function VPChart({ standings }: Props) {
     .sort((a, b) => b.totalVP - a.totalVP)
     .map((t) => ({
       name: t.displayName.split(" ")[0],
-      "Matchup VPs": t.wins * 2,
-      "Scoring VPs": t.totalVP - t.wins * 2,
+      "Matchup VPs": t.weeklyResults.reduce((s, r) => s + r.vpMatchup + r.vpAdjustment, 0),
+      "Scoring VPs": t.weeklyResults.reduce((s, r) => s + r.vpScoring, 0),
     }));
 
   return (
