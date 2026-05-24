@@ -72,6 +72,14 @@ export async function fetchHistoricalStats(): Promise<GovernorStats[]> {
     }
   }
 
+  // Ensure every known governor appears, even if they haven't played yet.
+  const allGovernorNames = new Set(Object.values(GOVERNOR_NAMES));
+  for (const name of allGovernorNames) {
+    if (!statsMap.has(name)) {
+      statsMap.set(name, { points: [], seasons: new Set() });
+    }
+  }
+
   return Array.from(statsMap.entries())
     .map(([governorName, { points, seasons }]) => {
       const total = points.reduce((s, p) => s + p, 0);
@@ -80,10 +88,15 @@ export async function fetchHistoricalStats(): Promise<GovernorStats[]> {
         seasonsPlayed: seasons.size,
         weekCount: points.length,
         totalPoints: Math.round(total * 100) / 100,
-        avgPoints: Math.round((total / points.length) * 100) / 100,
-        highScore: Math.round(Math.max(...points) * 100) / 100,
-        lowScore: Math.round(Math.min(...points) * 100) / 100,
+        avgPoints: points.length > 0 ? Math.round((total / points.length) * 100) / 100 : 0,
+        highScore: points.length > 0 ? Math.round(Math.max(...points) * 100) / 100 : 0,
+        lowScore: points.length > 0 ? Math.round(Math.min(...points) * 100) / 100 : 0,
       };
     })
-    .sort((a, b) => b.totalPoints - a.totalPoints);
+    .sort((a, b) => {
+      // Governors with no data sort to the bottom
+      if (a.weekCount === 0 && b.weekCount > 0) return 1;
+      if (b.weekCount === 0 && a.weekCount > 0) return -1;
+      return b.totalPoints - a.totalPoints;
+    });
 }

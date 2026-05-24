@@ -20,6 +20,10 @@ interface Props {
   stats: GovernorStats[];
 }
 
+function numCell(value: number, decimals: number, hasData: boolean): string {
+  return hasData ? value.toFixed(decimals) : "—";
+}
+
 export default function HistoricalStats({ stats }: Props) {
   const [filter, setFilter] = useState("");
   const [sortKey, setSortKey] = useState<SortKey | "governorName">("totalPoints");
@@ -41,6 +45,10 @@ export default function HistoricalStats({ stats }: Props) {
 
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
+      // Always keep no-data governors at the bottom
+      if (a.weekCount === 0 && b.weekCount > 0) return 1;
+      if (b.weekCount === 0 && a.weekCount > 0) return -1;
+
       const av = a[sortKey];
       const bv = b[sortKey];
       const cmp = typeof av === "string" ? av.localeCompare(bv as string) : (av as number) - (bv as number);
@@ -95,36 +103,48 @@ export default function HistoricalStats({ stats }: Props) {
             </tr>
           </thead>
           <tbody>
-            {sorted.map((row, idx) => (
-              <tr
-                key={row.governorName}
-                className={`border-t border-gray-100 dark:border-gray-700 ${
-                  idx % 2 === 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50/50 dark:bg-gray-800/40"
-                }`}
-              >
-                <td className="px-3 py-2.5 font-medium text-gray-900 dark:text-gray-100">
-                  {row.governorName}
-                </td>
-                <td className="px-3 py-2.5 text-right text-gray-600 dark:text-gray-400">
-                  {row.seasonsPlayed}
-                </td>
-                <td className="px-3 py-2.5 text-right text-gray-600 dark:text-gray-400">
-                  {row.weekCount}
-                </td>
-                <td className="px-3 py-2.5 text-right font-mono font-semibold text-gray-900 dark:text-gray-100">
-                  {row.totalPoints.toFixed(2)}
-                </td>
-                <td className="px-3 py-2.5 text-right font-mono text-gray-700 dark:text-gray-300">
-                  {row.avgPoints.toFixed(2)}
-                </td>
-                <td className="px-3 py-2.5 text-right font-mono text-green-600 dark:text-green-400">
-                  {row.highScore.toFixed(2)}
-                </td>
-                <td className="px-3 py-2.5 text-right font-mono text-red-500 dark:text-red-400">
-                  {row.lowScore.toFixed(2)}
-                </td>
-              </tr>
-            ))}
+            {sorted.map((row, idx) => {
+              const hasData = row.weekCount > 0;
+              return (
+                <tr
+                  key={row.governorName}
+                  className={`border-t border-gray-100 dark:border-gray-700 ${
+                    !hasData
+                      ? "opacity-50"
+                      : idx % 2 === 0
+                      ? "bg-white dark:bg-gray-900"
+                      : "bg-gray-50/50 dark:bg-gray-800/40"
+                  }`}
+                >
+                  <td className="px-3 py-2.5 font-medium text-gray-900 dark:text-gray-100">
+                    {row.governorName}
+                    {!hasData && (
+                      <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 font-normal">
+                        new
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-3 py-2.5 text-right text-gray-600 dark:text-gray-400">
+                    {hasData ? row.seasonsPlayed : "—"}
+                  </td>
+                  <td className="px-3 py-2.5 text-right text-gray-600 dark:text-gray-400">
+                    {hasData ? row.weekCount : "—"}
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-mono font-semibold text-gray-900 dark:text-gray-100">
+                    {numCell(row.totalPoints, 2, hasData)}
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-mono text-gray-700 dark:text-gray-300">
+                    {numCell(row.avgPoints, 2, hasData)}
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-mono text-green-600 dark:text-green-400">
+                    {numCell(row.highScore, 2, hasData)}
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-mono text-red-500 dark:text-red-400">
+                    {numCell(row.lowScore, 2, hasData)}
+                  </td>
+                </tr>
+              );
+            })}
             {sorted.length === 0 && (
               <tr>
                 <td colSpan={7} className="px-3 py-8 text-center text-gray-400 dark:text-gray-500">
