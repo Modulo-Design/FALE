@@ -90,6 +90,27 @@ async function LeagueData({ season }: { season: string }) {
       })
       .sort((a, b) => b.totalVP - a.totalVP || b.totalPoints - a.totalPoints);
 
+    // Include any roster that hasn't played yet (e.g. season hasn't started).
+    const standingsIds = new Set(standingsArray.map((s) => s.rosterId));
+    for (const roster of rosters) {
+      if (standingsIds.has(roster.roster_id)) continue;
+      const ownerId = rosterOwnerMap.get(roster.roster_id);
+      const user = ownerId ? userMap.get(ownerId) : undefined;
+      const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
+      const governorName = GOVERNOR_NAMES[sleeperName];
+      standingsArray.push({
+        rosterId: roster.roster_id,
+        userId: ownerId,
+        displayName: governorName ?? user?.display_name ?? user?.username ?? `Team ${roster.roster_id}`,
+        avatar: user?.avatar ?? null,
+        totalVP: 0,
+        totalPoints: 0,
+        wins: 0,
+        losses: 0,
+        weeklyResults: [],
+      });
+    }
+
     return (
       <Dashboard
         standings={standingsArray}
