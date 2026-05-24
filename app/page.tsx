@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES, VP_OVERRIDES } from "@/lib/config";
 import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
@@ -8,7 +9,7 @@ import Dashboard from "@/components/Dashboard";
 import HistoricalStats from "@/components/HistoricalStats";
 
 interface PageProps {
-  searchParams: Promise<{ season?: string }>;
+  searchParams: Promise<{ season?: string; view?: string }>;
 }
 
 async function LeagueData({ season }: { season: string }) {
@@ -40,7 +41,6 @@ async function LeagueData({ season }: { season: string }) {
 
     const userMap = new Map(users.map((u) => [u.user_id, u]));
     const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
-    // governorName → rosterId, for override lookups
     const governorToRoster = new Map(
       rosters.map((r) => {
         const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
@@ -90,23 +90,12 @@ async function LeagueData({ season }: { season: string }) {
       })
       .sort((a, b) => b.totalVP - a.totalVP || b.totalPoints - a.totalPoints);
 
-    const historicalFallback = (
-      <div className="flex items-center justify-center py-12">
-        <div className="animate-spin w-6 h-6 border-4 border-green-500 border-t-transparent rounded-full" />
-      </div>
-    );
-
     return (
       <Dashboard
         standings={standingsArray}
         weeksCompleted={completedWeeks.length}
         season={season}
         leagueName={league.name}
-        historicalSlot={
-          <Suspense fallback={historicalFallback}>
-            <HistoricalDataLoader />
-          </Suspense>
-        }
       />
     );
   } catch {
@@ -126,10 +115,17 @@ async function HistoricalDataLoader() {
 }
 
 export default async function Home({ searchParams }: PageProps) {
-  const { season: seasonParam } = await searchParams;
+  const { season: seasonParam, view } = await searchParams;
   const season =
     seasonParam && LEAGUE_IDS[seasonParam] !== undefined ? seasonParam : CURRENT_SEASON;
   const availableSeasons = SEASONS.length > 0 ? SEASONS : [CURRENT_SEASON];
+  const historicalActive = view === "historical";
+
+  const spinner = (
+    <div className="flex items-center justify-center py-24">
+      <div className="animate-spin w-8 h-8 border-4 border-green-500 border-t-transparent rounded-full" />
+    </div>
+  );
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
@@ -137,26 +133,40 @@ export default async function Home({ searchParams }: PageProps) {
         <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-              🏈 Fantasy League Dashboard
+              <Link
+                href={`/?season=${CURRENT_SEASON}`}
+                className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+              >
+                🏈 FALE League Dashboard
+              </Link>
             </h1>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               Victory Points standings tracker
             </p>
           </div>
-          <SeasonSelector seasons={availableSeasons} current={season} />
+          <SeasonSelector
+            seasons={availableSeasons}
+            current={season}
+            historicalActive={historicalActive}
+          />
         </div>
       </header>
 
       <div className="max-w-5xl mx-auto px-4 py-8">
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center py-24">
-              <div className="animate-spin w-8 h-8 border-4 border-green-500 border-t-transparent rounded-full" />
-            </div>
-          }
-        >
-          <LeagueData season={season} />
-        </Suspense>
+        {historicalActive ? (
+          <div>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
+              All-time scoring stats across every regular season week. Click any column header to sort.
+            </p>
+            <Suspense fallback={spinner}>
+              <HistoricalDataLoader />
+            </Suspense>
+          </div>
+        ) : (
+          <Suspense fallback={spinner}>
+            <LeagueData season={season} />
+          </Suspense>
+        )}
       </div>
     </main>
   );
