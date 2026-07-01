@@ -69,6 +69,11 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
   const winnerByMatch = new Map<number, number>();
   const loserByMatch = new Map<number, number>();
   const rounds: PlayoffMatchupResult[] = [];
+  // Teams that actually took the field in round 1 (used to detect real byes below),
+  // since some leagues' bracket data fills in t1/t2 directly on every round once
+  // played, regardless of whether the team advanced via t*_from or a bye.
+  const round1RosterIds = new Set<number>();
+  const byeTeamIds = new Set<number>();
   let champion: string | undefined;
   let runnerUp: string | undefined;
 
@@ -77,6 +82,14 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
     const t2 = resolveRosterId(entry.t2, entry.t2_from, winnerByMatch, loserByMatch);
     const week = playoffWeekStart + (entry.r - 1);
     const pointsMap = weekPointsMaps[entry.r - 1] ?? new Map<number, number>();
+
+    if (entry.r === 1) {
+      if (t1 != null) round1RosterIds.add(t1);
+      if (t2 != null) round1RosterIds.add(t2);
+    } else {
+      if (t1 != null && !round1RosterIds.has(t1)) byeTeamIds.add(t1);
+      if (t2 != null && !round1RosterIds.has(t2)) byeTeamIds.add(t2);
+    }
 
     const teams: PlayoffTeamResult[] = [t1, t2]
       .filter((id): id is number => id != null)
@@ -107,14 +120,8 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
     }
   }
 
-  // A team seeded directly into a round > 1 (no t*_from) had a first-round bye.
+  // A team that appears in round 2+ but never played round 1 had a first-round bye.
   // Sleeper's bracket has no round-1 entry for that team, so synthesize one for display.
-  const byeTeamIds = new Set<number>();
-  for (const entry of sortedBracket) {
-    if (entry.r === 1) continue;
-    if (entry.t1 != null && !entry.t1_from) byeTeamIds.add(entry.t1);
-    if (entry.t2 != null && !entry.t2_from) byeTeamIds.add(entry.t2);
-  }
   const round1PointsMap = weekPointsMaps[0] ?? new Map<number, number>();
   for (const rosterId of byeTeamIds) {
     rounds.unshift({
