@@ -72,13 +72,18 @@ export function calculateWeekVPs(
 // rosterForUsername maps lowercase Sleeper username → rosterId.
 export function applyVPOverrides(
   results: WeeklyResult[],
-  adjustments: { rosterId: number; vpDelta: number }[]
+  adjustments: { rosterId: number; vpDelta: number; flipResult?: boolean }[]
 ): WeeklyResult[] {
   if (adjustments.length === 0) return results;
   return results.map((r) => {
     const adj = adjustments.find((a) => a.rosterId === r.rosterId);
     if (!adj) return r;
-    return { ...r, vpAdjustment: adj.vpDelta, vp: r.vp + adj.vpDelta };
+    return {
+      ...r,
+      vpAdjustment: adj.vpDelta,
+      vp: r.vp + adj.vpDelta,
+      won: adj.flipResult ? !r.won : r.won,
+    };
   });
 }
 

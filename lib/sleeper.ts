@@ -13,6 +13,9 @@ export interface SleeperLeague {
   season: string;
   total_rosters: number;
   status: string;
+  settings: {
+    playoff_week_start: number;
+  };
 }
 
 export interface SleeperRoster {
@@ -34,6 +37,18 @@ export interface SleeperMatchup {
   matchup_id: number;
   points: number;
   starters_points: number[];
+}
+
+export interface SleeperBracketMatchup {
+  r: number; // round
+  m: number; // match id
+  t1: number | null; // roster_id, known seed
+  t2: number | null;
+  w: number | null; // winning roster_id, once played
+  l: number | null; // losing roster_id, once played
+  t1_from?: { w?: number; l?: number } | null; // t1 advances from winner/loser of match m
+  t2_from?: { w?: number; l?: number } | null;
+  p?: number; // placement game (1 = championship)
 }
 
 export async function getLeague(leagueId: string): Promise<SleeperLeague> {
@@ -58,6 +73,18 @@ export async function getMatchups(leagueId: string, week: number): Promise<Sleep
 
 export async function getLeagueHistory(leagueId: string): Promise<SleeperLeague[]> {
   const res = await fetch(`${BASE}/league/${leagueId}/previous_winner_roster_id`, { next: { revalidate: 3600 } });
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getWinnersBracket(leagueId: string): Promise<SleeperBracketMatchup[]> {
+  const res = await fetch(`${BASE}/league/${leagueId}/winners_bracket`, { next: { revalidate: 3600 } });
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getLosersBracket(leagueId: string): Promise<SleeperBracketMatchup[]> {
+  const res = await fetch(`${BASE}/league/${leagueId}/losers_bracket`, { next: { revalidate: 3600 } });
   if (!res.ok) return [];
   return res.json();
 }
