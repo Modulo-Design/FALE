@@ -11,6 +11,7 @@ interface PlayoffMatchupResult {
   round: number;
   week: number;
   placement?: number;
+  isBye?: boolean;
   teams: PlayoffTeamResult[];
 }
 
@@ -26,8 +27,8 @@ interface Props {
   bracket: PlayoffBracket;
 }
 
-function roundLabel(round: number, maxRound: number, placement?: number) {
-  if (placement === 1) return "Championship";
+function roundLabel(round: number, maxRound: number, isChampionship: boolean) {
+  if (isChampionship) return "Championship";
   if (round === maxRound) return "Final Round";
   return `Round ${round}`;
 }
@@ -49,6 +50,11 @@ export default function PlayoffBracket({ bracket }: Props) {
     if (!byRound.has(r.round)) byRound.set(r.round, []);
     byRound.get(r.round)!.push(r);
   }
+  // Byes first, so the column reads the way Sleeper lays it out.
+  for (const matchups of byRound.values()) {
+    matchups.sort((a, b) => Number(b.isBye) - Number(a.isBye));
+  }
+  const roundNumbers = Array.from(byRound.keys()).sort((a, b) => a - b);
 
   return (
     <div className="space-y-6">
@@ -64,41 +70,50 @@ export default function PlayoffBracket({ bracket }: Props) {
         </div>
       )}
 
-      {Array.from(byRound.keys())
-        .sort((a, b) => a - b)
-        .map((round) => (
-          <div key={round}>
-            <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">
-              {roundLabel(round, maxRound, byRound.get(round)?.find((r) => r.placement)?.placement)}
-            </h3>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {byRound.get(round)!.map((matchup, idx) => (
-                <div
-                  key={`${matchup.round}-${matchup.week}-${idx}`}
-                  className="rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
-                >
-                  {matchup.teams.length === 0 ? (
-                    <p className="px-3 py-3 text-xs text-gray-400 dark:text-gray-500">TBD</p>
-                  ) : (
-                    matchup.teams.map((team) => (
-                      <div
-                        key={team.rosterId}
-                        className={`flex items-center justify-between px-3 py-2 text-sm ${
-                          team.won
-                            ? "bg-green-50 dark:bg-green-900/20 font-semibold text-green-900 dark:text-green-100"
-                            : "text-gray-700 dark:text-gray-300"
-                        }`}
-                      >
-                        <span>{team.governorName}</span>
-                        <span className="font-mono">{team.points.toFixed(2)}</span>
-                      </div>
-                    ))
-                  )}
-                </div>
-              ))}
+      <div className="flex gap-8 overflow-x-auto pb-2">
+        {roundNumbers.map((round) => {
+          const matchups = byRound.get(round)!;
+          const isChampionship = matchups.some((m) => m.placement === 1);
+          return (
+            <div key={round} className="flex flex-col flex-1 min-w-[220px]">
+              <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide text-center mb-3">
+                {roundLabel(round, maxRound, isChampionship)}
+              </h3>
+              <div className="flex flex-col flex-1 justify-around gap-6">
+                {matchups.map((matchup, idx) => (
+                  <div
+                    key={`${matchup.round}-${idx}`}
+                    className="rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-900"
+                  >
+                    {matchup.teams.length === 0 ? (
+                      <p className="px-3 py-3 text-xs text-gray-400 dark:text-gray-500 text-center">TBD</p>
+                    ) : (
+                      matchup.teams.map((team) => (
+                        <div
+                          key={team.rosterId}
+                          className={`flex items-center justify-between px-3 py-2 text-sm ${
+                            team.won
+                              ? "bg-green-50 dark:bg-green-900/20 font-semibold text-green-900 dark:text-green-100"
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}
+                        >
+                          <span>{team.governorName}</span>
+                          <span className="font-mono">{team.points.toFixed(2)}</span>
+                        </div>
+                      ))
+                    )}
+                    {matchup.isBye && (
+                      <p className="px-3 py-1 text-[10px] text-gray-400 dark:text-gray-500 text-center border-t border-gray-100 dark:border-gray-800">
+                        BYE
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
+      </div>
     </div>
   );
 }

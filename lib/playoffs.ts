@@ -12,6 +12,7 @@ export interface PlayoffMatchupResult {
   round: number;
   week: number;
   placement?: number; // 1 = championship game
+  isBye?: boolean;
   teams: PlayoffTeamResult[];
 }
 
@@ -104,6 +105,31 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
       champion = winnerTeam.governorName;
       runnerUp = finalRoundGame?.teams.find((t) => !t.won)?.governorName;
     }
+  }
+
+  // A team seeded directly into a round > 1 (no t*_from) had a first-round bye.
+  // Sleeper's bracket has no round-1 entry for that team, so synthesize one for display.
+  const byeTeamIds = new Set<number>();
+  for (const entry of sortedBracket) {
+    if (entry.r === 1) continue;
+    if (entry.t1 != null && !entry.t1_from) byeTeamIds.add(entry.t1);
+    if (entry.t2 != null && !entry.t2_from) byeTeamIds.add(entry.t2);
+  }
+  const round1PointsMap = weekPointsMaps[0] ?? new Map<number, number>();
+  for (const rosterId of byeTeamIds) {
+    rounds.unshift({
+      round: 1,
+      week: playoffWeekStart,
+      isBye: true,
+      teams: [
+        {
+          rosterId,
+          governorName: rosterToGovernor.get(rosterId) ?? `Team ${rosterId}`,
+          points: round1PointsMap.get(rosterId) ?? 0,
+          won: true,
+        },
+      ],
+    });
   }
 
   return { season, playoffWeekStart, rounds, champion, runnerUp };
