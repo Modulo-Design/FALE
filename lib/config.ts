@@ -26,6 +26,9 @@ export interface VPOverride {
   governorName: string;
   vpDelta: number;
   reason: string;
+  // When true, also flips the recorded win/loss for this governor's game
+  // (e.g. correcting a Sleeper-recorded result, not just a commissioner VP ruling).
+  flipResult?: boolean;
 }
 
 export const VP_OVERRIDES: VPOverride[] = [
@@ -43,7 +46,29 @@ export const VP_OVERRIDES: VPOverride[] = [
     vpDelta: -2,
     reason: "Illegal lineup submitted; commissioner auto-loss awarded",
   },
+  {
+    season: "2022",
+    week: 4,
+    governorName: "Matt",
+    vpDelta: 2,
+    flipResult: true,
+    reason: "Sleeper recorded a loss for Matt; result should be a win over Johnathan",
+  },
+  {
+    season: "2022",
+    week: 4,
+    governorName: "Johnathan",
+    vpDelta: -2,
+    flipResult: true,
+    reason: "Sleeper recorded a win for Johnathan; result should be a loss to Matt",
+  },
 ];
+
+// Regular-season week count per season (defaults to 14 if not listed).
+// 2020's week 14 was already a playoff week, so its regular season was 13 weeks.
+export const REGULAR_SEASON_LENGTH: Record<string, number> = {
+  "2020": 13,
+};
 
 // Sleeper league IDs for each season.
 // Find your league ID in the Sleeper app URL: sleeper.com/leagues/LEAGUE_ID
