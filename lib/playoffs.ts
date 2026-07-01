@@ -1,4 +1,4 @@
-import { getLeague, getRosters, getUsers, getMatchups, getWinnersBracket, SleeperBracketMatchup } from "./sleeper";
+import { getLeague, getRosters, getUsers, getMatchups, getWinnersBracket } from "./sleeper";
 import { GOVERNOR_NAMES, REGULAR_SEASON_LENGTH } from "./config";
 
 export interface PlayoffTeamResult {
@@ -36,25 +36,6 @@ function resolveRosterId(
   return null;
 }
 
-// A node in the real championship lineage: either a resolved match (identified by
-// its bracket match id `m`) or a team that entered directly with no prior game (a bye).
-type TreeChild = { kind: "match"; m: number } | { kind: "bye"; rosterId: number };
-
-// Walks backward from a match's t1_from/t2_from to find what actually feeds it, so we
-// only follow the winner's-bracket lineage and never a consolation/placement branch.
-function childFor(
-  rawId: number | null,
-  from: { w?: number; l?: number } | null | undefined,
-  matchByM: Map<number, SleeperBracketMatchup>
-): TreeChild | null {
-  const refId = from?.w ?? from?.l;
-  if (refId != null && matchByM.has(refId)) {
-    return { kind: "match", m: refId };
-  }
-  if (rawId != null) return { kind: "bye", rosterId: rawId };
-  return null;
-}
-
 export async function fetchPlayoffBracket(leagueId: string, season: string): Promise<PlayoffBracket> {
   const [league, rosters, users, bracket] = await Promise.all([
     getLeague(leagueId),
@@ -80,7 +61,6 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
   const playoffWeekStart = league.settings?.playoff_week_start ?? (REGULAR_SEASON_LENGTH[season] ?? 14) + 1;
   const sortedBracket = [...bracket].sort((a, b) => a.r - b.r || a.m - b.m);
   const maxRound = sortedBracket.reduce((max, m) => Math.max(max, m.r), 0);
-  const matchByM = new Map(sortedBracket.map((e) => [e.m, e]));
 
   const weekPointsMaps = await Promise.all(
     Array.from({ length: maxRound }, (_, i) =>
@@ -90,16 +70,29 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
     )
   );
 
-  // Resolve every bracket entry's actual participants/scores once, keyed by match id,
-  // independent of which entries end up in the real championship lineage.
   const winnerByMatch = new Map<number, number>();
   const loserByMatch = new Map<number, number>();
-  const matchInfoByM = new Map<number, { week: number; placement?: number; teams: PlayoffTeamResult[] }>();
+  // Teams that actually took the field in round 1 (used to detect real byes below),
+  // since Sleeper fills in t1/t2 directly on every round once played -- t1_from/t2_from
+  // aren't reliably present once a bracket is complete, so they can't be used to tell
+  // "won a real game" apart from "had a bye" for past seasons.
+  const round1RosterIds = new Set<number>();
+  const byeTeamIds = new Set<number>();
+  const byRoundRaw = new Map<number, PlayoffMatchupResult[]>();
+
   for (const entry of sortedBracket) {
     const t1 = resolveRosterId(entry.t1, entry.t1_from, winnerByMatch, loserByMatch);
     const t2 = resolveRosterId(entry.t2, entry.t2_from, winnerByMatch, loserByMatch);
     const week = playoffWeekStart + (entry.r - 1);
     const pointsMap = weekPointsMaps[entry.r - 1] ?? new Map<number, number>();
+
+    if (entry.r === 1) {
+      if (t1 != null) round1RosterIds.add(t1);
+      if (t2 != null) round1RosterIds.add(t2);
+    } else {
+      if (t1 != null && !round1RosterIds.has(t1)) byeTeamIds.add(t1);
+      if (t2 != null && !round1RosterIds.has(t2)) byeTeamIds.add(t2);
+    }
 
     const teams: PlayoffTeamResult[] = [t1, t2]
       .filter((id): id is number => id != null)
@@ -113,60 +106,89 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
     if (entry.w != null) winnerByMatch.set(entry.m, entry.w);
     if (entry.l != null) loserByMatch.set(entry.m, entry.l);
 
-    matchInfoByM.set(entry.m, { week, placement: entry.p, teams });
+    if (!byRoundRaw.has(entry.r)) byRoundRaw.set(entry.r, []);
+    byRoundRaw.get(entry.r)!.push({ round: entry.r, week, placement: entry.p, teams });
   }
 
-  // Walk backward from the championship match through t1_from/t2_from only, so
-  // consolation/placement games (3rd place, 5th place, etc.) are never included, and
-  // so each round's list is ordered such that round r+1's match i pairs exactly with
-  // round r's matches 2i and 2i+1 (needed to draw correct bracket connector lines).
-  const championshipEntry =
-    sortedBracket.find((e) => e.p === 1) ?? sortedBracket.reduce((max, e) => (e.r > max.r ? e : max));
+  // Sleeper's bracket also carries consolation/placement games (3rd place, 5th place,
+  // etc.) tagged with the same round numbers as the real championship lineage. Only
+  // keep matches between teams still alive in the winner's-bracket line: winners of
+  // the previous round (plus bye teams, who enter alive at round 2).
+  const filteredByRound = new Map<number, PlayoffMatchupResult[]>();
+  let alive: Set<number> | null = null;
+  for (let r = 1; r <= maxRound; r++) {
+    const entries = byRoundRaw.get(r) ?? [];
+    const kept = alive ? entries.filter((m) => m.teams.every((t) => alive!.has(t.rosterId))) : entries;
+    filteredByRound.set(r, kept);
 
-  const roundNodes = new Map<number, TreeChild[]>();
-  roundNodes.set(championshipEntry.r, [{ kind: "match", m: championshipEntry.m }]);
-  for (let r = championshipEntry.r; r > 1; r--) {
-    const nodes = roundNodes.get(r)!;
-    const nextNodes: TreeChild[] = [];
-    for (const node of nodes) {
-      if (node.kind !== "match") continue;
-      const entry = matchByM.get(node.m)!;
-      const left = childFor(entry.t1, entry.t1_from, matchByM);
-      const right = childFor(entry.t2, entry.t2_from, matchByM);
-      if (left) nextNodes.push(left);
-      if (right) nextNodes.push(right);
+    const survivors = new Set<number>();
+    for (const m of kept) {
+      const winner = m.teams.find((t) => t.won);
+      if (winner) survivors.add(winner.rosterId);
     }
-    roundNodes.set(r - 1, nextNodes);
+    if (r === 1) {
+      for (const id of byeTeamIds) survivors.add(id);
+    }
+    alive = survivors;
   }
 
   const round1PointsMap = weekPointsMaps[0] ?? new Map<number, number>();
-  const rounds: PlayoffMatchupResult[] = [];
-  for (let r = 1; r <= championshipEntry.r; r++) {
-    for (const node of roundNodes.get(r) ?? []) {
-      if (node.kind === "bye") {
-        rounds.push({
-          round: r,
-          week: playoffWeekStart,
-          isBye: true,
-          teams: [
-            {
-              rosterId: node.rosterId,
-              governorName: rosterToGovernor.get(node.rosterId) ?? `Team ${node.rosterId}`,
-              points: round1PointsMap.get(node.rosterId) ?? 0,
-              won: true,
-            },
-          ],
-        });
-      } else {
-        const info = matchInfoByM.get(node.m)!;
-        rounds.push({ round: r, week: info.week, placement: info.placement, teams: info.teams });
+  const byeMatchup = (rosterId: number): PlayoffMatchupResult => ({
+    round: 1,
+    week: playoffWeekStart,
+    isBye: true,
+    teams: [
+      {
+        rosterId,
+        governorName: rosterToGovernor.get(rosterId) ?? `Team ${rosterId}`,
+        points: round1PointsMap.get(rosterId) ?? 0,
+        won: true,
+      },
+    ],
+  });
+
+  // Reorder each round (working backward from the championship, joining on winner
+  // roster id) so round r+1's match i always follows round r's matches 2i and 2i+1 --
+  // this is what lets the UI draw correct bracket connector lines.
+  const orderedByRound = new Map<number, PlayoffMatchupResult[]>();
+  orderedByRound.set(maxRound, filteredByRound.get(maxRound) ?? []);
+  for (let r = maxRound; r > 1; r--) {
+    const thisRound = orderedByRound.get(r)!;
+    const prevMatches = filteredByRound.get(r - 1) ?? [];
+    const winnerToMatch = new Map<number, PlayoffMatchupResult>();
+    for (const m of prevMatches) {
+      const winner = m.teams.find((t) => t.won);
+      if (winner) winnerToMatch.set(winner.rosterId, m);
+    }
+
+    const prevOrdered: PlayoffMatchupResult[] = [];
+    const used = new Set<PlayoffMatchupResult>();
+    for (const match of thisRound) {
+      for (const team of match.teams) {
+        const feeder = winnerToMatch.get(team.rosterId);
+        if (feeder && !used.has(feeder)) {
+          prevOrdered.push(feeder);
+          used.add(feeder);
+        } else if (r - 1 === 1 && byeTeamIds.has(team.rosterId)) {
+          prevOrdered.push(byeMatchup(team.rosterId));
+        }
       }
     }
+    for (const m of prevMatches) {
+      if (!used.has(m)) prevOrdered.push(m);
+    }
+    orderedByRound.set(r - 1, prevOrdered);
   }
 
-  const championshipInfo = matchInfoByM.get(championshipEntry.m)!;
-  const champion = championshipInfo.teams.find((t) => t.won)?.governorName;
-  const runnerUp = championshipInfo.teams.find((t) => !t.won)?.governorName;
+  const rounds: PlayoffMatchupResult[] = [];
+  for (let r = 1; r <= maxRound; r++) {
+    rounds.push(...(orderedByRound.get(r) ?? []));
+  }
+
+  const championshipGame =
+    filteredByRound.get(maxRound)?.find((m) => m.placement === 1) ?? filteredByRound.get(maxRound)?.[0];
+  const champion = championshipGame?.teams.find((t) => t.won)?.governorName;
+  const runnerUp = championshipGame?.teams.find((t) => !t.won)?.governorName;
 
   return { season, playoffWeekStart, rounds, champion, runnerUp };
 }
