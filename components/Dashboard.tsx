@@ -4,6 +4,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import StandingsTable from "./StandingsTable";
 import WeeklyVPGrid from "./WeeklyVPGrid";
+import PlayoffBracket from "./PlayoffBracket";
 
 const VPChart = dynamic(() => import("./VPChart"), { ssr: false });
 const PointsChart = dynamic(() => import("./PointsChart"), { ssr: false });
@@ -31,17 +32,40 @@ interface TeamStanding {
   weeklyResults: WeeklyResult[];
 }
 
+interface PlayoffTeamResult {
+  rosterId: number;
+  governorName: string;
+  points: number;
+  won: boolean;
+}
+
+interface PlayoffMatchupResult {
+  round: number;
+  week: number;
+  placement?: number;
+  teams: PlayoffTeamResult[];
+}
+
+interface PlayoffBracketData {
+  season: string;
+  playoffWeekStart: number;
+  rounds: PlayoffMatchupResult[];
+  champion?: string;
+  runnerUp?: string;
+}
+
 interface Props {
   standings: TeamStanding[];
   weeksCompleted: number;
   season: string;
   leagueName: string;
+  playoffs?: PlayoffBracketData;
 }
 
-const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid"] as const;
+const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid", "Playoffs"] as const;
 type Tab = (typeof TABS)[number];
 
-export default function Dashboard({ standings, weeksCompleted, season, leagueName }: Props) {
+export default function Dashboard({ standings, weeksCompleted, season, leagueName, playoffs }: Props) {
   const [tab, setTab] = useState<Tab>("Standings");
 
   return (
@@ -93,6 +117,13 @@ export default function Dashboard({ standings, weeksCompleted, season, leagueNam
           <WeeklyVPGrid standings={standings} weeksCompleted={weeksCompleted} />
         </div>
       )}
+
+      {tab === "Playoffs" &&
+        (playoffs ? (
+          <PlayoffBracket bracket={playoffs} />
+        ) : (
+          <p className="text-sm text-gray-500 dark:text-gray-400">No playoff data available for this season.</p>
+        ))}
     </div>
   );
 }

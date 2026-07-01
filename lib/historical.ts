@@ -1,4 +1,4 @@
-import { LEAGUE_IDS, GOVERNOR_NAMES } from "./config";
+import { LEAGUE_IDS, GOVERNOR_NAMES, REGULAR_SEASON_LENGTH } from "./config";
 import { getRosters, getUsers, getMatchups } from "./sleeper";
 
 export interface GovernorStats {
@@ -33,8 +33,9 @@ export async function fetchHistoricalStats(): Promise<GovernorStats[]> {
           })
         );
 
+        const regularSeasonWeeks = REGULAR_SEASON_LENGTH[season] ?? 14;
         const weekMatchups = await Promise.all(
-          Array.from({ length: 14 }, (_, i) =>
+          Array.from({ length: regularSeasonWeeks }, (_, i) =>
             getMatchups(leagueId, i + 1).catch(() => [])
           )
         );

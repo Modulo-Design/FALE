@@ -1,9 +1,8 @@
 import { getRosters, getUsers, getMatchups, SleeperUser } from "../lib/sleeper";
 import { calculateWeekVPs, applyVPOverrides, aggregateStandings } from "../lib/vp";
-import { LEAGUE_IDS, GOVERNOR_NAMES, VP_OVERRIDES } from "../lib/config";
+import { LEAGUE_IDS, GOVERNOR_NAMES, VP_OVERRIDES, REGULAR_SEASON_LENGTH } from "../lib/config";
 
 const SEASONS = ["2020", "2021", "2022", "2023", "2024", "2025"];
-const REGULAR_SEASON_WEEKS = 14;
 
 function canonicalName(user: SleeperUser | undefined): string {
   const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
@@ -31,7 +30,8 @@ async function main() {
     }
     rosterMappings[season] = mappingLog;
 
-    const weekPromises = Array.from({ length: REGULAR_SEASON_WEEKS }, (_, i) =>
+    const regularSeasonWeeks = REGULAR_SEASON_LENGTH[season] ?? 14;
+    const weekPromises = Array.from({ length: regularSeasonWeeks }, (_, i) =>
       getMatchups(leagueId, i + 1).catch(() => [])
     );
     const allWeekMatchups = await Promise.all(weekPromises);
@@ -42,7 +42,11 @@ async function main() {
     const weeklyVPs = completedWeeks.map(({ week, weekNum }) => {
       const raw = calculateWeekVPs(week, rosters.length, weekNum, season);
       const adjustments = VP_OVERRIDES.filter((o) => o.season === season && o.week === weekNum)
-        .map((o) => ({ rosterId: governorToRoster.get(o.governorName) ?? -1, vpDelta: o.vpDelta }))
+        .map((o) => ({
+          rosterId: governorToRoster.get(o.governorName) ?? -1,
+          vpDelta: o.vpDelta,
+          flipResult: o.flipResult,
+        }))
         .filter((a) => a.rosterId !== -1);
       return applyVPOverrides(raw, adjustments);
     });

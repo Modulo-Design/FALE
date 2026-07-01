@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES, VP_OVERRIDES } from "@/lib/config";
+import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES, VP_OVERRIDES, REGULAR_SEASON_LENGTH } from "@/lib/config";
 import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
 import { calculateWeekVPs, applyVPOverrides, aggregateStandings } from "@/lib/vp";
 import { fetchHistoricalStats } from "@/lib/historical";
+import { fetchPlayoffBracket } from "@/lib/playoffs";
 import SeasonSelector from "@/components/SeasonSelector";
 import Dashboard from "@/components/Dashboard";
 import HistoricalStats from "@/components/HistoricalStats";
@@ -33,10 +34,11 @@ async function LeagueData({ season }: { season: string }) {
   }
 
   try {
-    const [league, rosters, users] = await Promise.all([
+    const [league, rosters, users, playoffs] = await Promise.all([
       getLeague(leagueId),
       getRosters(leagueId),
       getUsers(leagueId),
+      fetchPlayoffBracket(leagueId, season).catch(() => undefined),
     ]);
 
     const userMap = new Map(users.map((u) => [u.user_id, u]));
@@ -50,8 +52,8 @@ async function LeagueData({ season }: { season: string }) {
       })
     );
 
-    const REGULAR_SEASON_WEEKS = 14;
-    const weekPromises = Array.from({ length: REGULAR_SEASON_WEEKS }, (_, i) =>
+    const regularSeasonWeeks = REGULAR_SEASON_LENGTH[season] ?? 14;
+    const weekPromises = Array.from({ length: regularSeasonWeeks }, (_, i) =>
       getMatchups(leagueId, i + 1).catch(() => [])
     );
     const allWeekMatchups = await Promise.all(weekPromises);
@@ -64,7 +66,11 @@ async function LeagueData({ season }: { season: string }) {
       const raw = calculateWeekVPs(week, rosters.length, weekNum, season);
       const adjustments = VP_OVERRIDES
         .filter((o) => o.season === season && o.week === weekNum)
-        .map((o) => ({ rosterId: governorToRoster.get(o.governorName) ?? -1, vpDelta: o.vpDelta }))
+        .map((o) => ({
+          rosterId: governorToRoster.get(o.governorName) ?? -1,
+          vpDelta: o.vpDelta,
+          flipResult: o.flipResult,
+        }))
         .filter((a) => a.rosterId !== -1);
       return applyVPOverrides(raw, adjustments);
     });
@@ -117,6 +123,7 @@ async function LeagueData({ season }: { season: string }) {
         weeksCompleted={completedWeeks.length}
         season={season}
         leagueName={league.name}
+        playoffs={playoffs}
       />
     );
   } catch {
