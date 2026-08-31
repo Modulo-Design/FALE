@@ -9,63 +9,17 @@ import PlayoffBracket from "./PlayoffBracket";
 const VPChart = dynamic(() => import("./VPChart"), { ssr: false });
 const PointsChart = dynamic(() => import("./PointsChart"), { ssr: false });
 
-interface WeeklyResult {
-  rosterId: number;
-  week: number;
-  points: number;
-  won: boolean;
-  vpMatchup: number;
-  vpScoring: number;
-  vpAdjustment: number;
-  vp: number;
-}
-
-interface TeamStanding {
-  rosterId: number;
-  userId?: string;
-  displayName: string;
-  avatar: string | null;
-  totalVP: number;
-  totalPoints: number;
-  wins: number;
-  losses: number;
-  weeklyResults: WeeklyResult[];
-}
-
-interface PlayoffTeamResult {
-  rosterId: number;
-  governorName: string;
-  points: number;
-  won: boolean;
-}
-
-interface PlayoffMatchupResult {
-  round: number;
-  week: number;
-  placement?: number;
-  teams: PlayoffTeamResult[];
-}
-
-interface PlayoffBracketData {
-  season: string;
-  playoffWeekStart: number;
-  rounds: PlayoffMatchupResult[];
-  champion?: string;
-  runnerUp?: string;
-}
+import type { SeasonStandings } from "@/lib/types";
 
 interface Props {
-  standings: TeamStanding[];
-  weeksCompleted: number;
-  season: string;
-  leagueName: string;
-  playoffs?: PlayoffBracketData;
+  data: SeasonStandings;
 }
 
 const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid", "Playoffs"] as const;
 type Tab = (typeof TABS)[number];
 
-export default function Dashboard({ standings, weeksCompleted, season, leagueName, playoffs }: Props) {
+export default function Dashboard({ data }: Props) {
+  const { teams: standings, weeksCompleted, season, leagueName, playoffs } = data;
   const [tab, setTab] = useState<Tab>("Standings");
 
   return (

@@ -1,28 +1,21 @@
-import { getLeague, getRosters, getUsers, getMatchups, getWinnersBracket } from "./sleeper";
-import { GOVERNOR_NAMES, REGULAR_SEASON_LENGTH } from "./config";
+import { PLAYOFF_FORMAT, regularSeasonWeeks } from "./config";
+import { resolveGovernor } from "./governors";
+import {
+  getLeague,
+  getMatchups,
+  getRosters,
+  getUsers,
+  getWinnersBracket,
+  type SleeperBracketMatchup,
+} from "./sleeper";
+import type { PlayoffBracket, PlayoffMatchupResult, PlayoffTeamResult } from "./types";
 
-export interface PlayoffTeamResult {
-  rosterId: number;
-  governorName: string;
-  points: number;
-  won: boolean;
-}
-
-export interface PlayoffMatchupResult {
-  round: number;
-  week: number;
-  placement?: number; // 1 = championship game
-  isBye?: boolean;
-  teams: PlayoffTeamResult[];
-}
-
-export interface PlayoffBracket {
-  season: string;
-  playoffWeekStart: number;
-  rounds: PlayoffMatchupResult[];
-  champion?: string;
-  runnerUp?: string;
-}
+export type {
+  PlayoffBracket,
+  PlayoffMatchupResult,
+  PlayoffTeamResult,
+  Podium,
+} from "./types";
 
 function resolveRosterId(
   id: number | null | undefined,
@@ -36,39 +29,32 @@ function resolveRosterId(
   return null;
 }
 
-export async function fetchPlayoffBracket(leagueId: string, season: string): Promise<PlayoffBracket> {
-  const [league, rosters, users, bracket] = await Promise.all([
-    getLeague(leagueId),
-    getRosters(leagueId),
-    getUsers(leagueId),
-    getWinnersBracket(leagueId),
-  ]);
+export interface BuildBracketInput {
+  season: string;
+  playoffWeekStart: number;
+  bracket: SleeperBracketMatchup[];
+  rosterToGovernor: Map<number, string>;
+  /** Points by roster id, one map per playoff round. */
+  weekPointsMaps: Map<number, number>[];
+}
 
-  const userMap = new Map(users.map((u) => [u.user_id, u]));
-  const rosterToGovernor = new Map(
-    rosters.map((r) => {
-      const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
-      const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
-      const name = GOVERNOR_NAMES[sleeperName] ?? user?.display_name ?? user?.username ?? `Team ${r.roster_id}`;
-      return [r.roster_id, name];
-    })
-  );
+export function buildPlayoffBracket(input: BuildBracketInput): PlayoffBracket {
+  const { season, playoffWeekStart, bracket, rosterToGovernor, weekPointsMaps } = input;
+  const format = PLAYOFF_FORMAT[season];
 
   if (bracket.length === 0) {
-    return { season, playoffWeekStart: (REGULAR_SEASON_LENGTH[season] ?? 14) + 1, rounds: [] };
+    return {
+      season,
+      playoffWeekStart,
+      rounds: [],
+      playoffTeams: format?.teams ?? 0,
+      byeCount: format?.byes ?? 0,
+      complete: false,
+    };
   }
 
-  const playoffWeekStart = league.settings?.playoff_week_start ?? (REGULAR_SEASON_LENGTH[season] ?? 14) + 1;
   const sortedBracket = [...bracket].sort((a, b) => a.r - b.r || a.m - b.m);
   const maxRound = sortedBracket.reduce((max, m) => Math.max(max, m.r), 0);
-
-  const weekPointsMaps = await Promise.all(
-    Array.from({ length: maxRound }, (_, i) =>
-      getMatchups(leagueId, playoffWeekStart + i)
-        .then((matchups) => new Map(matchups.map((m) => [m.roster_id, m.points])))
-        .catch(() => new Map<number, number>())
-    )
-  );
 
   const winnerByMatch = new Map<number, number>();
   const loserByMatch = new Map<number, number>();
@@ -109,6 +95,25 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
     if (!byRoundRaw.has(entry.r)) byRoundRaw.set(entry.r, []);
     byRoundRaw.get(entry.r)!.push({ round: entry.r, week, placement: entry.p, teams });
   }
+
+  // The third-place game is a placement game, so the alive-set filter below
+  // strips it out along with the rest of the consolation bracket. That filter is
+  // correct -- the league counts neither in playoff records nor playoff points --
+  // so capture third place here, before filtering, and keep it out of `rounds`
+  // so the bracket's connector geometry is unaffected.
+  //
+  // Third place genuinely needs this game: it is not simply the higher-scoring
+  // semi-final loser. In 2024 Knute finished third on 143.45 despite Chris
+  // scoring 148.65, and 2020 has the same inversion.
+  let thirdPlaceGame: PlayoffMatchupResult | undefined;
+  for (const entries of byRoundRaw.values()) {
+    const found = entries.find((m) => m.placement === 3);
+    if (found) {
+      thirdPlaceGame = found;
+      break;
+    }
+  }
+  const thirdPlace = thirdPlaceGame?.teams.find((t) => t.won)?.governorName;
 
   // Sleeper's bracket also carries consolation/placement games (3rd place, 5th place,
   // etc.) tagged with the same round numbers as the real championship lineage. Only
@@ -190,5 +195,77 @@ export async function fetchPlayoffBracket(leagueId: string, season: string): Pro
   const champion = championshipGame?.teams.find((t) => t.won)?.governorName;
   const runnerUp = championshipGame?.teams.find((t) => !t.won)?.governorName;
 
-  return { season, playoffWeekStart, rounds, champion, runnerUp };
+  const podium = champion && runnerUp ? { first: champion, second: runnerUp, third: thirdPlace } : undefined;
+
+  return {
+    season,
+    playoffWeekStart,
+    rounds,
+    champion,
+    runnerUp,
+    thirdPlace,
+    thirdPlaceGame,
+    podium,
+    playoffTeams: round1RosterIds.size + byeTeamIds.size,
+    byeCount: byeTeamIds.size,
+    complete: Boolean(champion),
+  };
+}
+
+export async function fetchPlayoffBracket(
+  leagueId: string,
+  season: string
+): Promise<PlayoffBracket> {
+  const [league, rosters, users, bracket] = await Promise.all([
+    getLeague(leagueId),
+    getRosters(leagueId),
+    getUsers(leagueId),
+    getWinnersBracket(leagueId),
+  ]);
+
+  const userMap = new Map(users.map((u) => [u.user_id, u]));
+  const rosterToGovernor = new Map(
+    rosters.map((r) => {
+      const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
+      return [
+        r.roster_id,
+        resolveGovernor(season, {
+          rosterId: r.roster_id,
+          username: user?.username,
+          displayName: user?.display_name,
+          teamName: user?.metadata?.team_name,
+        }).name,
+      ] as const;
+    })
+  );
+
+  const playoffWeekStart =
+    league.settings?.playoff_week_start ?? regularSeasonWeeks(season) + 1;
+
+  if (bracket.length === 0) {
+    return buildPlayoffBracket({
+      season,
+      playoffWeekStart,
+      bracket,
+      rosterToGovernor: new Map(rosterToGovernor),
+      weekPointsMaps: [],
+    });
+  }
+
+  const maxRound = bracket.reduce((max, m) => Math.max(max, m.r), 0);
+  const weekPointsMaps = await Promise.all(
+    Array.from({ length: maxRound }, (_, i) =>
+      getMatchups(leagueId, playoffWeekStart + i)
+        .then((matchups) => new Map(matchups.map((m) => [m.roster_id, m.points])))
+        .catch(() => new Map<number, number>())
+    )
+  );
+
+  return buildPlayoffBracket({
+    season,
+    playoffWeekStart,
+    bracket,
+    rosterToGovernor: new Map(rosterToGovernor),
+    weekPointsMaps,
+  });
 }

@@ -1,27 +1,6 @@
 "use client";
 
-interface PlayoffTeamResult {
-  rosterId: number;
-  governorName: string;
-  points: number;
-  won: boolean;
-}
-
-interface PlayoffMatchupResult {
-  round: number;
-  week: number;
-  placement?: number;
-  isBye?: boolean;
-  teams: PlayoffTeamResult[];
-}
-
-interface PlayoffBracket {
-  season: string;
-  playoffWeekStart: number;
-  rounds: PlayoffMatchupResult[];
-  champion?: string;
-  runnerUp?: string;
-}
+import type { PlayoffBracket, PlayoffMatchupResult } from "@/lib/types";
 
 interface Props {
   bracket: PlayoffBracket;

@@ -1,102 +1,34 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
-import { calculateWeekVPs, applyVPOverrides, aggregateStandings } from "@/lib/vp";
-import { VP_OVERRIDES, GOVERNOR_NAMES, REGULAR_SEASON_LENGTH } from "@/lib/config";
+import { NextResponse, type NextRequest } from "next/server";
+import { LEAGUE_IDS } from "@/lib/config";
+import { fetchSeasonStandings } from "@/lib/season";
 
+/**
+ * Standings for one season as JSON.
+ *
+ * A thin wrapper over the same lib/season.ts pipeline the dashboard renders
+ * from. It used to reimplement that pipeline, and the two had already drifted
+ * apart on governor naming.
+ */
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ leagueId: string; season: string }> }
 ) {
   const { leagueId, season } = await params;
 
+  const configuredLeagueId = LEAGUE_IDS[season];
+  if (!configuredLeagueId) {
+    return NextResponse.json({ error: `Unknown season ${season}` }, { status: 404 });
+  }
+  if (leagueId !== configuredLeagueId) {
+    return NextResponse.json(
+      { error: `League ${leagueId} does not match the configured league for ${season}` },
+      { status: 400 }
+    );
+  }
+
   try {
-    const [league, rosters, users] = await Promise.all([
-      getLeague(leagueId),
-      getRosters(leagueId),
-      getUsers(leagueId),
-    ]);
-
-    const userMap = new Map(users.map((u) => [u.user_id, u]));
-    const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
-    const governorToRoster = new Map(
-      rosters.map((r) => {
-        const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
-        const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
-        const governorName = GOVERNOR_NAMES[sleeperName] ?? user?.display_name ?? `Team ${r.roster_id}`;
-        return [governorName, r.roster_id];
-      })
-    );
-
-    const regularSeasonWeeks = REGULAR_SEASON_LENGTH[season] ?? 14;
-    const weekPromises = Array.from({ length: regularSeasonWeeks }, (_, i) =>
-      getMatchups(leagueId, i + 1).catch(() => [])
-    );
-    const allWeekMatchups = await Promise.all(weekPromises);
-
-    const completedWeeks = allWeekMatchups
-      .map((week, i) => ({ week, weekNum: i + 1 }))
-      .filter(({ week }) => week.length > 0 && week.some((m) => m.points > 0));
-
-    const weeklyVPs = completedWeeks.map(({ week, weekNum }) => {
-      const raw = calculateWeekVPs(week, rosters.length, weekNum, season);
-      const adjustments = VP_OVERRIDES
-        .filter((o) => o.season === season && o.week === weekNum)
-        .map((o) => ({
-          rosterId: governorToRoster.get(o.governorName) ?? -1,
-          vpDelta: o.vpDelta,
-          flipResult: o.flipResult,
-        }))
-        .filter((a) => a.rosterId !== -1);
-      return applyVPOverrides(raw, adjustments);
-    });
-
-    const standings = aggregateStandings(weeklyVPs);
-
-    const standingsArray = Array.from(standings.values())
-      .map((s) => {
-        const ownerId = rosterOwnerMap.get(s.rosterId);
-        const user = ownerId ? userMap.get(ownerId) : undefined;
-        return {
-          rosterId: s.rosterId,
-          userId: ownerId,
-          displayName: user?.display_name ?? user?.username ?? `Team ${s.rosterId}`,
-          avatar: user?.avatar ?? null,
-          totalVP: s.totalVP,
-          totalPoints: Math.round(s.totalPoints * 100) / 100,
-          wins: s.wins,
-          losses: s.losses,
-          weeklyResults: s.weeklyResults,
-        };
-      })
-      .sort((a, b) => b.totalVP - a.totalVP || b.totalPoints - a.totalPoints);
-
-    // Include any roster that hasn't played yet (e.g. season hasn't started).
-    const standingsIds = new Set(standingsArray.map((s) => s.rosterId));
-    for (const roster of rosters) {
-      if (standingsIds.has(roster.roster_id)) continue;
-      const ownerId = rosterOwnerMap.get(roster.roster_id);
-      const user = ownerId ? userMap.get(ownerId) : undefined;
-      const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
-      const governorName = GOVERNOR_NAMES[sleeperName];
-      standingsArray.push({
-        rosterId: roster.roster_id,
-        userId: ownerId,
-        displayName: governorName ?? user?.display_name ?? user?.username ?? `Team ${roster.roster_id}`,
-        avatar: user?.avatar ?? null,
-        totalVP: 0,
-        totalPoints: 0,
-        wins: 0,
-        losses: 0,
-        weeklyResults: [],
-      });
-    }
-
-    return NextResponse.json({
-      league,
-      season,
-      weeksCompleted: completedWeeks.length,
-      standings: standingsArray,
-    });
+    const standings = await fetchSeasonStandings(season);
+    return NextResponse.json(standings);
   } catch (err) {
     console.error(err);
     return NextResponse.json({ error: "Failed to fetch league data" }, { status: 500 });

@@ -11,19 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-interface WeeklyResult {
-  vpMatchup: number;
-  vpScoring: number;
-  vpAdjustment: number;
-}
-
-interface TeamStanding {
-  displayName: string;
-  totalVP: number;
-  wins: number;
-  losses: number;
-  weeklyResults: WeeklyResult[];
-}
+import type { TeamStanding } from "@/lib/types";
 
 interface Props {
   standings: TeamStanding[];

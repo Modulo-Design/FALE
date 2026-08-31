@@ -1,97 +1,111 @@
-import { LEAGUE_IDS, GOVERNOR_NAMES, REGULAR_SEASON_LENGTH } from "./config";
-import { getRosters, getUsers, getMatchups } from "./sleeper";
+import { LEAGUE_IDS } from "./config";
+import { governorNames } from "./governors";
+import { fetchSeasonStandings } from "./season";
+import type { GovernorStats, SeasonStandings, WeeklyResult } from "./types";
 
-export interface GovernorStats {
-  governorName: string;
-  seasonsPlayed: number;
-  weekCount: number;
-  totalPoints: number;
-  avgPoints: number;
-  highScore: number;
-  lowScore: number;
+export type { GovernorStats } from "./types";
+
+interface Accumulator {
+  points: number[];
+  pointsAgainst: number;
+  seasons: Set<string>;
+  allPlayWins: number;
+  allPlayLosses: number;
 }
 
-export async function fetchHistoricalStats(): Promise<GovernorStats[]> {
-  const seasons = Object.keys(LEAGUE_IDS).sort();
+function emptyAccumulator(): Accumulator {
+  return {
+    points: [],
+    pointsAgainst: 0,
+    seasons: new Set(),
+    allPlayWins: 0,
+    allPlayLosses: 0,
+  };
+}
 
-  const seasonResults = await Promise.all(
-    seasons.map(async (season) => {
-      const leagueId = LEAGUE_IDS[season];
-      try {
-        const [rosters, users] = await Promise.all([
-          getRosters(leagueId),
-          getUsers(leagueId),
-        ]);
-
-        const userMap = new Map(users.map((u) => [u.user_id, u]));
-        const rosterGovernor = new Map(
-          rosters.map((r) => {
-            const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
-            const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
-            const name = GOVERNOR_NAMES[sleeperName] ?? user?.display_name ?? `Team ${r.roster_id}`;
-            return [r.roster_id, name];
-          })
-        );
-
-        const regularSeasonWeeks = REGULAR_SEASON_LENGTH[season] ?? 14;
-        const weekMatchups = await Promise.all(
-          Array.from({ length: regularSeasonWeeks }, (_, i) =>
-            getMatchups(leagueId, i + 1).catch(() => [])
-          )
-        );
-
-        const scores: { governorName: string; points: number }[] = [];
-        for (const week of weekMatchups) {
-          if (week.length === 0 || !week.some((m) => m.points > 0)) continue;
-          for (const matchup of week) {
-            if (matchup.points === 0) continue;
-            const name = rosterGovernor.get(matchup.roster_id);
-            if (name) scores.push({ governorName: name, points: matchup.points });
-          }
-        }
-
-        return { season, scores };
-      } catch {
-        return { season, scores: [] };
-      }
-    })
-  );
-
-  const statsMap = new Map<string, { points: number[]; seasons: Set<string> }>();
-
-  for (const { season, scores } of seasonResults) {
-    const governorsThisSeason = new Set<string>();
-    for (const { governorName, points } of scores) {
-      if (!statsMap.has(governorName)) {
-        statsMap.set(governorName, { points: [], seasons: new Set() });
-      }
-      statsMap.get(governorName)!.points.push(points);
-      governorsThisSeason.add(governorName);
-    }
-    for (const g of governorsThisSeason) {
-      statsMap.get(g)!.seasons.add(season);
+/**
+ * "Hypothetical record vs. everyone each week": for each week, how a team's
+ * score compares against every other team that week.
+ *
+ * This is the highest-signal figure in the whole dataset for verification --
+ * matching it exactly means every individual weekly score is right.
+ */
+function accumulateAllPlay(
+  standings: SeasonStandings,
+  statsFor: (governorName: string) => Accumulator
+): void {
+  const byWeek = new Map<number, { governorName: string; points: number }[]>();
+  for (const team of standings.teams) {
+    for (const result of team.weeklyResults) {
+      if (!byWeek.has(result.week)) byWeek.set(result.week, []);
+      byWeek.get(result.week)!.push({
+        governorName: team.governorName,
+        points: result.points,
+      });
     }
   }
 
-  // Ensure every known governor appears, even if they haven't played yet.
-  const allGovernorNames = new Set(Object.values(GOVERNOR_NAMES));
-  for (const name of allGovernorNames) {
-    if (!statsMap.has(name)) {
-      statsMap.set(name, { points: [], seasons: new Set() });
+  for (const entries of byWeek.values()) {
+    for (const entry of entries) {
+      const acc = statsFor(entry.governorName);
+      for (const other of entries) {
+        if (other === entry) continue;
+        if (entry.points > other.points) acc.allPlayWins++;
+        else if (entry.points < other.points) acc.allPlayLosses++;
+      }
     }
   }
+}
+
+export function aggregateGovernorStats(seasons: SeasonStandings[]): GovernorStats[] {
+  const statsMap = new Map<string, Accumulator>();
+  const statsFor = (governorName: string): Accumulator => {
+    let acc = statsMap.get(governorName);
+    if (!acc) {
+      acc = emptyAccumulator();
+      statsMap.set(governorName, acc);
+    }
+    return acc;
+  };
+
+  for (const standings of seasons) {
+    for (const team of standings.teams) {
+      if (team.weeklyResults.length === 0) continue;
+      const acc = statsFor(team.governorName);
+      acc.seasons.add(standings.season);
+      acc.pointsAgainst += team.totalPointsAgainst;
+      // Every played week counts, including zero and negative scores. The old
+      // implementation skipped `points === 0`, which made the career low
+      // impossible to reproduce -- the league's real lows include 0.0 and -0.1.
+      for (const result of team.weeklyResults as WeeklyResult[]) {
+        acc.points.push(result.points);
+      }
+    }
+    accumulateAllPlay(standings, statsFor);
+  }
+
+  // Every known governor appears, even one who has not played yet.
+  for (const name of governorNames()) {
+    if (!statsMap.has(name)) statsMap.set(name, emptyAccumulator());
+  }
+
+  const round2 = (v: number) => Math.round(v * 100) / 100;
 
   return Array.from(statsMap.entries())
-    .map(([governorName, { points, seasons }]) => {
-      const total = points.reduce((s, p) => s + p, 0);
+    .map(([governorName, acc]) => {
+      const total = acc.points.reduce((sum, p) => sum + p, 0);
+      const hasData = acc.points.length > 0;
       return {
         governorName,
-        seasonsPlayed: seasons.size,
-        weekCount: points.length,
-        totalPoints: Math.round(total * 100) / 100,
-        avgPoints: points.length > 0 ? Math.round((total / points.length) * 100) / 100 : 0,
-        highScore: points.length > 0 ? Math.round(Math.max(...points) * 100) / 100 : 0,
-        lowScore: points.length > 0 ? Math.round(Math.min(...points) * 100) / 100 : 0,
+        seasonsPlayed: acc.seasons.size,
+        weekCount: acc.points.length,
+        totalPoints: round2(total),
+        avgPoints: hasData ? round2(total / acc.points.length) : 0,
+        highScore: hasData ? round2(Math.max(...acc.points)) : 0,
+        lowScore: hasData ? round2(Math.min(...acc.points)) : 0,
+        totalPointsAgainst: round2(acc.pointsAgainst),
+        allPlayWins: acc.allPlayWins,
+        allPlayLosses: acc.allPlayLosses,
       };
     })
     .sort((a, b) => {
@@ -100,4 +114,14 @@ export async function fetchHistoricalStats(): Promise<GovernorStats[]> {
       if (b.weekCount === 0 && a.weekCount > 0) return -1;
       return b.totalPoints - a.totalPoints;
     });
+}
+
+export async function fetchHistoricalStats(): Promise<GovernorStats[]> {
+  const seasons = Object.keys(LEAGUE_IDS).sort();
+  const results = await Promise.all(
+    seasons.map((season) =>
+      fetchSeasonStandings(season, { includePlayoffs: false }).catch(() => null)
+    )
+  );
+  return aggregateGovernorStats(results.filter((r): r is SeasonStandings => r !== null));
 }

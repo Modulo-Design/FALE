@@ -3,15 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 
-interface TeamStanding {
-  rosterId: number;
-  displayName: string;
-  avatar: string | null;
-  totalVP: number;
-  totalPoints: number;
-  wins: number;
-  losses: number;
-}
+import type { TeamStanding } from "@/lib/types";
 
 interface Props {
   standings: TeamStanding[];

@@ -11,10 +11,7 @@ import {
   Cell,
 } from "recharts";
 
-interface TeamStanding {
-  displayName: string;
-  totalPoints: number;
-}
+import type { TeamStanding } from "@/lib/types";
 
 interface Props {
   standings: TeamStanding[];

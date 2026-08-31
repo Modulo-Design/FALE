@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { LEAGUE_IDS, CURRENT_SEASON, SEASONS, GOVERNOR_NAMES, VP_OVERRIDES, REGULAR_SEASON_LENGTH } from "@/lib/config";
-import { getLeague, getRosters, getUsers, getMatchups } from "@/lib/sleeper";
-import { calculateWeekVPs, applyVPOverrides, aggregateStandings } from "@/lib/vp";
+import { LEAGUE_IDS, CURRENT_SEASON, SEASONS } from "@/lib/config";
 import { fetchHistoricalStats } from "@/lib/historical";
-import { fetchPlayoffBracket } from "@/lib/playoffs";
+import { fetchSeasonStandings } from "@/lib/season";
 import SeasonSelector from "@/components/SeasonSelector";
 import Dashboard from "@/components/Dashboard";
 import HistoricalStats from "@/components/HistoricalStats";
@@ -14,118 +12,24 @@ interface PageProps {
 }
 
 async function LeagueData({ season }: { season: string }) {
-  const leagueId = LEAGUE_IDS[season];
-
-  if (!leagueId) {
+  if (!LEAGUE_IDS[season]) {
     return (
       <div className="rounded-lg border border-yellow-200 bg-yellow-50 dark:bg-yellow-900/20 dark:border-yellow-800 p-6 text-center">
         <p className="text-yellow-800 dark:text-yellow-200 font-medium">
           No league ID configured for {season}.
         </p>
         <p className="text-sm text-yellow-600 dark:text-yellow-400 mt-1">
-          Add{" "}
-          <code className="bg-yellow-100 dark:bg-yellow-900 px-1 rounded">
-            NEXT_PUBLIC_LEAGUE_ID_{season}
-          </code>{" "}
-          to your environment variables.
+          Add it to{" "}
+          <code className="bg-yellow-100 dark:bg-yellow-900 px-1 rounded">LEAGUE_IDS</code>{" "}
+          in <code className="bg-yellow-100 dark:bg-yellow-900 px-1 rounded">lib/config.ts</code>.
         </p>
       </div>
     );
   }
 
   try {
-    const [league, rosters, users, playoffs] = await Promise.all([
-      getLeague(leagueId),
-      getRosters(leagueId),
-      getUsers(leagueId),
-      fetchPlayoffBracket(leagueId, season).catch(() => undefined),
-    ]);
-
-    const userMap = new Map(users.map((u) => [u.user_id, u]));
-    const rosterOwnerMap = new Map(rosters.map((r) => [r.roster_id, r.owner_id]));
-    const governorToRoster = new Map(
-      rosters.map((r) => {
-        const user = r.owner_id ? userMap.get(r.owner_id) : undefined;
-        const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
-        const governorName = GOVERNOR_NAMES[sleeperName] ?? user?.display_name ?? `Team ${r.roster_id}`;
-        return [governorName, r.roster_id];
-      })
-    );
-
-    const regularSeasonWeeks = REGULAR_SEASON_LENGTH[season] ?? 14;
-    const weekPromises = Array.from({ length: regularSeasonWeeks }, (_, i) =>
-      getMatchups(leagueId, i + 1).catch(() => [])
-    );
-    const allWeekMatchups = await Promise.all(weekPromises);
-
-    const completedWeeks = allWeekMatchups
-      .map((week, i) => ({ week, weekNum: i + 1 }))
-      .filter(({ week }) => week.length > 0 && week.some((m) => m.points > 0));
-
-    const weeklyVPs = completedWeeks.map(({ week, weekNum }) => {
-      const raw = calculateWeekVPs(week, rosters.length, weekNum, season);
-      const adjustments = VP_OVERRIDES
-        .filter((o) => o.season === season && o.week === weekNum)
-        .map((o) => ({
-          rosterId: governorToRoster.get(o.governorName) ?? -1,
-          vpDelta: o.vpDelta,
-          flipResult: o.flipResult,
-        }))
-        .filter((a) => a.rosterId !== -1);
-      return applyVPOverrides(raw, adjustments);
-    });
-    const standings = aggregateStandings(weeklyVPs);
-
-    const standingsArray = Array.from(standings.values())
-      .map((s) => {
-        const ownerId = rosterOwnerMap.get(s.rosterId);
-        const user = ownerId ? userMap.get(ownerId) : undefined;
-        const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
-        const governorName = GOVERNOR_NAMES[sleeperName];
-        return {
-          rosterId: s.rosterId,
-          userId: ownerId,
-          displayName: governorName ?? user?.display_name ?? user?.username ?? `Team ${s.rosterId}`,
-          avatar: user?.avatar ?? null,
-          totalVP: s.totalVP,
-          totalPoints: Math.round(s.totalPoints * 100) / 100,
-          wins: s.wins,
-          losses: s.losses,
-          weeklyResults: s.weeklyResults,
-        };
-      })
-      .sort((a, b) => b.totalVP - a.totalVP || b.totalPoints - a.totalPoints);
-
-    // Include any roster that hasn't played yet (e.g. season hasn't started).
-    const standingsIds = new Set(standingsArray.map((s) => s.rosterId));
-    for (const roster of rosters) {
-      if (standingsIds.has(roster.roster_id)) continue;
-      const ownerId = rosterOwnerMap.get(roster.roster_id);
-      const user = ownerId ? userMap.get(ownerId) : undefined;
-      const sleeperName = (user?.username ?? user?.display_name ?? "").toLowerCase();
-      const governorName = GOVERNOR_NAMES[sleeperName];
-      standingsArray.push({
-        rosterId: roster.roster_id,
-        userId: ownerId,
-        displayName: governorName ?? user?.display_name ?? user?.username ?? `Team ${roster.roster_id}`,
-        avatar: user?.avatar ?? null,
-        totalVP: 0,
-        totalPoints: 0,
-        wins: 0,
-        losses: 0,
-        weeklyResults: [],
-      });
-    }
-
-    return (
-      <Dashboard
-        standings={standingsArray}
-        weeksCompleted={completedWeeks.length}
-        season={season}
-        leagueName={league.name}
-        playoffs={playoffs}
-      />
-    );
+    const data = await fetchSeasonStandings(season);
+    return <Dashboard data={data} />;
   } catch {
     return (
       <div className="rounded-lg border border-red-200 bg-red-50 dark:bg-red-900/20 p-6 text-center">
