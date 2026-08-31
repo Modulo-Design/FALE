@@ -23,6 +23,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/playoffs.ts` | Bracket reconstruction, bye detection, third-place capture, podium |
 | `lib/historical.ts` | Cross-season aggregation for the Historical tab, including all-play records |
 | `lib/seeding.ts` | Playoff qualification, seeding, and round pairings |
+| `lib/history.ts` | Cross-season game log, head-to-head, Rivalry Week, record book |
 | `lib/archive.ts` | Snapshots a season into a committable JSON fixture |
 | `lib/archive-data.ts` | Loads the committed archive and re-resolves governors on read |
 | `data/archive/*.json` | Committed Sleeper snapshot per season — the offline source of truth |
@@ -61,6 +62,12 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 - **Round 1:** the top seeds get byes (1 seed with a 7-team field, 1 and 2 with a 6-team field); everyone else pairs highest against lowest — 2v7, 3v6, 4v5.
 - **Later rounds re-seed:** the top surviving seed always draws the lowest.
 - **Third place** is the **better-seeded losing semi-finalist**. Sleeper generates a third-place game, but the league treats it as an exhibition — Eli won it in 2020 and Chris in 2022, yet Sam and DanK are the recorded third-place finishers.
+
+## Rivalry Week
+
+The finale week is also **Rivalry Week**: the same seven pairings every season since 2021 — Ben/Peter, Brent/Knute, Chris/Mark, DanK/DanP, Eli/Sam, Jeremy/Matt, Johnathan/Josh.
+
+It awards no head-to-head VP and no win or loss, so it is deliberately excluded from head-to-head records, points against, and the season W-L. `headToHead()` reports it separately as `rivalryWeek`, decided on the scores, purely for bragging rights.
 
 ## Data sources
 

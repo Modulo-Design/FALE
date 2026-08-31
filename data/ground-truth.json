@@ -97,6 +97,764 @@
       "Chris"
     ]
   },
+  "headToHeadRegularSeason": {
+    "Ben": {
+      "Brent": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Chris": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanK": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanP": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Eli": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Jeremy": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Johnathan": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Josh": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Knute": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Mark": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Matt": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Peter": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Sam": {
+        "losses": 3,
+        "wins": 3
+      }
+    },
+    "Brent": {
+      "Ben": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Chris": {
+        "losses": 4,
+        "wins": 2
+      },
+      "DanK": {
+        "losses": 2,
+        "wins": 4
+      },
+      "DanP": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Eli": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Jeremy": {
+        "losses": 6,
+        "wins": 0
+      },
+      "Johnathan": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Josh": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Knute": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Mark": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Matt": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Peter": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Sam": {
+        "losses": 2,
+        "wins": 4
+      }
+    },
+    "Chris": {
+      "Ben": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Brent": {
+        "losses": 2,
+        "wins": 4
+      },
+      "DanK": {
+        "losses": 2,
+        "wins": 4
+      },
+      "DanP": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Eli": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Jeremy": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Johnathan": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Josh": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Knute": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Mark": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Matt": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Peter": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Sam": {
+        "losses": 5,
+        "wins": 1
+      }
+    },
+    "DanK": {
+      "Ben": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Brent": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Chris": {
+        "losses": 4,
+        "wins": 2
+      },
+      "DanP": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Eli": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Jeremy": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Johnathan": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Josh": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Knute": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Mark": {
+        "losses": 0,
+        "wins": 6
+      },
+      "Matt": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Peter": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Sam": {
+        "losses": 3,
+        "wins": 3
+      }
+    },
+    "DanP": {
+      "Ben": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Brent": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Chris": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanK": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Eli": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Jeremy": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Johnathan": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Josh": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Knute": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Mark": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Matt": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Peter": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Sam": {
+        "losses": 3,
+        "wins": 3
+      }
+    },
+    "Eli": {
+      "Ben": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Brent": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Chris": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanK": {
+        "losses": 4,
+        "wins": 2
+      },
+      "DanP": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Jeremy": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Johnathan": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Josh": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Knute": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Mark": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Matt": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Peter": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Sam": {
+        "losses": 2,
+        "wins": 4
+      }
+    },
+    "Jeremy": {
+      "Ben": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Brent": {
+        "losses": 0,
+        "wins": 6
+      },
+      "Chris": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanK": {
+        "losses": 1,
+        "wins": 5
+      },
+      "DanP": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Eli": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Johnathan": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Josh": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Knute": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Mark": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Matt": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Peter": {
+        "losses": 0,
+        "wins": 6
+      },
+      "Sam": {
+        "losses": 1,
+        "wins": 5
+      }
+    },
+    "Johnathan": {
+      "Ben": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Brent": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Chris": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanK": {
+        "losses": 2,
+        "wins": 4
+      },
+      "DanP": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Eli": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Jeremy": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Josh": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Knute": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Mark": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Matt": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Peter": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Sam": {
+        "losses": 3,
+        "wins": 3
+      }
+    },
+    "Josh": {
+      "Ben": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Brent": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Chris": {
+        "losses": 4,
+        "wins": 2
+      },
+      "DanK": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanP": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Eli": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Jeremy": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Johnathan": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Knute": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Mark": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Matt": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Peter": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Sam": {
+        "losses": 3,
+        "wins": 3
+      }
+    },
+    "Knute": {
+      "Ben": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Brent": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Chris": {
+        "losses": 4,
+        "wins": 2
+      },
+      "DanK": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanP": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Eli": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Jeremy": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Johnathan": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Josh": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Mark": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Matt": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Peter": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Sam": {
+        "losses": 3,
+        "wins": 3
+      }
+    },
+    "Mark": {
+      "Ben": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Brent": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Chris": {
+        "losses": 4,
+        "wins": 2
+      },
+      "DanK": {
+        "losses": 6,
+        "wins": 0
+      },
+      "DanP": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Eli": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Jeremy": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Johnathan": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Josh": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Knute": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Matt": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Peter": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Sam": {
+        "losses": 3,
+        "wins": 3
+      }
+    },
+    "Matt": {
+      "Ben": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Brent": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Chris": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanK": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanP": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Eli": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Jeremy": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Johnathan": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Josh": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Knute": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Mark": {
+        "losses": 1,
+        "wins": 5
+      },
+      "Peter": {
+        "losses": 2,
+        "wins": 4
+      },
+      "Sam": {
+        "losses": 6,
+        "wins": 0
+      }
+    },
+    "Peter": {
+      "Ben": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Brent": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Chris": {
+        "losses": 2,
+        "wins": 4
+      },
+      "DanK": {
+        "losses": 4,
+        "wins": 2
+      },
+      "DanP": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Eli": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Jeremy": {
+        "losses": 6,
+        "wins": 0
+      },
+      "Johnathan": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Josh": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Knute": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Mark": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Matt": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Sam": {
+        "losses": 4,
+        "wins": 2
+      }
+    },
+    "Sam": {
+      "Ben": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Brent": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Chris": {
+        "losses": 1,
+        "wins": 5
+      },
+      "DanK": {
+        "losses": 3,
+        "wins": 3
+      },
+      "DanP": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Eli": {
+        "losses": 4,
+        "wins": 2
+      },
+      "Jeremy": {
+        "losses": 5,
+        "wins": 1
+      },
+      "Johnathan": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Josh": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Knute": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Mark": {
+        "losses": 3,
+        "wins": 3
+      },
+      "Matt": {
+        "losses": 0,
+        "wins": 6
+      },
+      "Peter": {
+        "losses": 2,
+        "wins": 4
+      }
+    }
+  },
   "seasons": {
     "2020": {
       "Ben": {

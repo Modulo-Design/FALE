@@ -90,3 +90,31 @@ export function archivePlayoffPoints(archive: SeasonArchive): Map<number, number
     return new Map((entry?.matchups ?? []).map((m) => [m.rosterId, m.points]));
   });
 }
+
+/**
+ * Every player id the league has ever used — started, drafted or traded.
+ *
+ * Used to trim Sleeper's 5-10 MB player dictionary down to the few thousand
+ * entries this league actually needs before committing it.
+ */
+export async function collectPlayerIds(): Promise<string[]> {
+  const ids = new Set<string>();
+  for (const season of archivedSeasons()) {
+    const archive = await loadSeasonArchive(season);
+    if (!archive) continue;
+    for (const week of archive.weeks) {
+      for (const matchup of week.matchups) {
+        for (const id of matchup.starters ?? []) ids.add(id);
+        for (const id of matchup.players ?? []) ids.add(id);
+        for (const id of Object.keys(matchup.playersPoints ?? {})) ids.add(id);
+      }
+    }
+    for (const pick of archive.draft?.picks ?? []) ids.add(pick.player_id);
+    for (const transaction of archive.transactions) {
+      for (const move of transaction.playerMoves) ids.add(move.playerId);
+    }
+  }
+  // Sleeper uses "0" as an empty starting slot.
+  ids.delete("0");
+  return [...ids].sort();
+}
