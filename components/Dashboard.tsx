@@ -5,68 +5,27 @@ import dynamic from "next/dynamic";
 import StandingsTable from "./StandingsTable";
 import WeeklyVPGrid from "./WeeklyVPGrid";
 import PlayoffBracket from "./PlayoffBracket";
+import PlayoffProjections from "./PlayoffProjections";
 
 const VPChart = dynamic(() => import("./VPChart"), { ssr: false });
 const PointsChart = dynamic(() => import("./PointsChart"), { ssr: false });
 
-interface WeeklyResult {
-  rosterId: number;
-  week: number;
-  points: number;
-  won: boolean;
-  vpMatchup: number;
-  vpScoring: number;
-  vpAdjustment: number;
-  vp: number;
-}
-
-interface TeamStanding {
-  rosterId: number;
-  userId?: string;
-  displayName: string;
-  avatar: string | null;
-  totalVP: number;
-  totalPoints: number;
-  wins: number;
-  losses: number;
-  weeklyResults: WeeklyResult[];
-}
-
-interface PlayoffTeamResult {
-  rosterId: number;
-  governorName: string;
-  points: number;
-  won: boolean;
-}
-
-interface PlayoffMatchupResult {
-  round: number;
-  week: number;
-  placement?: number;
-  teams: PlayoffTeamResult[];
-}
-
-interface PlayoffBracketData {
-  season: string;
-  playoffWeekStart: number;
-  rounds: PlayoffMatchupResult[];
-  champion?: string;
-  runnerUp?: string;
-}
+import type { SeasonStandings } from "@/lib/types";
 
 interface Props {
-  standings: TeamStanding[];
-  weeksCompleted: number;
-  season: string;
-  leagueName: string;
-  playoffs?: PlayoffBracketData;
+  data: SeasonStandings;
 }
 
 const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid", "Playoffs"] as const;
 type Tab = (typeof TABS)[number];
 
-export default function Dashboard({ standings, weeksCompleted, season, leagueName, playoffs }: Props) {
+export default function Dashboard({ data }: Props) {
+  const { teams: standings, weeksCompleted, season, leagueName, playoffs, projections } = data;
   const [tab, setTab] = useState<Tab>("Standings");
+
+  // A season still being played shows what the bracket is likely to become,
+  // rather than an empty one.
+  const playoffTabLabel = projections ? "Playoff Projections" : "Playoffs";
 
   return (
     <div className="space-y-6">
@@ -88,7 +47,7 @@ export default function Dashboard({ standings, weeksCompleted, season, leagueNam
                 : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
             }`}
           >
-            {t}
+            {t === "Playoffs" ? playoffTabLabel : t}
           </button>
         ))}
       </div>
@@ -119,7 +78,9 @@ export default function Dashboard({ standings, weeksCompleted, season, leagueNam
       )}
 
       {tab === "Playoffs" &&
-        (playoffs ? (
+        (projections ? (
+          <PlayoffProjections projections={projections} />
+        ) : playoffs ? (
           <PlayoffBracket bracket={playoffs} />
         ) : (
           <p className="text-sm text-gray-500 dark:text-gray-400">No playoff data available for this season.</p>

@@ -1,21 +1,6 @@
 "use client";
 
-interface WeeklyResult {
-  rosterId: number;
-  week: number;
-  points: number;
-  won: boolean;
-  vpMatchup: number;
-  vpScoring: number;
-  vpAdjustment: number;
-  vp: number;
-}
-
-interface TeamStanding {
-  rosterId: number;
-  displayName: string;
-  weeklyResults: WeeklyResult[];
-}
+import type { TeamStanding } from "@/lib/types";
 
 interface Props {
   standings: TeamStanding[];

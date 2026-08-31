@@ -1,0 +1,11617 @@
+{
+ "draft": {
+  "draftId": "1180303459117264897",
+  "picks": [
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Ashton",
+     "injury_status": "",
+     "last_name": "Jeanty",
+     "news_updated": "1748019328775",
+     "number": "2",
+     "player_id": "12527",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LV",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 1,
+    "picked_by": "575686957407977472",
+    "player_id": "12527",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Cameron",
+     "injury_status": "",
+     "last_name": "Ward",
+     "news_updated": "1747864838019",
+     "number": "1",
+     "player_id": "12522",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 2,
+    "picked_by": "205868100694835200",
+    "player_id": "12522",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Omarion",
+     "injury_status": "",
+     "last_name": "Hampton",
+     "news_updated": "1747680344074",
+     "number": "8",
+     "player_id": "12507",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAC",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 3,
+    "picked_by": "526559230927839232",
+    "player_id": "12507",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Emeka",
+     "injury_status": "",
+     "last_name": "Egbuka",
+     "news_updated": "1748626809874",
+     "number": "9",
+     "player_id": "12514",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TB",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 4,
+    "picked_by": "466435860930228224",
+    "player_id": "12514",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tetairoa",
+     "injury_status": "",
+     "last_name": "McMillan",
+     "news_updated": "1746812424896",
+     "number": "4",
+     "player_id": "12526",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CAR",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 5,
+    "picked_by": "575686957407977472",
+    "player_id": "12526",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Quinshon",
+     "injury_status": "",
+     "last_name": "Judkins",
+     "news_updated": "1745624420415",
+     "number": "10",
+     "player_id": "12512",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CLE",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 6,
+    "picked_by": "575777118798086144",
+    "player_id": "12512",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "TreVeyon",
+     "injury_status": "",
+     "last_name": "Henderson",
+     "news_updated": "1745916030564",
+     "number": "32",
+     "player_id": "12529",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NE",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 7,
+    "picked_by": "575777118798086144",
+    "player_id": "12529",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Travis",
+     "injury_status": "",
+     "last_name": "Hunter",
+     "news_updated": "1746983445035",
+     "number": "12",
+     "player_id": "12530",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "JAX",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 8,
+    "picked_by": "518278124247261184",
+    "player_id": "12530",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tyler",
+     "injury_status": "",
+     "last_name": "Warren",
+     "news_updated": "1748548225171",
+     "number": "84",
+     "player_id": "12518",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "IND",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 9,
+    "picked_by": "518278124247261184",
+    "player_id": "12518",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Colston",
+     "injury_status": "Questionable",
+     "last_name": "Loveland",
+     "news_updated": "1748009117723",
+     "number": "84",
+     "player_id": "12517",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CHI",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 10,
+    "picked_by": "575686957407977472",
+    "player_id": "12517",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "RJ",
+     "injury_status": "",
+     "last_name": "Harvey",
+     "news_updated": "1745630721507",
+     "number": "37",
+     "player_id": "12489",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "DEN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 11,
+    "picked_by": "205868100694835200",
+    "player_id": "12489",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jaxson",
+     "injury_status": "",
+     "last_name": "Dart",
+     "news_updated": "1748655658861",
+     "number": "6",
+     "player_id": "12508",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYG",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 12,
+    "picked_by": "342458180787380224",
+    "player_id": "12508",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kaleb",
+     "injury_status": "",
+     "last_name": "Johnson",
+     "news_updated": "1746984945245",
+     "number": "20",
+     "player_id": "12504",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PIT",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 13,
+    "picked_by": "205868100694835200",
+    "player_id": "12504",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Matthew",
+     "injury_status": "",
+     "last_name": "Golden",
+     "news_updated": "1749048929491",
+     "number": "22",
+     "player_id": "12501",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "GB",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 14,
+    "picked_by": "575777118798086144",
+    "player_id": "12501",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 1
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Luther",
+     "injury_status": "Questionable",
+     "last_name": "Burden",
+     "news_updated": "1747865138353",
+     "number": "87",
+     "player_id": "12519",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CHI",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 15,
+    "picked_by": "575686957407977472",
+    "player_id": "12519",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tre",
+     "injury_status": "",
+     "last_name": "Harris",
+     "news_updated": "1745628921201",
+     "number": "9",
+     "player_id": "12509",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAC",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 16,
+    "picked_by": "518278124247261184",
+    "player_id": "12509",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jayden",
+     "injury_status": "",
+     "last_name": "Higgins",
+     "news_updated": "1748625931705",
+     "number": "81",
+     "player_id": "12484",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "HOU",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 17,
+    "picked_by": "526559230927839232",
+    "player_id": "12484",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kyle",
+     "injury_status": "",
+     "last_name": "Williams",
+     "news_updated": "",
+     "number": "18",
+     "player_id": "12547",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NE",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 18,
+    "picked_by": "575686957407977472",
+    "player_id": "12547",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Cam",
+     "injury_status": "",
+     "last_name": "Skattebo",
+     "news_updated": "1748010017220",
+     "number": "44",
+     "player_id": "12481",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYG",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 19,
+    "picked_by": "575686957407977472",
+    "player_id": "12481",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jack",
+     "injury_status": "",
+     "last_name": "Bech",
+     "news_updated": "1746079537112",
+     "number": "18",
+     "player_id": "12483",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LV",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 20,
+    "picked_by": "575686957407977472",
+    "player_id": "12483",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Mason",
+     "injury_status": "",
+     "last_name": "Taylor",
+     "news_updated": "1749049229162",
+     "number": "85",
+     "player_id": "12498",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYJ",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 21,
+    "picked_by": "518278124247261184",
+    "player_id": "12498",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jaydon",
+     "injury_status": "",
+     "last_name": "Blue",
+     "news_updated": "1748625931846",
+     "number": "34",
+     "player_id": "12457",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "DAL",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 22,
+    "picked_by": "518496523665043456",
+    "player_id": "12457",
+    "reactions": null,
+    "roster_id": 7,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jalen",
+     "injury_status": "",
+     "last_name": "Milroe",
+     "news_updated": "1749048028803",
+     "number": "6",
+     "player_id": "12510",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SEA",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 23,
+    "picked_by": "518278124247261184",
+    "player_id": "12510",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Bhayshul",
+     "injury_status": "",
+     "last_name": "Tuten",
+     "news_updated": "1745684724830",
+     "number": "33",
+     "player_id": "12490",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "JAX",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 24,
+    "picked_by": "575686957407977472",
+    "player_id": "12490",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tyler",
+     "injury_status": "",
+     "last_name": "Shough",
+     "news_updated": "1748547025437",
+     "number": "6",
+     "player_id": "12545",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NO",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 25,
+    "picked_by": "569305665820815360",
+    "player_id": "12545",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jalen",
+     "injury_status": "",
+     "last_name": "Royals",
+     "news_updated": "1748547625002",
+     "number": "11",
+     "player_id": "12505",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "KC",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 26,
+    "picked_by": "569269991905017856",
+    "player_id": "12505",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jaylin",
+     "injury_status": "",
+     "last_name": "Noel",
+     "news_updated": "1746821125301",
+     "number": "82",
+     "player_id": "12536",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "HOU",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 27,
+    "picked_by": "518305164308611072",
+    "player_id": "12536",
+    "reactions": null,
+    "roster_id": 3,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Dylan",
+     "injury_status": "",
+     "last_name": "Sampson",
+     "news_updated": "1746984945216",
+     "number": "22",
+     "player_id": "12469",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CLE",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 28,
+    "picked_by": "569269991905017856",
+    "player_id": "12469",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 2
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Shedeur",
+     "injury_status": "",
+     "last_name": "Sanders",
+     "news_updated": "1747760133434",
+     "number": "12",
+     "player_id": "12524",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CLE",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 29,
+    "picked_by": "205868100694835200",
+    "player_id": "12524",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Terrance",
+     "injury_status": "",
+     "last_name": "Ferguson",
+     "news_updated": "1745626821565",
+     "number": "18",
+     "player_id": "12487",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAR",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 30,
+    "picked_by": "466435860930228224",
+    "player_id": "12487",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Dillon",
+     "injury_status": "",
+     "last_name": "Gabriel",
+     "news_updated": "1749105334615",
+     "number": "5",
+     "player_id": "12486",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CLE",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 31,
+    "picked_by": "575777118798086144",
+    "player_id": "12486",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Will",
+     "injury_status": "",
+     "last_name": "Howard",
+     "news_updated": "1745698828298",
+     "number": "18",
+     "player_id": "12511",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PIT",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 32,
+    "picked_by": "466435860930228224",
+    "player_id": "12511",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Elijah",
+     "injury_status": "",
+     "last_name": "Arroyo",
+     "news_updated": "1746228649049",
+     "number": "18",
+     "player_id": "12521",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SEA",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 33,
+    "picked_by": "526559230927839232",
+    "player_id": "12521",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Devin",
+     "injury_status": "",
+     "last_name": "Neal",
+     "news_updated": "1746984945179",
+     "number": "30",
+     "player_id": "12476",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NO",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 34,
+    "picked_by": "78601862768902144",
+    "player_id": "12476",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jarquez",
+     "injury_status": "",
+     "last_name": "Hunter",
+     "news_updated": "1749050729584",
+     "number": "35",
+     "player_id": "11569",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAR",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 35,
+    "picked_by": "78601862768902144",
+    "player_id": "11569",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Elic",
+     "injury_status": "",
+     "last_name": "Ayomanor",
+     "news_updated": "1746811224781",
+     "number": "5",
+     "player_id": "12499",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 36,
+    "picked_by": "342458180787380224",
+    "player_id": "12499",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Harold",
+     "injury_status": "",
+     "last_name": "Fannin",
+     "news_updated": "1747419645487",
+     "number": "88",
+     "player_id": "12506",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CLE",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 37,
+    "picked_by": "569305665820815360",
+    "player_id": "12506",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "DJ",
+     "injury_status": "",
+     "last_name": "Giddens",
+     "news_updated": "1745693429365",
+     "number": "21",
+     "player_id": "12471",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "IND",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 38,
+    "picked_by": "78601862768902144",
+    "player_id": "12471",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jordan",
+     "injury_status": "",
+     "last_name": "James",
+     "news_updated": "1746985545211",
+     "number": "29",
+     "player_id": "12467",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SF",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 39,
+    "picked_by": "342458180787380224",
+    "player_id": "12467",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Isaac",
+     "injury_status": "",
+     "last_name": "TeSlaa",
+     "news_updated": "1747840225394",
+     "number": "18",
+     "player_id": "12535",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "DET",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 40,
+    "picked_by": "569269991905017856",
+    "player_id": "12535",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Ollie",
+     "injury_status": "",
+     "last_name": "Gordon",
+     "news_updated": "1748625331707",
+     "number": "31",
+     "player_id": "12495",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "MIA",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 41,
+    "picked_by": "518278124247261184",
+    "player_id": "12495",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Trevor",
+     "injury_status": "",
+     "last_name": "Etienne",
+     "news_updated": "1747160151942",
+     "number": "23",
+     "player_id": "12531",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CAR",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 42,
+    "picked_by": "78601862768902144",
+    "player_id": "12531",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 3
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Damien",
+     "injury_status": "",
+     "last_name": "Martinez",
+     "news_updated": "1747160151961",
+     "number": "22",
+     "player_id": "12462",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SEA",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 43,
+    "picked_by": "575686957407977472",
+    "player_id": "12462",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kalel",
+     "injury_status": "",
+     "last_name": "Mullings",
+     "news_updated": "1749239145122",
+     "number": "28",
+     "player_id": "12516",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 44,
+    "picked_by": "205868100694835200",
+    "player_id": "12516",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tory",
+     "injury_status": "",
+     "last_name": "Horton",
+     "news_updated": "1747160151973",
+     "number": "15",
+     "player_id": "12497",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SEA",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 45,
+    "picked_by": "526559230927839232",
+    "player_id": "12497",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tai",
+     "injury_status": "",
+     "last_name": "Felton",
+     "news_updated": "1746811524453",
+     "number": "13",
+     "player_id": "12496",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "MIN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 46,
+    "picked_by": "518305164308611072",
+    "player_id": "12496",
+    "reactions": null,
+    "roster_id": 3,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kyle",
+     "injury_status": "",
+     "last_name": "Monangai",
+     "news_updated": "1749222944365",
+     "number": "25",
+     "player_id": "12534",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CHI",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 47,
+    "picked_by": "575777118798086144",
+    "player_id": "12534",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tahj",
+     "injury_status": "",
+     "last_name": "Brooks",
+     "news_updated": "1746812424877",
+     "number": "25",
+     "player_id": "12543",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CIN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 48,
+    "picked_by": "78601862768902144",
+    "player_id": "12543",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Brashard",
+     "injury_status": "",
+     "last_name": "Smith",
+     "news_updated": "1746691221393",
+     "number": "30",
+     "player_id": "12455",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "KC",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 49,
+    "picked_by": "575783941687578624",
+    "player_id": "12455",
+    "reactions": null,
+    "roster_id": 14,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Chimere",
+     "injury_status": "",
+     "last_name": "Dike",
+     "news_updated": "1745684425246",
+     "number": "17",
+     "player_id": "12540",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 50,
+    "picked_by": "205868100694835200",
+    "player_id": "12540",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Savion",
+     "injury_status": "",
+     "last_name": "Williams",
+     "news_updated": "1748008517485",
+     "number": "83",
+     "player_id": "12482",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "GB",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 51,
+    "picked_by": "569305665820815360",
+    "player_id": "12482",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Oronde",
+     "injury_status": "",
+     "last_name": "Gadsden",
+     "news_updated": "1745695835089",
+     "number": "86",
+     "player_id": "12493",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAC",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 52,
+    "picked_by": "518278124247261184",
+    "player_id": "12493",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tez",
+     "injury_status": "",
+     "last_name": "Johnson",
+     "news_updated": "1746811224770",
+     "number": "83",
+     "player_id": "12485",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TB",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 53,
+    "picked_by": "466435860930228224",
+    "player_id": "12485",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jaylin",
+     "injury_status": "",
+     "last_name": "Lane",
+     "news_updated": "1745755231483",
+     "number": "83",
+     "player_id": "12641",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "WAS",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 54,
+    "picked_by": "466435860930228224",
+    "player_id": "12641",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Woody",
+     "injury_status": "",
+     "last_name": "Marks",
+     "news_updated": "1746982844862",
+     "number": "27",
+     "player_id": "12474",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "HOU",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 55,
+    "picked_by": "518496523665043456",
+    "player_id": "12474",
+    "reactions": null,
+    "roster_id": 7,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "LeQuint",
+     "injury_status": "",
+     "last_name": "Allen",
+     "news_updated": "1747163151901",
+     "number": "36",
+     "player_id": "12544",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "JAX",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 56,
+    "picked_by": "89774670156808192",
+    "player_id": "12544",
+    "reactions": null,
+    "roster_id": 1,
+    "round": 4
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Dont'e",
+     "injury_status": "",
+     "last_name": "Thornton",
+     "news_updated": "1745685325452",
+     "number": "10",
+     "player_id": "12541",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LV",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 57,
+    "picked_by": "575686957407977472",
+    "player_id": "12541",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Riley",
+     "injury_status": "",
+     "last_name": "Leonard",
+     "news_updated": "1745699729984",
+     "number": "15",
+     "player_id": "12470",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "IND",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 58,
+    "picked_by": "205868100694835200",
+    "player_id": "12470",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Gunnar",
+     "injury_status": "",
+     "last_name": "Helm",
+     "news_updated": "1745687729165",
+     "number": "84",
+     "player_id": "12502",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 59,
+    "picked_by": "526559230927839232",
+    "player_id": "12502",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kyle",
+     "injury_status": "",
+     "last_name": "McCord",
+     "news_updated": "1746430807018",
+     "number": "19",
+     "player_id": "12494",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PHI",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 60,
+    "picked_by": "518305164308611072",
+    "player_id": "12494",
+    "reactions": null,
+    "roster_id": 3,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Xavier",
+     "injury_status": "",
+     "last_name": "Restrepo",
+     "news_updated": "1745736329881",
+     "number": "87",
+     "player_id": "12520",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 61,
+    "picked_by": "575777118798086144",
+    "player_id": "12520",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Arian",
+     "injury_status": "",
+     "last_name": "Smith",
+     "news_updated": "1747163151892",
+     "number": "82",
+     "player_id": "12539",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYJ",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 62,
+    "picked_by": "569305665820815360",
+    "player_id": "12539",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jacory",
+     "injury_status": "",
+     "last_name": "Croskey-Merritt",
+     "news_updated": "1745708127620",
+     "number": "32",
+     "player_id": "12533",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "WAS",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 63,
+    "picked_by": "575783941687578624",
+    "player_id": "12533",
+    "reactions": null,
+    "roster_id": 14,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Konata",
+     "injury_status": "",
+     "last_name": "Mumpfield",
+     "news_updated": "1745755231277",
+     "number": "15",
+     "player_id": "12718",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAR",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 64,
+    "picked_by": "466435860930228224",
+    "player_id": "12718",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Quinn",
+     "injury_status": "",
+     "last_name": "Ewers",
+     "news_updated": "1747072235432",
+     "number": "14",
+     "player_id": "12500",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "MIA",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 65,
+    "picked_by": "569305665820815360",
+    "player_id": "12500",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Montrell",
+     "injury_status": "",
+     "last_name": "Johnson",
+     "news_updated": "1746118841116",
+     "number": "34",
+     "player_id": "12868",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PHI",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 66,
+    "picked_by": "89774670156808192",
+    "player_id": "12868",
+    "reactions": null,
+    "roster_id": 1,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jordan",
+     "injury_status": "",
+     "last_name": "Watkins",
+     "news_updated": "1745755231464",
+     "number": "17",
+     "player_id": "12634",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SF",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 67,
+    "picked_by": "342458180787380224",
+    "player_id": "12634",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Donovan",
+     "injury_status": "",
+     "last_name": "Edwards",
+     "news_updated": "1746080137222",
+     "number": "40",
+     "player_id": "12515",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYJ",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 68,
+    "picked_by": "466435860930228224",
+    "player_id": "12515",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jimmy",
+     "injury_status": "Questionable",
+     "last_name": "Horn",
+     "news_updated": "1749690649136",
+     "number": "15",
+     "player_id": "12523",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CAR",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 69,
+    "picked_by": "518496523665043456",
+    "player_id": "12523",
+    "reactions": null,
+    "roster_id": 7,
+    "round": 5
+   },
+   {
+    "draft_id": "1180303459117264897",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "KeAndre",
+     "injury_status": "",
+     "last_name": "Lambert-Smith",
+     "news_updated": "1746983444989",
+     "number": "84",
+     "player_id": "12670",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAC",
+     "team_abbr": "",
+     "team_changed_at": "",
+     "years_exp": "0"
+    },
+    "pick_no": 70,
+    "picked_by": "205868100694835200",
+    "player_id": "12670",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 5
+   }
+  ],
+  "slotToRosterId": {}
+ },
+ "leagueId": "1180303459117264896",
+ "leagueName": "Flex Appeal League of Empires",
+ "losersBracket": [
+  {
+   "l": 13,
+   "m": 1,
+   "r": 1,
+   "t1": 12,
+   "t2": 13,
+   "w": 12
+  },
+  {
+   "l": 7,
+   "m": 2,
+   "r": 1,
+   "t1": 10,
+   "t2": 7,
+   "t2_original": 8,
+   "w": 10
+  },
+  {
+   "l": 9,
+   "m": 3,
+   "r": 1,
+   "t1": 6,
+   "t1_original": 5,
+   "t2": 9,
+   "t2_original": 7,
+   "w": 6
+  },
+  {
+   "l": 12,
+   "m": 4,
+   "r": 2,
+   "t1": 5,
+   "t1_original": 6,
+   "t2": 12,
+   "w": 5
+  },
+  {
+   "l": 6,
+   "m": 5,
+   "r": 2,
+   "t1": 10,
+   "t2": 6,
+   "w": 10
+  },
+  {
+   "l": 9,
+   "m": 6,
+   "r": 2,
+   "t1": 9,
+   "t2": 7,
+   "w": 7
+  },
+  {
+   "l": 10,
+   "m": 7,
+   "p": 1,
+   "r": 3,
+   "t1": 5,
+   "t1_from": {
+    "w": 4
+   },
+   "t2": 10,
+   "t2_from": {
+    "w": 5
+   },
+   "w": 5
+  },
+  {
+   "l": 12,
+   "m": 8,
+   "p": 3,
+   "r": 3,
+   "t1": 12,
+   "t1_from": {
+    "l": 4
+   },
+   "t2": 6,
+   "t2_from": {
+    "l": 5
+   },
+   "w": 6
+  },
+  {
+   "l": 7,
+   "m": 9,
+   "p": 5,
+   "r": 3,
+   "t1": 13,
+   "t2": 7,
+   "t2_from": {
+    "w": 6
+   },
+   "w": 13
+  }
+ ],
+ "playoffTeams": 7,
+ "playoffWeekStart": 15,
+ "regularSeasonWeeks": 14,
+ "rosters": [
+  {
+   "avatar": "nfl_min",
+   "displayName": "Johnathan",
+   "ownerId": "89774670156808192",
+   "rosterId": 1,
+   "teamName": "Team RBs",
+   "username": null
+  },
+  {
+   "avatar": "b26a142227a3a9b51cf7f3d7262b6094",
+   "displayName": "Gorter33",
+   "ownerId": "466435860930228224",
+   "rosterId": 2,
+   "teamName": "Chasing RainBurrows",
+   "username": null
+  },
+  {
+   "avatar": "b319fdf8b7b5b0359d3c78622ba4d70c",
+   "displayName": "Mittens7",
+   "ownerId": "518305164308611072",
+   "rosterId": 3,
+   "teamName": "29-24-1x2",
+   "username": null
+  },
+  {
+   "avatar": "abaa047bd689a03452c4ed9aa7bf47dc",
+   "displayName": "SoloEli",
+   "ownerId": "518278124247261184",
+   "rosterId": 4,
+   "teamName": "Your Pillow",
+   "username": null
+  },
+  {
+   "avatar": "e9464961560682493cead7580fdfb67e",
+   "displayName": "SaltyMinnesotan",
+   "ownerId": "342458180787380224",
+   "rosterId": 5,
+   "teamName": "Only Fannins",
+   "username": null
+  },
+  {
+   "avatar": "7eb43efe3d7cb247d6fc7a97ae3c8319",
+   "displayName": "starzofthenorth",
+   "ownerId": "205868100694835200",
+   "rosterId": 6,
+   "teamName": "The Need for Shaheed",
+   "username": null
+  },
+  {
+   "avatar": "b987f66667023baafadeb2051a35b7c1",
+   "displayName": "PB4kk",
+   "ownerId": "518496523665043456",
+   "rosterId": 7,
+   "teamName": "i luv u svm jayden",
+   "username": null
+  },
+  {
+   "avatar": null,
+   "displayName": "Prostrollod89",
+   "ownerId": "526559230927839232",
+   "rosterId": 8,
+   "teamName": "Unsolicited Nix Pics ",
+   "username": null
+  },
+  {
+   "avatar": "67206d81d03c9ee856a4e7391699a24e",
+   "displayName": "koldre",
+   "ownerId": "569269991905017856",
+   "rosterId": 9,
+   "teamName": "Baker's Dozen",
+   "username": null
+  },
+  {
+   "avatar": "6744b4373c5ebf3afce795aec0fee50f",
+   "displayName": "SamDahl3",
+   "ownerId": "569305665820815360",
+   "rosterId": 10,
+   "teamName": "Kraft YAC & Cheese",
+   "username": null
+  },
+  {
+   "avatar": "295900115e65eade23e861256c33d69a",
+   "displayName": "JDub21",
+   "ownerId": "78601862768902144",
+   "rosterId": 11,
+   "teamName": "Damar Hamlin Revenge Tour",
+   "username": null
+  },
+  {
+   "avatar": "a765a6f9bb4d582254ecf2085de2eb26",
+   "displayName": "DHKRAUSE",
+   "ownerId": "575686957407977472",
+   "rosterId": 12,
+   "teamName": "The DFT",
+   "username": null
+  },
+  {
+   "avatar": "e9b4259ea632a7b098283ab971ad608d",
+   "displayName": "Jmignanelli",
+   "ownerId": "575777118798086144",
+   "rosterId": 13,
+   "teamName": "The Madd Ladds",
+   "username": null
+  },
+  {
+   "avatar": "619528ceabe9cf26920270a77f74864a",
+   "displayName": "Loondog",
+   "ownerId": "575783941687578624",
+   "rosterId": 14,
+   "teamName": "The Lil Team That Could",
+   "username": null
+  }
+ ],
+ "schemaVersion": 1,
+ "scope": "deep",
+ "season": "2025",
+ "totalRosters": 14,
+ "tradedPicks": [
+  {
+   "owner_id": 12,
+   "previous_owner_id": 11,
+   "roster_id": 1,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 3,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 10,
+   "roster_id": 1,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 11,
+   "roster_id": 1,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 5,
+   "roster_id": 1,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 1,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2028"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 13,
+   "roster_id": 2,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 3,
+   "roster_id": 2,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 11,
+   "roster_id": 2,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 2,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 4,
+   "season": "2026"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 5,
+   "season": "2027"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 1,
+   "season": "2028"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 7,
+   "roster_id": 3,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 5,
+   "roster_id": 3,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 6,
+   "roster_id": 3,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 6,
+   "roster_id": 3,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 5,
+   "roster_id": 3,
+   "round": 4,
+   "season": "2026"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 1,
+   "season": "2027"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 13,
+   "roster_id": 4,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 6,
+   "roster_id": 4,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 10,
+   "roster_id": 4,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 11,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 3,
+   "roster_id": 4,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 11,
+   "roster_id": 4,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 10,
+   "roster_id": 4,
+   "round": 4,
+   "season": "2026"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2027"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 2,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2028"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 3,
+   "roster_id": 5,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 1,
+   "roster_id": 5,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 5,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 8,
+   "roster_id": 5,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 5,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 1,
+   "roster_id": 5,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 4,
+   "season": "2026"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 5,
+   "season": "2026"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 9,
+   "roster_id": 6,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 9,
+   "roster_id": 6,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 6,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 3,
+   "roster_id": 6,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 9,
+   "roster_id": 6,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 6,
+   "roster_id": 6,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 7,
+   "roster_id": 6,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 6,
+   "roster_id": 6,
+   "round": 4,
+   "season": "2026"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 6,
+   "roster_id": 6,
+   "round": 2,
+   "season": "2027"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 6,
+   "roster_id": 6,
+   "round": 3,
+   "season": "2027"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 5,
+   "roster_id": 7,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 2,
+   "roster_id": 7,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 3,
+   "roster_id": 7,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 4,
+   "roster_id": 7,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 4,
+   "roster_id": 7,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 1,
+   "season": "2027"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 2,
+   "season": "2027"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 5,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 1,
+   "season": "2028"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 2,
+   "season": "2028"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 11,
+   "roster_id": 8,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 8,
+   "roster_id": 8,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 11,
+   "roster_id": 8,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 8,
+   "roster_id": 8,
+   "round": 3,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 6,
+   "roster_id": 9,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 4,
+   "roster_id": 9,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 6,
+   "roster_id": 9,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 5,
+   "season": "2026"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 5,
+   "season": "2027"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 12,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 9,
+   "roster_id": 10,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 11,
+   "roster_id": 10,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 11,
+   "roster_id": 10,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 4,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 11,
+   "roster_id": 10,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 1,
+   "roster_id": 10,
+   "round": 4,
+   "season": "2026"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 5,
+   "season": "2026"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2027"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 2,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 4,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 5,
+   "season": "2027"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 7,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2028"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 3,
+   "season": "2028"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 12,
+   "roster_id": 11,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 10,
+   "roster_id": 11,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 5,
+   "roster_id": 11,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 7,
+   "roster_id": 11,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 1,
+   "season": "2027"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 2,
+   "season": "2027"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 3,
+   "season": "2027"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 5,
+   "season": "2027"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 1,
+   "season": "2028"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 2,
+   "season": "2028"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 5,
+   "season": "2028"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 11,
+   "roster_id": 12,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 6,
+   "roster_id": 12,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 11,
+   "roster_id": 12,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 11,
+   "roster_id": 12,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 11,
+   "roster_id": 12,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 4,
+   "roster_id": 13,
+   "round": 1,
+   "season": "2026"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 2,
+   "season": "2026"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 4,
+   "roster_id": 13,
+   "round": 3,
+   "season": "2026"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 3,
+   "season": "2027"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 12,
+   "roster_id": 14,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 9,
+   "roster_id": 14,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 14,
+   "roster_id": 14,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 14,
+   "round": 1,
+   "season": "2026"
+  }
+ ],
+ "transactions": [
+  {
+   "created": 1755710973743,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2027",
+     "round": 2,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2028",
+     "round": 1,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2028",
+     "round": 2,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 10,
+     "playerId": "2133",
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "5854",
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 11,
+     "playerId": "6111",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 11,
+     "playerId": "7538",
+     "toRosterId": 10
+    }
+   ],
+   "rosterIds": [
+    10,
+    11
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1263947069798760449",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1754529436187,
+   "faabMoves": [],
+   "pickMoves": [],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "4988",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "11589",
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 7,
+     "playerId": "12474",
+     "toRosterId": 2
+    }
+   ],
+   "rosterIds": [
+    2,
+    7
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1258991342101463040",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750536406945,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 11,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 13,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2028",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "9493",
+     "toRosterId": 4
+    }
+   ],
+   "rosterIds": [
+    4,
+    5
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1242243363583836160",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750387461049,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 10,
+     "pickSeason": "2028",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 7,
+     "pickSeason": "2027",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 7,
+     "pickSeason": "2028",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "2216",
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "4881",
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "6786",
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 7,
+     "playerId": "9493",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 7,
+     "playerId": "11618",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 7,
+     "playerId": "11632",
+     "toRosterId": 5
+    }
+   ],
+   "rosterIds": [
+    5,
+    7
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1241618639212253184",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750383590693,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2028",
+     "round": 1,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 7,
+     "pickSeason": "2028",
+     "round": 2,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "1373",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "4137",
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 7,
+     "playerId": "9500",
+     "toRosterId": 10
+    }
+   ],
+   "rosterIds": [
+    7,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1241602405766811648",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750371916347,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2028",
+     "round": 5,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    6,
+    11
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1241553440006483968",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750340364087,
+   "faabMoves": [
+    {
+     "amount": 15,
+     "fromRosterId": 6,
+     "toRosterId": 11
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    6,
+    11
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1241421100240343040",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750289301770,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2026",
+     "round": 4,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2026",
+     "round": 5,
+     "toRosterId": 2
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    2,
+    9
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1241206929355722752",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750197872586,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 5,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 2
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 2,
+     "playerId": "1689",
+     "toRosterId": 9
+    }
+   ],
+   "rosterIds": [
+    2,
+    9
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1240823447563538432",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750193305202,
+   "faabMoves": [
+    {
+     "amount": 100,
+     "fromRosterId": 4,
+     "toRosterId": 10
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 1,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2026",
+     "round": 4,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    4,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1240804290566553600",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1750112646551,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    6,
+    11
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1240465983668236288",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749606996247,
+   "faabMoves": [
+    {
+     "amount": 20,
+     "fromRosterId": 10,
+     "toRosterId": 11
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 11,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 4,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 11
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    10,
+    11
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1238345132575559680",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749581368876,
+   "faabMoves": [
+    {
+     "amount": 1,
+     "fromRosterId": 14,
+     "toRosterId": 11
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2026",
+     "round": 3,
+     "toRosterId": 14
+    },
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2027",
+     "round": 3,
+     "toRosterId": 14
+    },
+    {
+     "fromRosterId": 14,
+     "originalRosterId": 14,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 4,
+     "pickSeason": "2026",
+     "round": 3,
+     "toRosterId": 14
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    11,
+    14
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1238237643590864896",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749567705367,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 13,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 8
+    },
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 13,
+     "pickSeason": "2027",
+     "round": 3,
+     "toRosterId": 8
+    },
+    {
+     "fromRosterId": 8,
+     "originalRosterId": 8,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 13
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    8,
+    13
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1238180334676213760",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749506470528,
+   "faabMoves": [
+    {
+     "amount": 100,
+     "fromRosterId": 6,
+     "toRosterId": 11
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 12,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 6,
+     "originalRosterId": 4,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 11
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    6,
+    11
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1237923497150263296",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749344253354,
+   "faabMoves": [
+    {
+     "amount": 100,
+     "fromRosterId": 4,
+     "toRosterId": 9
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 13,
+     "pickSeason": "2026",
+     "round": 3,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 7,
+     "pickSeason": "2026",
+     "round": 2,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 9,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    4,
+    9
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1237243109004279808",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749341868868,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 5,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 10,
+     "playerId": "5012",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "11626",
+     "toRosterId": 10
+    }
+   ],
+   "rosterIds": [
+    3,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1237233107745124353",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749327757240,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 5,
+     "pickSeason": "2026",
+     "round": 2,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 9,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    4,
+    9
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1237173919291559936",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749325984776,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 5,
+     "pickSeason": "2026",
+     "round": 2,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 4
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    4,
+    9
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1237166485034504192",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749325205565,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "7553",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "11618",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    3,
+    7
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1237163216790888448",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749221038829,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 7,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 6,
+     "originalRosterId": 9,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    5,
+    6
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1236726309829230592",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749056760806,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 11,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 13
+    },
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 13,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 4,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 12
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    12,
+    13
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1236037277860245504",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1749012737492,
+   "faabMoves": [],
+   "pickMoves": [],
+   "playerMoves": [
+    {
+     "fromRosterId": 8,
+     "playerId": "4034",
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 1,
+     "playerId": "8151",
+     "toRosterId": 8
+    }
+   ],
+   "rosterIds": [
+    1,
+    8
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1235852630702440448",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1748977049567,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 6,
+     "originalRosterId": 3,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 6,
+     "originalRosterId": 9,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "4066",
+     "toRosterId": 6
+    }
+   ],
+   "rosterIds": [
+    5,
+    6
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1235702944691666944",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1748972880243,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 8,
+     "originalRosterId": 5,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "7526",
+     "toRosterId": 8
+    }
+   ],
+   "rosterIds": [
+    5,
+    8
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1235685457283514368",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1748969577331,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2027",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 5,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "5846",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    3,
+    5
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1235671603866513408",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1748968908785,
+   "faabMoves": [],
+   "pickMoves": [],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "4046",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "6786",
+     "toRosterId": 5
+    }
+   ],
+   "rosterIds": [
+    3,
+    5
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1235668799781347328",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1748894487154,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 13,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 14,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 13
+    },
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 13
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 7,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 12
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 4,
+     "playerId": "1234",
+     "toRosterId": 13
+    }
+   ],
+   "rosterIds": [
+    4,
+    12,
+    13
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1235356652832563200",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1748813144746,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2026",
+     "round": 2,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 3,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 7,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "8138",
+     "toRosterId": 2
+    }
+   ],
+   "rosterIds": [
+    2,
+    5
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1235015478045331456",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1747752684024,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 14,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 4
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 4,
+     "playerId": "8111",
+     "toRosterId": 9
+    }
+   ],
+   "rosterIds": [
+    4,
+    9
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1230567583397199872",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1742520926632,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2027",
+     "round": 5,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 7,
+     "pickSeason": "2027",
+     "round": 5,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2027",
+     "round": 5,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    2,
+    7,
+    9
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1208624002440900609",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1741911718236,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 1,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 11,
+     "playerId": "7608",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    11
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1206068797228732416",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1757792670918,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 1,
+     "pickSeason": "2028",
+     "round": 2,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "9482",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    5
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1272678340586635264",
+   "type": "trade",
+   "week": 2
+  },
+  {
+   "created": 1758313801394,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2028",
+     "round": 3,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2028",
+     "round": 1,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 10,
+     "playerId": "4039",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "5850",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "6111",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "6801",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "9502",
+     "toRosterId": 10
+    }
+   ],
+   "rosterIds": [
+    2,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1274864120226672640",
+   "type": "trade",
+   "week": 3
+  },
+  {
+   "created": 1759322963045,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2026",
+     "round": 3,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2026",
+     "round": 4,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 4,
+     "pickSeason": "2026",
+     "round": 2,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "1479",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    3,
+    5
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1279096850980274176",
+   "type": "trade",
+   "week": 5
+  },
+  {
+   "created": 1761479251021,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 10,
+     "pickSeason": "2026",
+     "round": 4,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 4,
+     "pickSeason": "2026",
+     "round": 4,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 10,
+     "playerId": "96",
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "1373",
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 1,
+     "playerId": "4943",
+     "toRosterId": 10
+    }
+   ],
+   "rosterIds": [
+    1,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1288140978259005440",
+   "type": "trade",
+   "week": 8
+  },
+  {
+   "created": 1761168147206,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 1,
+     "pickSeason": "2026",
+     "round": 3,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 1,
+     "pickSeason": "2027",
+     "round": 2,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "7021",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    5
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1286836114287497216",
+   "type": "trade",
+   "week": 8
+  },
+  {
+   "created": 1763233392799,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 14,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2027",
+     "round": 1,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 4,
+     "playerId": "4037",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 4,
+     "playerId": "5872",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "6768",
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "6801",
+     "toRosterId": 4
+    }
+   ],
+   "rosterIds": [
+    4,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1295498382139207680",
+   "type": "trade",
+   "week": 11
+  },
+  {
+   "created": 1763830981461,
+   "faabMoves": [],
+   "pickMoves": [],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "1166",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "11600",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    2,
+    7
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1298004850650398720",
+   "type": "trade",
+   "week": 12
+  },
+  {
+   "created": 1764686551819,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2027",
+     "round": 2,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 5,
+     "pickSeason": "2026",
+     "round": 2,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 10,
+     "playerId": "12545",
+     "toRosterId": 4
+    }
+   ],
+   "rosterIds": [
+    4,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1301593372825235456",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1764524584727,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 1,
+     "pickSeason": "2026",
+     "round": 3,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2026",
+     "round": 3,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2026",
+     "round": 5,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2027",
+     "round": 4,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2027",
+     "round": 5,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 11,
+     "pickSeason": "2026",
+     "round": 1,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 3,
+     "pickSeason": "2026",
+     "round": 4,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "7528",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "12506",
+     "toRosterId": 5
+    }
+   ],
+   "rosterIds": [
+    5,
+    10
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1300914033603395584",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1765124879462,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 8,
+     "originalRosterId": 8,
+     "pickSeason": "2027",
+     "round": 3,
+     "toRosterId": 3
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 3,
+     "playerId": "7610",
+     "toRosterId": 8
+    }
+   ],
+   "rosterIds": [
+    3,
+    8
+   ],
+   "season": "2025",
+   "status": "complete",
+   "transactionId": "1303431852215767040",
+   "type": "trade",
+   "week": 14
+  }
+ ],
+ "weeks": [
+  {
+   "matchups": [
+    {
+     "matchupId": 3,
+     "points": 126.9,
+     "rosterId": 1,
+     "starters": [
+      "5849",
+      "9226",
+      "3321",
+      "11604",
+      "4034",
+      "6813",
+      "8150",
+      "4983",
+      "3163"
+     ],
+     "startersPoints": [
+      19.95,
+      15,
+      8,
+      18.8,
+      18.7,
+      11.3,
+      13.4,
+      8.6,
+      13.15
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 118.6,
+     "rosterId": 2,
+     "starters": [
+      "6770",
+      "11584",
+      "7564",
+      "8110",
+      "12514",
+      "6801",
+      "5045",
+      "8138",
+      "421"
+     ],
+     "startersPoints": [
+      9.95,
+      12.5,
+      4.6,
+      9.8,
+      23.6,
+      6.3,
+      18.1,
+      18.7,
+      15.05
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 104.6,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "8205",
+      "7569",
+      "4033",
+      "5846",
+      "5012",
+      "7543",
+      "7553",
+      "4046"
+     ],
+     "startersPoints": [
+      9.7,
+      3.8,
+      5.5,
+      8.2,
+      12.3,
+      2,
+      18.1,
+      16.4,
+      28.6
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 176.8,
+     "rosterId": 4,
+     "starters": [
+      "7591",
+      "7588",
+      "9493",
+      "12518",
+      "12530",
+      "8144",
+      "5872",
+      "8228",
+      "11559"
+     ],
+     "startersPoints": [
+      31.7,
+      19.4,
+      24.1,
+      18.4,
+      9.3,
+      12.4,
+      22.6,
+      12.9,
+      26
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 71.6,
+     "rosterId": 5,
+     "starters": [
+      "4972",
+      "7528",
+      "11632",
+      "9482",
+      "8146",
+      "12499",
+      "11618",
+      "1479",
+      "7021"
+     ],
+     "startersPoints": [
+      0,
+      1.5,
+      12.1,
+      9.8,
+      22.5,
+      3.3,
+      0,
+      19.8,
+      2.6
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 102.1,
+     "rosterId": 6,
+     "starters": [
+      "12522",
+      "9224",
+      "8134",
+      "4066",
+      "12489",
+      "8676",
+      "7049",
+      "5022",
+      "5870"
+     ],
+     "startersPoints": [
+      3.6,
+      12.1,
+      12.4,
+      6.6,
+      7.4,
+      9.3,
+      3.6,
+      14.9,
+      32.2
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 139.1,
+     "rosterId": 7,
+     "starters": [
+      "11566",
+      "4137",
+      "6786",
+      "4144",
+      "7525",
+      "9488",
+      "5927",
+      "2216",
+      "4881"
+     ],
+     "startersPoints": [
+      22.45,
+      12.4,
+      19,
+      15,
+      4.6,
+      19.4,
+      4.7,
+      10.1,
+      31.45
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 96.9,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "12507",
+      "7526",
+      "9480",
+      "8151",
+      "8137",
+      "11638",
+      "11655",
+      "6797"
+     ],
+     "startersPoints": [
+      8.6,
+      7.1,
+      7,
+      11.9,
+      3.9,
+      6,
+      15.8,
+      4.5,
+      32.1
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 176.8,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "8112",
+      "4217",
+      "5947",
+      "10859",
+      "9997",
+      "6783",
+      "8183"
+     ],
+     "startersPoints": [
+      24.25,
+      29.7,
+      13.5,
+      14.5,
+      17.7,
+      16.9,
+      29.1,
+      11.6,
+      19.55
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 100.2,
+     "rosterId": 10,
+     "starters": [
+      "6768",
+      "5850",
+      "10222",
+      "9484",
+      "6806",
+      "4039",
+      "9500",
+      "7600",
+      "96"
+     ],
+     "startersPoints": [
+      6.4,
+      13.5,
+      13.5,
+      10.9,
+      13.8,
+      3.5,
+      3.2,
+      7.3,
+      28.1
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 160.4,
+     "rosterId": 11,
+     "starters": [
+      "6904",
+      "4866",
+      "5859",
+      "1466",
+      "9509",
+      "6794",
+      "2133",
+      "4035",
+      "4984"
+     ],
+     "startersPoints": [
+      25.8,
+      16.4,
+      1.8,
+      13.7,
+      22.4,
+      14.8,
+      9.1,
+      12.7,
+      43.7
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 88.75,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "12517",
+      "12541",
+      "9753",
+      "2374",
+      "5848",
+      "8408"
+     ],
+     "startersPoints": [
+      16.65,
+      11,
+      11.8,
+      4.2,
+      6.5,
+      10.7,
+      0,
+      19.9,
+      8
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 84.8,
+     "rosterId": 13,
+     "starters": [
+      "1234",
+      "7594",
+      "11631",
+      "8130",
+      "11635",
+      "12529",
+      "5967",
+      "11624",
+      "12501"
+     ],
+     "startersPoints": [
+      11.8,
+      16.4,
+      9,
+      15.1,
+      13.4,
+      8.1,
+      7.4,
+      0,
+      3.6
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 94.1,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "10444",
+      "11620",
+      "8148",
+      "9225",
+      "7523"
+     ],
+     "startersPoints": [
+      17.8,
+      10,
+      8.5,
+      6,
+      16.2,
+      15.7,
+      6.6,
+      1.2,
+      12.1
+     ]
+    }
+   ],
+   "played": true,
+   "week": 1
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 2,
+     "points": 173.7,
+     "rosterId": 1,
+     "starters": [
+      "5849",
+      "9226",
+      "3321",
+      "11604",
+      "4034",
+      "6813",
+      "8150",
+      "4983",
+      "3163"
+     ],
+     "startersPoints": [
+      16.2,
+      22.2,
+      17.9,
+      11.3,
+      19.7,
+      29.5,
+      9,
+      9.6,
+      38.3
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 156.1,
+     "rosterId": 2,
+     "starters": [
+      "6770",
+      "8138",
+      "7564",
+      "8110",
+      "6801",
+      "5045",
+      "12514",
+      "11584",
+      "421"
+     ],
+     "startersPoints": [
+      7.8,
+      26,
+      37.5,
+      21.3,
+      14.6,
+      1.6,
+      12.9,
+      15.1,
+      19.3
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 119.8,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "5846",
+      "4033",
+      "5012",
+      "7569",
+      "7553",
+      "5001",
+      "4046"
+     ],
+     "startersPoints": [
+      25.75,
+      15.9,
+      11,
+      10,
+      1.9,
+      14.2,
+      9.7,
+      7.4,
+      23.95
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 126.9,
+     "rosterId": 4,
+     "starters": [
+      "7591",
+      "7588",
+      "5872",
+      "12518",
+      "12530",
+      "9493",
+      "8144",
+      "8228",
+      "19"
+     ],
+     "startersPoints": [
+      3.25,
+      22,
+      17.4,
+      13.9,
+      5.2,
+      27.6,
+      11.4,
+      15.4,
+      10.75
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 100.2,
+     "rosterId": 5,
+     "starters": [
+      "4972",
+      "7528",
+      "11632",
+      "8145",
+      "8146",
+      "12499",
+      "5995",
+      "1479",
+      "7021"
+     ],
+     "startersPoints": [
+      0.6,
+      5.8,
+      38.7,
+      8,
+      8,
+      15.6,
+      4,
+      17.1,
+      2.4
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 93.55,
+     "rosterId": 6,
+     "starters": [
+      "12522",
+      "9224",
+      "8134",
+      "4066",
+      "9754",
+      "8676",
+      "12489",
+      "9504",
+      "5870"
+     ],
+     "startersPoints": [
+      11.55,
+      7.5,
+      2.2,
+      2.7,
+      15.9,
+      15.2,
+      2.9,
+      8.6,
+      27
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 136.35,
+     "rosterId": 7,
+     "starters": [
+      "11566",
+      "8155",
+      "5927",
+      "4144",
+      "4137",
+      "9488",
+      "6786",
+      "2216",
+      "4881"
+     ],
+     "startersPoints": [
+      21.7,
+      4.8,
+      9.8,
+      8.7,
+      11.7,
+      19.3,
+      21.2,
+      10.6,
+      28.55
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 122.9,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "12507",
+      "7526",
+      "9480",
+      "8151",
+      "8137",
+      "11638",
+      "11655",
+      "6797"
+     ],
+     "startersPoints": [
+      22.3,
+      3,
+      17.8,
+      6.2,
+      19.3,
+      17.8,
+      9.2,
+      7.1,
+      20.2
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 101.8,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "8112",
+      "10859",
+      "5947",
+      "5892",
+      "9997",
+      "6783",
+      "9758"
+     ],
+     "startersPoints": [
+      21.05,
+      1.3,
+      5.9,
+      7.1,
+      12.8,
+      12.6,
+      14.9,
+      9.1,
+      17.05
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 105.55,
+     "rosterId": 10,
+     "starters": [
+      "1373",
+      "5850",
+      "10222",
+      "9484",
+      "6806",
+      "4039",
+      "7670",
+      "7600",
+      "96"
+     ],
+     "startersPoints": [
+      5,
+      14.4,
+      0,
+      28.4,
+      15,
+      16,
+      6.7,
+      7.6,
+      12.45
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 109.15,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "4035",
+      "5859",
+      "1466",
+      "9509",
+      "6794",
+      "11628",
+      "4866",
+      "6904"
+     ],
+     "startersPoints": [
+      13.3,
+      13,
+      7.7,
+      12.1,
+      19.3,
+      11.1,
+      4.7,
+      16.4,
+      11.55
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 97.5,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "12517",
+      "12541",
+      "9753",
+      "8126",
+      "5848",
+      "8408"
+     ],
+     "startersPoints": [
+      28.6,
+      5.9,
+      17,
+      0,
+      3,
+      1,
+      29.2,
+      8,
+      4.8
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 133.9,
+     "rosterId": 13,
+     "starters": [
+      "1234",
+      "7594",
+      "11631",
+      "8130",
+      "11635",
+      "12529",
+      "5967",
+      "1339",
+      "8121"
+     ],
+     "startersPoints": [
+      34.8,
+      16.2,
+      8.9,
+      16.8,
+      9.8,
+      5,
+      9.2,
+      21.4,
+      11.8
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 173.95,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "10444",
+      "11620",
+      "8148",
+      "11637",
+      "7523"
+     ],
+     "startersPoints": [
+      23.8,
+      17.9,
+      40.2,
+      2.7,
+      10.2,
+      32.8,
+      19.8,
+      5.6,
+      20.95
+     ]
+    }
+   ],
+   "played": true,
+   "week": 2
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 1,
+     "points": 151.95,
+     "rosterId": 1,
+     "starters": [
+      "5849",
+      "9226",
+      "3321",
+      "11604",
+      "4034",
+      "6813",
+      "8150",
+      "4983",
+      "3163"
+     ],
+     "startersPoints": [
+      15.65,
+      12.6,
+      15.9,
+      11.8,
+      19,
+      32.3,
+      18.2,
+      12.8,
+      13.7
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 130.7,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "8138",
+      "7564",
+      "8110",
+      "5850",
+      "11584",
+      "4039",
+      "5045",
+      "6111"
+     ],
+     "startersPoints": [
+      15.8,
+      20.3,
+      8.9,
+      27.7,
+      8.9,
+      11.9,
+      5.1,
+      24.8,
+      7.3
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 131.95,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "7569",
+      "4033",
+      "7553",
+      "5846",
+      "5012",
+      "8205",
+      "4046"
+     ],
+     "startersPoints": [
+      14.55,
+      11.6,
+      23.4,
+      11.5,
+      9.9,
+      12.2,
+      30.1,
+      5.3,
+      13.4
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 80.3,
+     "rosterId": 4,
+     "starters": [
+      "11559",
+      "7588",
+      "9493",
+      "12518",
+      "12530",
+      "5872",
+      "6790",
+      "8228",
+      "19"
+     ],
+     "startersPoints": [
+      5.5,
+      9.7,
+      23.8,
+      8.3,
+      3.1,
+      4.9,
+      9.3,
+      10.6,
+      5.1
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 80.1,
+     "rosterId": 5,
+     "starters": [
+      "4972",
+      "7528",
+      "11632",
+      "8145",
+      "8146",
+      "12499",
+      "5995",
+      "1479",
+      "7021"
+     ],
+     "startersPoints": [
+      0,
+      2.8,
+      3.3,
+      0,
+      24.4,
+      13.8,
+      6,
+      19.5,
+      10.3
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 88.45,
+     "rosterId": 6,
+     "starters": [
+      "12522",
+      "9224",
+      "8134",
+      "5022",
+      "9754",
+      "8676",
+      "3271",
+      "9504",
+      "5870"
+     ],
+     "startersPoints": [
+      14.15,
+      3,
+      14.5,
+      10.8,
+      14.9,
+      8.2,
+      0,
+      4.8,
+      18.1
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 103.25,
+     "rosterId": 7,
+     "starters": [
+      "9228",
+      "8155",
+      "5927",
+      "4144",
+      "4137",
+      "9488",
+      "6786",
+      "2216",
+      "4881"
+     ],
+     "startersPoints": [
+      12.85,
+      7.2,
+      10.4,
+      5.8,
+      4.2,
+      20.6,
+      0,
+      13.3,
+      28.9
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 143.25,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "12507",
+      "7526",
+      "9480",
+      "8151",
+      "8137",
+      "11638",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      14.95,
+      20.9,
+      14.9,
+      15.1,
+      17.5,
+      17.8,
+      20.7,
+      2.8,
+      18.6
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 106.65,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "8112",
+      "10859",
+      "5947",
+      "5892",
+      "9997",
+      "6783",
+      "9758"
+     ],
+     "startersPoints": [
+      19.05,
+      10.2,
+      10.5,
+      9.3,
+      9.3,
+      29.9,
+      3.3,
+      2.7,
+      12.4
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 81.6,
+     "rosterId": 10,
+     "starters": [
+      "1373",
+      "6806",
+      "6801",
+      "9484",
+      "1426",
+      "12506",
+      "7670",
+      "9486",
+      "96"
+     ],
+     "startersPoints": [
+      28.95,
+      14.8,
+      2.5,
+      7.4,
+      2.3,
+      7,
+      1.5,
+      4.1,
+      13.05
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 125.75,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "4035",
+      "2133",
+      "1466",
+      "9509",
+      "6794",
+      "11628",
+      "4866",
+      "6904"
+     ],
+     "startersPoints": [
+      24.15,
+      6.1,
+      14.6,
+      8.6,
+      13.6,
+      12.5,
+      7.4,
+      7.5,
+      31.3
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 98.2,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "12517",
+      "4040",
+      "12519",
+      "6869",
+      "7587",
+      "8408"
+     ],
+     "startersPoints": [
+      21.9,
+      6.3,
+      7.8,
+      4.6,
+      9.5,
+      20.8,
+      0,
+      2.7,
+      24.6
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 90.4,
+     "rosterId": 13,
+     "starters": [
+      "1234",
+      "7594",
+      "11631",
+      "8130",
+      "11635",
+      "12512",
+      "5967",
+      "1339",
+      "8121"
+     ],
+     "startersPoints": [
+      6.7,
+      8.6,
+      7.5,
+      17.8,
+      8.1,
+      16,
+      12.9,
+      8.3,
+      4.5
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 114.25,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "7002",
+      "10444",
+      "11620",
+      "8148",
+      "11637",
+      "7523"
+     ],
+     "startersPoints": [
+      12.95,
+      24.4,
+      20.7,
+      14.1,
+      5.6,
+      15.2,
+      6.3,
+      5,
+      10
+     ]
+    }
+   ],
+   "played": true,
+   "week": 3
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 2,
+     "points": 131.1,
+     "rosterId": 1,
+     "starters": [
+      "5849",
+      "4034",
+      "6819",
+      "11604",
+      "9226",
+      "6813",
+      "8150",
+      "3321",
+      "3163"
+     ],
+     "startersPoints": [
+      18.1,
+      22.1,
+      15.1,
+      12.1,
+      15.6,
+      12.1,
+      8.9,
+      12.7,
+      14.4
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 182.5,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "8138",
+      "12514",
+      "8110",
+      "5850",
+      "11584",
+      "5045",
+      "7564",
+      "6111"
+     ],
+     "startersPoints": [
+      32.15,
+      22,
+      21.1,
+      20.5,
+      29.7,
+      24,
+      19.1,
+      7.3,
+      6.65
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 144.6,
+     "rosterId": 3,
+     "starters": [
+      "11560",
+      "7543",
+      "5846",
+      "4033",
+      "7553",
+      "7569",
+      "5012",
+      "8188",
+      "4046"
+     ],
+     "startersPoints": [
+      11.9,
+      20,
+      24.6,
+      4.1,
+      20.5,
+      11.9,
+      13.5,
+      8.1,
+      30
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 175.25,
+     "rosterId": 4,
+     "starters": [
+      "11559",
+      "6790",
+      "9493",
+      "12518",
+      "8144",
+      "5872",
+      "4037",
+      "7588",
+      "7591"
+     ],
+     "startersPoints": [
+      22.85,
+      14,
+      37,
+      20.8,
+      9,
+      19.1,
+      5.6,
+      17.5,
+      29.4
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 59.45,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "11199",
+      "11632",
+      "11606",
+      "2749",
+      "12499",
+      "12634",
+      "1479",
+      "7021"
+     ],
+     "startersPoints": [
+      19.95,
+      9.1,
+      4,
+      0,
+      7.8,
+      6.4,
+      0,
+      8.7,
+      3.5
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 23.1,
+     "rosterId": 6,
+     "starters": [
+      "4574",
+      "11576",
+      "11650",
+      "7828",
+      "11834",
+      "12540",
+      "4066",
+      "8123",
+      "6011"
+     ],
+     "startersPoints": [
+      2.6,
+      0.6,
+      10.1,
+      1.6,
+      0,
+      -0.4,
+      8.9,
+      0,
+      -0.3
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 71.05,
+     "rosterId": 7,
+     "starters": [
+      "9228",
+      "11589",
+      "9488",
+      "4144",
+      "8155",
+      "4219",
+      "7525",
+      "8125",
+      "4881"
+     ],
+     "startersPoints": [
+      11.8,
+      7.9,
+      13,
+      3.6,
+      13.6,
+      0.8,
+      4.9,
+      3.3,
+      12.15
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 155.85,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "12507",
+      "7526",
+      "9480",
+      "8151",
+      "8137",
+      "11638",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      30,
+      26,
+      7.8,
+      13.5,
+      11.5,
+      34.4,
+      8.6,
+      9.5,
+      14.55
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 114.1,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "8112",
+      "10859",
+      "5947",
+      "5892",
+      "9997",
+      "6783",
+      "8183"
+     ],
+     "startersPoints": [
+      20.75,
+      6.8,
+      26,
+      8.4,
+      7,
+      1.2,
+      14.4,
+      7.8,
+      21.75
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 69.95,
+     "rosterId": 10,
+     "starters": [
+      "1373",
+      "6806",
+      "6801",
+      "9484",
+      "1426",
+      "12506",
+      "7670",
+      "9486",
+      "96"
+     ],
+     "startersPoints": [
+      10.95,
+      12,
+      6.2,
+      13.1,
+      0,
+      5.5,
+      4.5,
+      3.9,
+      13.8
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 152.55,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "11628",
+      "10236",
+      "4035",
+      "6794",
+      "5859",
+      "4866",
+      "6904"
+     ],
+     "startersPoints": [
+      26.95,
+      26.1,
+      18.6,
+      10.3,
+      9.2,
+      23.6,
+      2.7,
+      15.4,
+      19.7
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 120.65,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "6869",
+      "5848",
+      "12519",
+      "12481",
+      "9753",
+      "8408"
+     ],
+     "startersPoints": [
+      25.25,
+      33.5,
+      10.2,
+      6.2,
+      12.8,
+      1.6,
+      12,
+      11.4,
+      7.7
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 88.6,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "7594",
+      "11631",
+      "8130",
+      "11635",
+      "12512",
+      "5967",
+      "1339",
+      "11624"
+     ],
+     "startersPoints": [
+      0,
+      8.4,
+      10.6,
+      15.7,
+      2.1,
+      19.5,
+      9.1,
+      6.1,
+      17.1
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 128.15,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "11620",
+      "10444",
+      "8148",
+      "7002",
+      "7523"
+     ],
+     "startersPoints": [
+      30.65,
+      16.7,
+      26,
+      9.9,
+      16.9,
+      1.6,
+      5.7,
+      7.3,
+      13.4
+     ]
+    }
+   ],
+   "played": true,
+   "week": 4
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 3,
+     "points": 171.95,
+     "rosterId": 1,
+     "starters": [
+      "5849",
+      "4034",
+      "6819",
+      "2505",
+      "9226",
+      "6813",
+      "8150",
+      "4381",
+      "3163"
+     ],
+     "startersPoints": [
+      17.5,
+      23.9,
+      14.9,
+      21.3,
+      13.6,
+      30.1,
+      27.1,
+      0.85,
+      22.7
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 173.6,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "12474",
+      "5045",
+      "8110",
+      "12514",
+      "7564",
+      "8138",
+      "3214",
+      "6111"
+     ],
+     "startersPoints": [
+      30.45,
+      2.4,
+      17.9,
+      27.4,
+      32.3,
+      30,
+      4.9,
+      7.6,
+      20.65
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 143.15,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "7569",
+      "4033",
+      "1479",
+      "5001",
+      "5012",
+      "8205",
+      "4046"
+     ],
+     "startersPoints": [
+      30.65,
+      7.3,
+      16,
+      21.7,
+      10.8,
+      13.5,
+      5.2,
+      7.1,
+      30.9
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 164.35,
+     "rosterId": 4,
+     "starters": [
+      "7591",
+      "7588",
+      "9493",
+      "12518",
+      "8144",
+      "5872",
+      "4037",
+      "7607",
+      "12530"
+     ],
+     "startersPoints": [
+      28.75,
+      27.4,
+      24.5,
+      16.4,
+      12.9,
+      23.6,
+      5.6,
+      15.8,
+      9.4
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 43.2,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "12467",
+      "8147",
+      "11593",
+      "2749",
+      "5970",
+      "8145",
+      "7694",
+      "7562"
+     ],
+     "startersPoints": [
+      17.6,
+      0,
+      0,
+      0,
+      2.2,
+      3.2,
+      8.8,
+      2.2,
+      9.2
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 45.45,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "8123",
+      "11834",
+      "7828",
+      "12489",
+      "12540",
+      "4066",
+      "11650",
+      "12522"
+     ],
+     "startersPoints": [
+      0,
+      2,
+      3.3,
+      0,
+      4.5,
+      3.7,
+      15.3,
+      6,
+      10.65
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 108.55,
+     "rosterId": 7,
+     "starters": [
+      "9228",
+      "8155",
+      "9488",
+      "12473",
+      "11299",
+      "4219",
+      "7525",
+      "3269",
+      "11566"
+     ],
+     "startersPoints": [
+      14,
+      16.5,
+      28.2,
+      7.9,
+      -0.2,
+      2.3,
+      20.4,
+      0,
+      19.45
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 120.7,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "12507",
+      "7526",
+      "9480",
+      "8151",
+      "8137",
+      "9756",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      20.3,
+      10,
+      24,
+      3.7,
+      9.1,
+      13.7,
+      15.1,
+      8.5,
+      16.3
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 121.45,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "5947",
+      "10859",
+      "8117",
+      "5892",
+      "9997",
+      "6783",
+      "11562"
+     ],
+     "startersPoints": [
+      31.45,
+      9.3,
+      7.2,
+      22.7,
+      0,
+      17.75,
+      12.2,
+      3.5,
+      17.35
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 96.5,
+     "rosterId": 10,
+     "starters": [
+      "1373",
+      "6806",
+      "6801",
+      "12506",
+      "1426",
+      "9500",
+      "7670",
+      "9497",
+      "6768"
+     ],
+     "startersPoints": [
+      8.2,
+      14.9,
+      11.2,
+      13.3,
+      6.6,
+      11.4,
+      5.6,
+      0,
+      25.3
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 146.05,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "4866",
+      "2133",
+      "10236",
+      "4035",
+      "6794",
+      "5859",
+      "11628",
+      "6904"
+     ],
+     "startersPoints": [
+      21.95,
+      16.3,
+      13.8,
+      20.8,
+      7.5,
+      20.3,
+      9.3,
+      13.8,
+      22.3
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 94.95,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "6869",
+      "5848",
+      "8126",
+      "12481",
+      "9753",
+      "8408"
+     ],
+     "startersPoints": [
+      14.85,
+      13.4,
+      13.3,
+      2.6,
+      8.8,
+      8.2,
+      11.4,
+      11.3,
+      11.1
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 99.3,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12512",
+      "11631",
+      "8130",
+      "11635",
+      "6149",
+      "5967",
+      "1339",
+      "11624"
+     ],
+     "startersPoints": [
+      18,
+      14.3,
+      12,
+      11.6,
+      14.9,
+      4.1,
+      13.3,
+      0,
+      11.1
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 124.85,
+     "rosterId": 14,
+     "starters": [
+      "7523",
+      "9221",
+      "7547",
+      "5844",
+      "8148",
+      "11637",
+      "8136",
+      "7002",
+      "8210"
+     ],
+     "startersPoints": [
+      28.45,
+      15.7,
+      19,
+      12.8,
+      2,
+      10.3,
+      21.1,
+      4.7,
+      10.8
+     ]
+    }
+   ],
+   "played": true,
+   "week": 5
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 4,
+     "points": 153.2,
+     "rosterId": 1,
+     "starters": [
+      "4943",
+      "6813",
+      "6819",
+      "2505",
+      "9226",
+      "4034",
+      "8150",
+      "4983",
+      "3163"
+     ],
+     "startersPoints": [
+      22.95,
+      22.7,
+      4,
+      10.2,
+      30,
+      20.6,
+      15.7,
+      8.2,
+      18.85
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 116.35,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "5850",
+      "5045",
+      "8110",
+      "3214",
+      "12514",
+      "8138",
+      "7564",
+      "8698"
+     ],
+     "startersPoints": [
+      10.15,
+      29.5,
+      2.7,
+      13.8,
+      7.2,
+      4.4,
+      8.7,
+      25.1,
+      14.8
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 118.7,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "5846",
+      "4033",
+      "1479",
+      "5012",
+      "7553",
+      "8142",
+      "4046"
+     ],
+     "startersPoints": [
+      23.95,
+      7.5,
+      19.5,
+      7.3,
+      5.7,
+      8.6,
+      6.3,
+      6.8,
+      33.05
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 108.55,
+     "rosterId": 4,
+     "starters": [
+      "7591",
+      "7588",
+      "9493",
+      "12518",
+      "8144",
+      "5872",
+      "7607",
+      "6790",
+      "11559"
+     ],
+     "startersPoints": [
+      5.35,
+      5.9,
+      4.8,
+      21.3,
+      15.8,
+      5.4,
+      7.4,
+      25.5,
+      17.1
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 44.35,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "11510",
+      "8147",
+      "8145",
+      "6960",
+      "6109",
+      "8254",
+      "6659",
+      "4351"
+     ],
+     "startersPoints": [
+      25.55,
+      6.7,
+      0,
+      0,
+      0,
+      2.5,
+      0,
+      0,
+      9.6
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 84.3,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "12504",
+      "9504",
+      "5022",
+      "8123",
+      "12540",
+      "11834",
+      "11650",
+      "12522"
+     ],
+     "startersPoints": [
+      0,
+      1.5,
+      26.3,
+      31.5,
+      2.8,
+      2.8,
+      0,
+      10.3,
+      9.1
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 103.2,
+     "rosterId": 7,
+     "starters": [
+      "9228",
+      "8155",
+      "9488",
+      "4144",
+      "5955",
+      "4219",
+      "7525",
+      "12457",
+      "11566"
+     ],
+     "startersPoints": [
+      20.45,
+      5.9,
+      31.2,
+      7.3,
+      1.7,
+      5,
+      8.9,
+      0,
+      22.75
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 100.1,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "8151",
+      "7526",
+      "12521",
+      "9757",
+      "8137",
+      "7571",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      15.1,
+      4.2,
+      15.9,
+      2.1,
+      3.7,
+      32.8,
+      1.8,
+      3.1,
+      21.4
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 133.75,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "5947",
+      "10859",
+      "8112",
+      "5892",
+      "6783",
+      "9997",
+      "11562"
+     ],
+     "startersPoints": [
+      21.2,
+      14.5,
+      7.9,
+      19,
+      32.8,
+      7.1,
+      9.3,
+      8.6,
+      13.35
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 91.05,
+     "rosterId": 10,
+     "starters": [
+      "1373",
+      "6806",
+      "6801",
+      "9484",
+      "1426",
+      "9500",
+      "12506",
+      "9497",
+      "6768"
+     ],
+     "startersPoints": [
+      10.4,
+      4,
+      11.2,
+      13.3,
+      4,
+      16.2,
+      18.6,
+      4.7,
+      8.65
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 129.85,
+     "rosterId": 11,
+     "starters": [
+      "6904",
+      "4866",
+      "5859",
+      "1466",
+      "2449",
+      "9509",
+      "2133",
+      "11628",
+      "4984"
+     ],
+     "startersPoints": [
+      23.45,
+      7.7,
+      14,
+      16.8,
+      5.8,
+      33.8,
+      7.9,
+      5.2,
+      15.2
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 40.05,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "8139",
+      "2374",
+      "6869",
+      "12547",
+      "6271",
+      "11625",
+      "12517",
+      "6001"
+     ],
+     "startersPoints": [
+      28.85,
+      0,
+      1,
+      0,
+      0,
+      4.8,
+      0,
+      4.1,
+      1.3
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 132.95,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12512",
+      "11631",
+      "8130",
+      "11635",
+      "8121",
+      "5967",
+      "1339",
+      "11624"
+     ],
+     "startersPoints": [
+      11.05,
+      3.6,
+      23,
+      25.2,
+      24,
+      10.5,
+      5.7,
+      19.3,
+      10.6
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 92.25,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "7002",
+      "12533",
+      "11637",
+      "8136",
+      "11620",
+      "7523"
+     ],
+     "startersPoints": [
+      17.55,
+      7,
+      12.7,
+      2.5,
+      5.3,
+      4.1,
+      16.1,
+      5.2,
+      21.8
+     ]
+    }
+   ],
+   "played": true,
+   "week": 6
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 5,
+     "points": 134.9,
+     "rosterId": 1,
+     "starters": [
+      "4943",
+      "8150",
+      "6819",
+      "2505",
+      "6813",
+      "4034",
+      "9226",
+      "9482",
+      "3163"
+     ],
+     "startersPoints": [
+      10.75,
+      7.5,
+      20.8,
+      0,
+      32.7,
+      36.6,
+      11.3,
+      2.5,
+      12.75
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 165.8,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "7611",
+      "7564",
+      "3214",
+      "5045",
+      "8110",
+      "5850",
+      "12514",
+      "4039"
+     ],
+     "startersPoints": [
+      29.2,
+      15.8,
+      39.1,
+      9.3,
+      16.7,
+      25.4,
+      18.3,
+      9.8,
+      2.2
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 159.4,
+     "rosterId": 3,
+     "starters": [
+      "4046",
+      "7543",
+      "5846",
+      "7553",
+      "7569",
+      "1479",
+      "5001",
+      "8142",
+      "3294"
+     ],
+     "startersPoints": [
+      29.1,
+      6,
+      8,
+      16.7,
+      6.7,
+      29.9,
+      23.3,
+      14.8,
+      24.9
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 165.75,
+     "rosterId": 4,
+     "starters": [
+      "7591",
+      "8228",
+      "12530",
+      "5857",
+      "8144",
+      "12518",
+      "7588",
+      "6790",
+      "11559"
+     ],
+     "startersPoints": [
+      4.5,
+      18.8,
+      25.1,
+      16.4,
+      26.8,
+      18.9,
+      19.3,
+      21.3,
+      14.65
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 57.45,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "7021",
+      "12499",
+      "7694",
+      "11994",
+      "7562",
+      "8147",
+      "6960",
+      "2749"
+     ],
+     "startersPoints": [
+      31.25,
+      10.1,
+      4.9,
+      1.5,
+      0,
+      0,
+      0,
+      9,
+      0.7
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 93.95,
+     "rosterId": 6,
+     "starters": [
+      "5870",
+      "9224",
+      "11650",
+      "5022",
+      "4066",
+      "8676",
+      "9754",
+      "7049",
+      "12522"
+     ],
+     "startersPoints": [
+      25.1,
+      12,
+      0,
+      6.3,
+      11.7,
+      8,
+      11,
+      7.1,
+      12.75
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 142.2,
+     "rosterId": 7,
+     "starters": [
+      "9228",
+      "8155",
+      "7525",
+      "4144",
+      "9488",
+      "11646",
+      "6786",
+      "3269",
+      "11566"
+     ],
+     "startersPoints": [
+      10.9,
+      6.2,
+      34.3,
+      13.3,
+      27.3,
+      0,
+      23,
+      7.9,
+      19.3
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 140.75,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "8151",
+      "7526",
+      "12521",
+      "9756",
+      "8137",
+      "9757",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      41.75,
+      6.6,
+      2.5,
+      8.2,
+      22.8,
+      12.2,
+      0.7,
+      12.9,
+      33.1
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 77.95,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "5892",
+      "8112",
+      "10859",
+      "7090",
+      "4217",
+      "6783",
+      "8111",
+      "9758"
+     ],
+     "startersPoints": [
+      12.4,
+      4.9,
+      8.2,
+      6,
+      9.8,
+      0,
+      3.7,
+      17,
+      15.95
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 86.95,
+     "rosterId": 10,
+     "starters": [
+      "1373",
+      "6806",
+      "6801",
+      "9484",
+      "11626",
+      "9501",
+      "12506",
+      "9497",
+      "6768"
+     ],
+     "startersPoints": [
+      2.45,
+      8.5,
+      21.6,
+      19.3,
+      24.2,
+      4.7,
+      9.6,
+      0,
+      -3.4
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 157.95,
+     "rosterId": 11,
+     "starters": [
+      "6904",
+      "4866",
+      "2133",
+      "1466",
+      "2449",
+      "9509",
+      "6794",
+      "5859",
+      "3161"
+     ],
+     "startersPoints": [
+      28.3,
+      4.7,
+      26.5,
+      9.9,
+      13.9,
+      18.2,
+      12.9,
+      29.1,
+      14.45
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 113.4,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "12517",
+      "12481",
+      "8408",
+      "5848",
+      "8126",
+      "9753"
+     ],
+     "startersPoints": [
+      25.3,
+      3.9,
+      6.3,
+      6.9,
+      16.9,
+      11.7,
+      8.4,
+      15.5,
+      18.5
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 133.9,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12512",
+      "11631",
+      "8130",
+      "11635",
+      "8121",
+      "5967",
+      "1339",
+      "11624"
+     ],
+     "startersPoints": [
+      7,
+      26.4,
+      6.1,
+      34.4,
+      15.7,
+      13.2,
+      9.1,
+      14.2,
+      7.8
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 142.35,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "12533",
+      "10229",
+      "8136",
+      "11620",
+      "7523"
+     ],
+     "startersPoints": [
+      13.15,
+      36.3,
+      20.6,
+      13.3,
+      3.7,
+      23.2,
+      6.4,
+      5.1,
+      20.6
+     ]
+    }
+   ],
+   "played": true,
+   "week": 7
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 6,
+     "points": 144.05,
+     "rosterId": 1,
+     "starters": [
+      "7083",
+      "4034",
+      "4983",
+      "4381",
+      "6813",
+      "6819",
+      "9226",
+      "7021",
+      "96"
+     ],
+     "startersPoints": [
+      18.6,
+      8.3,
+      11.6,
+      2.7,
+      37.4,
+      23.5,
+      17.6,
+      5.4,
+      18.95
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 98.5,
+     "rosterId": 2,
+     "starters": [
+      "12538",
+      "7611",
+      "7564",
+      "3214",
+      "8138",
+      "12514",
+      "5045",
+      "8110",
+      "5850"
+     ],
+     "startersPoints": [
+      0,
+      5.4,
+      21.1,
+      8.2,
+      34.6,
+      6.5,
+      10.7,
+      0,
+      12
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 112.55,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "8205",
+      "1479",
+      "5001",
+      "5012",
+      "5846",
+      "7553",
+      "4033",
+      "4046"
+     ],
+     "startersPoints": [
+      8.5,
+      5.8,
+      8.4,
+      5.4,
+      6.9,
+      16.5,
+      19.4,
+      15.7,
+      25.95
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 147.55,
+     "rosterId": 4,
+     "starters": [
+      "19",
+      "7588",
+      "8144",
+      "12493",
+      "5857",
+      "12518",
+      "12498",
+      "8228",
+      "7591"
+     ],
+     "startersPoints": [
+      26.55,
+      17.4,
+      14,
+      21.2,
+      8.6,
+      11.3,
+      16.9,
+      8.3,
+      23.3
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 45.65,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "8254",
+      "6960",
+      "7694",
+      "11994",
+      "11593",
+      "8147",
+      "8145",
+      "5995"
+     ],
+     "startersPoints": [
+      21.35,
+      0.5,
+      15.4,
+      1.9,
+      0,
+      2.4,
+      0,
+      3.9,
+      0.2
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 61.2,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "12504",
+      "11650",
+      "7828",
+      "11834",
+      "12489",
+      "8127",
+      "12540",
+      "8161"
+     ],
+     "startersPoints": [
+      0,
+      0,
+      5.4,
+      5.3,
+      2,
+      23.6,
+      8.5,
+      16.4,
+      0
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 108.8,
+     "rosterId": 7,
+     "starters": [
+      "829",
+      "8155",
+      "7525",
+      "4144",
+      "6786",
+      "5927",
+      "4219",
+      "8125",
+      "1166"
+     ],
+     "startersPoints": [
+      2.85,
+      32.9,
+      14.4,
+      4.7,
+      14.6,
+      14.4,
+      9.3,
+      6.8,
+      8.85
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 152.7,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "11655",
+      "7526",
+      "12502",
+      "9756",
+      "8137",
+      "7571",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      26.25,
+      6.3,
+      20.9,
+      11.3,
+      11.6,
+      14.8,
+      7.1,
+      26.9,
+      27.55
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 104.1,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "4217",
+      "7090",
+      "8119",
+      "6783",
+      "8111",
+      "9758"
+     ],
+     "startersPoints": [
+      5.6,
+      19.1,
+      14.1,
+      16.3,
+      2.1,
+      11,
+      0,
+      10,
+      25.9
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 139.05,
+     "rosterId": 10,
+     "starters": [
+      "6768",
+      "6806",
+      "6801",
+      "9484",
+      "11626",
+      "9501",
+      "12506",
+      "7600",
+      "9500"
+     ],
+     "startersPoints": [
+      26.25,
+      14.1,
+      11.4,
+      37.8,
+      3.7,
+      5.7,
+      21.4,
+      5.8,
+      12.9
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 147.7,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "4866",
+      "6794",
+      "1466",
+      "2449",
+      "9509",
+      "4035",
+      "10236",
+      "6904"
+     ],
+     "startersPoints": [
+      24.85,
+      32.4,
+      14.4,
+      24.9,
+      10.4,
+      4.3,
+      5.5,
+      3.8,
+      27.15
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 62.2,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "10219",
+      "10218",
+      "6869",
+      "11625",
+      "12547",
+      "4040",
+      "8917",
+      "6271"
+     ],
+     "startersPoints": [
+      28.1,
+      0.2,
+      17.9,
+      0,
+      0,
+      0,
+      4.9,
+      0.8,
+      10.3
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 83,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12512",
+      "11635",
+      "1339",
+      "7594",
+      "8121",
+      "5967",
+      "12501",
+      "11624"
+     ],
+     "startersPoints": [
+      13.1,
+      3.2,
+      20.8,
+      7.6,
+      9.4,
+      9.4,
+      5.8,
+      3.4,
+      10.3
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 122.1,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "8136",
+      "10229",
+      "5844",
+      "12533",
+      "8210",
+      "11620",
+      "7002",
+      "11637"
+     ],
+     "startersPoints": [
+      32.9,
+      7.1,
+      24.5,
+      5.6,
+      2.5,
+      11.3,
+      19.4,
+      12.8,
+      6
+     ]
+    }
+   ],
+   "played": true,
+   "week": 8
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 7,
+     "points": 202.65,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "9226",
+      "6819",
+      "11604",
+      "6813",
+      "4983",
+      "4034",
+      "8150",
+      "96"
+     ],
+     "startersPoints": [
+      22.2,
+      13.6,
+      21.5,
+      50.3,
+      6.7,
+      23,
+      32.8,
+      18.4,
+      14.15
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 136.55,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "5850",
+      "7564",
+      "3214",
+      "11597",
+      "5045",
+      "8138",
+      "4098",
+      "8110"
+     ],
+     "startersPoints": [
+      29.65,
+      18,
+      18.1,
+      11.1,
+      13.2,
+      10,
+      14,
+      12,
+      10.5
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 111.2,
+     "rosterId": 3,
+     "starters": [
+      "4046",
+      "7543",
+      "7569",
+      "5012",
+      "7553",
+      "1479",
+      "5001",
+      "5846",
+      "3294"
+     ],
+     "startersPoints": [
+      13,
+      13,
+      14.5,
+      17.6,
+      9.8,
+      6.1,
+      16.7,
+      2.6,
+      17.9
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 148.35,
+     "rosterId": 4,
+     "starters": [
+      "11559",
+      "8228",
+      "9493",
+      "12493",
+      "12518",
+      "7588",
+      "8144",
+      "5872",
+      "19"
+     ],
+     "startersPoints": [
+      23.95,
+      15.9,
+      22.8,
+      14.3,
+      10.1,
+      6.8,
+      8.7,
+      9.4,
+      36.4
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 42.05,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "8254",
+      "3634",
+      "7694",
+      "12499",
+      "11593",
+      "2749",
+      "5970",
+      "5995"
+     ],
+     "startersPoints": [
+      29.15,
+      0,
+      0,
+      0,
+      7.6,
+      0,
+      1.9,
+      0.9,
+      2.5
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 32.4,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "12504",
+      "11834",
+      "8127",
+      "3271",
+      "12475",
+      "7828",
+      "12540",
+      "8161"
+     ],
+     "startersPoints": [
+      0,
+      1.8,
+      0,
+      11.3,
+      11.8,
+      0,
+      0,
+      7.5,
+      0
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 107.45,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "11435",
+      "9488",
+      "4144",
+      "6786",
+      "4177",
+      "11646",
+      "8125",
+      "11566"
+     ],
+     "startersPoints": [
+      27.6,
+      2.2,
+      23,
+      7,
+      15.5,
+      2.9,
+      1.9,
+      10.6,
+      16.75
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 108.55,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "11655",
+      "7526",
+      "12502",
+      "9756",
+      "8137",
+      "8151",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      20.25,
+      5.2,
+      14.2,
+      3,
+      8.4,
+      11.9,
+      7.1,
+      8.3,
+      30.2
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 122.35,
+     "rosterId": 9,
+     "starters": [
+      "9758",
+      "3198",
+      "9997",
+      "4217",
+      "5892",
+      "8112",
+      "10859",
+      "5947",
+      "7090"
+     ],
+     "startersPoints": [
+      5.15,
+      13.6,
+      11.4,
+      8.9,
+      10,
+      39.8,
+      24.7,
+      6.3,
+      2.5
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 141.25,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "6806",
+      "6801",
+      "9484",
+      "11626",
+      "9501",
+      "9500",
+      "7600",
+      "6768"
+     ],
+     "startersPoints": [
+      31.5,
+      6.4,
+      34.1,
+      5,
+      3.2,
+      21,
+      15.7,
+      13.2,
+      11.15
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 180.3,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "6794",
+      "1466",
+      "2449",
+      "2133",
+      "10236",
+      "11628",
+      "11565"
+     ],
+     "startersPoints": [
+      31.55,
+      13.6,
+      16.7,
+      14.6,
+      12.8,
+      23,
+      26.1,
+      22.6,
+      19.35
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 124.35,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "12517",
+      "8126",
+      "7587",
+      "9753",
+      "8408",
+      "6271"
+     ],
+     "startersPoints": [
+      17.95,
+      17.4,
+      8.6,
+      33.8,
+      13.6,
+      5.9,
+      5.1,
+      4.2,
+      17.8
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 91.7,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12529",
+      "11635",
+      "8130",
+      "11631",
+      "8121",
+      "1339",
+      "6149",
+      "11624"
+     ],
+     "startersPoints": [
+      0,
+      10.7,
+      9.6,
+      19,
+      8.5,
+      16.1,
+      10.6,
+      11.2,
+      6
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 117.05,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "10229",
+      "5844",
+      "7547",
+      "11620",
+      "8148",
+      "7002",
+      "7523"
+     ],
+     "startersPoints": [
+      11.75,
+      4.3,
+      18.6,
+      10.1,
+      18.7,
+      0,
+      16.6,
+      13.6,
+      23.4
+     ]
+    }
+   ],
+   "played": true,
+   "week": 9
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 7,
+     "points": 179.55,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "6819",
+      "11604",
+      "9226",
+      "7021",
+      "4034",
+      "8150",
+      "96"
+     ],
+     "startersPoints": [
+      29,
+      48.1,
+      3.9,
+      4.2,
+      38.5,
+      13.8,
+      13.6,
+      21.4,
+      7.05
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 134.9,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "8138",
+      "5045",
+      "3214",
+      "11597",
+      "12514",
+      "4199",
+      "12474",
+      "5850"
+     ],
+     "startersPoints": [
+      29.7,
+      8.2,
+      5.4,
+      2.4,
+      18,
+      24.5,
+      14.4,
+      15.1,
+      17.2
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 127.6,
+     "rosterId": 3,
+     "starters": [
+      "11560",
+      "7543",
+      "7569",
+      "7553",
+      "5012",
+      "1479",
+      "5001",
+      "5846",
+      "4033"
+     ],
+     "startersPoints": [
+      27.3,
+      14.7,
+      23.6,
+      6.8,
+      11.9,
+      3.9,
+      21.8,
+      6.5,
+      11.1
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 123.05,
+     "rosterId": 4,
+     "starters": [
+      "11559",
+      "6790",
+      "9493",
+      "12493",
+      "12518",
+      "8228",
+      "8144",
+      "5872",
+      "7591"
+     ],
+     "startersPoints": [
+      12.75,
+      12.3,
+      17.4,
+      5.8,
+      21.9,
+      10.1,
+      22.4,
+      12.9,
+      7.5
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 56.1,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "5995",
+      "3634",
+      "7694",
+      "6960",
+      "8145",
+      "2749",
+      "5970",
+      "8254"
+     ],
+     "startersPoints": [
+      28.7,
+      7.8,
+      9.9,
+      0,
+      0,
+      1.5,
+      2,
+      6.2,
+      0
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 19.4,
+     "rosterId": 6,
+     "starters": [
+      "8161",
+      "12504",
+      "6699",
+      "8127",
+      "3271",
+      "2359",
+      "8583",
+      "12489",
+      "11377"
+     ],
+     "startersPoints": [
+      0,
+      0.3,
+      0,
+      3.8,
+      7.8,
+      1.3,
+      0,
+      2.8,
+      3.4
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 104.4,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "8155",
+      "9488",
+      "4144",
+      "7525",
+      "4177",
+      "11646",
+      "8125",
+      "9228"
+     ],
+     "startersPoints": [
+      17.4,
+      19,
+      20.3,
+      1.9,
+      16.9,
+      17.6,
+      5.1,
+      3.4,
+      2.8
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 86.2,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "11655",
+      "7526",
+      "12521",
+      "9756",
+      "7571",
+      "8151",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      7.3,
+      7.6,
+      19.4,
+      2,
+      6.5,
+      4,
+      7.5,
+      15,
+      16.9
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 141.95,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "4217",
+      "5892",
+      "8112",
+      "10859",
+      "5947",
+      "11630"
+     ],
+     "startersPoints": [
+      25.65,
+      9.9,
+      12.1,
+      27.9,
+      9.6,
+      25.4,
+      12.8,
+      7.1,
+      11.5
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 56.65,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "6806",
+      "9500",
+      "12506",
+      "11626",
+      "9501",
+      "1426",
+      "7600",
+      "6768"
+     ],
+     "startersPoints": [
+      6.7,
+      8.9,
+      1.3,
+      10.4,
+      0,
+      5.4,
+      3.6,
+      7.8,
+      12.55
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 122.65,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "6794",
+      "10236",
+      "2449",
+      "2133",
+      "4866",
+      "11628",
+      "6904"
+     ],
+     "startersPoints": [
+      23.4,
+      9.8,
+      7.7,
+      6.7,
+      15.6,
+      19.7,
+      11.6,
+      14.3,
+      13.85
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 53.7,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "10219",
+      "12547",
+      "6869",
+      "11625",
+      "10218",
+      "2374",
+      "12483",
+      "7587"
+     ],
+     "startersPoints": [
+      20.8,
+      7.6,
+      14.2,
+      1.7,
+      0,
+      0,
+      9.4,
+      0,
+      0
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 140.45,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12529",
+      "11635",
+      "8130",
+      "2197",
+      "8121",
+      "1339",
+      "6149",
+      "12512"
+     ],
+     "startersPoints": [
+      21.75,
+      28.5,
+      21.7,
+      33.2,
+      0,
+      1.5,
+      11.4,
+      12.9,
+      9.5
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 150.5,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "8167",
+      "11620",
+      "8148",
+      "7002",
+      "7523"
+     ],
+     "startersPoints": [
+      8.6,
+      37.7,
+      16.8,
+      3.8,
+      6.5,
+      20.6,
+      24.9,
+      21.2,
+      10.4
+     ]
+    }
+   ],
+   "played": true,
+   "week": 10
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 6,
+     "points": 153.9,
+     "rosterId": 1,
+     "starters": [
+      "96",
+      "9226",
+      "4983",
+      "11604",
+      "7567",
+      "7021",
+      "4034",
+      "8150",
+      "1373"
+     ],
+     "startersPoints": [
+      10.6,
+      20,
+      3.1,
+      17.7,
+      26,
+      12.5,
+      32.6,
+      16.1,
+      15.3
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 88.3,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "8138",
+      "12514",
+      "11597",
+      "5850",
+      "7564",
+      "4199",
+      "12474",
+      "8110"
+     ],
+     "startersPoints": [
+      14.5,
+      18.9,
+      9,
+      8.1,
+      4,
+      6,
+      8.6,
+      5.6,
+      13.6
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 136.2,
+     "rosterId": 3,
+     "starters": [
+      "4046",
+      "7543",
+      "7569",
+      "7553",
+      "5846",
+      "5012",
+      "5001",
+      "9487",
+      "3294"
+     ],
+     "startersPoints": [
+      16.1,
+      19.3,
+      24.2,
+      4.4,
+      9.9,
+      17.2,
+      14.1,
+      4,
+      27
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 92.7,
+     "rosterId": 4,
+     "starters": [
+      "6768",
+      "8228",
+      "6801",
+      "12493",
+      "9493",
+      "6790",
+      "5857",
+      "7588",
+      "19"
+     ],
+     "startersPoints": [
+      8.55,
+      7.7,
+      15.3,
+      7.1,
+      14.3,
+      9,
+      9.1,
+      9.8,
+      11.85
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 52.45,
+     "rosterId": 5,
+     "starters": [
+      "4972",
+      "11199",
+      "3634",
+      "7694",
+      "6960",
+      "8145",
+      "2749",
+      "5970",
+      "12499"
+     ],
+     "startersPoints": [
+      10.25,
+      3,
+      0,
+      6.9,
+      0,
+      8.3,
+      2.3,
+      18.6,
+      3.1
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 30.3,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "12504",
+      "11377",
+      "7828",
+      "7612",
+      "8127",
+      "6699",
+      "8583",
+      "8161"
+     ],
+     "startersPoints": [
+      0,
+      1.5,
+      19,
+      3.9,
+      0,
+      0,
+      0,
+      0,
+      5.9
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 104.25,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "8155",
+      "4177",
+      "4144",
+      "7525",
+      "6786",
+      "9488",
+      "8125",
+      "9228"
+     ],
+     "startersPoints": [
+      6.65,
+      7.4,
+      10.4,
+      0,
+      1.8,
+      17.6,
+      21.6,
+      1.5,
+      37.3
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 97.6,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "11655",
+      "7526",
+      "12521",
+      "9756",
+      "11638",
+      "8137",
+      "11627",
+      "6797"
+     ],
+     "startersPoints": [
+      15.55,
+      15.9,
+      8.2,
+      0,
+      10,
+      1,
+      30.4,
+      12.4,
+      4.15
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 134.05,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "4217",
+      "5892",
+      "8112",
+      "6783",
+      "8111",
+      "8183"
+     ],
+     "startersPoints": [
+      18.55,
+      20.2,
+      11.3,
+      27.7,
+      4.2,
+      19.9,
+      5.1,
+      5.8,
+      21.3
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 77.65,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "8122",
+      "5872",
+      "12506",
+      "11626",
+      "9501",
+      "1426",
+      "7600",
+      "9486"
+     ],
+     "startersPoints": [
+      7.05,
+      12.5,
+      20.7,
+      5.6,
+      18.3,
+      6.1,
+      2.1,
+      3.4,
+      1.9
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 179.7,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "2449",
+      "1466",
+      "4866",
+      "2133",
+      "6794",
+      "5859",
+      "6904"
+     ],
+     "startersPoints": [
+      46.85,
+      29.3,
+      20.5,
+      28.6,
+      9.5,
+      7.1,
+      11.1,
+      11.9,
+      14.85
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 102.95,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12526",
+      "12517",
+      "9753",
+      "8408",
+      "2374",
+      "12519",
+      "8126"
+     ],
+     "startersPoints": [
+      18.25,
+      6.4,
+      34,
+      8.5,
+      5.7,
+      10.5,
+      6.3,
+      5.7,
+      7.6
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 106.2,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12529",
+      "11635",
+      "8130",
+      "11624",
+      "5967",
+      "1339",
+      "8121",
+      "12512"
+     ],
+     "startersPoints": [
+      3.6,
+      29.8,
+      4.3,
+      33.5,
+      5.5,
+      4.1,
+      10.2,
+      9.3,
+      5.9
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 115.1,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "10229",
+      "11620",
+      "8148",
+      "11637",
+      "3257"
+     ],
+     "startersPoints": [
+      19.4,
+      18.1,
+      6.2,
+      8.4,
+      9.8,
+      6.1,
+      19.7,
+      0,
+      27.4
+     ]
+    }
+   ],
+   "played": true,
+   "week": 11
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 5,
+     "points": 123.35,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "6819",
+      "11604",
+      "7567",
+      "7021",
+      "4034",
+      "8150",
+      "827"
+     ],
+     "startersPoints": [
+      19.95,
+      7.6,
+      13.7,
+      14.5,
+      15.2,
+      9.4,
+      22.7,
+      5.3,
+      15
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 134.1,
+     "rosterId": 2,
+     "starters": [
+      "1166",
+      "8138",
+      "4039",
+      "11597",
+      "4199",
+      "3214",
+      "8110",
+      "12514",
+      "421"
+     ],
+     "startersPoints": [
+      15.45,
+      21.4,
+      4.4,
+      12.2,
+      7.2,
+      29,
+      12.6,
+      6.2,
+      25.65
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 110.7,
+     "rosterId": 3,
+     "starters": [
+      "4046",
+      "7543",
+      "7569",
+      "5001",
+      "5846",
+      "5012",
+      "7553",
+      "9506",
+      "3294"
+     ],
+     "startersPoints": [
+      21.6,
+      19.1,
+      8.5,
+      2.3,
+      14.4,
+      2.6,
+      5.5,
+      5.1,
+      31.6
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 96.15,
+     "rosterId": 4,
+     "starters": [
+      "19",
+      "8228",
+      "6801",
+      "12518",
+      "6790",
+      "12498",
+      "7588",
+      "8144",
+      "9493"
+     ],
+     "startersPoints": [
+      11.45,
+      12.8,
+      8.1,
+      12,
+      1.4,
+      6.6,
+      11.1,
+      16,
+      16.7
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 17.1,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "5995",
+      "3634",
+      "7694",
+      "6960",
+      "8145",
+      "2749",
+      "11593",
+      "4351"
+     ],
+     "startersPoints": [
+      0,
+      0,
+      5.7,
+      0,
+      0,
+      0,
+      3.5,
+      7.9,
+      0
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 6.3,
+     "rosterId": 6,
+     "starters": [
+      "8161",
+      "12489",
+      "9754",
+      "8127",
+      "12504",
+      "8583",
+      "6699",
+      "4066",
+      "6011"
+     ],
+     "startersPoints": [
+      0.65,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5.65,
+      0,
+      0
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 130.8,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "8155",
+      "9488",
+      "9479",
+      "7525",
+      "6786",
+      "11435",
+      "4177",
+      "9228"
+     ],
+     "startersPoints": [
+      7.75,
+      11.9,
+      38.1,
+      5.2,
+      14.9,
+      11.5,
+      26.5,
+      5,
+      9.95
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 113.2,
+     "rosterId": 8,
+     "starters": [
+      "7527",
+      "11655",
+      "10232",
+      "12502",
+      "9756",
+      "11638",
+      "8137",
+      "8151",
+      "9480"
+     ],
+     "startersPoints": [
+      0,
+      14.5,
+      22.8,
+      14.1,
+      0,
+      2.8,
+      30.6,
+      11.6,
+      16.8
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 108.4,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "4217",
+      "5892",
+      "7090",
+      "5947",
+      "8111",
+      "8183"
+     ],
+     "startersPoints": [
+      3.95,
+      21.8,
+      11.9,
+      16.8,
+      5.2,
+      16.4,
+      15,
+      8.1,
+      9.25
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 81.65,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "8122",
+      "9500",
+      "12506",
+      "11626",
+      "9501",
+      "4037",
+      "7600",
+      "12545"
+     ],
+     "startersPoints": [
+      20.1,
+      11.2,
+      3,
+      10.4,
+      5.2,
+      6.1,
+      2.9,
+      12.4,
+      10.35
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 139.4,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "2449",
+      "1466",
+      "4866",
+      "2133",
+      "6794",
+      "5859",
+      "6904"
+     ],
+     "startersPoints": [
+      10.65,
+      13.7,
+      4,
+      10.4,
+      8.9,
+      23.2,
+      8.8,
+      26,
+      33.75
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 51.4,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "8139",
+      "12541",
+      "12517",
+      "11625",
+      "12483",
+      "12547",
+      "8917",
+      "7587"
+     ],
+     "startersPoints": [
+      18.9,
+      0,
+      2.4,
+      16.9,
+      6.2,
+      0,
+      2.8,
+      4.2,
+      0
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 76.2,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12529",
+      "6149",
+      "8130",
+      "11624",
+      "5967",
+      "8154",
+      "8121",
+      "12512"
+     ],
+     "startersPoints": [
+      0,
+      9.6,
+      3.3,
+      21.4,
+      9.9,
+      6.1,
+      4.9,
+      4.3,
+      16.7
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 164.3,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "10229",
+      "11620",
+      "8148",
+      "8167",
+      "3257"
+     ],
+     "startersPoints": [
+      8.45,
+      50.9,
+      30.9,
+      7.9,
+      25.1,
+      8.3,
+      0,
+      9.9,
+      22.85
+     ]
+    }
+   ],
+   "played": true,
+   "week": 12
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 4,
+     "points": 125.15,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "6819",
+      "11604",
+      "9226",
+      "7021",
+      "4034",
+      "8150",
+      "96"
+     ],
+     "startersPoints": [
+      23.2,
+      13.6,
+      2.3,
+      24.3,
+      20.4,
+      8.9,
+      15.4,
+      13.2,
+      3.85
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 133.3,
+     "rosterId": 2,
+     "starters": [
+      "6770",
+      "5850",
+      "7564",
+      "8110",
+      "12514",
+      "11584",
+      "8138",
+      "5045",
+      "421"
+     ],
+     "startersPoints": [
+      21.85,
+      9.6,
+      19,
+      11.1,
+      8.2,
+      15.1,
+      17.2,
+      17.2,
+      14.05
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 141.55,
+     "rosterId": 3,
+     "starters": [
+      "4046",
+      "7543",
+      "7569",
+      "5012",
+      "1479",
+      "5001",
+      "7553",
+      "5846",
+      "3294"
+     ],
+     "startersPoints": [
+      32.05,
+      4.6,
+      21.5,
+      10.7,
+      7,
+      16,
+      18.7,
+      6.2,
+      24.8
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 112.25,
+     "rosterId": 4,
+     "starters": [
+      "6768",
+      "7588",
+      "9493",
+      "8131",
+      "6790",
+      "12518",
+      "8144",
+      "8228",
+      "12493"
+     ],
+     "startersPoints": [
+      5.25,
+      15.5,
+      13.2,
+      15,
+      21.3,
+      11.7,
+      14.7,
+      11.4,
+      4.2
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 32.05,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "5995",
+      "5970",
+      "7694",
+      "8147",
+      "8145",
+      "2749",
+      "12499",
+      "6960"
+     ],
+     "startersPoints": [
+      14.95,
+      0,
+      3.4,
+      1.7,
+      5.7,
+      4.2,
+      0.6,
+      1.5,
+      0
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 1.5,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "12504",
+      "11377",
+      "8583",
+      "8127",
+      "6699",
+      "7612",
+      "8227",
+      "4574"
+     ],
+     "startersPoints": [
+      0,
+      0.3,
+      0,
+      0,
+      3.2,
+      -2,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 96.5,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "8155",
+      "6786",
+      "9479",
+      "7525",
+      "9488",
+      "5927",
+      "4177",
+      "12775"
+     ],
+     "startersPoints": [
+      9,
+      14.6,
+      25.2,
+      7.5,
+      9.8,
+      4.3,
+      22.6,
+      5.3,
+      -1.8
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 100,
+     "rosterId": 8,
+     "starters": [
+      "6797",
+      "8151",
+      "10232",
+      "9480",
+      "7526",
+      "9756",
+      "8137",
+      "11627",
+      "11563"
+     ],
+     "startersPoints": [
+      14.35,
+      8.9,
+      6.6,
+      15,
+      7,
+      8.6,
+      15.8,
+      4.1,
+      19.65
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 104.9,
+     "rosterId": 9,
+     "starters": [
+      "8183",
+      "3198",
+      "9997",
+      "4217",
+      "7090",
+      "5892",
+      "5947",
+      "8111",
+      "4892"
+     ],
+     "startersPoints": [
+      18.8,
+      16.9,
+      0.6,
+      12.7,
+      4.5,
+      10.8,
+      21.3,
+      3.9,
+      15.4
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 79.65,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "8122",
+      "5872",
+      "12506",
+      "11626",
+      "9500",
+      "4037",
+      "7600",
+      "12545"
+     ],
+     "startersPoints": [
+      3.4,
+      15.3,
+      10.1,
+      12.8,
+      1.1,
+      6.4,
+      10.8,
+      0,
+      19.75
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 154.95,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "5859",
+      "1466",
+      "4866",
+      "2133",
+      "6794",
+      "2449",
+      "6904"
+     ],
+     "startersPoints": [
+      17.95,
+      28.8,
+      36.2,
+      18,
+      5.6,
+      21.8,
+      2.4,
+      5.6,
+      18.6
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 92.5,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "10219",
+      "12541",
+      "6869",
+      "11625",
+      "12483",
+      "12547",
+      "8917",
+      "7587"
+     ],
+     "startersPoints": [
+      23.3,
+      10.1,
+      2.1,
+      9.2,
+      25.2,
+      4.2,
+      10.3,
+      8.1,
+      0
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 118.4,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "12529",
+      "11635",
+      "8130",
+      "11624",
+      "1339",
+      "11631",
+      "8121",
+      "12512"
+     ],
+     "startersPoints": [
+      0,
+      10.1,
+      13.9,
+      26.2,
+      11.4,
+      26.6,
+      4.8,
+      11,
+      14.4
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 153.15,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "10229",
+      "11620",
+      "8148",
+      "8167",
+      "3257"
+     ],
+     "startersPoints": [
+      27.1,
+      10.1,
+      0,
+      14.9,
+      28.4,
+      2.8,
+      27.9,
+      18.3,
+      23.65
+     ]
+    }
+   ],
+   "played": true,
+   "week": 13
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 3,
+     "points": 125.95,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "6819",
+      "11604",
+      "9226",
+      "4983",
+      "2505",
+      "8150",
+      "96"
+     ],
+     "startersPoints": [
+      20.25,
+      11.4,
+      16.9,
+      16.6,
+      17,
+      0.6,
+      3.2,
+      16.7,
+      23.3
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 131.85,
+     "rosterId": 2,
+     "starters": [
+      "6770",
+      "11584",
+      "7564",
+      "8110",
+      "12514",
+      "8138",
+      "5045",
+      "5850",
+      "421"
+     ],
+     "startersPoints": [
+      26.2,
+      15.1,
+      10.2,
+      13.3,
+      3.5,
+      9.1,
+      12.2,
+      16.2,
+      26.05
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 129.8,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "5846",
+      "5012",
+      "8142",
+      "7553",
+      "5001",
+      "7569",
+      "4046"
+     ],
+     "startersPoints": [
+      22.2,
+      20.7,
+      22.8,
+      2.4,
+      13,
+      18,
+      6.7,
+      17.1,
+      6.9
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 143.75,
+     "rosterId": 4,
+     "starters": [
+      "12545",
+      "7588",
+      "9493",
+      "12518",
+      "8144",
+      "6801",
+      "8228",
+      "6790",
+      "6768"
+     ],
+     "startersPoints": [
+      22.7,
+      13.7,
+      36.7,
+      4.7,
+      6,
+      27.2,
+      13.7,
+      9.7,
+      9.35
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 25.6,
+     "rosterId": 5,
+     "starters": [
+      "9230",
+      "8254",
+      "11994",
+      "11593",
+      "2749",
+      "8207",
+      "8145",
+      "4351",
+      "6960"
+     ],
+     "startersPoints": [
+      0,
+      0,
+      -1,
+      2.2,
+      0.7,
+      0,
+      4.9,
+      18.8,
+      0
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 6.7,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "12504",
+      "7612",
+      "8583",
+      "8227",
+      "7828",
+      "4443",
+      "8127",
+      "8161"
+     ],
+     "startersPoints": [
+      0,
+      0.4,
+      0,
+      0,
+      0,
+      2.9,
+      0,
+      3.4,
+      0
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 98.85,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "8155",
+      "6786",
+      "9479",
+      "7525",
+      "9488",
+      "5927",
+      "8125",
+      "11566"
+     ],
+     "startersPoints": [
+      23.25,
+      4.3,
+      19.1,
+      2.7,
+      7.7,
+      27.1,
+      7.1,
+      4.1,
+      3.5
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 125.25,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "8151",
+      "10232",
+      "9480",
+      "7526",
+      "12507",
+      "8137",
+      "12484",
+      "6797"
+     ],
+     "startersPoints": [
+      18.1,
+      3.3,
+      38.2,
+      7.2,
+      18.1,
+      13.7,
+      7.7,
+      6.4,
+      12.55
+     ]
+    },
+    {
+     "matchupId": 4,
+     "points": 112.45,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "8111",
+      "7090",
+      "5892",
+      "5947",
+      "6783",
+      "9758"
+     ],
+     "startersPoints": [
+      12.3,
+      10.7,
+      21.6,
+      6.4,
+      1.6,
+      13.8,
+      14.8,
+      16.6,
+      14.65
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 66.35,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "8122",
+      "5872",
+      "7600",
+      "10222",
+      "9500",
+      "4037",
+      "9486",
+      "1426"
+     ],
+     "startersPoints": [
+      24.75,
+      4.9,
+      6.7,
+      3.9,
+      9.3,
+      6.3,
+      10.5,
+      0,
+      0
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 116.15,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "6794",
+      "1466",
+      "4866",
+      "2133",
+      "5859",
+      "10236",
+      "6904"
+     ],
+     "startersPoints": [
+      40.35,
+      8.4,
+      3.1,
+      2.3,
+      19.2,
+      6.9,
+      17,
+      16.1,
+      2.8
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 65.2,
+     "rosterId": 12,
+     "starters": [
+      "8162",
+      "10219",
+      "12519",
+      "12517",
+      "11625",
+      "12527",
+      "9753",
+      "8408",
+      "2374"
+     ],
+     "startersPoints": [
+      0,
+      5.2,
+      11,
+      14.9,
+      3.4,
+      4.8,
+      7.6,
+      11.2,
+      7.1
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 76.3,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "5967",
+      "11635",
+      "8130",
+      "11624",
+      "1339",
+      "11631",
+      "8121",
+      "12512"
+     ],
+     "startersPoints": [
+      0,
+      29.1,
+      2.2,
+      13.3,
+      8.5,
+      2.6,
+      11.7,
+      0,
+      8.9
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 161.65,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "10229",
+      "5844",
+      "7547",
+      "7002",
+      "8148",
+      "8167",
+      "3257"
+     ],
+     "startersPoints": [
+      21.6,
+      33.5,
+      7.4,
+      10.2,
+      15.2,
+      9.8,
+      17.3,
+      24.9,
+      21.75
+     ]
+    }
+   ],
+   "played": true,
+   "week": 14
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 3,
+     "points": 142.2,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "6819",
+      "11604",
+      "9226",
+      "4034",
+      "8150",
+      "7021",
+      "96"
+     ],
+     "startersPoints": [
+      29.9,
+      11.6,
+      5.6,
+      11.8,
+      15.7,
+      15.2,
+      21.3,
+      11.9,
+      19.2
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 152.95,
+     "rosterId": 2,
+     "starters": [
+      "6770",
+      "11584",
+      "7564",
+      "11597",
+      "12514",
+      "8138",
+      "12474",
+      "5045",
+      "421"
+     ],
+     "startersPoints": [
+      7.75,
+      7.6,
+      24.2,
+      11.7,
+      10.4,
+      31.1,
+      10.3,
+      25.3,
+      24.6
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 182.95,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "5846",
+      "5001",
+      "8142",
+      "7553",
+      "5012",
+      "7569",
+      "4046"
+     ],
+     "startersPoints": [
+      14.9,
+      30,
+      14.5,
+      25.6,
+      2.6,
+      52.1,
+      4.8,
+      23.5,
+      14.95
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 123.95,
+     "rosterId": 4,
+     "starters": [
+      "12545",
+      "7588",
+      "9493",
+      "8131",
+      "12518",
+      "11603",
+      "8144",
+      "8228",
+      "6768"
+     ],
+     "startersPoints": [
+      20.8,
+      15.1,
+      28.9,
+      0,
+      6.4,
+      7.2,
+      20.5,
+      6.3,
+      18.75
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 61,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "11199",
+      "8147",
+      "12506",
+      "12499",
+      "7694",
+      "8145",
+      "4351",
+      "11068"
+     ],
+     "startersPoints": [
+      23.6,
+      1.1,
+      6.9,
+      15.5,
+      2.7,
+      4.3,
+      4.3,
+      0,
+      2.6
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 115.05,
+     "rosterId": 6,
+     "starters": [
+      "12522",
+      "9224",
+      "8134",
+      "5022",
+      "12489",
+      "7049",
+      "9754",
+      "11834",
+      "12524"
+     ],
+     "startersPoints": [
+      16.7,
+      12.5,
+      11.5,
+      28,
+      10.5,
+      18.7,
+      0,
+      11.9,
+      5.25
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 118.15,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "8155",
+      "5927",
+      "9479",
+      "7525",
+      "9488",
+      "6786",
+      "11646",
+      "9228"
+     ],
+     "startersPoints": [
+      15.1,
+      4.7,
+      15.9,
+      7,
+      7,
+      19.3,
+      18.1,
+      14,
+      17.05
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 95,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "8151",
+      "10232",
+      "9480",
+      "7526",
+      "12507",
+      "8137",
+      "9756",
+      "6797"
+     ],
+     "startersPoints": [
+      33.1,
+      2.4,
+      16.4,
+      4.1,
+      4.6,
+      7,
+      6.3,
+      8.6,
+      12.5
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 126.5,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "8111",
+      "7090",
+      "4217",
+      "5947",
+      "6783",
+      "8183"
+     ],
+     "startersPoints": [
+      21.95,
+      11,
+      15.8,
+      0,
+      5.5,
+      26.8,
+      12.1,
+      4.2,
+      29.15
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 77.85,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "8122",
+      "5872",
+      "7600",
+      "10222",
+      "9500",
+      "4037",
+      "11626",
+      "11783"
+     ],
+     "startersPoints": [
+      13.05,
+      -0.2,
+      7.3,
+      9,
+      10.5,
+      10.3,
+      14,
+      5.9,
+      8
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 143.3,
+     "rosterId": 11,
+     "starters": [
+      "4984",
+      "9509",
+      "6794",
+      "1466",
+      "4866",
+      "2133",
+      "5859",
+      "2449",
+      "6904"
+     ],
+     "startersPoints": [
+      26.45,
+      25.5,
+      4.2,
+      17.5,
+      16.2,
+      11.1,
+      12.1,
+      5.6,
+      24.65
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 81.65,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "12519",
+      "12517",
+      "8126",
+      "12526",
+      "9753",
+      "8408",
+      "10219"
+     ],
+     "startersPoints": [
+      22.05,
+      6.2,
+      14.4,
+      12.1,
+      16.4,
+      4.5,
+      3.1,
+      2.9,
+      0
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 132.3,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "5967",
+      "11635",
+      "8130",
+      "11624",
+      "12529",
+      "11631",
+      "6149",
+      "12512"
+     ],
+     "startersPoints": [
+      0,
+      18.7,
+      4,
+      44.4,
+      5.5,
+      30.1,
+      17.1,
+      9.3,
+      3.2
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 182.5,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "10229",
+      "5844",
+      "7547",
+      "7002",
+      "8148",
+      "8167",
+      "7523"
+     ],
+     "startersPoints": [
+      16.7,
+      7.8,
+      12.1,
+      12.6,
+      42.4,
+      9,
+      27.4,
+      5.9,
+      48.6
+     ]
+    }
+   ],
+   "played": true,
+   "week": 15
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": null,
+     "points": 154.3,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "6819",
+      "11604",
+      "9226",
+      "4034",
+      "8150",
+      "2505",
+      "96"
+     ],
+     "startersPoints": [
+      31.1,
+      15.4,
+      7.2,
+      16.8,
+      16.5,
+      30.6,
+      10,
+      8.5,
+      18.2
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 160.2,
+     "rosterId": 2,
+     "starters": [
+      "421",
+      "5850",
+      "12514",
+      "8110",
+      "8138",
+      "11584",
+      "5045",
+      "7564",
+      "6770"
+     ],
+     "startersPoints": [
+      36.45,
+      3.8,
+      5,
+      6.4,
+      26.9,
+      7.1,
+      20.6,
+      20.9,
+      33.05
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 132.9,
+     "rosterId": 3,
+     "starters": [
+      "11560",
+      "7543",
+      "7569",
+      "5001",
+      "7607",
+      "7553",
+      "5846",
+      "1479",
+      "3294"
+     ],
+     "startersPoints": [
+      23.5,
+      14.6,
+      9.9,
+      17,
+      6.5,
+      22.2,
+      8.2,
+      9.4,
+      21.6
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 152.8,
+     "rosterId": 4,
+     "starters": [
+      "12545",
+      "7588",
+      "9493",
+      "12518",
+      "8131",
+      "11603",
+      "12493",
+      "8144",
+      "6801"
+     ],
+     "startersPoints": [
+      21.2,
+      5.3,
+      47.5,
+      7.5,
+      0,
+      17,
+      2.2,
+      37.8,
+      14.3
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 43.65,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "11199",
+      "8147",
+      "12506",
+      "12499",
+      "7694",
+      "8145",
+      "4351",
+      "11068"
+     ],
+     "startersPoints": [
+      0.35,
+      3,
+      1.4,
+      21.5,
+      8.8,
+      2.1,
+      4.4,
+      2.1,
+      0
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 141.1,
+     "rosterId": 6,
+     "starters": [
+      "6011",
+      "9224",
+      "8134",
+      "5022",
+      "12489",
+      "7049",
+      "8676",
+      "9754",
+      "331"
+     ],
+     "startersPoints": [
+      1.55,
+      30.9,
+      7.4,
+      13.7,
+      20.1,
+      18.1,
+      9.1,
+      21.4,
+      18.85
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 112,
+     "rosterId": 7,
+     "starters": [
+      "4881",
+      "8155",
+      "5927",
+      "9479",
+      "7525",
+      "9488",
+      "6786",
+      "2216",
+      "9228"
+     ],
+     "startersPoints": [
+      5.75,
+      7.3,
+      8.3,
+      6.1,
+      16.2,
+      23.6,
+      11.1,
+      14.1,
+      19.55
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 167.7,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "8151",
+      "10232",
+      "9480",
+      "7526",
+      "12507",
+      "8137",
+      "6865",
+      "6797"
+     ],
+     "startersPoints": [
+      19.7,
+      24.9,
+      13.2,
+      17.4,
+      11.2,
+      16,
+      27,
+      5.1,
+      33.2
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 140.9,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "4217",
+      "5892",
+      "8112",
+      "5947",
+      "6783",
+      "8183"
+     ],
+     "startersPoints": [
+      14.15,
+      23.8,
+      21.2,
+      29,
+      1.4,
+      5.7,
+      8.6,
+      4.2,
+      32.85
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 86.1,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "12491",
+      "5872",
+      "7600",
+      "10222",
+      "9500",
+      "4037",
+      "11783",
+      "12500"
+     ],
+     "startersPoints": [
+      22.2,
+      3.2,
+      6.5,
+      8,
+      7.1,
+      11.8,
+      8,
+      9.8,
+      9.5
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 135.85,
+     "rosterId": 11,
+     "starters": [
+      "6904",
+      "4866",
+      "5859",
+      "1466",
+      "9509",
+      "10236",
+      "6794",
+      "2449",
+      "4984"
+     ],
+     "startersPoints": [
+      20.25,
+      22.2,
+      18.5,
+      2.1,
+      26.3,
+      0,
+      14.5,
+      23.8,
+      8.2
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 129.5,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "8126",
+      "12517",
+      "11625",
+      "12526",
+      "9753",
+      "8408",
+      "10219"
+     ],
+     "startersPoints": [
+      27.5,
+      32.3,
+      5.2,
+      7.5,
+      7.3,
+      19.3,
+      15.4,
+      1.6,
+      13.4
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 71.8,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "5967",
+      "11635",
+      "8130",
+      "11624",
+      "12529",
+      "11631",
+      "8121",
+      "12512"
+     ],
+     "startersPoints": [
+      0,
+      10.2,
+      14.3,
+      8.7,
+      6.1,
+      1.7,
+      3.8,
+      19.4,
+      7.6
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 100.1,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "8210",
+      "7002",
+      "8148",
+      "8167",
+      "3257"
+     ],
+     "startersPoints": [
+      3.55,
+      16.8,
+      9.4,
+      1.7,
+      19.4,
+      20.9,
+      12,
+      3.7,
+      12.65
+     ]
+    }
+   ],
+   "played": true,
+   "week": 16
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 3,
+     "points": 91.65,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "4983",
+      "2505",
+      "9226",
+      "4034",
+      "8150",
+      "7567",
+      "1373"
+     ],
+     "startersPoints": [
+      4.05,
+      15.9,
+      1.7,
+      1.5,
+      12.7,
+      27.1,
+      14.5,
+      5.3,
+      8.9
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 100.8,
+     "rosterId": 2,
+     "starters": [
+      "6770",
+      "5850",
+      "5045",
+      "8110",
+      "8138",
+      "11584",
+      "7564",
+      "12514",
+      "421"
+     ],
+     "startersPoints": [
+      24.45,
+      0.8,
+      8,
+      8.1,
+      8.2,
+      5.8,
+      25,
+      5,
+      15.45
+     ]
+    },
+    {
+     "matchupId": 1,
+     "points": 108.25,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "7569",
+      "5001",
+      "7607",
+      "9487",
+      "8142",
+      "7553",
+      "11560"
+     ],
+     "startersPoints": [
+      26.75,
+      10.2,
+      8.7,
+      5.4,
+      5.3,
+      20,
+      0,
+      4.6,
+      27.3
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 142.05,
+     "rosterId": 4,
+     "starters": [
+      "12545",
+      "7588",
+      "9493",
+      "12518",
+      "8144",
+      "6801",
+      "6790",
+      "8228",
+      "11603"
+     ],
+     "startersPoints": [
+      25.25,
+      11.4,
+      15.7,
+      11.8,
+      26.9,
+      9.9,
+      20.9,
+      5.4,
+      14.8
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 66.75,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "11199",
+      "8147",
+      "12506",
+      "12499",
+      "7694",
+      "8145",
+      "4351",
+      "11068"
+     ],
+     "startersPoints": [
+      27.15,
+      3,
+      7.1,
+      12,
+      13.7,
+      2.1,
+      1.7,
+      0,
+      0
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 137.95,
+     "rosterId": 6,
+     "starters": [
+      "8161",
+      "9224",
+      "8134",
+      "5022",
+      "12489",
+      "7049",
+      "8676",
+      "9754",
+      "331"
+     ],
+     "startersPoints": [
+      34.4,
+      28.6,
+      9.5,
+      11.3,
+      16.1,
+      12.2,
+      1.8,
+      14.8,
+      9.25
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 92.1,
+     "rosterId": 7,
+     "starters": [
+      "9228",
+      "8155",
+      "5927",
+      "9479",
+      "7525",
+      "9488",
+      "6786",
+      "2216",
+      "11646"
+     ],
+     "startersPoints": [
+      9.4,
+      20.9,
+      11.3,
+      4.5,
+      4.5,
+      16.2,
+      9.6,
+      12.1,
+      3.6
+     ]
+    },
+    {
+     "matchupId": 3,
+     "points": 115.1,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "8151",
+      "10232",
+      "9480",
+      "7526",
+      "12507",
+      "8137",
+      "6865",
+      "6797"
+     ],
+     "startersPoints": [
+      21.3,
+      5.7,
+      19.9,
+      9.9,
+      0.7,
+      16,
+      11.8,
+      14.3,
+      15.5
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 155.45,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "8111",
+      "5892",
+      "8112",
+      "5947",
+      "6783",
+      "8183"
+     ],
+     "startersPoints": [
+      20.9,
+      46.6,
+      13,
+      9.3,
+      5,
+      1.4,
+      7.9,
+      10.4,
+      40.95
+     ]
+    },
+    {
+     "matchupId": 5,
+     "points": 83.95,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "12491",
+      "5872",
+      "7600",
+      "10222",
+      "9500",
+      "4037",
+      "11626",
+      "12500"
+     ],
+     "startersPoints": [
+      6.55,
+      0.2,
+      11.3,
+      10.8,
+      8.1,
+      5.4,
+      24.8,
+      1.3,
+      15.5
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 133,
+     "rosterId": 11,
+     "starters": [
+      "6904",
+      "4866",
+      "6794",
+      "1466",
+      "9509",
+      "11628",
+      "5859",
+      "2449",
+      "4984"
+     ],
+     "startersPoints": [
+      10,
+      6.8,
+      7,
+      11.1,
+      38.4,
+      0,
+      11.8,
+      23.1,
+      24.8
+     ]
+    },
+    {
+     "matchupId": 6,
+     "points": 140.2,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "8126",
+      "12517",
+      "11625",
+      "12526",
+      "9753",
+      "11579",
+      "10219"
+     ],
+     "startersPoints": [
+      35,
+      8.3,
+      23.3,
+      24.4,
+      5.2,
+      1.5,
+      26.2,
+      16.3,
+      0
+     ]
+    },
+    {
+     "matchupId": 7,
+     "points": 68.6,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "5967",
+      "11635",
+      "8130",
+      "11624",
+      "12529",
+      "11631",
+      "8121",
+      "12512"
+     ],
+     "startersPoints": [
+      0,
+      10.5,
+      4.1,
+      28.6,
+      0.1,
+      8.2,
+      7.9,
+      9.2,
+      0
+     ]
+    },
+    {
+     "matchupId": 2,
+     "points": 99.3,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "8210",
+      "7002",
+      "8148",
+      "8167",
+      "3257"
+     ],
+     "startersPoints": [
+      0,
+      5.4,
+      14.8,
+      0,
+      16,
+      15.5,
+      5.7,
+      23.3,
+      18.6
+     ]
+    }
+   ],
+   "played": true,
+   "week": 17
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": null,
+     "points": 62.25,
+     "rosterId": 1,
+     "starters": [
+      "3163",
+      "6813",
+      "4983",
+      "2505",
+      "9226",
+      "4034",
+      "8150",
+      "7567",
+      "1373"
+     ],
+     "startersPoints": [
+      19.55,
+      4.9,
+      2.1,
+      0,
+      0,
+      8.7,
+      9.6,
+      17.4,
+      0
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 93.45,
+     "rosterId": 2,
+     "starters": [
+      "6770",
+      "5850",
+      "5045",
+      "8110",
+      "8138",
+      "11584",
+      "7564",
+      "12514",
+      "421"
+     ],
+     "startersPoints": [
+      23.5,
+      0,
+      1.5,
+      2,
+      1.5,
+      10.3,
+      23.6,
+      1.8,
+      29.25
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 105.8,
+     "rosterId": 3,
+     "starters": [
+      "3294",
+      "7543",
+      "7569",
+      "5001",
+      "7607",
+      "9487",
+      "8142",
+      "7553",
+      "11560"
+     ],
+     "startersPoints": [
+      1.4,
+      4.3,
+      0,
+      13.3,
+      5.4,
+      18.7,
+      30.2,
+      14.8,
+      17.7
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 101.25,
+     "rosterId": 4,
+     "starters": [
+      "12545",
+      "7588",
+      "9493",
+      "12518",
+      "8144",
+      "6801",
+      "6790",
+      "8228",
+      "11603"
+     ],
+     "startersPoints": [
+      24.35,
+      0,
+      26,
+      10.1,
+      0,
+      18.7,
+      5.3,
+      12.4,
+      4.4
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 56.6,
+     "rosterId": 5,
+     "starters": [
+      "12508",
+      "11199",
+      "8147",
+      "12506",
+      "12499",
+      "7694",
+      "8145",
+      "4351",
+      "11068"
+     ],
+     "startersPoints": [
+      21.7,
+      6.2,
+      5,
+      0,
+      8,
+      14.3,
+      0,
+      1.4,
+      0
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 29.5,
+     "rosterId": 6,
+     "starters": [
+      "8161",
+      "9224",
+      "8134",
+      "5022",
+      "12489",
+      "7049",
+      "8676",
+      "9754",
+      "331"
+     ],
+     "startersPoints": [
+      0,
+      17,
+      0,
+      0,
+      3.8,
+      7.5,
+      1.2,
+      0,
+      0
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 74,
+     "rosterId": 7,
+     "starters": [
+      "9228",
+      "8155",
+      "5927",
+      "9479",
+      "7525",
+      "9488",
+      "6786",
+      "2216",
+      "11646"
+     ],
+     "startersPoints": [
+      18.2,
+      0,
+      9.7,
+      0,
+      8.2,
+      14.4,
+      1.4,
+      5.4,
+      16.7
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 91.85,
+     "rosterId": 8,
+     "starters": [
+      "11563",
+      "8151",
+      "10232",
+      "9480",
+      "7526",
+      "12507",
+      "8137",
+      "6865",
+      "6797"
+     ],
+     "startersPoints": [
+      11.95,
+      15.3,
+      20.9,
+      20.2,
+      0,
+      0,
+      1.9,
+      21.6,
+      0
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 128.4,
+     "rosterId": 9,
+     "starters": [
+      "4892",
+      "3198",
+      "9997",
+      "8111",
+      "5892",
+      "8112",
+      "5947",
+      "6783",
+      "8183"
+     ],
+     "startersPoints": [
+      14.25,
+      13.6,
+      30.8,
+      25.9,
+      6,
+      17.8,
+      9.4,
+      4.2,
+      6.45
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 52.65,
+     "rosterId": 10,
+     "starters": [
+      "4943",
+      "12491",
+      "5872",
+      "7600",
+      "10222",
+      "9500",
+      "4037",
+      "11626",
+      "12500"
+     ],
+     "startersPoints": [
+      9.8,
+      3.8,
+      3.1,
+      9.6,
+      0,
+      9.6,
+      1.8,
+      5.2,
+      9.75
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 37.2,
+     "rosterId": 11,
+     "starters": [
+      "6904",
+      "4866",
+      "6794",
+      "1466",
+      "9509",
+      "11628",
+      "5859",
+      "2449",
+      "4984"
+     ],
+     "startersPoints": [
+      0,
+      0,
+      19.4,
+      4.7,
+      5.8,
+      0,
+      0,
+      7.3,
+      0
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 114.25,
+     "rosterId": 12,
+     "starters": [
+      "11564",
+      "12527",
+      "8126",
+      "12517",
+      "11625",
+      "12526",
+      "9753",
+      "11579",
+      "10219"
+     ],
+     "startersPoints": [
+      17.65,
+      10.9,
+      0,
+      30.1,
+      0,
+      10.5,
+      17.2,
+      13.1,
+      14.8
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 50.2,
+     "rosterId": 13,
+     "starters": [
+      "12486",
+      "5967",
+      "11635",
+      "8130",
+      "11624",
+      "12529",
+      "11631",
+      "8121",
+      "12512"
+     ],
+     "startersPoints": [
+      0,
+      8,
+      0,
+      17,
+      0,
+      17.3,
+      7.9,
+      0,
+      0
+     ]
+    },
+    {
+     "matchupId": null,
+     "points": 87.95,
+     "rosterId": 14,
+     "starters": [
+      "6804",
+      "9221",
+      "7547",
+      "5844",
+      "8210",
+      "7002",
+      "8148",
+      "8167",
+      "3257"
+     ],
+     "startersPoints": [
+      0,
+      18.8,
+      25.9,
+      0,
+      3.2,
+      8.6,
+      13.4,
+      0,
+      18.05
+     ]
+    }
+   ],
+   "played": true,
+   "week": 18
+  }
+ ],
+ "winnersBracket": [
+  {
+   "l": 4,
+   "m": 1,
+   "r": 1,
+   "t1": 2,
+   "t2": 4,
+   "w": 2
+  },
+  {
+   "l": 8,
+   "m": 2,
+   "r": 1,
+   "t1": 11,
+   "t1_original": 1,
+   "t2": 8,
+   "t2_original": 9,
+   "w": 11
+  },
+  {
+   "l": 1,
+   "m": 3,
+   "r": 1,
+   "t1": 1,
+   "t1_original": 11,
+   "t2": 14,
+   "w": 14
+  },
+  {
+   "l": 14,
+   "m": 4,
+   "r": 2,
+   "t1": 3,
+   "t2": 14,
+   "w": 3
+  },
+  {
+   "l": 11,
+   "m": 5,
+   "r": 2,
+   "t1": 11,
+   "t2": 2,
+   "w": 2
+  },
+  {
+   "l": 4,
+   "m": 6,
+   "r": 2,
+   "t1": 4,
+   "t2": 8,
+   "w": 8
+  },
+  {
+   "l": 2,
+   "m": 7,
+   "p": 1,
+   "r": 3,
+   "t1": 3,
+   "t1_from": {
+    "w": 4
+   },
+   "t2": 2,
+   "t2_from": {
+    "w": 5
+   },
+   "w": 3
+  },
+  {
+   "l": 14,
+   "m": 8,
+   "p": 3,
+   "r": 3,
+   "t1": 14,
+   "t1_from": {
+    "l": 4
+   },
+   "t2": 11,
+   "t2_from": {
+    "l": 5
+   },
+   "w": 11
+  },
+  {
+   "l": 1,
+   "m": 9,
+   "p": 5,
+   "r": 3,
+   "t1": 1,
+   "t2": 8,
+   "t2_from": {
+    "w": 6
+   },
+   "w": 8
+  }
+ ]
+}
