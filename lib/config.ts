@@ -80,28 +80,26 @@ export const REGULAR_SEASON_LENGTH: Record<string, number> = {
 };
 
 /**
- * Playoff field size per season, reconstructed from the playoff game log and
- * the spreadsheet's final standings. The field grew from 6 to 7 in 2023, so
+ * Playoff field size per season. The field grew from 6 teams to 7 in 2023, so
  * nothing may hardcode a size.
  *
- * NOTE: `seeding: "vp"` does not reproduce 2025, where DanP qualified on 21 VP
- * while Knute missed on 25. The real qualification rule is an open question for
- * the commissioner; the audit reports the mismatch rather than papering over it.
+ * Qualification and seeding live in lib/seeding.ts: all but the last spot go to
+ * the VP standings (points breaking ties), and the final spot is a wildcard for
+ * the highest-scoring team left over.
  */
 export interface PlayoffFormat {
   teams: number;
   byes: number;
-  seeding: "vp" | "vp-then-points";
 }
 
 export const PLAYOFF_FORMAT: Record<string, PlayoffFormat> = {
-  "2020": { teams: 6, byes: 2, seeding: "vp" },
-  "2021": { teams: 6, byes: 2, seeding: "vp" },
-  "2022": { teams: 6, byes: 2, seeding: "vp" },
-  "2023": { teams: 7, byes: 1, seeding: "vp" },
-  "2024": { teams: 7, byes: 1, seeding: "vp" },
-  "2025": { teams: 7, byes: 1, seeding: "vp" },
-  "2026": { teams: 7, byes: 1, seeding: "vp" },
+  "2020": { teams: 6, byes: 2 },
+  "2021": { teams: 6, byes: 2 },
+  "2022": { teams: 6, byes: 2 },
+  "2023": { teams: 7, byes: 1 },
+  "2024": { teams: 7, byes: 1 },
+  "2025": { teams: 7, byes: 1 },
+  "2026": { teams: 7, byes: 1 },
 };
 
 // Sleeper league IDs for each season.
