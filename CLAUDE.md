@@ -24,12 +24,16 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/historical.ts` | Cross-season aggregation for the Historical tab, including all-play records |
 | `lib/seeding.ts` | Playoff qualification, seeding, and round pairings |
 | `lib/history.ts` | Cross-season game log, head-to-head, Rivalry Week, record book |
+| `lib/projections.ts` | Seeded Monte Carlo playoff projections for the season in progress |
+| `lib/trades.ts` | Trade log, draft-slot derivation, and multi-hop pick lineage |
 | `lib/archive.ts` | Snapshots a season into a committable JSON fixture |
 | `lib/archive-data.ts` | Loads the committed archive and re-resolves governors on read |
 | `data/archive/*.json` | Committed Sleeper snapshot per season — the offline source of truth |
 | `data/ground-truth.json` | The league spreadsheet's figures, for the audit test |
 | `data/players.json` | Player id to name/position, trimmed to the ids this league has used |
-| `app/page.tsx` | Server component; renders Dashboard or the Historical view |
+| `app/page.tsx` | Season dashboard |
+| `app/history/*` | All-time stats, head-to-head, record book |
+| `app/trades/page.tsx` | Trade tracker |
 | `app/api/league/[leagueId]/season/[season]/route.ts` | Standings as JSON — a thin wrapper over `lib/season.ts` |
 | `app/api/debug/governors/route.ts` | Reports rosters the governor registry cannot resolve. Must be empty |
 | `app/api/debug/archive/route.ts` | Exports raw league data as JSON for offline fixtures |
@@ -39,8 +43,13 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `components/PointsChart.tsx` | Points tab |
 | `components/WeeklyVPGrid.tsx` | Weekly Grid tab |
 | `components/PlayoffBracket.tsx` | Playoffs tab — absolutely-positioned bracket with drawn connectors |
-| `components/HistoricalStats.tsx` | Historical tab |
-| `components/SeasonSelector.tsx` | Season / Historical navigation pills |
+| `components/HistoricalStats.tsx` | All-time stats table |
+| `components/Podium.tsx` | 1st/2nd/3rd beside a completed bracket |
+| `components/PlayoffProjections.tsx` | Odds table, seed heatmap, projected bracket |
+| `components/HeadToHead.tsx` | Two-governor series lookup incl. Rivalry Week |
+| `components/RecordBook.tsx` | All-time and per-position records |
+| `components/TradeTracker.tsx` | Player search over every trade |
+| `components/SiteHeader.tsx` / `SeasonSelector.tsx` | Shared header and nav |
 
 ---
 
@@ -63,6 +72,12 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 - **Round 1:** the top seeds get byes (1 seed with a 7-team field, 1 and 2 with a 6-team field); everyone else pairs highest against lowest — 2v7, 3v6, 4v5.
 - **Later rounds re-seed:** the top surviving seed always draws the lowest.
 - **Third place** is the **better-seeded losing semi-finalist**. Sleeper generates a third-place game, but the league treats it as an exhibition — Eli won it in 2020 and Chris in 2022, yet Sam and DanK are the recorded third-place finishers.
+
+## Draft picks
+
+Sleeper leaves `slot_to_roster_id` empty for this league, and a draft pick's `roster_id` is whoever actually *made* the selection, not whose pick it was. `deriveSlotOwners` in `lib/trades.ts` recovers the original owner by intersecting, across every round, the rosters that could have owned that slot given the traded-pick record. It resolves to a complete one-to-one mapping in all seven seasons — a test asserts that.
+
+Because roster ids are scoped to one season's league, every cross-season hop (and pick trading is nothing else) goes through the governor name.
 
 ## Rivalry Week
 
