@@ -22,7 +22,11 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/season.ts` | `computeSeasonStandings` (pure) and `fetchSeasonStandings` — the one standings pipeline |
 | `lib/playoffs.ts` | Bracket reconstruction, bye detection, third-place capture, podium |
 | `lib/historical.ts` | Cross-season aggregation for the Historical tab, including all-play records |
+| `lib/seeding.ts` | Playoff qualification, seeding, and round pairings |
 | `lib/archive.ts` | Snapshots a season into a committable JSON fixture |
+| `lib/archive-data.ts` | Loads the committed archive and re-resolves governors on read |
+| `data/archive/*.json` | Committed Sleeper snapshot per season — the offline source of truth |
+| `data/ground-truth.json` | The league spreadsheet's figures, for the audit test |
 | `app/page.tsx` | Server component; renders Dashboard or the Historical view |
 | `app/api/league/[leagueId]/season/[season]/route.ts` | Standings as JSON — a thin wrapper over `lib/season.ts` |
 | `app/api/debug/governors/route.ts` | Reports rosters the governor registry cannot resolve. Must be empty |
@@ -48,6 +52,21 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 - **Commissioner overrides:** See `VP_OVERRIDES` in `lib/config.ts`. Use `setResult: "win" | "loss"` to force a result — it recomputes the matchup VP for you — and `vpDelta` only for an award or penalty *on top* of the result. Multiple entries for the same governor and week accumulate.
 
 ---
+
+## Playoffs
+
+- **Field:** 6 teams through 2022, 7 from 2023. See `PLAYOFF_FORMAT` in `lib/config.ts`.
+- **Qualification:** all but the last spot go to the VP standings, with points scored breaking ties. The **final spot is a wildcard** for the highest-scoring team not already in — which is how DanP made it in 2025 on 21 VP while Knute missed on 25, having outscored him 1664.0 to 1660.7.
+- **Seeding:** the wildcard is always seeded last, never re-sorted into the field by VP.
+- **Round 1:** the top seeds get byes (1 seed with a 7-team field, 1 and 2 with a 6-team field); everyone else pairs highest against lowest — 2v7, 3v6, 4v5.
+- **Later rounds re-seed:** the top surviving seed always draws the lowest.
+- **Third place** is the **better-seeded losing semi-finalist**. Sleeper generates a third-place game, but the league treats it as an exhibition — Eli won it in 2020 and Chris in 2022, yet Sam and DanK are the recorded third-place finishers.
+
+## Data sources
+
+Completed seasons are read from `data/archive/`, not from Sleeper. Only `CURRENT_SEASON` hits the network, which is what lets `npm test` reconcile six seasons against the league spreadsheet with no network at all.
+
+To refresh or add a season, hit `/api/debug/archive?season=YYYY` on a deployment that can reach Sleeper, save the JSON, and commit it. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
 
 ## Configuration Guide
 

@@ -1,5 +1,4 @@
 import { LEAGUE_IDS, regularSeasonWeeks } from "./config";
-import { resolveGovernor } from "./governors";
 import {
   getDraftPicks,
   getDrafts,
@@ -35,8 +34,6 @@ export interface ArchiveMatchup {
 export interface ArchiveRoster {
   rosterId: number;
   ownerId: string | null;
-  governorName: string;
-  resolved: boolean;
   username: string | null;
   displayName: string | null;
   teamName: string | null;
@@ -153,17 +150,9 @@ export async function buildSeasonArchive(
   const userMap = new Map(users.map((u) => [u.user_id, u]));
   const archiveRosters: ArchiveRoster[] = rosters.map((roster) => {
     const user = roster.owner_id ? userMap.get(roster.owner_id) : undefined;
-    const resolution = resolveGovernor(season, {
-      rosterId: roster.roster_id,
-      username: user?.username,
-      displayName: user?.display_name,
-      teamName: user?.metadata?.team_name,
-    });
     return {
       rosterId: roster.roster_id,
       ownerId: roster.owner_id ?? null,
-      governorName: resolution.name,
-      resolved: resolution.resolved,
       username: user?.username ?? null,
       displayName: user?.display_name ?? null,
       teamName: user?.metadata?.team_name ?? null,

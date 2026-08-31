@@ -194,7 +194,9 @@ export function aggregateStandings(
 
       standing.totalVP += result.vp;
       standing.totalPoints += result.points;
-      standing.totalPointsAgainst += result.opponentPoints ?? 0;
+      // A finale week pairs teams in Sleeper but is scored league-wide, so its
+      // nominal opponent is not a real one and contributes no points against.
+      if (!result.isFinale) standing.totalPointsAgainst += result.opponentPoints ?? 0;
 
       // Finale and bye weeks are scoring-only: they award VP but no result.
       // This is what keeps a 14-week season at 13 games played.

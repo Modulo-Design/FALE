@@ -1,0 +1,702 @@
+{
+  "finalStandings": {
+    "2020": [
+      "Mark",
+      "Josh",
+      "Sam",
+      "Eli",
+      "Jeremy",
+      "Knute",
+      "DanK",
+      "Johnathan",
+      "Matt",
+      "Peter",
+      "DanP",
+      "Brent",
+      "Chris",
+      "Ben"
+    ],
+    "2021": [
+      "Jeremy",
+      "Chris",
+      "Sam",
+      "Johnathan",
+      "Mark",
+      "Josh",
+      "Brent",
+      "DanP",
+      "Peter",
+      "Eli",
+      "DanK",
+      "Matt",
+      "Knute",
+      "Ben"
+    ],
+    "2022": [
+      "Ben",
+      "Jeremy",
+      "DanK",
+      "Chris",
+      "Brent",
+      "Sam",
+      "Eli",
+      "DanP",
+      "Matt",
+      "Josh",
+      "Knute",
+      "Mark",
+      "Johnathan",
+      "Peter"
+    ],
+    "2023": [
+      "Chris",
+      "Eli",
+      "Johnathan",
+      "Brent",
+      "Ben",
+      "DanK",
+      "Knute",
+      "Mark",
+      "Sam",
+      "Matt",
+      "DanP",
+      "Josh",
+      "Jeremy",
+      "Peter"
+    ],
+    "2024": [
+      "Jeremy",
+      "Peter",
+      "Knute",
+      "Chris",
+      "Sam",
+      "Johnathan",
+      "Brent",
+      "Matt",
+      "Eli",
+      "Josh",
+      "Ben",
+      "DanP",
+      "Mark",
+      "DanK"
+    ],
+    "2025": [
+      "Ben",
+      "Brent",
+      "Jeremy",
+      "Matt",
+      "Johnathan",
+      "Eli",
+      "DanP",
+      "Knute",
+      "Peter",
+      "Josh",
+      "DanK",
+      "Sam",
+      "Mark",
+      "Chris"
+    ]
+  },
+  "seasons": {
+    "2020": {
+      "Ben": {
+        "losses": 12,
+        "pointsAgainst": 1388.6,
+        "pointsFor": 78.4,
+        "vp": 2,
+        "wins": 1
+      },
+      "Brent": {
+        "losses": 10,
+        "pointsAgainst": 1185.5,
+        "pointsFor": 401.6,
+        "vp": 7,
+        "wins": 3
+      },
+      "Chris": {
+        "losses": 12,
+        "pointsAgainst": 1332.2,
+        "pointsFor": 179.5,
+        "vp": 2,
+        "wins": 1
+      },
+      "DanK": {
+        "losses": 5,
+        "pointsAgainst": 1118.0,
+        "pointsFor": 1561.4,
+        "vp": 24,
+        "wins": 8
+      },
+      "DanP": {
+        "losses": 10,
+        "pointsAgainst": 1451.8,
+        "pointsFor": 879.7,
+        "vp": 9,
+        "wins": 3
+      },
+      "Eli": {
+        "losses": 4,
+        "pointsAgainst": 1096.0,
+        "pointsFor": 1697.3,
+        "vp": 28,
+        "wins": 9
+      },
+      "Jeremy": {
+        "losses": 3,
+        "pointsAgainst": 1155.2,
+        "pointsFor": 1804.1,
+        "vp": 31,
+        "wins": 10
+      },
+      "Johnathan": {
+        "losses": 6,
+        "pointsAgainst": 1211.0,
+        "pointsFor": 1569.7,
+        "vp": 21,
+        "wins": 7
+      },
+      "Josh": {
+        "losses": 3,
+        "pointsAgainst": 1140.5,
+        "pointsFor": 1889.1,
+        "vp": 33,
+        "wins": 10
+      },
+      "Knute": {
+        "losses": 3,
+        "pointsAgainst": 1165.6,
+        "pointsFor": 1675.0,
+        "vp": 31,
+        "wins": 10
+      },
+      "Mark": {
+        "losses": 2,
+        "pointsAgainst": 1258.1,
+        "pointsFor": 1798.9,
+        "vp": 34,
+        "wins": 11
+      },
+      "Matt": {
+        "losses": 8,
+        "pointsAgainst": 1371.1,
+        "pointsFor": 1015.0,
+        "vp": 12,
+        "wins": 5
+      },
+      "Peter": {
+        "losses": 9,
+        "pointsAgainst": 1326.7,
+        "pointsFor": 1005.2,
+        "vp": 11,
+        "wins": 4
+      },
+      "Sam": {
+        "losses": 4,
+        "pointsAgainst": 1198.3,
+        "pointsFor": 1843.7,
+        "vp": 28,
+        "wins": 9
+      }
+    },
+    "2021": {
+      "Ben": {
+        "losses": 12,
+        "pointsAgainst": 1738.0,
+        "pointsFor": 1328.5,
+        "vp": 2,
+        "wins": 1
+      },
+      "Brent": {
+        "losses": 5,
+        "pointsAgainst": 1584.9,
+        "pointsFor": 1671.7,
+        "vp": 26,
+        "wins": 8
+      },
+      "Chris": {
+        "losses": 3,
+        "pointsAgainst": 1671.7,
+        "pointsFor": 2071.7,
+        "vp": 35,
+        "wins": 10
+      },
+      "DanK": {
+        "losses": 8,
+        "pointsAgainst": 1483.6,
+        "pointsFor": 1319.9,
+        "vp": 13,
+        "wins": 5
+      },
+      "DanP": {
+        "losses": 6,
+        "pointsAgainst": 1525.6,
+        "pointsFor": 1590.8,
+        "vp": 18,
+        "wins": 7
+      },
+      "Eli": {
+        "losses": 9,
+        "pointsAgainst": 1667.0,
+        "pointsFor": 1711.3,
+        "vp": 19,
+        "wins": 4
+      },
+      "Jeremy": {
+        "losses": 2,
+        "pointsAgainst": 1560.4,
+        "pointsFor": 2279.7,
+        "vp": 36,
+        "wins": 11
+      },
+      "Johnathan": {
+        "losses": 5,
+        "pointsAgainst": 1516.8,
+        "pointsFor": 1995.6,
+        "vp": 27,
+        "wins": 8
+      },
+      "Josh": {
+        "losses": 9,
+        "pointsAgainst": 1749.4,
+        "pointsFor": 1730.4,
+        "vp": 13,
+        "wins": 4
+      },
+      "Knute": {
+        "losses": 10,
+        "pointsAgainst": 1462.8,
+        "pointsFor": 1228.0,
+        "vp": 7,
+        "wins": 3
+      },
+      "Mark": {
+        "losses": 3,
+        "pointsAgainst": 1538.4,
+        "pointsFor": 1988.1,
+        "vp": 34,
+        "wins": 10
+      },
+      "Matt": {
+        "losses": 9,
+        "pointsAgainst": 1682.8,
+        "pointsFor": 1435.9,
+        "vp": 12,
+        "wins": 4
+      },
+      "Peter": {
+        "losses": 7,
+        "pointsAgainst": 1577.3,
+        "pointsFor": 1641.1,
+        "vp": 17,
+        "wins": 6
+      },
+      "Sam": {
+        "losses": 3,
+        "pointsAgainst": 1540.8,
+        "pointsFor": 2065.1,
+        "vp": 35,
+        "wins": 10
+      }
+    },
+    "2022": {
+      "Ben": {
+        "losses": 8,
+        "pointsAgainst": 1638.7,
+        "pointsFor": 1770.4,
+        "vp": 23,
+        "wins": 5
+      },
+      "Brent": {
+        "losses": 4,
+        "pointsAgainst": 1309.8,
+        "pointsFor": 1978.8,
+        "vp": 30,
+        "wins": 9
+      },
+      "Chris": {
+        "losses": 3,
+        "pointsAgainst": 1305.9,
+        "pointsFor": 1907.6,
+        "vp": 30,
+        "wins": 10
+      },
+      "DanK": {
+        "losses": 2,
+        "pointsAgainst": 1391.0,
+        "pointsFor": 1985.6,
+        "vp": 38,
+        "wins": 11
+      },
+      "DanP": {
+        "losses": 5,
+        "pointsAgainst": 1338.3,
+        "pointsFor": 1500.6,
+        "vp": 20,
+        "wins": 8
+      },
+      "Eli": {
+        "losses": 6,
+        "pointsAgainst": 1377.1,
+        "pointsFor": 1646.5,
+        "vp": 23,
+        "wins": 7
+      },
+      "Jeremy": {
+        "losses": 2,
+        "pointsAgainst": 1394.8,
+        "pointsFor": 2132.2,
+        "vp": 37,
+        "wins": 11
+      },
+      "Johnathan": {
+        "losses": 12,
+        "pointsAgainst": 1424.6,
+        "pointsFor": 467.9,
+        "vp": 6,
+        "wins": 1
+      },
+      "Josh": {
+        "losses": 7,
+        "pointsAgainst": 1332.1,
+        "pointsFor": 1467.0,
+        "vp": 17,
+        "wins": 6
+      },
+      "Knute": {
+        "losses": 9,
+        "pointsAgainst": 1380.8,
+        "pointsFor": 1476.4,
+        "vp": 11,
+        "wins": 4
+      },
+      "Mark": {
+        "losses": 9,
+        "pointsAgainst": 1538.7,
+        "pointsFor": 1177.7,
+        "vp": 10,
+        "wins": 4
+      },
+      "Matt": {
+        "losses": 6,
+        "pointsAgainst": 1372.4,
+        "pointsFor": 1411.2,
+        "vp": 20,
+        "wins": 7
+      },
+      "Peter": {
+        "losses": 13,
+        "pointsAgainst": 1373.2,
+        "pointsFor": 290.5,
+        "vp": 0,
+        "wins": 0
+      },
+      "Sam": {
+        "losses": 5,
+        "pointsAgainst": 1279.7,
+        "pointsFor": 1822.3,
+        "vp": 29,
+        "wins": 8
+      }
+    },
+    "2023": {
+      "Ben": {
+        "losses": 3,
+        "pointsAgainst": 1388.3,
+        "pointsFor": 2079.6,
+        "vp": 35,
+        "wins": 10
+      },
+      "Brent": {
+        "losses": 4,
+        "pointsAgainst": 1530.7,
+        "pointsFor": 1859.7,
+        "vp": 28,
+        "wins": 9
+      },
+      "Chris": {
+        "losses": 3,
+        "pointsAgainst": 1479.3,
+        "pointsFor": 2050.0,
+        "vp": 35,
+        "wins": 10
+      },
+      "DanK": {
+        "losses": 4,
+        "pointsAgainst": 1523.2,
+        "pointsFor": 1828.8,
+        "vp": 27,
+        "wins": 9
+      },
+      "DanP": {
+        "losses": 8,
+        "pointsAgainst": 1548.7,
+        "pointsFor": 1307.2,
+        "vp": 11,
+        "wins": 5
+      },
+      "Eli": {
+        "losses": 6,
+        "pointsAgainst": 1429.6,
+        "pointsFor": 1726.3,
+        "vp": 26,
+        "wins": 7
+      },
+      "Jeremy": {
+        "losses": 10,
+        "pointsAgainst": 1595.9,
+        "pointsFor": 850.5,
+        "vp": 10,
+        "wins": 3
+      },
+      "Johnathan": {
+        "losses": 2,
+        "pointsAgainst": 1351.8,
+        "pointsFor": 2041.8,
+        "vp": 37,
+        "wins": 11
+      },
+      "Josh": {
+        "losses": 9,
+        "pointsAgainst": 1550.6,
+        "pointsFor": 1298.7,
+        "vp": 10,
+        "wins": 4
+      },
+      "Knute": {
+        "losses": 6,
+        "pointsAgainst": 1546.2,
+        "pointsFor": 1759.9,
+        "vp": 26,
+        "wins": 7
+      },
+      "Mark": {
+        "losses": 8,
+        "pointsAgainst": 1452.1,
+        "pointsFor": 1421.8,
+        "vp": 17,
+        "wins": 5
+      },
+      "Matt": {
+        "losses": 9,
+        "pointsAgainst": 1552.2,
+        "pointsFor": 1119.8,
+        "vp": 12,
+        "wins": 4
+      },
+      "Peter": {
+        "losses": 10,
+        "pointsAgainst": 1485.2,
+        "pointsFor": 1385.8,
+        "vp": 8,
+        "wins": 3
+      },
+      "Sam": {
+        "losses": 9,
+        "pointsAgainst": 1310.1,
+        "pointsFor": 1489.5,
+        "vp": 12,
+        "wins": 4
+      }
+    },
+    "2024": {
+      "Ben": {
+        "losses": 8,
+        "pointsAgainst": 1515.6,
+        "pointsFor": 1480.3,
+        "vp": 14,
+        "wins": 5
+      },
+      "Brent": {
+        "losses": 5,
+        "pointsAgainst": 1594.6,
+        "pointsFor": 1675.4,
+        "vp": 26,
+        "wins": 8
+      },
+      "Chris": {
+        "losses": 5,
+        "pointsAgainst": 1545.1,
+        "pointsFor": 1728.4,
+        "vp": 27,
+        "wins": 8
+      },
+      "DanK": {
+        "losses": 12,
+        "pointsAgainst": 1486.6,
+        "pointsFor": 919.1,
+        "vp": 2,
+        "wins": 1
+      },
+      "DanP": {
+        "losses": 9,
+        "pointsAgainst": 1535.1,
+        "pointsFor": 1329.7,
+        "vp": 10,
+        "wins": 4
+      },
+      "Eli": {
+        "losses": 7,
+        "pointsAgainst": 1583.5,
+        "pointsFor": 1583.8,
+        "vp": 19,
+        "wins": 6
+      },
+      "Jeremy": {
+        "losses": 1,
+        "pointsAgainst": 1381.6,
+        "pointsFor": 1967.6,
+        "vp": 39,
+        "wins": 12
+      },
+      "Johnathan": {
+        "losses": 6,
+        "pointsAgainst": 1595.5,
+        "pointsFor": 1736.7,
+        "vp": 26,
+        "wins": 7
+      },
+      "Josh": {
+        "losses": 8,
+        "pointsAgainst": 1812.9,
+        "pointsFor": 1526.1,
+        "vp": 16,
+        "wins": 5
+      },
+      "Knute": {
+        "losses": 5,
+        "pointsAgainst": 1608.8,
+        "pointsFor": 1828.3,
+        "vp": 30,
+        "wins": 8
+      },
+      "Mark": {
+        "losses": 11,
+        "pointsAgainst": 1616.6,
+        "pointsFor": 1084.8,
+        "vp": 5,
+        "wins": 2
+      },
+      "Matt": {
+        "losses": 5,
+        "pointsAgainst": 1473.7,
+        "pointsFor": 1455.6,
+        "vp": 21,
+        "wins": 8
+      },
+      "Peter": {
+        "losses": 4,
+        "pointsAgainst": 1507.3,
+        "pointsFor": 1754.7,
+        "vp": 31,
+        "wins": 9
+      },
+      "Sam": {
+        "losses": 5,
+        "pointsAgainst": 1469.2,
+        "pointsFor": 1655.7,
+        "vp": 28,
+        "wins": 8
+      }
+    },
+    "2025": {
+      "Ben": {
+        "losses": 1,
+        "pointsAgainst": 1231.0,
+        "pointsFor": 1791.8,
+        "vp": 38,
+        "wins": 12
+      },
+      "Brent": {
+        "losses": 4,
+        "pointsAgainst": 1522.0,
+        "pointsFor": 1901.2,
+        "vp": 32,
+        "wins": 9
+      },
+      "Chris": {
+        "losses": 11,
+        "pointsAgainst": 1508.5,
+        "pointsFor": 727.4,
+        "vp": 2,
+        "wins": 2
+      },
+      "DanK": {
+        "losses": 9,
+        "pointsAgainst": 1497.9,
+        "pointsFor": 1205.8,
+        "vp": 11,
+        "wins": 4
+      },
+      "DanP": {
+        "losses": 7,
+        "pointsAgainst": 1456.5,
+        "pointsFor": 1664.0,
+        "vp": 21,
+        "wins": 6
+      },
+      "Eli": {
+        "losses": 5,
+        "pointsAgainst": 1426.6,
+        "pointsFor": 1861.7,
+        "vp": 29,
+        "wins": 8
+      },
+      "Jeremy": {
+        "losses": 3,
+        "pointsAgainst": 1368.3,
+        "pointsFor": 2022.6,
+        "vp": 34,
+        "wins": 10
+      },
+      "Johnathan": {
+        "losses": 4,
+        "pointsAgainst": 1421.0,
+        "pointsFor": 2098.3,
+        "vp": 33,
+        "wins": 9
+      },
+      "Josh": {
+        "losses": 8,
+        "pointsAgainst": 1463.8,
+        "pointsFor": 1456.1,
+        "vp": 15,
+        "wins": 5
+      },
+      "Knute": {
+        "losses": 4,
+        "pointsAgainst": 1371.0,
+        "pointsFor": 1660.7,
+        "vp": 25,
+        "wins": 9
+      },
+      "Mark": {
+        "losses": 11,
+        "pointsAgainst": 1497.4,
+        "pointsFor": 688.7,
+        "vp": 4,
+        "wins": 2
+      },
+      "Matt": {
+        "losses": 5,
+        "pointsAgainst": 1577.1,
+        "pointsFor": 1853.8,
+        "vp": 29,
+        "wins": 8
+      },
+      "Peter": {
+        "losses": 8,
+        "pointsAgainst": 1478.1,
+        "pointsFor": 1554.8,
+        "vp": 15,
+        "wins": 5
+      },
+      "Sam": {
+        "losses": 11,
+        "pointsAgainst": 1555.9,
+        "pointsFor": 1274.1,
+        "vp": 6,
+        "wins": 2
+      }
+    }
+  }
+}

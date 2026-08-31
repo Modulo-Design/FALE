@@ -1,10 +1,20 @@
 import {
+  CURRENT_SEASON,
   LEAGUE_IDS,
+  PLAYOFF_FORMAT,
   VP_OVERRIDES,
   regularSeasonWeeks,
 } from "./config";
+import {
+  archivePlayoffPoints,
+  archiveToSeasonInput,
+  hasArchive,
+  loadSeasonArchive,
+  resolveArchiveRosters,
+} from "./archive-data";
 import { resolveGovernor } from "./governors";
-import { fetchPlayoffBracket } from "./playoffs";
+import { buildPlayoffBracket, fetchPlayoffBracket } from "./playoffs";
+import { seedPlayoffField } from "./seeding";
 import {
   getLeague,
   getMatchups,
@@ -119,9 +129,49 @@ export function computeSeasonStandings(input: SeasonInput): SeasonStandings {
   };
 }
 
+/** Playoff seed by roster id, used to rank the beaten semi-finalists. */
+function seedMap(season: string, standings: SeasonStandings): Map<number, number> | undefined {
+  const format = PLAYOFF_FORMAT[season];
+  if (!format) return undefined;
+  return new Map(
+    seedPlayoffField(standings.teams, format).map((s) => [s.rosterId, s.seed])
+  );
+}
+
 export interface FetchSeasonOptions {
   /** Skip the playoff bracket when only regular-season data is needed. */
   includePlayoffs?: boolean;
+}
+
+/**
+ * Standings for a completed season, computed from the committed archive.
+ *
+ * Past seasons never change, so reading them from disk keeps the dashboard off
+ * the network entirely and lets the audit and the tests run in CI.
+ */
+export async function archivedSeasonStandings(
+  season: string,
+  options: FetchSeasonOptions = {}
+): Promise<SeasonStandings | null> {
+  const archive = await loadSeasonArchive(season);
+  if (!archive) return null;
+
+  const standings = computeSeasonStandings(archiveToSeasonInput(archive));
+  if (options.includePlayoffs === false) return standings;
+
+  const rosterToGovernor = new Map(
+    resolveArchiveRosters(season, archive.rosters).map((r) => [r.rosterId, r.governorName])
+  );
+  const playoffs = buildPlayoffBracket({
+    season,
+    playoffWeekStart: archive.playoffWeekStart,
+    bracket: archive.winnersBracket,
+    rosterToGovernor,
+    weekPointsMaps: archivePlayoffPoints(archive),
+    seedByRoster: seedMap(season, standings),
+  });
+
+  return { ...standings, playoffs };
 }
 
 /** Fetch a season from Sleeper and compute its standings. */
@@ -132,6 +182,12 @@ export async function fetchSeasonStandings(
   const { includePlayoffs = true } = options;
   const leagueId = LEAGUE_IDS[season];
   if (!leagueId) throw new Error(`No league id configured for season ${season}`);
+
+  // Only the season in progress needs live data.
+  if (season !== CURRENT_SEASON && hasArchive(season)) {
+    const archived = await archivedSeasonStandings(season, options);
+    if (archived) return archived;
+  }
 
   const [league, rosters, users, playoffs] = await Promise.all([
     getLeague(leagueId),

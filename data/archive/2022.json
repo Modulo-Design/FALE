@@ -1,0 +1,6696 @@
+{
+ "draft": {
+  "draftId": "785171302272106497",
+  "picks": [
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Breece",
+     "injury_status": "",
+     "last_name": "Hall",
+     "news_updated": "1651275628504",
+     "number": "20",
+     "player_id": "8155",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYJ",
+     "years_exp": "0"
+    },
+    "pick_no": 1,
+    "picked_by": "205868100694835200",
+    "player_id": "8155",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Drake",
+     "injury_status": "",
+     "last_name": "London",
+     "news_updated": "1652469621644",
+     "number": "5",
+     "player_id": "8112",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "ATL",
+     "years_exp": "0"
+    },
+    "pick_no": 2,
+    "picked_by": "569269991905017856",
+    "player_id": "8112",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jameson",
+     "injury_status": "Questionable",
+     "last_name": "Williams",
+     "news_updated": "1653062421464",
+     "number": "18",
+     "player_id": "8148",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "DET",
+     "years_exp": "0"
+    },
+    "pick_no": 3,
+    "picked_by": "575783941687578624",
+    "player_id": "8148",
+    "reactions": null,
+    "roster_id": 14,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Garrett",
+     "injury_status": "",
+     "last_name": "Wilson",
+     "news_updated": "1652914562127",
+     "number": "17",
+     "player_id": "8146",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYJ",
+     "years_exp": "0"
+    },
+    "pick_no": 4,
+    "picked_by": "342458180787380224",
+    "player_id": "8146",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Chris",
+     "injury_status": "",
+     "last_name": "Olave",
+     "news_updated": "1652501724403",
+     "number": "12",
+     "player_id": "8144",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NO",
+     "years_exp": "0"
+    },
+    "pick_no": 5,
+    "picked_by": "569269991905017856",
+    "player_id": "8144",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Skyy",
+     "injury_status": "Questionable",
+     "last_name": "Moore",
+     "news_updated": "1651946435689",
+     "number": "24",
+     "player_id": "8168",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "KC",
+     "years_exp": "0"
+    },
+    "pick_no": 6,
+    "picked_by": "518496523665043456",
+    "player_id": "8168",
+    "reactions": null,
+    "roster_id": 7,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Ken",
+     "injury_status": "",
+     "last_name": "Walker",
+     "news_updated": "1651276228545",
+     "number": "9",
+     "player_id": "8151",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SEA",
+     "years_exp": "0"
+    },
+    "pick_no": 7,
+    "picked_by": "526559230927839232",
+    "player_id": "8151",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kenny",
+     "injury_status": "",
+     "last_name": "Pickett",
+     "news_updated": "1651418723026",
+     "number": "8",
+     "player_id": "8160",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PIT",
+     "years_exp": "0"
+    },
+    "pick_no": 8,
+    "picked_by": "518496523665043456",
+    "player_id": "8160",
+    "reactions": null,
+    "roster_id": 7,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Malik",
+     "injury_status": "",
+     "last_name": "Willis",
+     "news_updated": "1652738142757",
+     "number": "7",
+     "player_id": "8161",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "years_exp": "0"
+    },
+    "pick_no": 9,
+    "picked_by": "205868100694835200",
+    "player_id": "8161",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Treylon",
+     "injury_status": "",
+     "last_name": "Burks",
+     "news_updated": "1654233939001",
+     "number": "16",
+     "player_id": "8135",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "years_exp": "0"
+    },
+    "pick_no": 10,
+    "picked_by": "518496523665043456",
+    "player_id": "8135",
+    "reactions": null,
+    "roster_id": 7,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jahan",
+     "injury_status": "",
+     "last_name": "Dotson",
+     "news_updated": "1652905561615",
+     "number": "1",
+     "player_id": "8119",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "WAS",
+     "years_exp": "0"
+    },
+    "pick_no": 11,
+    "picked_by": "342458180787380224",
+    "player_id": "8119",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Christian",
+     "injury_status": "",
+     "last_name": "Watson",
+     "news_updated": "1651275028293",
+     "number": "9",
+     "player_id": "8167",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "GB",
+     "years_exp": "0"
+    },
+    "pick_no": 12,
+    "picked_by": "575783941687578624",
+    "player_id": "8167",
+    "reactions": null,
+    "roster_id": 14,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "George",
+     "injury_status": "",
+     "last_name": "Pickens",
+     "news_updated": "1652505324929",
+     "number": "14",
+     "player_id": "8137",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PIT",
+     "years_exp": "0"
+    },
+    "pick_no": 13,
+    "picked_by": "526559230927839232",
+    "player_id": "8137",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Matt",
+     "injury_status": "Questionable",
+     "last_name": "Corral",
+     "news_updated": "1654111231535",
+     "number": "9",
+     "player_id": "8164",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CAR",
+     "years_exp": "0"
+    },
+    "pick_no": 14,
+    "picked_by": "569269991905017856",
+    "player_id": "8164",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 1
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "John",
+     "injury_status": "Questionable",
+     "last_name": "Metchie",
+     "news_updated": "1654224338230",
+     "number": "88",
+     "player_id": "8147",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "HOU",
+     "years_exp": "0"
+    },
+    "pick_no": 15,
+    "picked_by": "518496523665043456",
+    "player_id": "8147",
+    "reactions": null,
+    "roster_id": 7,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "James",
+     "injury_status": "",
+     "last_name": "Cook",
+     "news_updated": "1652502924453",
+     "number": "28",
+     "player_id": "8138",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "BUF",
+     "years_exp": "0"
+    },
+    "pick_no": 16,
+    "picked_by": "78601862768902144",
+    "player_id": "8138",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Rachaad",
+     "injury_status": "",
+     "last_name": "White",
+     "news_updated": "1653671417129",
+     "number": "29",
+     "player_id": "8136",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TB",
+     "years_exp": "0"
+    },
+    "pick_no": 17,
+    "picked_by": "575783941687578624",
+    "player_id": "8136",
+    "reactions": null,
+    "roster_id": 14,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Desmond",
+     "injury_status": "",
+     "last_name": "Ridder",
+     "news_updated": "1651284333555",
+     "number": "4",
+     "player_id": "8159",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "ATL",
+     "years_exp": "0"
+    },
+    "pick_no": 18,
+    "picked_by": "575686957407977472",
+    "player_id": "8159",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jalen",
+     "injury_status": "Questionable",
+     "last_name": "Tolbert",
+     "news_updated": "1654201238345",
+     "number": "18",
+     "player_id": "8117",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "DAL",
+     "years_exp": "0"
+    },
+    "pick_no": 19,
+    "picked_by": "569269991905017856",
+    "player_id": "8117",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Alec",
+     "injury_status": "",
+     "last_name": "Pierce",
+     "news_updated": "1652741743065",
+     "number": "14",
+     "player_id": "8142",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "IND",
+     "years_exp": "0"
+    },
+    "pick_no": 20,
+    "picked_by": "569269991905017856",
+    "player_id": "8142",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Dameon",
+     "injury_status": "",
+     "last_name": "Pierce",
+     "news_updated": "1651335617877",
+     "number": "31",
+     "player_id": "8129",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "HOU",
+     "years_exp": "0"
+    },
+    "pick_no": 21,
+    "picked_by": "526559230927839232",
+    "player_id": "8129",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Trey",
+     "injury_status": "",
+     "last_name": "McBride",
+     "news_updated": "1652844351799",
+     "number": "85",
+     "player_id": "8130",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "ARI",
+     "years_exp": "0"
+    },
+    "pick_no": 22,
+    "picked_by": "518305164308611072",
+    "player_id": "8130",
+    "reactions": null,
+    "roster_id": 3,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "David",
+     "injury_status": "",
+     "last_name": "Bell",
+     "news_updated": "1654296643953",
+     "number": "18",
+     "player_id": "8118",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CLE",
+     "years_exp": "0"
+    },
+    "pick_no": 23,
+    "picked_by": "526559230927839232",
+    "player_id": "8118",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Romeo",
+     "injury_status": "",
+     "last_name": "Doubs",
+     "news_updated": "1651340417497",
+     "number": "87",
+     "player_id": "8121",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "GB",
+     "years_exp": "0"
+    },
+    "pick_no": 24,
+    "picked_by": "569269991905017856",
+    "player_id": "8121",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Isaiah",
+     "injury_status": "",
+     "last_name": "Spiller",
+     "news_updated": "1652197553978",
+     "number": "28",
+     "player_id": "8153",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAC",
+     "years_exp": "0"
+    },
+    "pick_no": 25,
+    "picked_by": "575686957407977472",
+    "player_id": "8153",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Wan'Dale",
+     "injury_status": "",
+     "last_name": "Robinson",
+     "news_updated": "1651277428625",
+     "number": "17",
+     "player_id": "8126",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYG",
+     "years_exp": "0"
+    },
+    "pick_no": 26,
+    "picked_by": "575686957407977472",
+    "player_id": "8126",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jelani",
+     "injury_status": "",
+     "last_name": "Woods",
+     "news_updated": "1651284333555",
+     "number": "80",
+     "player_id": "8219",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "IND",
+     "years_exp": "0"
+    },
+    "pick_no": 27,
+    "picked_by": "526559230927839232",
+    "player_id": "8219",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tyler",
+     "injury_status": "",
+     "last_name": "Allgeier",
+     "news_updated": "1651699514191",
+     "number": "25",
+     "player_id": "8132",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "ATL",
+     "years_exp": "0"
+    },
+    "pick_no": 28,
+    "picked_by": "342458180787380224",
+    "player_id": "8132",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 2
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Brian",
+     "injury_status": "",
+     "last_name": "Robinson",
+     "news_updated": "1651289136793",
+     "number": "8",
+     "player_id": "8154",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "WAS",
+     "years_exp": "0"
+    },
+    "pick_no": 29,
+    "picked_by": "518305164308611072",
+    "player_id": "8154",
+    "reactions": null,
+    "roster_id": 3,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Sam",
+     "injury_status": "",
+     "last_name": "Howell",
+     "news_updated": "1651342223399",
+     "number": "14",
+     "player_id": "8162",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "WAS",
+     "years_exp": "0"
+    },
+    "pick_no": 30,
+    "picked_by": "466435860930228224",
+    "player_id": "8162",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Daniel",
+     "injury_status": "",
+     "last_name": "Bellinger",
+     "news_updated": "1653489627860",
+     "number": "45",
+     "player_id": "8225",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYG",
+     "years_exp": "0"
+    },
+    "pick_no": 31,
+    "picked_by": "575783941687578624",
+    "player_id": "8225",
+    "reactions": null,
+    "roster_id": 14,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tyquan",
+     "injury_status": "",
+     "last_name": "Thornton",
+     "news_updated": "1651279529598",
+     "number": "51",
+     "player_id": "8188",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NE",
+     "years_exp": "0"
+    },
+    "pick_no": 32,
+    "picked_by": "575686957407977472",
+    "player_id": "8188",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tyrion",
+     "injury_status": "",
+     "last_name": "Davis-Price",
+     "news_updated": "1654805638332",
+     "number": "32",
+     "player_id": "8211",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SF",
+     "years_exp": "0"
+    },
+    "pick_no": 33,
+    "picked_by": "526559230927839232",
+    "player_id": "8211",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Khalil",
+     "injury_status": "Questionable",
+     "last_name": "Shakir",
+     "news_updated": "1654624561597",
+     "number": "10",
+     "player_id": "8134",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "BUF",
+     "years_exp": "0"
+    },
+    "pick_no": 34,
+    "picked_by": "575686957407977472",
+    "player_id": "8134",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Hassan",
+     "injury_status": "",
+     "last_name": "Haskins",
+     "news_updated": "1651340121828",
+     "number": "28",
+     "player_id": "8123",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "years_exp": "0"
+    },
+    "pick_no": 35,
+    "picked_by": "526559230927839232",
+    "player_id": "8123",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Calvin",
+     "injury_status": "",
+     "last_name": "Austin",
+     "news_updated": "1651341022396",
+     "number": "19",
+     "player_id": "8125",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PIT",
+     "years_exp": "0"
+    },
+    "pick_no": 36,
+    "picked_by": "466435860930228224",
+    "player_id": "8125",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Velus",
+     "injury_status": "",
+     "last_name": "Jones",
+     "news_updated": "1651283732484",
+     "number": "12",
+     "player_id": "8223",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CHI",
+     "years_exp": "0"
+    },
+    "pick_no": 37,
+    "picked_by": "575777118798086144",
+    "player_id": "8223",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jake",
+     "injury_status": "",
+     "last_name": "Ferguson",
+     "news_updated": "1651339817345",
+     "number": "48",
+     "player_id": "8110",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "DAL",
+     "years_exp": "0"
+    },
+    "pick_no": 38,
+    "picked_by": "466435860930228224",
+    "player_id": "8110",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Justyn",
+     "injury_status": "",
+     "last_name": "Ross",
+     "news_updated": "1651601410625",
+     "number": "8",
+     "player_id": "8140",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "KC",
+     "years_exp": "0"
+    },
+    "pick_no": 39,
+    "picked_by": "466435860930228224",
+    "player_id": "8140",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Pierre",
+     "injury_status": "",
+     "last_name": "Strong",
+     "news_updated": "1651339219265",
+     "number": "54",
+     "player_id": "8116",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NE",
+     "years_exp": "0"
+    },
+    "pick_no": 40,
+    "picked_by": "78601862768902144",
+    "player_id": "8116",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Greg",
+     "injury_status": "",
+     "last_name": "Dulcich",
+     "news_updated": "1651285534371",
+     "number": "80",
+     "player_id": "8172",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "DEN",
+     "years_exp": "0"
+    },
+    "pick_no": 41,
+    "picked_by": "518305164308611072",
+    "player_id": "8172",
+    "reactions": null,
+    "roster_id": 3,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kyle",
+     "injury_status": "",
+     "last_name": "Philips",
+     "news_updated": "1651345818111",
+     "number": "18",
+     "player_id": "8171",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "years_exp": "0"
+    },
+    "pick_no": 42,
+    "picked_by": "466435860930228224",
+    "player_id": "8171",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 3
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Tyler",
+     "injury_status": "",
+     "last_name": "Badie",
+     "news_updated": "1651350926863",
+     "number": "30",
+     "player_id": "8208",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "BAL",
+     "years_exp": "0"
+    },
+    "pick_no": 43,
+    "picked_by": "569305665820815360",
+    "player_id": "8208",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Keaontay",
+     "injury_status": "",
+     "last_name": "Ingram",
+     "news_updated": "1651351525470",
+     "number": "30",
+     "player_id": "8221",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "ARI",
+     "years_exp": "0"
+    },
+    "pick_no": 44,
+    "picked_by": "78601862768902144",
+    "player_id": "8221",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Cade",
+     "injury_status": "Questionable",
+     "last_name": "Otton",
+     "news_updated": "1652302802186",
+     "number": "88",
+     "player_id": "8111",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TB",
+     "years_exp": "0"
+    },
+    "pick_no": 45,
+    "picked_by": "518278124247261184",
+    "player_id": "8111",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Isaih",
+     "injury_status": "",
+     "last_name": "Pacheco",
+     "news_updated": "1651358727919",
+     "number": "10",
+     "player_id": "8205",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "KC",
+     "years_exp": "0"
+    },
+    "pick_no": 46,
+    "picked_by": "575686957407977472",
+    "player_id": "8205",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Isaiah",
+     "injury_status": "",
+     "last_name": "Likely",
+     "news_updated": "1651341322896",
+     "number": "80",
+     "player_id": "8131",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "BAL",
+     "years_exp": "0"
+    },
+    "pick_no": 47,
+    "picked_by": "518278124247261184",
+    "player_id": "8131",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Teagan",
+     "injury_status": "",
+     "last_name": "Quitoriano",
+     "news_updated": "1651346717985",
+     "number": "84",
+     "player_id": "8227",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "HOU",
+     "years_exp": "0"
+    },
+    "pick_no": 48,
+    "picked_by": "569269991905017856",
+    "player_id": "8227",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Carson",
+     "injury_status": "",
+     "last_name": "Strong",
+     "news_updated": "1654805572794",
+     "number": "8",
+     "player_id": "8158",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PHI",
+     "years_exp": "0"
+    },
+    "pick_no": 49,
+    "picked_by": "526559230927839232",
+    "player_id": "8158",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Danny",
+     "injury_status": "",
+     "last_name": "Gray",
+     "news_updated": "1654805544051",
+     "number": "86",
+     "player_id": "8176",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SF",
+     "years_exp": "0"
+    },
+    "pick_no": 50,
+    "picked_by": "569305665820815360",
+    "player_id": "8176",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Samori",
+     "injury_status": "",
+     "last_name": "Toure",
+     "news_updated": "1651359919029",
+     "number": "83",
+     "player_id": "8235",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "GB",
+     "years_exp": "0"
+    },
+    "pick_no": 51,
+    "picked_by": "466435860930228224",
+    "player_id": "8235",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Bo",
+     "injury_status": "Questionable",
+     "last_name": "Melton",
+     "news_updated": "1654809916458",
+     "number": "81",
+     "player_id": "8204",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "SEA",
+     "years_exp": "0"
+    },
+    "pick_no": 52,
+    "picked_by": "466435860930228224",
+    "player_id": "8204",
+    "reactions": null,
+    "roster_id": 2,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Bailey",
+     "injury_status": "",
+     "last_name": "Zappe",
+     "news_updated": "1651341322884",
+     "number": "55",
+     "player_id": "8157",
+     "position": "QB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NE",
+     "years_exp": "0"
+    },
+    "pick_no": 53,
+    "picked_by": "575686957407977472",
+    "player_id": "8157",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Charlie",
+     "injury_status": "",
+     "last_name": "Kolar",
+     "news_updated": "1651339817348",
+     "number": "88",
+     "player_id": "8127",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "BAL",
+     "years_exp": "0"
+    },
+    "pick_no": 54,
+    "picked_by": "569305665820815360",
+    "player_id": "8127",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kyren",
+     "injury_status": "Questionable",
+     "last_name": "Williams",
+     "news_updated": "1654626061690",
+     "number": "23",
+     "player_id": "8150",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "LAR",
+     "years_exp": "0"
+    },
+    "pick_no": 55,
+    "picked_by": "89774670156808192",
+    "player_id": "8150",
+    "reactions": null,
+    "roster_id": 1,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Snoop",
+     "injury_status": "",
+     "last_name": "Conner",
+     "news_updated": "1651344017644",
+     "number": "24",
+     "player_id": "8179",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "JAX",
+     "years_exp": "0"
+    },
+    "pick_no": 56,
+    "picked_by": "78601862768902144",
+    "player_id": "8179",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 4
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 1,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jerome",
+     "injury_status": "",
+     "last_name": "Ford",
+     "news_updated": "1651344617829",
+     "number": "34",
+     "player_id": "8143",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CLE",
+     "years_exp": "0"
+    },
+    "pick_no": 57,
+    "picked_by": "518305164308611072",
+    "player_id": "8143",
+    "reactions": null,
+    "roster_id": 3,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 2,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jalen",
+     "injury_status": "",
+     "last_name": "Nailor",
+     "news_updated": "1651350318101",
+     "number": "83",
+     "player_id": "8180",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "MIN",
+     "years_exp": "0"
+    },
+    "pick_no": 58,
+    "picked_by": "569269991905017856",
+    "player_id": "8180",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 3,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Chigoziem",
+     "injury_status": "",
+     "last_name": "Okonkwo",
+     "news_updated": "1654805638158",
+     "number": "85",
+     "player_id": "8210",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TEN",
+     "years_exp": "0"
+    },
+    "pick_no": 59,
+    "picked_by": "575783941687578624",
+    "player_id": "8210",
+    "reactions": null,
+    "roster_id": 14,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 4,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Ko",
+     "injury_status": "",
+     "last_name": "Kieft",
+     "news_updated": "1651356325382",
+     "number": "41",
+     "player_id": "8484",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "TB",
+     "years_exp": "0"
+    },
+    "pick_no": 60,
+    "picked_by": "569269991905017856",
+    "player_id": "8484",
+    "reactions": null,
+    "roster_id": 9,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 5,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jalen",
+     "injury_status": "",
+     "last_name": "Wydermyer",
+     "news_updated": "1651419922950",
+     "number": "84",
+     "player_id": "8115",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "BUF",
+     "years_exp": "0"
+    },
+    "pick_no": 61,
+    "picked_by": "569305665820815360",
+    "player_id": "8115",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 6,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Kevin",
+     "injury_status": "",
+     "last_name": "Harris",
+     "news_updated": "1651349118120",
+     "number": "58",
+     "player_id": "8174",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NE",
+     "years_exp": "0"
+    },
+    "pick_no": 62,
+    "picked_by": "575686957407977472",
+    "player_id": "8174",
+    "reactions": null,
+    "roster_id": 12,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 7,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Erik",
+     "injury_status": "",
+     "last_name": "Ezukanma",
+     "news_updated": "1651339219261",
+     "number": "87",
+     "player_id": "8114",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "MIA",
+     "years_exp": "0"
+    },
+    "pick_no": 63,
+    "picked_by": "526559230927839232",
+    "player_id": "8114",
+    "reactions": null,
+    "roster_id": 8,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 8,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jerrion",
+     "injury_status": "",
+     "last_name": "Ealy",
+     "news_updated": "1651689313250",
+     "number": "29",
+     "player_id": "8120",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "KC",
+     "years_exp": "0"
+    },
+    "pick_no": 64,
+    "picked_by": "518278124247261184",
+    "player_id": "8120",
+    "reactions": null,
+    "roster_id": 4,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 9,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Sincere",
+     "injury_status": "IR",
+     "last_name": "McCormick",
+     "news_updated": "1653428121848",
+     "number": "36",
+     "player_id": "8220",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Inactive",
+     "team": "LV",
+     "years_exp": "0"
+    },
+    "pick_no": 65,
+    "picked_by": "575777118798086144",
+    "player_id": "8220",
+    "reactions": null,
+    "roster_id": 13,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 10,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Charleston",
+     "injury_status": "",
+     "last_name": "Rambo",
+     "news_updated": "1654805640826",
+     "number": "85",
+     "player_id": "8198",
+     "position": "WR",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CAR",
+     "years_exp": "0"
+    },
+    "pick_no": 66,
+    "picked_by": "205868100694835200",
+    "player_id": "8198",
+    "reactions": null,
+    "roster_id": 6,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 11,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Ty",
+     "injury_status": "",
+     "last_name": "Chandler",
+     "news_updated": "1651346723368",
+     "number": "32",
+     "player_id": "8230",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "MIN",
+     "years_exp": "0"
+    },
+    "pick_no": 67,
+    "picked_by": "89774670156808192",
+    "player_id": "8230",
+    "reactions": null,
+    "roster_id": 1,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 12,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Grant",
+     "injury_status": "",
+     "last_name": "Calcaterra",
+     "news_updated": "1651350926863",
+     "number": "47",
+     "player_id": "8177",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "PHI",
+     "years_exp": "0"
+    },
+    "pick_no": 68,
+    "picked_by": "569305665820815360",
+    "player_id": "8177",
+    "reactions": null,
+    "roster_id": 10,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 13,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Jeremy",
+     "injury_status": "Questionable",
+     "last_name": "Ruckert",
+     "news_updated": "1652901961393",
+     "number": "89",
+     "player_id": "8145",
+     "position": "TE",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "NYJ",
+     "years_exp": "0"
+    },
+    "pick_no": 69,
+    "picked_by": "342458180787380224",
+    "player_id": "8145",
+    "reactions": null,
+    "roster_id": 5,
+    "round": 5
+   },
+   {
+    "draft_id": "785171302272106497",
+    "draft_slot": 14,
+    "is_keeper": null,
+    "metadata": {
+     "first_name": "Trestan",
+     "injury_status": "",
+     "last_name": "Ebner",
+     "news_updated": "1651352127154",
+     "number": "31",
+     "player_id": "8189",
+     "position": "RB",
+     "sport": "nfl",
+     "status": "Active",
+     "team": "CHI",
+     "years_exp": "0"
+    },
+    "pick_no": 70,
+    "picked_by": "78601862768902144",
+    "player_id": "8189",
+    "reactions": null,
+    "roster_id": 11,
+    "round": 5
+   }
+  ],
+  "slotToRosterId": {}
+ },
+ "leagueId": "785171302272106496",
+ "leagueName": "Flex Appeal League of Empires",
+ "losersBracket": [
+  {
+   "l": 4,
+   "m": 1,
+   "r": 1,
+   "t1": 7,
+   "t2": 4,
+   "w": 7
+  },
+  {
+   "l": 9,
+   "m": 2,
+   "r": 1,
+   "t1": 9,
+   "t2": 13,
+   "w": 13
+  },
+  {
+   "l": 6,
+   "m": 3,
+   "r": 1,
+   "t1": 6,
+   "t2": 14,
+   "w": 14
+  },
+  {
+   "l": 1,
+   "m": 4,
+   "r": 1,
+   "t1": 1,
+   "t2": 8,
+   "w": 8
+  },
+  {
+   "l": 8,
+   "m": 5,
+   "r": 2,
+   "t1": 7,
+   "t2": 8,
+   "w": 7
+  },
+  {
+   "l": 13,
+   "m": 6,
+   "r": 2,
+   "t1": 13,
+   "t2": 14,
+   "w": 14
+  },
+  {
+   "l": 4,
+   "m": 7,
+   "r": 2,
+   "t1": 1,
+   "t2": 4,
+   "w": 1
+  },
+  {
+   "l": 9,
+   "m": 8,
+   "r": 2,
+   "t1": 6,
+   "t2": 9,
+   "w": 6
+  },
+  {
+   "l": 7,
+   "m": 9,
+   "p": 1,
+   "r": 3,
+   "t1": 7,
+   "t1_from": {
+    "w": 5
+   },
+   "t2": 14,
+   "t2_from": {
+    "w": 6
+   },
+   "w": 14
+  },
+  {
+   "l": 8,
+   "m": 10,
+   "p": 3,
+   "r": 3,
+   "t1": 8,
+   "t1_from": {
+    "l": 5
+   },
+   "t2": 13,
+   "t2_from": {
+    "l": 6
+   },
+   "w": 13
+  },
+  {
+   "l": 1,
+   "m": 11,
+   "p": 5,
+   "r": 3,
+   "t1": 1,
+   "t1_from": {
+    "w": 7
+   },
+   "t2": 6,
+   "t2_from": {
+    "w": 8
+   },
+   "w": 6
+  },
+  {
+   "l": 4,
+   "m": 12,
+   "p": 7,
+   "r": 3,
+   "t1": 4,
+   "t1_from": {
+    "l": 7
+   },
+   "t2": 9,
+   "t2_from": {
+    "l": 8
+   },
+   "w": 9
+  }
+ ],
+ "playoffTeams": 6,
+ "playoffWeekStart": 15,
+ "regularSeasonWeeks": 14,
+ "rosters": [
+  {
+   "avatar": "nfl_min",
+   "displayName": "Johnathan",
+   "ownerId": "89774670156808192",
+   "rosterId": 1,
+   "teamName": "10 1sts",
+   "username": null
+  },
+  {
+   "avatar": "9e2be944a194790efad964c79d5a90e6",
+   "displayName": "Gorter33",
+   "ownerId": "466435860930228224",
+   "rosterId": 2,
+   "teamName": "Netflix & Hill",
+   "username": null
+  },
+  {
+   "avatar": "4c51e24f6f9598f225062d5d1e1e232f",
+   "displayName": "Mittens7",
+   "ownerId": "518305164308611072",
+   "rosterId": 3,
+   "teamName": "29 - 24 - 1",
+   "username": null
+  },
+  {
+   "avatar": "abaa047bd689a03452c4ed9aa7bf47dc",
+   "displayName": "SoloEli",
+   "ownerId": "518278124247261184",
+   "rosterId": 4,
+   "teamName": "The Godwin Tee Party",
+   "username": null
+  },
+  {
+   "avatar": "e9464961560682493cead7580fdfb67e",
+   "displayName": "SaltyMinnesotan",
+   "ownerId": "342458180787380224",
+   "rosterId": 5,
+   "teamName": "Szn of Unfortunate Trades",
+   "username": null
+  },
+  {
+   "avatar": "7eb43efe3d7cb247d6fc7a97ae3c8319",
+   "displayName": "Fierst",
+   "ownerId": "205868100694835200",
+   "rosterId": 6,
+   "teamName": "Trophy Case Bowl Champ",
+   "username": null
+  },
+  {
+   "avatar": "b987f66667023baafadeb2051a35b7c1",
+   "displayName": "PB4kk",
+   "ownerId": "518496523665043456",
+   "rosterId": 7,
+   "teamName": "Better Call TLaw",
+   "username": null
+  },
+  {
+   "avatar": null,
+   "displayName": "Prostrollod89",
+   "ownerId": "526559230927839232",
+   "rosterId": 8,
+   "teamName": "Zach Wilson Cougar Hunter",
+   "username": null
+  },
+  {
+   "avatar": "67206d81d03c9ee856a4e7391699a24e",
+   "displayName": "koldre",
+   "ownerId": "569269991905017856",
+   "rosterId": 9,
+   "teamName": "My $150 Annual Donation",
+   "username": null
+  },
+  {
+   "avatar": "5a1b983214b5265c9f77020595ffea2a",
+   "displayName": "SamDahl3",
+   "ownerId": "569305665820815360",
+   "rosterId": 10,
+   "teamName": "Buckle up butterKupp",
+   "username": null
+  },
+  {
+   "avatar": "295900115e65eade23e861256c33d69a",
+   "displayName": "JDub21",
+   "ownerId": "78601862768902144",
+   "rosterId": 11,
+   "teamName": "FinalApproachLeagueEnder",
+   "username": null
+  },
+  {
+   "avatar": "1d08c707427483c86c914698a4c35d92",
+   "displayName": "DHKRAUSE",
+   "ownerId": "575686957407977472",
+   "rosterId": 12,
+   "teamName": "The DFT",
+   "username": null
+  },
+  {
+   "avatar": "e9b4259ea632a7b098283ab971ad608d",
+   "displayName": "Jmignanelli",
+   "ownerId": "575777118798086144",
+   "rosterId": 13,
+   "teamName": "Last Dance",
+   "username": null
+  },
+  {
+   "avatar": "619528ceabe9cf26920270a77f74864a",
+   "displayName": "Loondog",
+   "ownerId": "575783941687578624",
+   "rosterId": 14,
+   "teamName": "The Lil Team That Could",
+   "username": null
+  }
+ ],
+ "schemaVersion": 1,
+ "scope": "core",
+ "season": "2022",
+ "totalRosters": 14,
+ "tradedPicks": [
+  {
+   "owner_id": 5,
+   "previous_owner_id": 9,
+   "roster_id": 1,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 5,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 12,
+   "roster_id": 1,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 5,
+   "roster_id": 1,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 5,
+   "roster_id": 1,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 5,
+   "roster_id": 1,
+   "round": 4,
+   "season": "2023"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 2,
+   "roster_id": 1,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 1,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 2,
+   "roster_id": 1,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 5,
+   "roster_id": 1,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 9,
+   "roster_id": 2,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 2,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 5,
+   "season": "2022"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 6,
+   "roster_id": 2,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 14,
+   "roster_id": 2,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 9,
+   "roster_id": 2,
+   "round": 5,
+   "season": "2023"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 2,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 4,
+   "season": "2024"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 5,
+   "season": "2024"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 7,
+   "roster_id": 2,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 2,
+   "roster_id": 2,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 2,
+   "roster_id": 3,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 6,
+   "roster_id": 3,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 3,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 11,
+   "roster_id": 3,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 3,
+   "season": "2024"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 3,
+   "roster_id": 3,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 6,
+   "roster_id": 3,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 11,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 12,
+   "roster_id": 4,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 5,
+   "season": "2022"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 2,
+   "roster_id": 4,
+   "round": 3,
+   "season": "2024"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 4,
+   "roster_id": 4,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 1,
+   "roster_id": 5,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 9,
+   "roster_id": 5,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 4,
+   "season": "2023"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 13,
+   "roster_id": 5,
+   "round": 3,
+   "season": "2024"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 4,
+   "season": "2024"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 5,
+   "season": "2024"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 5,
+   "roster_id": 5,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 12,
+   "roster_id": 6,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 3,
+   "roster_id": 6,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 6,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 6,
+   "roster_id": 6,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 3,
+   "roster_id": 6,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 5,
+   "roster_id": 6,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 7,
+   "roster_id": 6,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 7,
+   "roster_id": 6,
+   "round": 4,
+   "season": "2023"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 6,
+   "roster_id": 6,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 6,
+   "roster_id": 6,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 3,
+   "roster_id": 6,
+   "round": 5,
+   "season": "2025"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 2,
+   "roster_id": 7,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 5,
+   "roster_id": 7,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 1,
+   "roster_id": 7,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 9,
+   "roster_id": 7,
+   "round": 5,
+   "season": "2022"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 2,
+   "roster_id": 7,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 3,
+   "roster_id": 7,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 4,
+   "season": "2023"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 9,
+   "roster_id": 7,
+   "round": 5,
+   "season": "2023"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 3,
+   "roster_id": 7,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 3,
+   "roster_id": 7,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 3,
+   "season": "2024"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 4,
+   "season": "2024"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 7,
+   "roster_id": 7,
+   "round": 5,
+   "season": "2024"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 9,
+   "roster_id": 9,
+   "round": 5,
+   "season": "2023"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 2,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 12,
+   "previous_owner_id": 2,
+   "roster_id": 10,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 9,
+   "roster_id": 10,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 10,
+   "previous_owner_id": 4,
+   "roster_id": 10,
+   "round": 5,
+   "season": "2022"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 2,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 6,
+   "roster_id": 10,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 12,
+   "roster_id": 10,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 4,
+   "season": "2023"
+  },
+  {
+   "owner_id": 3,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 5,
+   "season": "2023"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 6,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 6,
+   "roster_id": 10,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 3,
+   "season": "2024"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 5,
+   "roster_id": 10,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 10,
+   "roster_id": 10,
+   "round": 4,
+   "season": "2025"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 9,
+   "roster_id": 11,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 7,
+   "roster_id": 11,
+   "round": 3,
+   "season": "2022"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 5,
+   "roster_id": 11,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 13,
+   "previous_owner_id": 11,
+   "roster_id": 11,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 5,
+   "previous_owner_id": 3,
+   "roster_id": 12,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 5,
+   "season": "2022"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 1,
+   "roster_id": 12,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 11,
+   "previous_owner_id": 1,
+   "roster_id": 12,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 1,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 3,
+   "season": "2024"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 5,
+   "season": "2024"
+  },
+  {
+   "owner_id": 14,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 1,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 2,
+   "season": "2025"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 12,
+   "roster_id": 12,
+   "round": 3,
+   "season": "2025"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 13,
+   "round": 1,
+   "season": "2022"
+  },
+  {
+   "owner_id": 8,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 2,
+   "season": "2022"
+  },
+  {
+   "owner_id": 2,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 4,
+   "season": "2022"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 3,
+   "roster_id": 13,
+   "round": 1,
+   "season": "2023"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 13,
+   "round": 2,
+   "season": "2023"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 3,
+   "season": "2023"
+  },
+  {
+   "owner_id": 6,
+   "previous_owner_id": 12,
+   "roster_id": 13,
+   "round": 1,
+   "season": "2024"
+  },
+  {
+   "owner_id": 7,
+   "previous_owner_id": 5,
+   "roster_id": 13,
+   "round": 2,
+   "season": "2024"
+  },
+  {
+   "owner_id": 9,
+   "previous_owner_id": 13,
+   "roster_id": 13,
+   "round": 3,
+   "season": "2024"
+  },
+  {
+   "owner_id": 4,
+   "previous_owner_id": 10,
+   "roster_id": 14,
+   "round": 4,
+   "season": "2022"
+  }
+ ],
+ "transactions": [
+  {
+   "created": 1662837434060,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 13,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 13,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 9,
+     "playerId": "1373",
+     "toRosterId": 13
+    }
+   ],
+   "rosterIds": [
+    9,
+    13
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "874407210816544768",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1662746407800,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 6,
+     "originalRosterId": 6,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 3
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    3,
+    6
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "874025419010187264",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1662653699090,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 13,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 7,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "4046",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "7523",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    3,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "873636570497081344",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1662049779464,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 1,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 7,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 2
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "1689",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "6806",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    2
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "871103547993968640",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1661551954567,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 6,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "4892",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "6943",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    2,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "869015519037132800",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1655241025852,
+   "faabMoves": [
+    {
+     "amount": 5,
+     "fromRosterId": 7,
+     "toRosterId": 9
+    }
+   ],
+   "pickMoves": [],
+   "playerMoves": [
+    {
+     "fromRosterId": 9,
+     "playerId": "5878",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    7,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "842545565484044288",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1654799001018,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 6,
+     "pickSeason": "2022",
+     "round": 3,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2022",
+     "round": 3,
+     "toRosterId": 2
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 2,
+     "playerId": "6824",
+     "toRosterId": 9
+    }
+   ],
+   "rosterIds": [
+    2,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "840691578954715136",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1654625698427,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 2,
+     "pickSeason": "2022",
+     "round": 2,
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 6,
+     "pickSeason": "2022",
+     "round": 2,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 6,
+     "pickSeason": "2022",
+     "round": 3,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    3,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "839964695204044800",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1654530718287,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 10,
+     "pickSeason": "2022",
+     "round": 3,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2022",
+     "round": 2,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2022",
+     "round": 4,
+     "toRosterId": 11
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 11,
+     "playerId": "3202",
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 11,
+     "playerId": "5987",
+     "toRosterId": 9
+    }
+   ],
+   "rosterIds": [
+    9,
+    11
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "839566319622955008",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1654208734139,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 11,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 6,
+     "pickSeason": "2022",
+     "round": 1,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "4866",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "playerId": "7670",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    7,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "838215820223045632",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1654110197844,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 13,
+     "pickSeason": "2022",
+     "round": 1,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 13,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 6,
+     "playerId": "4037",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "playerId": "7547",
+     "toRosterId": 6
+    }
+   ],
+   "rosterIds": [
+    6,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "837802529046757376",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1653689923764,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 10,
+     "pickSeason": "2022",
+     "round": 5,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 14,
+     "pickSeason": "2022",
+     "round": 4,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 2,
+     "pickSeason": "2022",
+     "round": 4,
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2022",
+     "round": 5,
+     "toRosterId": 10
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    4,
+    10
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "836039771791925248",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1649207030137,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 10,
+     "pickSeason": "2022",
+     "round": 5,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2022",
+     "round": 4,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2022",
+     "round": 5,
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 2
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 2,
+     "playerId": "7587",
+     "toRosterId": 4
+    }
+   ],
+   "rosterIds": [
+    2,
+    4
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "817237153120641024",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1648219333643,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 1,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 3,
+     "pickSeason": "2022",
+     "round": 1,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 6,
+     "playerId": "1049",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 6,
+     "playerId": "1426",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 6,
+     "playerId": "4035",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 6,
+     "playerId": "4973",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "5917",
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "6126",
+     "toRosterId": 6
+    }
+   ],
+   "rosterIds": [
+    2,
+    6
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "813094453765087232",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1648218559134,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 11,
+     "pickSeason": "2022",
+     "round": 3,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2022",
+     "round": 1,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 7,
+     "pickSeason": "2022",
+     "round": 1,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 7,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "1992",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 7,
+     "playerId": "3321",
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "playerId": "7606",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    2,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "813091205238870016",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1643908225708,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 7,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "6826",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    3,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "795012356508889088",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1643139902712,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 1,
+     "pickSeason": "2022",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 11,
+     "pickSeason": "2022",
+     "round": 2,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 6,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 9,
+     "playerId": "1110",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "1837",
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "3969",
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 9,
+     "playerId": "7589",
+     "toRosterId": 5
+    }
+   ],
+   "rosterIds": [
+    5,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "791789776293437440",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1642535649682,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 1,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 12,
+     "pickSeason": "2022",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "5927",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    3,
+    5
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "789255355392794624",
+   "type": "trade",
+   "week": 1
+  },
+  {
+   "created": 1663681368926,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 6,
+     "originalRosterId": 3,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 6,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    3,
+    6
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "877946930200969216",
+   "type": "trade",
+   "week": 2
+  },
+  {
+   "created": 1663248809866,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 11,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 8
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 8
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 8,
+     "playerId": "5012",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "5844",
+     "toRosterId": 8
+    }
+   ],
+   "rosterIds": [
+    5,
+    8
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "876132646005161984",
+   "type": "trade",
+   "week": 2
+  },
+  {
+   "created": 1663247347661,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 1,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 1,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "6813",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "7526",
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "8119",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    5
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "876126513072889856",
+   "type": "trade",
+   "week": 2
+  },
+  {
+   "created": 1664903269031,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "4574",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    1,
+    3
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "883071950698770432",
+   "type": "trade",
+   "week": 4
+  },
+  {
+   "created": 1664849785482,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 1,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 13,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "7526",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "7588",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    5
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "882847624435580928",
+   "type": "trade",
+   "week": 4
+  },
+  {
+   "created": 1664545633629,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 12,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "829",
+     "toRosterId": 2
+    }
+   ],
+   "rosterIds": [
+    1,
+    2
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "881571919102050304",
+   "type": "trade",
+   "week": 4
+  },
+  {
+   "created": 1664374917003,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 11,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 12
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 12,
+     "playerId": "5001",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "7585",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "playerId": "8205",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    3,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "880855881674481664",
+   "type": "trade",
+   "week": 4
+  },
+  {
+   "created": 1665365400597,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 13,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 2,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 3,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 4,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 6
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 4,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 6,
+     "playerId": "167",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 6,
+     "playerId": "3198",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 6,
+     "playerId": "7547",
+     "toRosterId": 12
+    }
+   ],
+   "rosterIds": [
+    6,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "885010270975070208",
+   "type": "trade",
+   "week": 5
+  },
+  {
+   "created": 1665015657565,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 4
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 4,
+     "playerId": "2449",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "playerId": "4037",
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 12,
+     "playerId": "7543",
+     "toRosterId": 4
+    }
+   ],
+   "rosterIds": [
+    4,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "883543342376497152",
+   "type": "trade",
+   "week": 5
+  },
+  {
+   "created": 1665715179052,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 10,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "2319",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 7,
+     "playerId": "4036",
+     "toRosterId": 12
+    }
+   ],
+   "rosterIds": [
+    7,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "886477348147654656",
+   "type": "trade",
+   "week": 6
+  },
+  {
+   "created": 1665682515637,
+   "faabMoves": [],
+   "pickMoves": [],
+   "playerMoves": [
+    {
+     "fromRosterId": 5,
+     "playerId": "1166",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "4046",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "7526",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "7610",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    3,
+    5
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "886340347855388672",
+   "type": "trade",
+   "week": 6
+  },
+  {
+   "created": 1665591628745,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2024",
+     "round": 4,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "3423",
+     "toRosterId": 2
+    }
+   ],
+   "rosterIds": [
+    2,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "885959140600705024",
+   "type": "trade",
+   "week": 6
+  },
+  {
+   "created": 1666574541156,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 10,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 2,
+     "playerId": "829",
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 9,
+     "playerId": "1837",
+     "toRosterId": 2
+    }
+   ],
+   "rosterIds": [
+    2,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "890081774057848832",
+   "type": "trade",
+   "week": 7
+  },
+  {
+   "created": 1666375454909,
+   "faabMoves": [
+    {
+     "amount": 75,
+     "fromRosterId": 1,
+     "toRosterId": 12
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "4018",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "playerId": "8153",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "889246745815814144",
+   "type": "trade",
+   "week": 7
+  },
+  {
+   "created": 1666227476024,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 11,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 6,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "2711",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "5927",
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 1,
+     "playerId": "6151",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 1,
+     "playerId": "6786",
+     "toRosterId": 3
+    },
+    {
+     "fromRosterId": 3,
+     "playerId": "8154",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    3
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "888626077386543104",
+   "type": "trade",
+   "week": 7
+  },
+  {
+   "created": 1668545806632,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 14
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 3,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 14
+    },
+    {
+     "fromRosterId": 3,
+     "originalRosterId": 7,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 14
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 14,
+     "playerId": "4029",
+     "toRosterId": 3
+    }
+   ],
+   "rosterIds": [
+    3,
+    14
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "898349860729024512",
+   "type": "trade",
+   "week": 10
+  },
+  {
+   "created": 1668543754055,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 14
+    },
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 14
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 14,
+     "playerId": "1466",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 14,
+     "playerId": "2374",
+     "toRosterId": 12
+    },
+    {
+     "fromRosterId": 12,
+     "playerId": "7547",
+     "toRosterId": 14
+    }
+   ],
+   "rosterIds": [
+    12,
+    14
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "898341251596910592",
+   "type": "trade",
+   "week": 10
+  },
+  {
+   "created": 1668539241288,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 10,
+     "playerId": "2216",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "4039",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "5045",
+     "toRosterId": 5
+    }
+   ],
+   "rosterIds": [
+    5,
+    10
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "898322323680251904",
+   "type": "trade",
+   "week": 10
+  },
+  {
+   "created": 1668216197732,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 12,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 4,
+     "originalRosterId": 4,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "1234",
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "playerId": "5870",
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 1,
+     "playerId": "6843",
+     "toRosterId": 4
+    },
+    {
+     "fromRosterId": 4,
+     "playerId": "7528",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    4
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "896967380801208320",
+   "type": "trade",
+   "week": 10
+  },
+  {
+   "created": 1668215695918,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 11,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 3,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 11
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 11,
+     "playerId": "8228",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    11
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "896965276040802304",
+   "type": "trade",
+   "week": 10
+  },
+  {
+   "created": 1668020886251,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 4,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 7
+    },
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 6,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 7,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "7670",
+     "toRosterId": 2
+    }
+   ],
+   "rosterIds": [
+    2,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "896148185075216384",
+   "type": "trade",
+   "week": 10
+  },
+  {
+   "created": 1669152887256,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 13
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 13,
+     "playerId": "3164",
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 13,
+     "playerId": "4381",
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 13,
+     "playerId": "6149",
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 11,
+     "playerId": "6886",
+     "toRosterId": 13
+    }
+   ],
+   "rosterIds": [
+    11,
+    13
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "900896141418442752",
+   "type": "trade",
+   "week": 11
+  },
+  {
+   "created": 1669139390714,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 13
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 13
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 13
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2025",
+     "round": 3,
+     "toRosterId": 13
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 13,
+     "playerId": "4199",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 13,
+     "playerId": "5846",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "5848",
+     "toRosterId": 13
+    }
+   ],
+   "rosterIds": [
+    5,
+    13
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "900839532818284544",
+   "type": "trade",
+   "week": 11
+  },
+  {
+   "created": 1669084585277,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 1,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2023",
+     "round": 1,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2024",
+     "round": 1,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 1,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 1,
+     "playerId": "3294",
+     "toRosterId": 2
+    }
+   ],
+   "rosterIds": [
+    1,
+    2
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "900609662155014144",
+   "type": "trade",
+   "week": 11
+  },
+  {
+   "created": 1668658487272,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 11,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 1
+    },
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 12,
+     "pickSeason": "2023",
+     "round": 2,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 1,
+     "originalRosterId": 12,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 11
+    },
+    {
+     "fromRosterId": 11,
+     "originalRosterId": 3,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 1
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 11,
+     "playerId": "1339",
+     "toRosterId": 1
+    }
+   ],
+   "rosterIds": [
+    1,
+    11
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "898822477587922944",
+   "type": "trade",
+   "week": 11
+  },
+  {
+   "created": 1668637149649,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2023",
+     "round": 4,
+     "toRosterId": 4
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 4,
+     "playerId": "947",
+     "toRosterId": 10
+    }
+   ],
+   "rosterIds": [
+    4,
+    10
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "898732981110382592",
+   "type": "trade",
+   "week": 11
+  },
+  {
+   "created": 1669688671933,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 9,
+     "playerId": "2307",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 9,
+     "playerId": "3225",
+     "toRosterId": 10
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "6130",
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 10,
+     "playerId": "7583",
+     "toRosterId": 9
+    }
+   ],
+   "rosterIds": [
+    9,
+    10
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "903143385232625664",
+   "type": "trade",
+   "week": 12
+  },
+  {
+   "created": 1669244951663,
+   "faabMoves": [
+    {
+     "amount": 75,
+     "fromRosterId": 9,
+     "toRosterId": 2
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2023",
+     "round": 5,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2024",
+     "round": 5,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 4,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 2,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 5,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    2,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "901282287528923136",
+   "type": "trade",
+   "week": 12
+  },
+  {
+   "created": 1669207804979,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 14,
+     "originalRosterId": 2,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 11
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 11,
+     "playerId": "6850",
+     "toRosterId": 14
+    }
+   ],
+   "rosterIds": [
+    11,
+    14
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "901126483045740544",
+   "type": "trade",
+   "week": 12
+  },
+  {
+   "created": 1670245464628,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 10,
+     "originalRosterId": 10,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 11
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 11,
+     "playerId": "24",
+     "toRosterId": 10
+    }
+   ],
+   "rosterIds": [
+    10,
+    11
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "905478743060103168",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1670208122786,
+   "faabMoves": [
+    {
+     "amount": 60,
+     "fromRosterId": 4,
+     "toRosterId": 12
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 12,
+     "originalRosterId": 12,
+     "pickSeason": "2024",
+     "round": 5,
+     "toRosterId": 4
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    4,
+    12
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "905322120023048192",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1670202968947,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 13,
+     "pickSeason": "2024",
+     "round": 2,
+     "toRosterId": 7
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 7,
+     "playerId": "1049",
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 5,
+     "playerId": "7565",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    5,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "905300503255609344",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1670199829034,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 1,
+     "pickSeason": "2023",
+     "round": 4,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 2,
+     "pickSeason": "2023",
+     "round": 5,
+     "toRosterId": 5
+    },
+    {
+     "fromRosterId": 9,
+     "originalRosterId": 9,
+     "pickSeason": "2023",
+     "round": 5,
+     "toRosterId": 5
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    5,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "905287333505679360",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1669995977439,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 13,
+     "originalRosterId": 5,
+     "pickSeason": "2024",
+     "round": 3,
+     "toRosterId": 11
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 11,
+     "playerId": "7594",
+     "toRosterId": 13
+    }
+   ],
+   "rosterIds": [
+    11,
+    13
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "904432317945294848",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1669824840979,
+   "faabMoves": [],
+   "pickMoves": [
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 2,
+     "pickSeason": "2025",
+     "round": 2,
+     "toRosterId": 2
+    },
+    {
+     "fromRosterId": 7,
+     "originalRosterId": 7,
+     "pickSeason": "2023",
+     "round": 3,
+     "toRosterId": 2
+    }
+   ],
+   "playerMoves": [
+    {
+     "fromRosterId": 2,
+     "playerId": "1049",
+     "toRosterId": 7
+    }
+   ],
+   "rosterIds": [
+    2,
+    7
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "903714519606583296",
+   "type": "trade",
+   "week": 13
+  },
+  {
+   "created": 1670863385114,
+   "faabMoves": [
+    {
+     "amount": 24,
+     "fromRosterId": 9,
+     "toRosterId": 5
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2024",
+     "round": 4,
+     "toRosterId": 9
+    },
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2024",
+     "round": 5,
+     "toRosterId": 9
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    5,
+    9
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "908070489426276352",
+   "type": "trade",
+   "week": 14
+  },
+  {
+   "created": 1670786422579,
+   "faabMoves": [
+    {
+     "amount": 30,
+     "fromRosterId": 6,
+     "toRosterId": 5
+    }
+   ],
+   "pickMoves": [
+    {
+     "fromRosterId": 5,
+     "originalRosterId": 5,
+     "pickSeason": "2023",
+     "round": 4,
+     "toRosterId": 6
+    }
+   ],
+   "playerMoves": [],
+   "rosterIds": [
+    5,
+    6
+   ],
+   "season": "2022",
+   "status": "complete",
+   "transactionId": "907747685158060032",
+   "type": "trade",
+   "week": 14
+  }
+ ],
+ "weeks": [
+  {
+   "matchups": [
+    {
+     "matchupId": 7,
+     "points": 107.2,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 125.65,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 7,
+     "points": 158.8,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 5,
+     "points": 86.7,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 5,
+     "points": 152.55,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 6,
+     "points": 72.2,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 4,
+     "points": 40,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 3,
+     "points": 112.6,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 6,
+     "points": 108.7,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 2,
+     "points": 117.15,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 3,
+     "points": 199.1,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 4,
+     "points": 139.7,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 1,
+     "points": 118.6,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 2,
+     "points": 95.7,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 1
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 7,
+     "points": 10.3,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 121.8,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 6,
+     "points": 131,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 4,
+     "points": 165,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 6,
+     "points": 181.25,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 7,
+     "points": 135.3,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 3,
+     "points": 1.6,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 2,
+     "points": 132.15,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 5,
+     "points": 100,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 1,
+     "points": 112.9,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 4,
+     "points": 163.85,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 5,
+     "points": 135.6,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 2,
+     "points": 121,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 3,
+     "points": 91.35,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 2
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 6,
+     "points": 13.6,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 101.85,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 5,
+     "points": 116.7,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 3,
+     "points": 143.9,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 7,
+     "points": 190.1,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 7,
+     "points": 114.55,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 2,
+     "points": 6.2,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 1,
+     "points": 104.5,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 4,
+     "points": 112.2,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 2,
+     "points": 114.9,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 5,
+     "points": 118.75,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 6,
+     "points": 119.05,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 3,
+     "points": 99.75,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 4,
+     "points": 120.2,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 3
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 5,
+     "points": 4.15,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 141.6,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 4,
+     "points": 89.45,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 2,
+     "points": 121.4,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 7,
+     "points": 96.65,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 6,
+     "points": 100.45,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 1,
+     "points": 20.9,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 2,
+     "points": 160.2,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 3,
+     "points": 107.45,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 3,
+     "points": 162.75,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 6,
+     "points": 174.35,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 7,
+     "points": 110.7,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 4,
+     "points": 149.65,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 5,
+     "points": 0.6,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 4
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 4,
+     "points": 2.6,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 116.4,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 3,
+     "points": 84.9,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 1,
+     "points": 108.7,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 6,
+     "points": 153.4,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 5,
+     "points": 120.55,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 2,
+     "points": 2.4,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 3,
+     "points": 107.95,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 2,
+     "points": 150.1,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 4,
+     "points": 152.6,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 7,
+     "points": 205.55,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 7,
+     "points": 133.75,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 5,
+     "points": 101.7,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 6,
+     "points": 160.6,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 5
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 3,
+     "points": 8.6,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 173.3,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 2,
+     "points": 110.7,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 2,
+     "points": 101.95,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 5,
+     "points": 128.5,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 4,
+     "points": 81.9,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 3,
+     "points": 3.3,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 4,
+     "points": 67.55,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 1,
+     "points": 104.95,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 5,
+     "points": 129.35,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 7,
+     "points": 159.65,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 6,
+     "points": 113,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 6,
+     "points": 71.75,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 7,
+     "points": 83.6,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 6
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 2,
+     "points": 1.2,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 192.75,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 1,
+     "points": 117.9,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 3,
+     "points": 102.45,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 4,
+     "points": 102.65,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 3,
+     "points": 75.3,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 4,
+     "points": 7.5,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 5,
+     "points": 123.9,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 2,
+     "points": 105.35,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 6,
+     "points": 121.1,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 6,
+     "points": 140.1,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 5,
+     "points": 115.6,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 7,
+     "points": 114.5,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 7,
+     "points": 81.55,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 7
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 1,
+     "points": 8.1,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 186.65,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 2,
+     "points": 207.6,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 4,
+     "points": 103.55,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 3,
+     "points": 142.3,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 2,
+     "points": 82.45,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 5,
+     "points": 7.3,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 6,
+     "points": 81.55,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 3,
+     "points": 124.2,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 7,
+     "points": 123,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 5,
+     "points": 138.4,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 4,
+     "points": 167.6,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 7,
+     "points": 145,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 6,
+     "points": 127.55,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 8
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 2,
+     "points": 17.2,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 133.7,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 3,
+     "points": 132.65,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 5,
+     "points": 133.3,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 2,
+     "points": 139.15,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 1,
+     "points": 57.5,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 6,
+     "points": 31.05,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 7,
+     "points": 129.05,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 4,
+     "points": 80.15,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 7,
+     "points": 113.3,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 4,
+     "points": 120.5,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 3,
+     "points": 193.75,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 6,
+     "points": 84.75,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 5,
+     "points": 112.75,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 9
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 3,
+     "points": 114.3,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 100.1,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 4,
+     "points": 129.3,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 6,
+     "points": 112.8,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 1,
+     "points": 102.75,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 2,
+     "points": 86.8,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 7,
+     "points": 5.8,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 7,
+     "points": 96.7,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 5,
+     "points": 101.1,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 6,
+     "points": 117.9,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 3,
+     "points": 118.1,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 2,
+     "points": 169.05,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 5,
+     "points": 108.85,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 4,
+     "points": 131.75,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 10
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 4,
+     "points": 7.1,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 149.65,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 5,
+     "points": 77.5,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 7,
+     "points": 89.7,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 2,
+     "points": 141.5,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 3,
+     "points": 78.3,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 7,
+     "points": 27.8,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 6,
+     "points": 99.45,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 6,
+     "points": 115.15,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 5,
+     "points": 155.8,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 2,
+     "points": 133.25,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 1,
+     "points": 156.15,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 4,
+     "points": 61.9,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 3,
+     "points": 116.75,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 11
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 5,
+     "points": 25.7,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 131.85,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 6,
+     "points": 146.1,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 7,
+     "points": 114.55,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 3,
+     "points": 149.9,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 4,
+     "points": 52.7,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 6,
+     "points": 6.7,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 5,
+     "points": 104,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 7,
+     "points": 64.7,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 4,
+     "points": 130.4,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 1,
+     "points": 180.8,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 2,
+     "points": 142.45,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 3,
+     "points": 119.95,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 2,
+     "points": 109.45,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 12
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 6,
+     "points": 7.6,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 1,
+     "points": 144.8,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 7,
+     "points": 127.5,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 6,
+     "points": 136.2,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 4,
+     "points": 125,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 5,
+     "points": 68.6,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 5,
+     "points": 26.05,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 4,
+     "points": 70.75,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 7,
+     "points": 108.75,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 3,
+     "points": 157.45,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 2,
+     "points": 113.7,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 3,
+     "points": 160.25,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 2,
+     "points": 86.5,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 1,
+     "points": 116.05,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 13
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 1,
+     "points": 140.25,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 4,
+     "points": 158.65,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 7,
+     "points": 140.3,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 5,
+     "points": 126.25,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 2,
+     "points": 101.9,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 2,
+     "points": 51.1,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 7,
+     "points": 103.9,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 6,
+     "points": 110.25,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 4,
+     "points": 93.6,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 5,
+     "points": 113.7,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 3,
+     "points": 166.1,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 6,
+     "points": 128.9,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 1,
+     "points": 83.05,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 3,
+     "points": 59.7,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 14
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 7,
+     "points": 146.4,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 2,
+     "points": 143.6,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 2,
+     "points": 149.2,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 4,
+     "points": 156.05,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 1,
+     "points": 125.85,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 6,
+     "points": 102.7,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 4,
+     "points": 92,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 7,
+     "points": 83.05,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 5,
+     "points": 89.1,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 1,
+     "points": 105.15,
+     "rosterId": 10
+    },
+    {
+     "matchupId": null,
+     "points": 181.95,
+     "rosterId": 11
+    },
+    {
+     "matchupId": null,
+     "points": 84.2,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 5,
+     "points": 79.25,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 6,
+     "points": 78.9,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 15
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 6,
+     "points": 142.8,
+     "rosterId": 1
+    },
+    {
+     "matchupId": 3,
+     "points": 133.8,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 1,
+     "points": 151.35,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 6,
+     "points": 175.85,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 2,
+     "points": 74.9,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 7,
+     "points": 41.5,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 4,
+     "points": 75.75,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 4,
+     "points": 124.2,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 7,
+     "points": 122,
+     "rosterId": 9
+    },
+    {
+     "matchupId": 3,
+     "points": 70.7,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 2,
+     "points": 169.65,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 1,
+     "points": 131.35,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 5,
+     "points": 96.8,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 5,
+     "points": 93.2,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 16
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": 6,
+     "points": 129.55,
+     "rosterId": 1
+    },
+    {
+     "matchupId": null,
+     "points": 77,
+     "rosterId": 2
+    },
+    {
+     "matchupId": 1,
+     "points": 125.95,
+     "rosterId": 3
+    },
+    {
+     "matchupId": 7,
+     "points": 148.85,
+     "rosterId": 4
+    },
+    {
+     "matchupId": 2,
+     "points": 185.7,
+     "rosterId": 5
+    },
+    {
+     "matchupId": 6,
+     "points": 72.75,
+     "rosterId": 6
+    },
+    {
+     "matchupId": 4,
+     "points": 80.3,
+     "rosterId": 7
+    },
+    {
+     "matchupId": 5,
+     "points": 132.75,
+     "rosterId": 8
+    },
+    {
+     "matchupId": 7,
+     "points": 86.8,
+     "rosterId": 9
+    },
+    {
+     "matchupId": null,
+     "points": 162.8,
+     "rosterId": 10
+    },
+    {
+     "matchupId": 1,
+     "points": 107.95,
+     "rosterId": 11
+    },
+    {
+     "matchupId": 2,
+     "points": 106.4,
+     "rosterId": 12
+    },
+    {
+     "matchupId": 5,
+     "points": 97.6,
+     "rosterId": 13
+    },
+    {
+     "matchupId": 4,
+     "points": 70.85,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 17
+  },
+  {
+   "matchups": [
+    {
+     "matchupId": null,
+     "points": 62.35,
+     "rosterId": 1
+    },
+    {
+     "matchupId": null,
+     "points": 75.95,
+     "rosterId": 2
+    },
+    {
+     "matchupId": null,
+     "points": 94.55,
+     "rosterId": 3
+    },
+    {
+     "matchupId": null,
+     "points": 70.9,
+     "rosterId": 4
+    },
+    {
+     "matchupId": null,
+     "points": 87.9,
+     "rosterId": 5
+    },
+    {
+     "matchupId": null,
+     "points": 39.9,
+     "rosterId": 6
+    },
+    {
+     "matchupId": null,
+     "points": 56.45,
+     "rosterId": 7
+    },
+    {
+     "matchupId": null,
+     "points": 99.45,
+     "rosterId": 8
+    },
+    {
+     "matchupId": null,
+     "points": 61.6,
+     "rosterId": 9
+    },
+    {
+     "matchupId": null,
+     "points": 117.9,
+     "rosterId": 10
+    },
+    {
+     "matchupId": null,
+     "points": 129.65,
+     "rosterId": 11
+    },
+    {
+     "matchupId": null,
+     "points": 133.2,
+     "rosterId": 12
+    },
+    {
+     "matchupId": null,
+     "points": 81.25,
+     "rosterId": 13
+    },
+    {
+     "matchupId": null,
+     "points": 68.4,
+     "rosterId": 14
+    }
+   ],
+   "played": true,
+   "week": 18
+  }
+ ],
+ "winnersBracket": [
+  {
+   "l": 10,
+   "m": 1,
+   "r": 1,
+   "t1": 5,
+   "t2": 10,
+   "w": 5
+  },
+  {
+   "l": 2,
+   "m": 2,
+   "r": 1,
+   "t1": 3,
+   "t2": 2,
+   "w": 3
+  },
+  {
+   "l": 12,
+   "m": 3,
+   "r": 2,
+   "t1": 12,
+   "t2": 3,
+   "w": 3
+  },
+  {
+   "l": 5,
+   "m": 4,
+   "r": 2,
+   "t1": 11,
+   "t2": 5,
+   "w": 11
+  },
+  {
+   "l": 10,
+   "m": 5,
+   "p": 5,
+   "r": 2,
+   "t1": 2,
+   "t2": 10,
+   "w": 2
+  },
+  {
+   "l": 11,
+   "m": 6,
+   "p": 1,
+   "r": 3,
+   "t1": 3,
+   "t1_from": {
+    "w": 3
+   },
+   "t2": 11,
+   "t2_from": {
+    "w": 4
+   },
+   "w": 3
+  },
+  {
+   "l": 12,
+   "m": 7,
+   "p": 3,
+   "r": 3,
+   "t1": 12,
+   "t1_from": {
+    "l": 3
+   },
+   "t2": 5,
+   "t2_from": {
+    "l": 4
+   },
+   "w": 5
+  }
+ ]
+}

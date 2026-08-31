@@ -36,10 +36,12 @@ export interface BuildBracketInput {
   rosterToGovernor: Map<number, string>;
   /** Points by roster id, one map per playoff round. */
   weekPointsMaps: Map<number, number>[];
+  /** Playoff seed by roster id. Required to determine third place. */
+  seedByRoster?: Map<number, number>;
 }
 
 export function buildPlayoffBracket(input: BuildBracketInput): PlayoffBracket {
-  const { season, playoffWeekStart, bracket, rosterToGovernor, weekPointsMaps } = input;
+  const { season, playoffWeekStart, bracket, rosterToGovernor, weekPointsMaps, seedByRoster } = input;
   const format = PLAYOFF_FORMAT[season];
 
   if (bracket.length === 0) {
@@ -96,15 +98,12 @@ export function buildPlayoffBracket(input: BuildBracketInput): PlayoffBracket {
     byRoundRaw.get(entry.r)!.push({ round: entry.r, week, placement: entry.p, teams });
   }
 
-  // The third-place game is a placement game, so the alive-set filter below
-  // strips it out along with the rest of the consolation bracket. That filter is
-  // correct -- the league counts neither in playoff records nor playoff points --
-  // so capture third place here, before filtering, and keep it out of `rounds`
-  // so the bracket's connector geometry is unaffected.
-  //
-  // Third place genuinely needs this game: it is not simply the higher-scoring
-  // semi-final loser. In 2024 Knute finished third on 143.45 despite Chris
-  // scoring 148.65, and 2020 has the same inversion.
+  // Sleeper generates a third-place game, but the league treats it as an
+  // exhibition: third place is the better-seeded of the two losing semi-
+  // finalists, whoever wins that game. Both differ in 2020 (Eli won the game,
+  // Sam was the higher seed and is third) and 2022 (Chris won, DanK is third).
+  // Capture the game anyway so it can be shown, but keep it out of `rounds` so
+  // the bracket's connector geometry is unaffected.
   let thirdPlaceGame: PlayoffMatchupResult | undefined;
   for (const entries of byRoundRaw.values()) {
     const found = entries.find((m) => m.placement === 3);
@@ -113,7 +112,6 @@ export function buildPlayoffBracket(input: BuildBracketInput): PlayoffBracket {
       break;
     }
   }
-  const thirdPlace = thirdPlaceGame?.teams.find((t) => t.won)?.governorName;
 
   // Sleeper's bracket also carries consolation/placement games (3rd place, 5th place,
   // etc.) tagged with the same round numbers as the real championship lineage. Only
@@ -194,6 +192,18 @@ export function buildPlayoffBracket(input: BuildBracketInput): PlayoffBracket {
     filteredByRound.get(maxRound)?.find((m) => m.placement === 1) ?? filteredByRound.get(maxRound)?.[0];
   const champion = championshipGame?.teams.find((t) => t.won)?.governorName;
   const runnerUp = championshipGame?.teams.find((t) => !t.won)?.governorName;
+
+  // The two teams knocked out in the semi-finals, ranked by seed.
+  const semiFinalLosers = (filteredByRound.get(maxRound - 1) ?? [])
+    .flatMap((m) => (m.teams.length === 2 ? m.teams.filter((t) => !t.won) : []));
+  const thirdPlace = seedByRoster
+    ? [...semiFinalLosers]
+        .sort(
+          (a, b) =>
+            (seedByRoster.get(a.rosterId) ?? Number.MAX_SAFE_INTEGER) -
+            (seedByRoster.get(b.rosterId) ?? Number.MAX_SAFE_INTEGER)
+        )[0]?.governorName
+    : thirdPlaceGame?.teams.find((t) => t.won)?.governorName;
 
   const podium = champion && runnerUp ? { first: champion, second: runnerUp, third: thirdPlace } : undefined;
 

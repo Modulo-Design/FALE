@@ -31,29 +31,46 @@ export interface VPOverride {
 }
 
 // Multiple entries may target the same governor and week; they accumulate.
+//
+// Every ruling on record is a score correction that changed who won, so each is
+// expressed as a result flip. None of them needs a vpDelta -- flipping the
+// result moves the 2 matchup VP by itself, and that reproduces the league
+// spreadsheet's VP column exactly for all 14 governors in all six seasons.
 export const VP_OVERRIDES: VPOverride[] = [
+  // Sleeper has DanP on 30.80, but 23.1 of those points were struck, putting
+  // him on 7.70 against Chris's 8.70.
+  {
+    season: "2020",
+    week: 9,
+    governorName: "Chris",
+    setResult: "win",
+    reason: "Illegal lineup by DanP; his points were corrected downward and Chris won the week",
+  },
+  {
+    season: "2020",
+    week: 9,
+    governorName: "DanP",
+    setResult: "loss",
+    reason: "Illegal lineup; corrected score of 7.70 loses to Chris's 8.70",
+  },
+  // Sleeper has Matt on 0.60; the corrected score is 4.20, edging Johnathan's 4.15.
   {
     season: "2022",
     week: 4,
     governorName: "Matt",
     setResult: "win",
-    reason: "Sleeper recorded a loss for Matt; result should be a win over Johnathan",
+    reason: "Scoring correction restored 3.6 points to Matt, winning the week 4.20 to 4.15",
   },
   {
     season: "2022",
     week: 4,
     governorName: "Johnathan",
     setResult: "loss",
-    reason: "Sleeper recorded a win for Johnathan; result should be a loss to Matt",
+    reason: "Scoring correction; Matt's corrected 4.20 beats Johnathan's 4.15",
   },
-  // 2025 week 6: Chris submitted an illegal lineup against DanK.
-  //
-  // Derived from the league spreadsheet, which has Chris at 2-11 / 2 VP and
-  // DanK at 4-9 / 11 VP. Flipping the head-to-head gives both records exactly.
-  // DanK's VP then works out as 8 (four wins) + 3 scoring = 11 with no extra
-  // delta -- the +2 that used to be configured here was double-counting the
-  // awarded win. Chris lands on 4 (two wins) + 0 scoring - 2 = 2, and that -2
-  // is the only negative cell of `VP - 2*wins` in the entire six-season grid.
+  // Chris won on points 44.35 to 40.05 but submitted an illegal lineup, so the
+  // commissioner awarded DanK the win. The league spreadsheet's VP column
+  // reflects this; its win-loss column for these two was never updated.
   {
     season: "2025",
     week: 6,
@@ -66,8 +83,7 @@ export const VP_OVERRIDES: VPOverride[] = [
     week: 6,
     governorName: "Chris",
     setResult: "loss",
-    vpDelta: -2,
-    reason: "Illegal lineup submitted; commissioner auto-loss plus a 2 VP penalty",
+    reason: "Illegal lineup submitted; commissioner auto-loss awarded",
   },
 ];
 

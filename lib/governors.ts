@@ -43,13 +43,11 @@ export const GOVERNORS: Governor[] = [
   { name: "Peter", aliases: ["pb4kk"] },
   { name: "Gunnar", aliases: ["goldre15"] },
 
-  // Departed governors. They appear throughout 2020-2025 in the league
-  // spreadsheet, so history cannot resolve without them. Their Sleeper
-  // usernames are not yet known -- run `npm run audit -- --unmapped` (or hit
-  // /api/debug/governors) against the archive and fill the aliases in from the
-  // report rather than guessing.
-  { name: "Josh", aliases: [], lastSeason: "2025", note: "Left after 2025; aliases pending from the unmapped report." },
-  { name: "Sam", aliases: [], lastSeason: "2025", note: "Left after 2025; aliases pending from the unmapped report." },
+  // Departed governors, replaced by Mike and Gunnar for 2026. Sleeper drops the
+  // username once an account leaves a league, so these two resolve on display
+  // name only -- which is exactly why they never mapped before.
+  { name: "Josh", aliases: ["jmignanelli"], lastSeason: "2025" },
+  { name: "Sam", aliases: ["samdahl3"], lastSeason: "2025" },
 ];
 
 /**
