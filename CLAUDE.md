@@ -28,6 +28,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/archive-data.ts` | Loads the committed archive and re-resolves governors on read |
 | `data/archive/*.json` | Committed Sleeper snapshot per season — the offline source of truth |
 | `data/ground-truth.json` | The league spreadsheet's figures, for the audit test |
+| `data/players.json` | Player id to name/position, trimmed to the ids this league has used |
 | `app/page.tsx` | Server component; renders Dashboard or the Historical view |
 | `app/api/league/[leagueId]/season/[season]/route.ts` | Standings as JSON — a thin wrapper over `lib/season.ts` |
 | `app/api/debug/governors/route.ts` | Reports rosters the governor registry cannot resolve. Must be empty |
@@ -68,6 +69,12 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 The finale week is also **Rivalry Week**: the same seven pairings every season since 2021 — Ben/Peter, Brent/Knute, Chris/Mark, DanK/DanP, Eli/Sam, Jeremy/Matt, Johnathan/Josh.
 
 It awards no head-to-head VP and no win or loss, so it is deliberately excluded from head-to-head records, points against, and the season W-L. `headToHead()` reports it separately as `rivalryWeek`, decided on the scores, purely for bragging rights.
+
+## Record book positions
+
+The league starts QB/RB/WR/TE (and occasionally FB) — no kickers, no defences. Positions are read from `data/players.json` rather than hardcoded, and a scoreless week never counts as a record, which also keeps stray misfiled players from each claiming a section.
+
+To refresh the player map after a season, hit `/api/debug/players` and save the `players` object to `data/players.json`.
 
 ## Data sources
 

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import groundTruth from "../data/ground-truth.json" with { type: "json" };
-import { buildGameLog, headToHead, recordBook, type Game } from "./history";
+import { buildGameLog, headToHead, loadPlayers, recordBook, sortPositions, type Game } from "./history";
 
 const h2hTruth = groundTruth.headToHeadRegularSeason as Record<
   string,
@@ -114,7 +114,10 @@ test("the record book ranks weeks, blowouts and nail-biters", async () => {
 
 test("positional records use the player map when one is supplied", async () => {
   const games = await log();
-  const withStarters = games.find((g) => g.starters.length > 0 && g.startersPoints.length > 0);
+  // The first starter has to have actually scored: scoreless weeks are filtered.
+  const withStarters = games.find(
+    (g) => g.starters.length > 0 && (g.startersPoints[0] ?? 0) > 0
+  );
   assert.ok(withStarters, "the archive carries starting lineups");
 
   const players = Object.fromEntries(
@@ -163,4 +166,50 @@ test("every governor's Rivalry Week meetings are symmetric", async () => {
   assert.equal(forward.wins, reverse.losses);
   assert.equal(forward.losses, reverse.wins);
   assert.equal(forward.meetings.length, reverse.meetings.length);
+});
+
+test("the committed player map covers every started player", async () => {
+  const [games, players] = await Promise.all([log(), loadPlayers()]);
+  const missing = new Set<string>();
+  for (const game of games) {
+    for (const id of game.starters) {
+      if (id && id !== "0" && !players[id]) missing.add(id);
+    }
+  }
+  assert.deepEqual([...missing], [], "every starter must resolve to a name and position");
+});
+
+test("positional records come out of the real archive", async () => {
+  const [games, players] = await Promise.all([log(), loadPlayers()]);
+  const book = recordBook(games, players);
+
+  assert.equal(book.hasPlayerData, true);
+  // The league starts no kickers or defences, so those sections are absent.
+  const positions = sortPositions(Object.keys(book.byPosition));
+  assert.deepEqual(positions.slice(0, 4), ["QB", "RB", "WR", "TE"]);
+
+  // Positions nobody ever scored in are dropped entirely.
+  assert.ok(!positions.includes("LB") && !positions.includes("DB"));
+
+  for (const position of positions) {
+    const entries = book.byPosition[position];
+    assert.ok(entries.length > 0, `${position} has records`);
+    assert.ok(entries.every((e) => e.value > 0), `${position} records are all scoring weeks`);
+    for (const entry of entries) {
+      assert.equal(entry.position, position);
+      assert.ok(entry.playerName, `${position} record names its player`);
+      assert.ok(entry.season >= "2020" && entry.season <= "2025");
+    }
+    // Ranked best first.
+    for (let i = 1; i < entries.length; i++) {
+      assert.ok(entries[i - 1].value >= entries[i].value, `${position} records are ordered`);
+    }
+  }
+
+  // A quarterback's best week should outscore a tight end's.
+  assert.ok(book.byPosition.QB[0].value > book.byPosition.TE[0].value);
+});
+
+test("sortPositions puts lineup positions first and unknowns last", () => {
+  assert.deepEqual(sortPositions(["TE", "QB", "DL", "WR"]), ["QB", "WR", "TE", "DL"]);
 });

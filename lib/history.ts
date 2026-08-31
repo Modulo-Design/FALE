@@ -296,8 +296,23 @@ export interface RecordBook {
 }
 
 const TOP_N = 10;
-/** Fantasy positions, in the order a lineup is normally listed. */
-export const POSITIONS = ["QB", "RB", "WR", "TE", "K", "DEF"] as const;
+
+/**
+ * Display order for positions. Anything present in the data but not listed
+ * here still gets a record section, sorted after these -- the league runs no
+ * kickers or defences, but that is a league setting, not an assumption worth
+ * baking in.
+ */
+export const POSITION_ORDER = ["QB", "RB", "WR", "TE", "FB", "K", "DEF"];
+
+export function sortPositions(positions: string[]): string[] {
+  return [...positions].sort((a, b) => {
+    const ai = POSITION_ORDER.indexOf(a);
+    const bi = POSITION_ORDER.indexOf(b);
+    return (ai === -1 ? Number.MAX_SAFE_INTEGER : ai) - (bi === -1 ? Number.MAX_SAFE_INTEGER : bi) ||
+      a.localeCompare(b);
+  });
+}
 
 function base(game: Game, value: number): RecordEntry {
   return {
@@ -353,7 +368,10 @@ export function recordBook(log: Game[], players?: PlayerMap): RecordBook {
         const position = info?.p;
         if (!position) continue;
         const points = game.startersPoints[i];
-        if (typeof points !== "number") continue;
+        // A scoreless week is not a record. This also drops the stray
+        // defensive players who were started once and never scored, which
+        // would otherwise each get a section of their own.
+        if (typeof points !== "number" || points <= 0) continue;
         const entry = base(game, points);
         entry.playerName = info.n;
         entry.position = position;
@@ -377,4 +395,15 @@ export function recordBook(log: Game[], players?: PlayerMap): RecordBook {
     byPosition,
     hasPlayerData: Boolean(players),
   };
+}
+
+/**
+ * The committed player map: id -> name, position, team.
+ *
+ * Trimmed from Sleeper's full dictionary to only the ids this league has used,
+ * so positional records work offline without a multi-megabyte download.
+ */
+export async function loadPlayers(): Promise<PlayerMap> {
+  const mod = await import("../data/players.json");
+  return mod.default as PlayerMap;
 }
