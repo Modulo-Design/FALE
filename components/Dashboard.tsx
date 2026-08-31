@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import StandingsTable from "./StandingsTable";
 import WeeklyVPGrid from "./WeeklyVPGrid";
 import PlayoffBracket from "./PlayoffBracket";
+import PlayoffProjections from "./PlayoffProjections";
 
 const VPChart = dynamic(() => import("./VPChart"), { ssr: false });
 const PointsChart = dynamic(() => import("./PointsChart"), { ssr: false });
@@ -19,8 +20,12 @@ const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid", "Playoffs"] 
 type Tab = (typeof TABS)[number];
 
 export default function Dashboard({ data }: Props) {
-  const { teams: standings, weeksCompleted, season, leagueName, playoffs } = data;
+  const { teams: standings, weeksCompleted, season, leagueName, playoffs, projections } = data;
   const [tab, setTab] = useState<Tab>("Standings");
+
+  // A season still being played shows what the bracket is likely to become,
+  // rather than an empty one.
+  const playoffTabLabel = projections ? "Playoff Projections" : "Playoffs";
 
   return (
     <div className="space-y-6">
@@ -42,7 +47,7 @@ export default function Dashboard({ data }: Props) {
                 : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
             }`}
           >
-            {t}
+            {t === "Playoffs" ? playoffTabLabel : t}
           </button>
         ))}
       </div>
@@ -73,7 +78,9 @@ export default function Dashboard({ data }: Props) {
       )}
 
       {tab === "Playoffs" &&
-        (playoffs ? (
+        (projections ? (
+          <PlayoffProjections projections={projections} />
+        ) : playoffs ? (
           <PlayoffBracket bracket={playoffs} />
         ) : (
           <p className="text-sm text-gray-500 dark:text-gray-400">No playoff data available for this season.</p>

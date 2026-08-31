@@ -1,5 +1,6 @@
 "use client";
 
+import Podium from "./Podium";
 import type { PlayoffBracket, PlayoffMatchupResult } from "@/lib/types";
 
 interface Props {
@@ -55,7 +56,7 @@ function MatchupCard({ matchup }: { matchup: PlayoffMatchupResult }) {
 }
 
 export default function PlayoffBracket({ bracket }: Props) {
-  const { rounds, champion, runnerUp } = bracket;
+  const { rounds, podium, season, complete } = bracket;
 
   if (rounds.length === 0) {
     return (
@@ -76,20 +77,15 @@ export default function PlayoffBracket({ bracket }: Props) {
   const bracketHeight = slotCount * SLOT_HEIGHT;
 
   return (
-    <div className="space-y-6">
-      {champion && (
-        <div className="rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 p-4 text-center">
-          <p className="text-xs text-green-700 dark:text-green-300 font-medium uppercase tracking-wide">
-            Champion
-          </p>
-          <p className="text-xl font-bold text-green-900 dark:text-green-100">{champion}</p>
-          {runnerUp && (
-            <p className="text-xs text-green-700 dark:text-green-400 mt-1">defeated {runnerUp}</p>
-          )}
-        </div>
+    // The podium sits outside the bracket subtree on purpose: the columns below
+    // are absolutely positioned and their connector geometry depends on the
+    // bracket owning its own width.
+    <div className="flex flex-col lg:flex-row-reverse gap-6 items-start">
+      {complete && podium && (
+        <Podium podium={podium} season={season} className="w-full lg:w-56 shrink-0" />
       )}
 
-      <div className="overflow-x-auto pb-2">
+      <div className="flex-1 min-w-0 overflow-x-auto pb-2">
         <div className="flex" style={{ width: "max-content" }}>
           {roundNumbers.map((round, roundIdx) => {
             const matchups = byRound.get(round)!;

@@ -14,6 +14,7 @@ import {
 } from "./archive-data";
 import { resolveGovernor } from "./governors";
 import { buildPlayoffBracket, fetchPlayoffBracket } from "./playoffs";
+import { monteCarlo } from "./projections";
 import { seedPlayoffField } from "./seeding";
 import {
   getLeague,
@@ -129,6 +130,55 @@ export function computeSeasonStandings(input: SeasonInput): SeasonStandings {
   };
 }
 
+/**
+ * Project the rest of an unfinished season.
+ *
+ * Sleeper publishes the full schedule up front -- future weeks come back with a
+ * matchup_id and zero points -- so the remaining fixtures are real, not inferred.
+ */
+function projectSeason(
+  season: string,
+  standings: SeasonStandings,
+  byWeek: { week: number; matchups: SleeperMatchup[] }[],
+  playoffWeekStart?: number
+): SeasonStandings["projections"] {
+  const format = PLAYOFF_FORMAT[season];
+  if (!format) return undefined;
+
+  const played = new Set(standings.teams.flatMap((t) => t.weeklyResults.map((r) => r.week)));
+  const remainingSchedule = byWeek
+    .filter(({ week }) => week <= standings.regularSeasonWeeks && !played.has(week))
+    .map(({ week, matchups }) => {
+      const groups = new Map<number, number[]>();
+      for (const m of matchups) {
+        if (m.matchup_id == null) continue;
+        groups.set(m.matchup_id, [...(groups.get(m.matchup_id) ?? []), m.roster_id]);
+      }
+      const pairs = [...groups.values()]
+        .filter((ids): ids is [number, number] => ids.length === 2)
+        .map((ids) => [ids[0], ids[1]] as [number, number]);
+      return { week, pairs };
+    });
+
+  if (remainingSchedule.length === 0) return undefined;
+
+  return monteCarlo.run({
+    season,
+    regularSeasonWeeks: standings.regularSeasonWeeks,
+    weeksCompleted: standings.weeksCompleted,
+    playoffWeekStart: playoffWeekStart ?? standings.regularSeasonWeeks + 1,
+    teams: standings.teams.map((team) => ({
+      rosterId: team.rosterId,
+      governorName: team.governorName,
+      currentVP: team.totalVP,
+      currentPoints: team.totalPoints,
+      weeklyScores: team.weeklyResults.map((r) => r.points),
+    })),
+    remainingSchedule,
+    playoffFormat: format,
+  });
+}
+
 /** Playoff seed by roster id, used to rank the beaten semi-finalists. */
 function seedMap(season: string, standings: SeasonStandings): Map<number, number> | undefined {
   const format = PLAYOFF_FORMAT[season];
@@ -223,9 +273,8 @@ export async function fetchSeasonStandings(
     )
   );
 
-  const weeks = allWeeks
-    .map((matchups, i) => ({ week: i + 1, matchups }))
-    .filter(({ matchups }) => isWeekPlayed(matchups));
+  const byWeek = allWeeks.map((matchups, i) => ({ week: i + 1, matchups }));
+  const weeks = byWeek.filter(({ matchups }) => isWeekPlayed(matchups));
 
   const standings = computeSeasonStandings({
     season,
@@ -235,5 +284,10 @@ export async function fetchSeasonStandings(
     weeks,
   });
 
-  return { ...standings, playoffs };
+  const projections =
+    weeks.length < weekCount
+      ? projectSeason(season, standings, byWeek, league.settings?.playoff_week_start)
+      : undefined;
+
+  return { ...standings, playoffs, projections };
 }
