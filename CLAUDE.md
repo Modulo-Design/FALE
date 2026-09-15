@@ -23,6 +23,9 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/playoffs.ts` | Bracket reconstruction, bye detection, third-place capture, podium |
 | `lib/historical.ts` | Cross-season aggregation for the Historical tab, including all-play records |
 | `lib/seeding.ts` | Playoff qualification, seeding, and round pairings |
+| `lib/standings-view.ts` | The week-folding rules, shared by `aggregateStandings` and the standings table |
+| `lib/rounds.ts` | Playoff round naming — the one definition every surface reads |
+| `lib/use-media-query.ts` | `matchMedia` as a hook, for the VP chart's phone layout |
 | `lib/history.ts` | Cross-season game log, head-to-head, Rivalry Week, record book |
 | `lib/projections.ts` | Seeded Monte Carlo playoff projections for the season in progress |
 | `lib/trades.ts` | Trade log, draft-slot derivation, and multi-hop pick lineage |
@@ -38,7 +41,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `app/api/debug/governors/route.ts` | Reports rosters the governor registry cannot resolve. Must be empty |
 | `app/api/debug/archive/route.ts` | Exports raw league data as JSON for offline fixtures |
 | `components/Dashboard.tsx` | Tabbed shell — takes a single `SeasonStandings` |
-| `components/StandingsTable.tsx` | Standings tab |
+| `components/StandingsTable.tsx` | Standings tab — playoff-field highlight, and the final/live toggle |
 | `components/VPChart.tsx` | VP Breakdown tab |
 | `components/WeeklyVPGrid.tsx` | Weekly Grid tab |
 | `components/PlayoffBracket.tsx` | Playoffs tab — absolutely-positioned bracket with drawn connectors |
@@ -48,6 +51,8 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `components/HeadToHead.tsx` | Two-governor series lookup incl. Rivalry Week |
 | `components/RecordBook.tsx` | All-time and per-position records |
 | `components/TradeTracker.tsx` | Player search over every trade |
+| `components/SegmentedControl.tsx` | The shared scope filter used by standings, head-to-head and stats |
+| `components/vp-colors.ts` | The weekly-grid cell colours and their legend, in one place |
 | `components/SiteHeader.tsx` / `SeasonSelector.tsx` | Shared header and nav |
 
 ---
@@ -71,6 +76,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 - **Round 1:** the top seeds get byes (1 seed with a 7-team field, 1 and 2 with a 6-team field); everyone else pairs highest against lowest — 2v7, 3v6, 4v5.
 - **Later rounds re-seed:** the top surviving seed always draws the lowest.
 - **Third place** is the **better-seeded losing semi-finalist**. Sleeper generates a third-place game, but the league treats it as an exhibition — Eli won it in 2020 and Chris in 2022, yet Sam and DanK are the recorded third-place finishers.
+- **Not every post-season game is a playoff game.** Sleeper schedules all 14 rosters every playoff week and posts one more week after the bracket ends, with scores but no pairings at all. `Game.postseason` in `lib/history.ts` sorts them into `bracket` / `consolation` / `exhibition` from the winners bracket; `isCounting` is the filter every all-time figure uses, so only real bracket games count. Round names come from `lib/rounds.ts` — never from a week number.
 
 ## Draft picks
 
@@ -89,6 +95,14 @@ It awards no head-to-head VP and no win or loss, so it is deliberately excluded 
 The league starts QB/RB/WR/TE (and occasionally FB) — no kickers, no defences. Positions are read from `data/players.json` rather than hardcoded, and a scoreless week never counts as a record, which also keeps stray misfiled players from each claiming a section.
 
 To refresh the player map after a season, hit `/api/debug/players` and save the `players` object to `data/players.json`.
+
+## The week in progress
+
+`isWeekPlayed` calls a week played the moment any team scores, which is true at 1:05pm on a Sunday. `pendingWeeks` in `lib/season.ts` is what separates a live week from a settled one: it reads Sleeper's `/state/nfl` and falls back to the newest week's scores only when that call fails. **It returns `[]` for anything but `CURRENT_SEASON`** — that one guard is what keeps every archived season, the offline audit and the history pipelines byte-identical.
+
+The standings table defaults to final-only and folds the live week back in on request. Folding happens client-side through `restrictTeam`, which is exact rather than approximate: every figure is per-week additive and each week's top-half cut is decided on that week alone. `lib/live.test.ts` proves it against a full recompute for every week of every archived season.
+
+Live weeks are fetched at a 60-second cache (`LIVE_REVALIDATE`); everything that cannot change again stays at an hour.
 
 ## Data sources
 

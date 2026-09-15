@@ -72,10 +72,11 @@ export default function VPChart({ standings }: Props) {
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis type="number" tick={{ fontSize: 12 }} />
+          {/* Wide enough for the longest governor name at this font size. */}
           <YAxis
             type="category"
             dataKey="name"
-            width={64}
+            width={78}
             interval={0}
             tick={{ fontSize: 12, fontWeight: 700 }}
           />
