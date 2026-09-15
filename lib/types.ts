@@ -36,6 +36,12 @@ export interface WeeklyResult {
   /** Commissioner adjustment applied on top of the computed VPs. */
   vpAdjustment: number;
   vp: number;
+  /**
+   * True while the week is still being played, so these figures can still
+   * change. Only ever set for the season in progress; archived seasons never
+   * carry it, which is what keeps the offline audit byte-identical.
+   */
+  pending?: boolean;
 }
 
 export interface TeamStanding {
@@ -62,6 +68,18 @@ export interface SeasonStandings {
   teams: TeamStanding[];
   playoffs?: PlayoffBracket;
   projections?: ProjectionOutput;
+  /** Included weeks whose results are not settled yet. Empty for a past season. */
+  pendingWeeks?: number[];
+  liveStatus?: LiveStatus;
+}
+
+/** How the live week was identified, so the UI can say how sure it is. */
+export interface LiveStatus {
+  source: "nfl-state" | "heuristic";
+  /** The week Sleeper's /state/nfl reports, when that call succeeded. */
+  nflWeek?: number;
+  seasonType?: string;
+  fetchedAt: string;
 }
 
 // ---------------------------------------------------------------------------

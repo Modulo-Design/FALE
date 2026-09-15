@@ -4,6 +4,13 @@ import { fetchSeasonStandings } from "@/lib/season";
 import Dashboard from "@/components/Dashboard";
 import Spinner from "@/components/Spinner";
 
+/**
+ * The season in progress fetches the live week at a one-minute cache, so the
+ * page itself has to be allowed to go stale that fast too -- otherwise a live
+ * score sits behind an hour-old render of the page that shows it.
+ */
+export const revalidate = 60;
+
 interface PageProps {
   searchParams: Promise<{ season?: string }>;
 }

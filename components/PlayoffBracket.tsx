@@ -1,6 +1,7 @@
 "use client";
 
 import Podium from "./Podium";
+import { playoffRoundLabel } from "@/lib/rounds";
 import type { PlayoffBracket, PlayoffMatchupResult } from "@/lib/types";
 
 interface Props {
@@ -11,12 +12,6 @@ const COL_WIDTH = 220;
 const GAP_WIDTH = 40;
 const SLOT_HEIGHT = 92;
 const LINE_CLASS = "bg-gray-300 dark:bg-gray-600";
-
-function roundLabel(round: number, maxRound: number, isChampionship: boolean) {
-  if (isChampionship) return "Championship";
-  if (round === maxRound) return "Final Round";
-  return `Round ${round}`;
-}
 
 // Vertical center (as a % of the column height) of matchup `idx` out of `count`
 // total matchups, assuming they're spaced evenly. Round r+1's match `i` is the
@@ -89,7 +84,6 @@ export default function PlayoffBracket({ bracket }: Props) {
         <div className="flex" style={{ width: "max-content" }}>
           {roundNumbers.map((round, roundIdx) => {
             const matchups = byRound.get(round)!;
-            const isChampionship = matchups.some((m) => m.placement === 1);
             const nextRound = roundIdx < roundNumbers.length - 1 ? roundNumbers[roundIdx + 1] : undefined;
             const nextMatchups = nextRound !== undefined ? byRound.get(nextRound)! : undefined;
 
@@ -97,7 +91,7 @@ export default function PlayoffBracket({ bracket }: Props) {
               <div key={round} className="flex items-start">
                 <div style={{ width: COL_WIDTH }}>
                   <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide text-center mb-3">
-                    {roundLabel(round, maxRound, isChampionship)}
+                    {playoffRoundLabel(round, maxRound)}
                   </h3>
                   <div className="relative" style={{ height: bracketHeight }}>
                     {matchups.map((matchup, idx) => (

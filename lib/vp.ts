@@ -6,6 +6,7 @@ import {
   isFinaleWeek,
 } from "./config";
 import type { SleeperMatchup } from "./sleeper";
+import { foldWeeklyResults } from "./standings-view";
 import type { TeamStanding, WeeklyResult } from "./types";
 
 export type { WeeklyResult, TeamStanding } from "./types";
@@ -173,45 +174,24 @@ export type AggregatedStanding = Pick<
 export function aggregateStandings(
   weeklyData: WeeklyResult[][]
 ): Map<number, AggregatedStanding> {
-  const standings = new Map<number, AggregatedStanding>();
+  const byRoster = new Map<number, WeeklyResult[]>();
 
   for (const week of weeklyData) {
     for (const result of week) {
-      let standing = standings.get(result.rosterId);
-      if (!standing) {
-        standing = {
-          rosterId: result.rosterId,
-          totalVP: 0,
-          totalPoints: 0,
-          totalPointsAgainst: 0,
-          wins: 0,
-          losses: 0,
-          ties: 0,
-          weeklyResults: [],
-        };
-        standings.set(result.rosterId, standing);
-      }
-
-      standing.totalVP += result.vp;
-      standing.totalPoints += result.points;
-      // A finale week pairs teams in Sleeper but is scored league-wide, so its
-      // nominal opponent is not a real one and contributes no points against.
-      if (!result.isFinale) standing.totalPointsAgainst += result.opponentPoints ?? 0;
-
-      // Finale and bye weeks are scoring-only: they award VP but no result.
-      // This is what keeps a 14-week season at 13 games played.
-      if (!result.isFinale && !result.bye) {
-        if (result.tied) standing.ties++;
-        else if (result.won) standing.wins++;
-        else standing.losses++;
-      }
-
-      standing.weeklyResults.push(result);
+      const existing = byRoster.get(result.rosterId);
+      if (existing) existing.push(result);
+      else byRoster.set(result.rosterId, [result]);
     }
   }
 
-  for (const standing of standings.values()) {
-    standing.weeklyResults.sort((a, b) => a.week - b.week);
+  const standings = new Map<number, AggregatedStanding>();
+  for (const [rosterId, results] of byRoster) {
+    results.sort((a, b) => a.week - b.week);
+    // foldWeeklyResults is the one reading of what a finale or bye week
+    // contributes; the standings table folds the same way when it hides a
+    // week that is still being played.
+    const totals = foldWeeklyResults(results);
+    standings.set(rosterId, { rosterId, ...totals, weeklyResults: results });
   }
 
   return standings;

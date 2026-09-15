@@ -134,8 +134,25 @@ export interface SleeperNflState {
   display_week: number;
 }
 
-async function sleeperFetch<T>(path: string, fallback?: T): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, { next: { revalidate: 3600 } });
+/** An hour is right for everything that cannot change again. */
+const DEFAULT_REVALIDATE = 3600;
+
+/** What the week in progress is fetched at, so live scores are actually live. */
+export const LIVE_REVALIDATE = 60;
+
+export interface SleeperFetchOptions {
+  /** Cache lifetime in seconds. Defaults to an hour. */
+  revalidate?: number;
+}
+
+async function sleeperFetch<T>(
+  path: string,
+  fallback?: T,
+  options: SleeperFetchOptions = {}
+): Promise<T> {
+  const res = await fetch(`${BASE}${path}`, {
+    next: { revalidate: options.revalidate ?? DEFAULT_REVALIDATE },
+  });
   if (!res.ok) {
     if (fallback !== undefined) return fallback;
     throw new SleeperError(path, res.status);
@@ -155,8 +172,12 @@ export function getUsers(leagueId: string): Promise<SleeperUser[]> {
   return sleeperFetch<SleeperUser[]>(`/league/${leagueId}/users`);
 }
 
-export function getMatchups(leagueId: string, week: number): Promise<SleeperMatchup[]> {
-  return sleeperFetch<SleeperMatchup[]>(`/league/${leagueId}/matchups/${week}`, []);
+export function getMatchups(
+  leagueId: string,
+  week: number,
+  options?: SleeperFetchOptions
+): Promise<SleeperMatchup[]> {
+  return sleeperFetch<SleeperMatchup[]>(`/league/${leagueId}/matchups/${week}`, [], options);
 }
 
 export function getWinnersBracket(leagueId: string): Promise<SleeperBracketMatchup[]> {
@@ -183,8 +204,17 @@ export function getDraftPicks(draftId: string): Promise<SleeperDraftPick[]> {
   return sleeperFetch<SleeperDraftPick[]>(`/draft/${draftId}/picks`, []);
 }
 
+/**
+ * Which week the NFL is actually on.
+ *
+ * Cached for a minute, not an hour: it is what decides whether the dashboard
+ * calls a week final, so an hour-stale answer would keep a finished week
+ * flagged as in progress well past the last whistle.
+ */
 export function getNflState(): Promise<SleeperNflState> {
-  return sleeperFetch<SleeperNflState>("/state/nfl");
+  return sleeperFetch<SleeperNflState>("/state/nfl", undefined, {
+    revalidate: LIVE_REVALIDATE,
+  });
 }
 
 /**

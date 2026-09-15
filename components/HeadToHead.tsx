@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+
+import SegmentedControl from "./SegmentedControl";
 import type { HeadToHeadResult } from "@/lib/history";
 
 interface Props {
@@ -8,6 +11,20 @@ interface Props {
   a: string;
   b: string;
   result: HeadToHeadResult;
+}
+
+type Scope = "all" | "regular" | "playoff";
+
+const SCOPES = [
+  { value: "all", label: "All" },
+  { value: "regular", label: "Regular season" },
+  { value: "playoff", label: "Playoffs" },
+] as const satisfies readonly { value: Scope; label: string }[];
+
+/** How a meeting is labelled in the tables: a round name, or a week number. */
+function meetingLabel(meeting: { phase: string; roundLabel: string | null; week: number }): string {
+  if (meeting.roundLabel) return meeting.roundLabel;
+  return `Week ${meeting.week}`;
 }
 
 function streakLabel(streak: number): string {
@@ -44,8 +61,11 @@ export default function HeadToHead({ governors, a, b, result }: Props) {
     </select>
   );
 
+  const [scope, setScope] = useState<Scope>("all");
   const { rivalryWeek } = result;
-  const played = result.wins + result.losses + result.ties;
+  const series = result[scope];
+  const played = series.wins + series.losses + series.ties;
+  const everPlayed = result.all.wins + result.all.losses + result.all.ties;
 
   return (
     <div className="space-y-6">
@@ -59,32 +79,50 @@ export default function HeadToHead({ governors, a, b, result }: Props) {
         >
           Swap
         </button>
+        <SegmentedControl
+          label="Series scope"
+          value={scope}
+          onChange={setScope}
+          options={SCOPES}
+        />
       </div>
 
-      {played === 0 ? (
+      {everPlayed === 0 ? (
         <p className="text-sm text-gray-500 dark:text-gray-400">
           {a} and {b} have never played each other.
+        </p>
+      ) : played === 0 ? (
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {a} and {b} have never met in the playoffs.
         </p>
       ) : (
         <>
           <div className="rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 p-4 text-center">
             <p className="text-xs uppercase tracking-wide text-green-700 dark:text-green-300">
-              All-time series
+              {scope === "all"
+                ? "All-time series"
+                : scope === "regular"
+                ? "Regular-season series"
+                : "Playoff series"}
             </p>
             <p className="text-2xl font-bold text-green-900 dark:text-green-100 tabular-nums">
-              {a} {result.wins}–{result.losses}
-              {result.ties > 0 ? `–${result.ties}` : ""} {b}
+              {a} {series.wins}–{series.losses}
+              {series.ties > 0 ? `–${series.ties}` : ""} {b}
             </p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <Stat label="Avg for" value={result.avgFor.toFixed(1)} hint={a} />
-            <Stat label="Avg against" value={result.avgAgainst.toFixed(1)} hint={b} />
-            <Stat label="Current streak" value={streakLabel(result.streak)} hint={`for ${a}`} />
+            <Stat label="Avg for" value={series.avgFor.toFixed(1)} hint={a} />
+            <Stat label="Avg against" value={series.avgAgainst.toFixed(1)} hint={b} />
+            <Stat label="Current streak" value={streakLabel(series.streak)} hint={`for ${a}`} />
             <Stat
               label="Biggest win"
-              value={result.biggestWin ? `+${result.biggestWin.margin.toFixed(1)}` : "—"}
-              hint={result.biggestWin ? `${result.biggestWin.season} wk${result.biggestWin.week}` : undefined}
+              value={series.biggestWin ? `+${series.biggestWin.margin.toFixed(1)}` : "—"}
+              hint={
+                series.biggestWin
+                  ? `${series.biggestWin.season} ${meetingLabel(series.biggestWin)}`
+                  : undefined
+              }
             />
           </div>
 
@@ -131,7 +169,7 @@ export default function HeadToHead({ governors, a, b, result }: Props) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
-                  {result.perSeason.map((s) => (
+                  {series.perSeason.map((s) => (
                     <tr key={s.season}>
                       <td className="px-3 py-2 font-medium text-gray-900 dark:text-gray-100">{s.season}</td>
                       <td className="px-3 py-2 text-right tabular-nums">
@@ -167,14 +205,14 @@ export default function HeadToHead({ governors, a, b, result }: Props) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
-                  {result.meetings.map((m) => (
+                  {series.meetings.map((m) => (
                     <tr
                       key={`${m.season}-${m.week}`}
                       className={m.won ? "bg-green-50/60 dark:bg-green-900/10" : undefined}
                     >
                       <td className="px-3 py-2 text-gray-900 dark:text-gray-100">{m.season}</td>
                       <td className="px-3 py-2 text-gray-500 dark:text-gray-400">
-                        {m.phase === "playoff" ? `Playoffs wk${m.week}` : `Week ${m.week}`}
+                        {meetingLabel(m)}
                       </td>
                       <td
                         className={`px-3 py-2 text-right tabular-nums ${

@@ -37,7 +37,8 @@ function EntryRow({ entry, rank, unit }: { entry: RecordEntry; rank: number; uni
         )}
       </span>
       <span className="shrink-0 text-xs tabular-nums text-gray-400 dark:text-gray-500">
-        {entry.season} wk{entry.week}
+        {/* A bracket game is named, not numbered: "2024 Semifinal", not "2024 wk16". */}
+        {entry.season} {entry.roundLabel ?? `wk${entry.week}`}
       </span>
     </li>
   );

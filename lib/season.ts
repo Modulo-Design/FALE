@@ -17,13 +17,17 @@ import { buildPlayoffBracket, fetchPlayoffBracket } from "./playoffs";
 import { monteCarlo } from "./projections";
 import { seedPlayoffField } from "./seeding";
 import {
+  LIVE_REVALIDATE,
   getLeague,
   getMatchups,
+  getNflState,
   getRosters,
   getUsers,
   type SleeperMatchup,
+  type SleeperNflState,
 } from "./sleeper";
-import type { SeasonStandings, TeamStanding } from "./types";
+import { restrictStandings } from "./standings-view";
+import type { LiveStatus, SeasonStandings, TeamStanding } from "./types";
 import { aggregateStandings, applyVPOverrides, calculateWeekVPs } from "./vp";
 
 export interface SeasonRosterInfo {
@@ -53,6 +57,55 @@ function round2(value: number): number {
  */
 export function isWeekPlayed(matchups: SleeperMatchup[]): boolean {
   return matchups.length > 0 && matchups.some((m) => m.points > 0);
+}
+
+export interface LiveWeekContext {
+  /** How many rosters the league has, for the no-nfl-state fallback. */
+  rosterCount: number;
+  /** Sleeper's /state/nfl, or null when the call failed. */
+  nflState?: SleeperNflState | null;
+}
+
+/**
+ * Which of the included weeks are still being played.
+ *
+ * `isWeekPlayed` calls a week played the moment any team scores, which is true
+ * at 1:05pm on a Sunday -- so without this the standings present a third of a
+ * week's results as if they were settled.
+ *
+ * Only ever non-empty for the season in progress. That one guard is what keeps
+ * every archived season, the offline audit and the history pipelines producing
+ * byte-identical numbers to before this existed.
+ */
+export function pendingWeeks(
+  season: string,
+  weeks: { week: number; matchups: SleeperMatchup[] }[],
+  ctx: LiveWeekContext
+): number[] {
+  if (season !== CURRENT_SEASON) return [];
+  if (weeks.length === 0) return [];
+
+  const { nflState } = ctx;
+  if (nflState) {
+    // The NFL has moved on to a later season, or out of the regular season
+    // altogether: nothing on this page can still be in progress.
+    if (Number(nflState.season) > Number(season)) return [];
+    if (nflState.season_type !== "regular") return [];
+    return weeks
+      .map(({ week }) => week)
+      .filter((week) => week >= nflState.week)
+      .sort((a, b) => a - b);
+  }
+
+  // No NFL clock to go on, so fall back to the newest included week only, and
+  // judge it on whether its scores look finished. This heuristic must never
+  // reach further back: the league's real history contains genuine 0.0 and
+  // -0.1 weeks, and demoting a settled week over one of those would be worse
+  // than leaving a live week marked final.
+  const newest = weeks.reduce((max, w) => (w.week > max.week ? w : max), weeks[0]);
+  const looksUnfinished =
+    newest.matchups.length < ctx.rosterCount || newest.matchups.some((m) => m.points === 0);
+  return looksUnfinished ? [newest.week] : [];
 }
 
 /**
@@ -239,6 +292,11 @@ export async function fetchSeasonStandings(
     if (archived) return archived;
   }
 
+  // Only the season in progress can have a week in progress, so only it pays
+  // for the extra call.
+  const nflState: SleeperNflState | null =
+    season === CURRENT_SEASON ? await getNflState().catch(() => null) : null;
+
   const [league, rosters, users, playoffs] = await Promise.all([
     getLeague(leagueId),
     getRosters(leagueId),
@@ -269,12 +327,25 @@ export async function fetchSeasonStandings(
   const weekCount = regularSeasonWeeks(season);
   const allWeeks = await Promise.all(
     Array.from({ length: weekCount }, (_, i) =>
-      getMatchups(leagueId, i + 1).catch((): SleeperMatchup[] => [])
+      // Weeks the NFL has already finished cannot change, so they keep the
+      // hour-long cache; only the week in progress and anything after it is
+      // worth re-fetching every minute.
+      getMatchups(
+        leagueId,
+        i + 1,
+        nflState && i + 1 >= nflState.week ? { revalidate: LIVE_REVALIDATE } : undefined
+      ).catch((): SleeperMatchup[] => [])
     )
   );
 
   const byWeek = allWeeks.map((matchups, i) => ({ week: i + 1, matchups }));
   const weeks = byWeek.filter(({ matchups }) => isWeekPlayed(matchups));
+
+  const pending = pendingWeeks(season, weeks, {
+    rosterCount: rosterInfo.length,
+    nflState,
+  });
+  const isPending = (week: number) => pending.includes(week);
 
   const standings = computeSeasonStandings({
     season,
@@ -284,10 +355,47 @@ export async function fetchSeasonStandings(
     weeks,
   });
 
+  const liveStatus: LiveStatus | undefined =
+    pending.length === 0
+      ? undefined
+      : {
+          source: nflState ? "nfl-state" : "heuristic",
+          nflWeek: nflState?.week,
+          seasonType: nflState?.season_type,
+          fetchedAt: new Date().toISOString(),
+        };
+
+  // The table reads `pending` per result so it can mark the provisional
+  // figures without being handed a second copy of the standings.
+  const teams: TeamStanding[] =
+    pending.length === 0
+      ? standings.teams
+      : standings.teams.map((team) => ({
+          ...team,
+          weeklyResults: team.weeklyResults.map((result) =>
+            isPending(result.week) ? { ...result, pending: true } : result
+          ),
+        }));
+
+  // Projections simulate the weeks that have not happened yet, and a week
+  // still being played has not finished happening -- so they run on the
+  // final-only standings and treat the live week as a fixture to simulate.
+  const settled =
+    pending.length === 0
+      ? standings
+      : restrictStandings(standings, (result) => !isPending(result.week));
+
   const projections =
-    weeks.length < weekCount
-      ? projectSeason(season, standings, byWeek, league.settings?.playoff_week_start)
+    settled.weeksCompleted < weekCount
+      ? projectSeason(season, settled, byWeek, league.settings?.playoff_week_start)
       : undefined;
 
-  return { ...standings, playoffs, projections };
+  return {
+    ...standings,
+    teams,
+    playoffs,
+    projections,
+    pendingWeeks: pending,
+    liveStatus,
+  };
 }
