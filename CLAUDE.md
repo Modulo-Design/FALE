@@ -40,7 +40,6 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `components/Dashboard.tsx` | Tabbed shell — takes a single `SeasonStandings` |
 | `components/StandingsTable.tsx` | Standings tab |
 | `components/VPChart.tsx` | VP Breakdown tab |
-| `components/PointsChart.tsx` | Points tab |
 | `components/WeeklyVPGrid.tsx` | Weekly Grid tab |
 | `components/PlayoffBracket.tsx` | Playoffs tab — absolutely-positioned bracket with drawn connectors |
 | `components/HistoricalStats.tsx` | All-time stats table |

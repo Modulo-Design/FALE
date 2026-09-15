@@ -8,7 +8,6 @@ import PlayoffBracket from "./PlayoffBracket";
 import PlayoffProjections from "./PlayoffProjections";
 
 const VPChart = dynamic(() => import("./VPChart"), { ssr: false });
-const PointsChart = dynamic(() => import("./PointsChart"), { ssr: false });
 
 import type { SeasonStandings } from "@/lib/types";
 
@@ -16,7 +15,7 @@ interface Props {
   data: SeasonStandings;
 }
 
-const TABS = ["Standings", "VP Breakdown", "Points", "Weekly Grid", "Playoffs"] as const;
+const TABS = ["Standings", "VP Breakdown", "Weekly Grid", "Playoffs"] as const;
 type Tab = (typeof TABS)[number];
 
 export default function Dashboard({ data }: Props) {
@@ -62,8 +61,6 @@ export default function Dashboard({ data }: Props) {
           <VPChart standings={standings} />
         </div>
       )}
-
-      {tab === "Points" && <PointsChart standings={standings} />}
 
       {tab === "Weekly Grid" && (
         <div>
