@@ -52,7 +52,7 @@ export default function Dashboard({ data }: Props) {
         ))}
       </div>
 
-      {tab === "Standings" && <StandingsTable standings={standings} />}
+      {tab === "Standings" && <StandingsTable standings={standings} season={season} />}
 
       {tab === "VP Breakdown" && (
         <div>

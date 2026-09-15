@@ -3,10 +3,13 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 
+import { PLAYOFF_FORMAT } from "@/lib/config";
+import { seedPlayoffField } from "@/lib/seeding";
 import type { TeamStanding } from "@/lib/types";
 
 interface Props {
   standings: TeamStanding[];
+  season: string;
 }
 
 type SortKey = "totalVP" | "totalPoints";
@@ -16,15 +19,23 @@ function avatarUrl(avatar: string | null): string | null {
   return `https://sleepercdn.com/avatars/thumbs/${avatar}`;
 }
 
-export default function StandingsTable({ standings }: Props) {
+export default function StandingsTable({ standings, season }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>("totalVP");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
-  const vpTopHalf = useMemo(() => {
-    const byVP = [...standings].sort((a, b) => b.totalVP - a.totalVP || b.totalPoints - a.totalPoints);
-    const cutoff = Math.ceil(byVP.length / 2);
-    return new Set(byVP.slice(0, cutoff).map((t) => t.rosterId));
-  }, [standings]);
+  // The spreadsheet tints the actual playoff field, not the top half of the
+  // table, and the two disagree every year the wildcard comes from outside the
+  // VP places -- 2025 sent DanP through on 21 VP while Knute missed on 25.
+  const qualifiers = useMemo(() => {
+    const format = PLAYOFF_FORMAT[season];
+    if (!format) return new Map<number, "vp" | "points">();
+    return new Map(
+      seedPlayoffField(standings, format).map((s) => [s.rosterId, s.qualifiedBy])
+    );
+  }, [standings, season]);
+
+  // 6 through 2022, 7 from 2023 -- one of which is the wildcard.
+  const autoSpots = (PLAYOFF_FORMAT[season]?.teams ?? 1) - 1;
 
   const sorted = useMemo(() => {
     return [...standings].sort((a, b) => {
@@ -51,7 +62,8 @@ export default function StandingsTable({ standings }: Props) {
   };
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+    <div className="space-y-2">
+      <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-gray-50 dark:bg-gray-800 text-left">
@@ -74,13 +86,15 @@ export default function StandingsTable({ standings }: Props) {
         </thead>
         <tbody>
           {sorted.map((team, idx) => {
-            const isTop = vpTopHalf.has(team.rosterId);
+            const qualifiedBy = qualifiers.get(team.rosterId);
             return (
               <tr
                 key={team.rosterId}
                 className={`border-t border-gray-100 dark:border-gray-700 ${
-                  isTop
-                    ? "bg-green-50 dark:bg-green-900/20"
+                  qualifiedBy === "points"
+                    ? "bg-green-400 dark:bg-green-600/50 font-semibold"
+                    : qualifiedBy === "vp"
+                    ? "bg-green-200 dark:bg-green-900/40"
                     : "bg-white dark:bg-gray-900"
                 }`}
               >
@@ -119,6 +133,16 @@ export default function StandingsTable({ standings }: Props) {
           })}
         </tbody>
       </table>
+      </div>
+
+      {qualifiers.size > 0 && (
+        <p className="text-[11px] text-gray-500 dark:text-gray-400">
+          <span className="inline-block w-3 h-3 rounded-sm align-[-1px] mr-1 bg-green-200 dark:bg-green-900/40" />
+          Playoff position on VP.
+          <span className="inline-block w-3 h-3 rounded-sm align-[-1px] mx-1 ml-3 bg-green-400 dark:bg-green-600/50" />
+          Wildcard — the highest-scoring team outside the top {autoSpots}.
+        </p>
+      )}
     </div>
   );
 }
