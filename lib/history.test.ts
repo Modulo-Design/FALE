@@ -44,7 +44,7 @@ test("head-to-head reconciles with the league spreadsheet's matrix", async () =>
   let checked = 0;
   for (const [a, opponents] of Object.entries(h2hTruth)) {
     for (const [b, expected] of Object.entries(opponents)) {
-      const result = headToHead(regular, a, b);
+      const result = headToHead(regular, a, b).all;
       const want = STALE[`${a}|${b}`] ?? expected;
       assert.equal(result.wins, want.wins, `${a} vs ${b} wins`);
       assert.equal(result.losses, want.losses, `${a} vs ${b} losses`);
@@ -59,7 +59,7 @@ test("every pair has met exactly six times — a perfect round robin", async () 
   const regular = games.filter((g) => g.phase === "regular");
   for (const [a, opponents] of Object.entries(h2hTruth)) {
     for (const b of Object.keys(opponents)) {
-      const { wins, losses, ties } = headToHead(regular, a, b);
+      const { wins, losses, ties } = headToHead(regular, a, b).all;
       assert.equal(wins + losses + ties, 6, `${a} vs ${b} meeting count`);
     }
   }
@@ -67,8 +67,8 @@ test("every pair has met exactly six times — a perfect round robin", async () 
 
 test("head-to-head is symmetric", async () => {
   const games = await log();
-  const forward = headToHead(games, "Ben", "Jeremy");
-  const reverse = headToHead(games, "Jeremy", "Ben");
+  const forward = headToHead(games, "Ben", "Jeremy").all;
+  const reverse = headToHead(games, "Jeremy", "Ben").all;
   assert.equal(forward.wins, reverse.losses);
   assert.equal(forward.losses, reverse.wins);
   assert.equal(forward.pointsFor, reverse.pointsAgainst);
@@ -77,7 +77,7 @@ test("head-to-head is symmetric", async () => {
 
 test("head-to-head reports per-season splits and a streak", async () => {
   const games = await log();
-  const result = headToHead(games, "Ben", "Jeremy");
+  const result = headToHead(games, "Ben", "Jeremy").all;
   assert.ok(result.perSeason.length > 0);
   const totalFromSplits = result.perSeason.reduce((sum, s) => sum + s.wins + s.losses + s.ties, 0);
   assert.equal(totalFromSplits, result.meetings.length);
@@ -86,11 +86,33 @@ test("head-to-head reports per-season splits and a streak", async () => {
 
 test("an unplayed pairing returns an empty series rather than throwing", async () => {
   const games = await log();
-  const result = headToHead(games, "Ben", "Nobody");
+  const result = headToHead(games, "Ben", "Nobody").all;
   assert.equal(result.meetings.length, 0);
   assert.equal(result.wins, 0);
   assert.equal(result.streak, 0);
   assert.equal(result.biggestWin, undefined);
+});
+
+test("the three head-to-head scopes add back up to the whole series", async () => {
+  const games = await log();
+  for (const [a, opponents] of Object.entries(h2hTruth)) {
+    for (const b of Object.keys(opponents)) {
+      const { all, regular, playoff } = headToHead(games, a, b);
+      assert.equal(all.wins, regular.wins + playoff.wins, `${a} vs ${b} wins`);
+      assert.equal(all.losses, regular.losses + playoff.losses, `${a} vs ${b} losses`);
+      assert.equal(all.ties, regular.ties + playoff.ties, `${a} vs ${b} ties`);
+      assert.equal(
+        all.meetings.length,
+        regular.meetings.length + playoff.meetings.length,
+        `${a} vs ${b} meetings`
+      );
+      // Every playoff meeting is a real bracket game with a name for its round.
+      assert.ok(
+        playoff.meetings.every((m) => m.roundLabel),
+        `${a} vs ${b}: playoff meetings must carry a round name`
+      );
+    }
+  }
 });
 
 test("the record book ranks weeks, blowouts and nail-biters", async () => {

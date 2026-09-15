@@ -197,6 +197,8 @@ export interface HeadToHeadMeeting {
   season: string;
   week: number;
   phase: Game["phase"];
+  /** The round's name for a bracket meeting, so no component re-derives it. */
+  roundLabel: string | null;
   points: number;
   opponentPoints: number;
   won: boolean;
@@ -227,9 +229,8 @@ export interface RivalryWeekRecord {
   meetings: HeadToHeadMeeting[];
 }
 
-export interface HeadToHeadResult {
-  governorA: string;
-  governorB: string;
+/** One scope of a series: the whole thing, or just its regular or bracket half. */
+export interface HeadToHeadSummary {
   wins: number;
   losses: number;
   ties: number;
@@ -243,54 +244,24 @@ export interface HeadToHeadResult {
   biggestLoss?: HeadToHeadMeeting;
   /** Positive for a current win streak, negative for a losing one. */
   streak: number;
-  /** Finale-week meetings, kept out of the record above. */
+}
+
+export interface HeadToHeadResult {
+  governorA: string;
+  governorB: string;
+  /** `all` is exactly `regular` plus `playoff`, so the three scopes add up. */
+  all: HeadToHeadSummary;
+  regular: HeadToHeadSummary;
+  playoff: HeadToHeadSummary;
+  meetings: HeadToHeadMeeting[];
+  /** Finale-week meetings, kept out of every scope above. */
   rivalryWeek: RivalryWeekRecord;
 }
 
 const round2 = (v: number) => Math.round(v * 100) / 100;
 
-/**
- * Every meeting between two governors, from A's perspective.
- *
- * Finale weeks are excluded: Sleeper pairs teams that week but it is scored
- * league-wide, so it is not a head-to-head meeting and the league does not
- * count it as one. Including it would put every pair on seven games instead of
- * the six their round robin actually produces.
- */
-export function headToHead(log: Game[], a: string, b: string): HeadToHeadResult {
-  const toMeeting = (g: Game): HeadToHeadMeeting => ({
-    season: g.season,
-    week: g.week,
-    phase: g.phase,
-    points: g.points,
-    opponentPoints: g.opponentPoints!,
-    won: g.won,
-    tied: g.tied,
-    margin: round2(g.points - g.opponentPoints!),
-  });
-
-  const paired = log.filter(
-    (g) => g.governorName === a && g.opponent === b && g.opponentPoints != null
-  );
-  const meetings: HeadToHeadMeeting[] = paired.filter((g) => !g.isFinale).map(toMeeting);
-
-  const rivalryMeetings = paired
-    .filter((g) => g.isFinale)
-    .map((g) => {
-      const meeting = toMeeting(g);
-      // The finale awards no result, so decide Rivalry Week on the scores.
-      meeting.tied = meeting.points === meeting.opponentPoints;
-      meeting.won = !meeting.tied && meeting.points > meeting.opponentPoints;
-      return meeting;
-    });
-
-  const rivalryWeek: RivalryWeekRecord = {
-    wins: rivalryMeetings.filter((m) => m.won).length,
-    losses: rivalryMeetings.filter((m) => !m.won && !m.tied).length,
-    ties: rivalryMeetings.filter((m) => m.tied).length,
-    meetings: rivalryMeetings,
-  };
-
+/** Roll a set of meetings up into a record, splits, extremes and a streak. */
+export function summarizeMeetings(meetings: HeadToHeadMeeting[]): HeadToHeadSummary {
   const splits = new Map<string, HeadToHeadSplit>();
   let wins = 0, losses = 0, ties = 0, pointsFor = 0, pointsAgainst = 0;
 
@@ -323,8 +294,6 @@ export function headToHead(log: Game[], a: string, b: string): HeadToHeadResult 
   const worst = byMargin[byMargin.length - 1];
 
   return {
-    governorA: a,
-    governorB: b,
     wins, losses, ties,
     pointsFor: round2(pointsFor),
     pointsAgainst: round2(pointsAgainst),
@@ -335,6 +304,64 @@ export function headToHead(log: Game[], a: string, b: string): HeadToHeadResult 
     biggestWin: best && best.margin > 0 ? best : undefined,
     biggestLoss: worst && worst.margin < 0 ? worst : undefined,
     streak,
+  };
+}
+
+/**
+ * Every meeting between two governors, from A's perspective, in three scopes.
+ *
+ * Finale weeks are excluded: Sleeper pairs teams that week but it is scored
+ * league-wide, so it is not a head-to-head meeting and the league does not
+ * count it as one. Including it would put every pair on seven games instead of
+ * the six their round robin actually produces.
+ *
+ * Consolation games and the dead week after the bracket are excluded too --
+ * a series is the regular season plus the real playoffs, and those two scopes
+ * add back up to `all`.
+ */
+export function headToHead(log: Game[], a: string, b: string): HeadToHeadResult {
+  const toMeeting = (g: Game): HeadToHeadMeeting => ({
+    season: g.season,
+    week: g.week,
+    phase: g.phase,
+    roundLabel: g.roundLabel,
+    points: g.points,
+    opponentPoints: g.opponentPoints!,
+    won: g.won,
+    tied: g.tied,
+    margin: round2(g.points - g.opponentPoints!),
+  });
+
+  const paired = log.filter(
+    (g) =>
+      g.governorName === a && g.opponent === b && g.opponentPoints != null && isCounting(g)
+  );
+  const meetings: HeadToHeadMeeting[] = paired.filter((g) => !g.isFinale).map(toMeeting);
+
+  const rivalryMeetings = paired
+    .filter((g) => g.isFinale)
+    .map((g) => {
+      const meeting = toMeeting(g);
+      // The finale awards no result, so decide Rivalry Week on the scores.
+      meeting.tied = meeting.points === meeting.opponentPoints;
+      meeting.won = !meeting.tied && meeting.points > meeting.opponentPoints;
+      return meeting;
+    });
+
+  const rivalryWeek: RivalryWeekRecord = {
+    wins: rivalryMeetings.filter((m) => m.won).length,
+    losses: rivalryMeetings.filter((m) => !m.won && !m.tied).length,
+    ties: rivalryMeetings.filter((m) => m.tied).length,
+    meetings: rivalryMeetings,
+  };
+
+  return {
+    governorA: a,
+    governorB: b,
+    all: summarizeMeetings(meetings),
+    regular: summarizeMeetings(meetings.filter((m) => m.phase === "regular")),
+    playoff: summarizeMeetings(meetings.filter((m) => m.phase === "playoff")),
+    meetings,
     rivalryWeek,
   };
 }
