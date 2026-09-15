@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
+
+import SegmentedControl from "./SegmentedControl";
 import type { GovernorStats } from "@/lib/historical";
 
 type SortKey = keyof Omit<GovernorStats, "governorName">;
@@ -16,8 +18,17 @@ const COLUMNS: { key: SortKey | "governorName"; label: string; numeric: boolean 
   { key: "lowScore", label: "Low", numeric: true },
 ];
 
+type Scope = "all" | "regular" | "playoff";
+
+const SCOPES = [
+  { value: "all", label: "Total", title: "Regular season plus the championship bracket" },
+  { value: "regular", label: "Regular season" },
+  { value: "playoff", label: "Playoffs", title: "Championship bracket only" },
+] as const satisfies readonly { value: Scope; label: string; title?: string }[];
+
 interface Props {
-  stats: GovernorStats[];
+  /** One array per scope. Total is exactly regular plus playoff. */
+  stats: Record<Scope, GovernorStats[]>;
 }
 
 function numCell(value: number, decimals: number, hasData: boolean): string {
@@ -26,6 +37,9 @@ function numCell(value: number, decimals: number, hasData: boolean): string {
 
 export default function HistoricalStats({ stats }: Props) {
   const [filter, setFilter] = useState("");
+  // Defaults to the regular season so the figures everyone already knows are
+  // the ones that come up.
+  const [scope, setScope] = useState<Scope>("regular");
   const [sortKey, setSortKey] = useState<SortKey | "governorName">("totalPoints");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
@@ -38,10 +52,12 @@ export default function HistoricalStats({ stats }: Props) {
     }
   };
 
+  const rows = stats[scope];
+
   const filtered = useMemo(() => {
     const q = filter.toLowerCase();
-    return stats.filter((s) => s.governorName.toLowerCase().includes(q));
-  }, [stats, filter]);
+    return rows.filter((s) => s.governorName.toLowerCase().includes(q));
+  }, [rows, filter]);
 
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
@@ -64,6 +80,7 @@ export default function HistoricalStats({ stats }: Props) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 flex-wrap">
+        <SegmentedControl label="Stats scope" value={scope} onChange={setScope} options={SCOPES} />
         <input
           type="text"
           placeholder="Filter by governor…"
@@ -120,7 +137,7 @@ export default function HistoricalStats({ stats }: Props) {
                     {row.governorName}
                     {!hasData && (
                       <span className="ml-2 text-xs text-gray-400 dark:text-gray-500 font-normal">
-                        new
+                        {scope === "playoff" ? "never qualified" : "new"}
                       </span>
                     )}
                   </td>
@@ -147,7 +164,7 @@ export default function HistoricalStats({ stats }: Props) {
             })}
             {sorted.length === 0 && (
               <tr>
-                <td colSpan={7} className="px-3 py-8 text-center text-gray-400 dark:text-gray-500">
+                <td colSpan={COLUMNS.length} className="px-3 py-8 text-center text-gray-400 dark:text-gray-500">
                   No governors match &ldquo;{filter}&rdquo;
                 </td>
               </tr>
@@ -155,6 +172,14 @@ export default function HistoricalStats({ stats }: Props) {
           </tbody>
         </table>
       </div>
+
+      {scope === "playoff" && (
+        <p className="text-[11px] text-gray-500 dark:text-gray-400">
+          Playoff figures cover the championship bracket only — Sleeper schedules every
+          roster each playoff week, and those consolation games are not counted here. A
+          first-round bye means two bracket weeks that season, not three.
+        </p>
+      )}
     </div>
   );
 }

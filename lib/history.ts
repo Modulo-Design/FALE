@@ -1,6 +1,7 @@
 import { archivedSeasons, loadSeasonArchive, resolveArchiveRosters } from "./archive-data";
-import { VP_OVERRIDES, isFinaleWeek } from "./config";
+import { CURRENT_SEASON, VP_OVERRIDES, isFinaleWeek } from "./config";
 import { placementGameLabel, playoffRoundLabel } from "./rounds";
+import { fetchSeasonStandings } from "./season";
 import type { SeasonArchive } from "./archive";
 
 /**
@@ -178,15 +179,78 @@ function gamesFromArchive(archive: SeasonArchive): Game[] {
   return games;
 }
 
+function sortLog(games: Game[]): Game[] {
+  return games.sort(
+    (a, b) => a.season.localeCompare(b.season) || a.week - b.week || a.governorName.localeCompare(b.governorName)
+  );
+}
+
 export async function buildGameLog(): Promise<Game[]> {
   const games: Game[] = [];
   for (const season of archivedSeasons()) {
     const archive = await loadSeasonArchive(season);
     if (archive) games.push(...gamesFromArchive(archive));
   }
-  return games.sort(
-    (a, b) => a.season.localeCompare(b.season) || a.week - b.week || a.governorName.localeCompare(b.governorName)
-  );
+  return sortLog(games);
+}
+
+/**
+ * The season in progress as game-log entries.
+ *
+ * The archive for the current season has no played weeks in it -- it is only
+ * refreshed once the season is over -- so anything built on `buildGameLog`
+ * alone silently omits the year everyone is actually playing.
+ *
+ * Weeks still being played are skipped: a half-finished score must not become
+ * somebody's career low.
+ */
+export async function liveSeasonGames(season: string): Promise<Game[]> {
+  const standings = await fetchSeasonStandings(season, { includePlayoffs: false });
+  const pending = new Set(standings.pendingWeeks ?? []);
+  const names = new Map(standings.teams.map((t) => [t.rosterId, t.governorName]));
+
+  const games: Game[] = [];
+  for (const team of standings.teams) {
+    for (const result of team.weeklyResults) {
+      if (pending.has(result.week)) continue;
+      games.push({
+        season,
+        week: result.week,
+        // fetchSeasonStandings only ever reads regular-season weeks.
+        phase: "regular",
+        postseason: null,
+        roundLabel: null,
+        governorName: team.governorName,
+        rosterId: team.rosterId,
+        opponent:
+          result.opponentRosterId != null ? names.get(result.opponentRosterId) ?? null : null,
+        points: result.points,
+        opponentPoints: result.opponentPoints,
+        won: result.won,
+        tied: result.tied,
+        margin:
+          result.opponentPoints != null && !result.isFinale
+            ? round2(result.points - result.opponentPoints)
+            : null,
+        isFinale: result.isFinale,
+        // Live matchups are not archived in the "deep" scope, so no lineups.
+        starters: [],
+        startersPoints: [],
+      });
+    }
+  }
+  return games;
+}
+
+/** Every archived season plus the settled weeks of the one in progress. */
+export async function buildFullGameLog(): Promise<Game[]> {
+  const [archived, live] = await Promise.all([
+    buildGameLog(),
+    liveSeasonGames(CURRENT_SEASON).catch((): Game[] => []),
+  ]);
+  // The current season's archive carries no played weeks, so the live entries
+  // cannot collide with anything the archive produced.
+  return sortLog([...archived, ...live]);
 }
 
 // ---------------------------------------------------------------------------
