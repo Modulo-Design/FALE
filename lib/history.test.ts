@@ -139,7 +139,8 @@ test("Rivalry Week is tracked separately from the head-to-head record", async ()
 
   // The finale pairing awards no VP and no result, so it must not leak into
   // the series record -- but it is still played, and still counts for pride.
-  // (Regular meetings still include playoff games, which run to week 18.)
+  // (The series also counts real bracket games, which run to week 17;
+  // consolation games and the dead week after the bracket do not count.)
   const leaked = result.meetings.filter(
     (m) => m.phase === "regular" && m.week === 14 && m.season >= "2021"
   );
