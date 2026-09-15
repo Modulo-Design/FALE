@@ -20,8 +20,22 @@ const TABS = ["Standings", "VP Breakdown", "Weekly Grid", "Playoffs"] as const;
 type Tab = (typeof TABS)[number];
 
 export default function Dashboard({ data }: Props) {
-  const { teams: standings, weeksCompleted, season, leagueName, playoffs, projections } = data;
+  const {
+    teams: standings,
+    weeksCompleted,
+    season,
+    leagueName,
+    playoffs,
+    projections,
+    pendingWeeks,
+    liveStatus,
+  } = data;
   const [tab, setTab] = useState<Tab>("Standings");
+
+  // A week that is still being played is not a week completed, whatever the
+  // grid needs to number its columns.
+  const pendingCount = pendingWeeks?.length ?? 0;
+  const weeksFinal = weeksCompleted - pendingCount;
 
   // A season still being played shows what the bracket is likely to become,
   // rather than an empty one.
@@ -32,7 +46,8 @@ export default function Dashboard({ data }: Props) {
       <div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{leagueName}</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          {season} Season · {weeksCompleted} weeks completed
+          {season} Season · {weeksFinal} {weeksFinal === 1 ? "week" : "weeks"} completed
+          {pendingCount > 0 && ` · week ${Math.min(...pendingWeeks!)} in progress`}
         </p>
       </div>
 
@@ -52,7 +67,14 @@ export default function Dashboard({ data }: Props) {
         ))}
       </div>
 
-      {tab === "Standings" && <StandingsTable standings={standings} season={season} />}
+      {tab === "Standings" && (
+        <StandingsTable
+          standings={standings}
+          season={season}
+          pendingWeeks={pendingWeeks}
+          liveStatus={liveStatus}
+        />
+      )}
 
       {tab === "VP Breakdown" && (
         <div>
@@ -73,7 +95,11 @@ export default function Dashboard({ data }: Props) {
               </span>
             ))}
           </div>
-          <WeeklyVPGrid standings={standings} weeksCompleted={weeksCompleted} />
+          <WeeklyVPGrid
+            standings={standings}
+            weeksCompleted={weeksCompleted}
+            pendingWeeks={pendingWeeks}
+          />
         </div>
       )}
 

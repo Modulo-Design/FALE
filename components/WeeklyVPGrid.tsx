@@ -6,10 +6,13 @@ import type { TeamStanding } from "@/lib/types";
 interface Props {
   standings: TeamStanding[];
   weeksCompleted: number;
+  /** Weeks still being played, marked so the grid cannot quietly contradict the standings. */
+  pendingWeeks?: number[];
 }
 
-export default function WeeklyVPGrid({ standings, weeksCompleted }: Props) {
+export default function WeeklyVPGrid({ standings, weeksCompleted, pendingWeeks }: Props) {
   const weeks = Array.from({ length: weeksCompleted }, (_, i) => i + 1);
+  const pending = new Set(pendingWeeks ?? []);
 
   return (
     <div className="overflow-x-auto">
@@ -20,8 +23,17 @@ export default function WeeklyVPGrid({ standings, weeksCompleted }: Props) {
               Team
             </th>
             {weeks.map((w) => (
-              <th key={w} className="px-1 py-2 text-center font-semibold text-gray-500 dark:text-gray-400 w-9">
+              <th
+                key={w}
+                title={pending.has(w) ? `Week ${w} is still being played` : undefined}
+                className={`px-1 py-2 text-center font-semibold w-9 ${
+                  pending.has(w)
+                    ? "text-gray-400 dark:text-gray-500 opacity-70"
+                    : "text-gray-500 dark:text-gray-400"
+                }`}
+              >
                 W{w}
+                {pending.has(w) && "*"}
               </th>
             ))}
             <th className="px-2 py-2 text-center font-semibold text-gray-600 dark:text-gray-300 w-12">
