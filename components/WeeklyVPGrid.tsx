@@ -1,17 +1,11 @@
 "use client";
 
+import { vpColor } from "./vp-colors";
 import type { TeamStanding } from "@/lib/types";
 
 interface Props {
   standings: TeamStanding[];
   weeksCompleted: number;
-}
-
-function vpColor(vp: number) {
-  if (vp >= 3) return "bg-green-500 text-white";
-  if (vp === 2) return "bg-green-200 text-green-900 dark:bg-green-800 dark:text-green-100";
-  if (vp === 1) return "bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100";
-  return "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300";
 }
 
 export default function WeeklyVPGrid({ standings, weeksCompleted }: Props) {

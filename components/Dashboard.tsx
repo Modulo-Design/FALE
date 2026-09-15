@@ -6,6 +6,7 @@ import StandingsTable from "./StandingsTable";
 import WeeklyVPGrid from "./WeeklyVPGrid";
 import PlayoffBracket from "./PlayoffBracket";
 import PlayoffProjections from "./PlayoffProjections";
+import { VP_LEGEND, vpColor } from "./vp-colors";
 
 const VPChart = dynamic(() => import("./VPChart"), { ssr: false });
 
@@ -65,10 +66,12 @@ export default function Dashboard({ data }: Props) {
       {tab === "Weekly Grid" && (
         <div>
           <div className="flex gap-4 text-xs mb-3 flex-wrap">
-            <span className="flex items-center gap-1"><span className="inline-block w-5 h-5 rounded bg-green-500" /> 3 VP (W + top half)</span>
-            <span className="flex items-center gap-1"><span className="inline-block w-5 h-5 rounded bg-green-200" /> 2 VP (W only)</span>
-            <span className="flex items-center gap-1"><span className="inline-block w-5 h-5 rounded bg-yellow-100" /> 1 VP (L + top half)</span>
-            <span className="flex items-center gap-1"><span className="inline-block w-5 h-5 rounded bg-red-100" /> 0 VP</span>
+            {VP_LEGEND.map((entry) => (
+              <span key={entry.min} className="flex items-center gap-1">
+                <span className={`inline-block w-5 h-5 rounded ${vpColor(entry.min)}`} />
+                {entry.label}
+              </span>
+            ))}
           </div>
           <WeeklyVPGrid standings={standings} weeksCompleted={weeksCompleted} />
         </div>
