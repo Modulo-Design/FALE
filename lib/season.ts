@@ -13,6 +13,7 @@ import {
   resolveArchiveRosters,
 } from "./archive-data";
 import { resolveGovernor } from "./governors";
+import { projectPendingWeeks } from "./live-projections";
 import { buildPlayoffBracket, fetchPlayoffBracket } from "./playoffs";
 import { monteCarlo } from "./projections";
 import { seedPlayoffField } from "./seeding";
@@ -27,7 +28,12 @@ import {
   type SleeperNflState,
 } from "./sleeper";
 import { restrictStandings } from "./standings-view";
-import type { LiveStatus, SeasonStandings, TeamStanding } from "./types";
+import type {
+  LiveStatus,
+  ProjectedLiveStandings,
+  SeasonStandings,
+  TeamStanding,
+} from "./types";
 import { aggregateStandings, applyVPOverrides, calculateWeekVPs } from "./vp";
 
 export interface SeasonRosterInfo {
@@ -377,6 +383,19 @@ export async function fetchSeasonStandings(
           ),
         }));
 
+  // The same table with the live week projected forward instead of frozen
+  // mid-Sunday. Best-effort: when Sleeper has no projections to give, the
+  // field is simply absent and the table offers only Final and Including.
+  const projectedLive = await buildProjectedLive({
+    season,
+    leagueId,
+    leagueName: league.name,
+    rosters: rosterInfo,
+    weeks,
+    pending,
+    scoringSettings: league.scoring_settings,
+  });
+
   // Projections simulate the weeks that have not happened yet, and a week
   // still being played has not finished happening -- so they run on the
   // final-only standings and treat the live week as a fixture to simulate.
@@ -397,5 +416,56 @@ export async function fetchSeasonStandings(
     projections,
     pendingWeeks: pending,
     liveStatus,
+    projectedLive,
+  };
+}
+
+interface ProjectedLiveInput extends SeasonInput {
+  pending: number[];
+  scoringSettings?: Record<string, number> | null;
+}
+
+/**
+ * The standings recomputed with the pending weeks scored on projections.
+ *
+ * The projected matchups go back through `computeSeasonStandings` untouched,
+ * so the top-half cut, the finale rules and the commissioner overrides all
+ * apply to a projected week exactly as they would to a real one -- there is no
+ * second reading of the VP rules anywhere in here.
+ */
+async function buildProjectedLive(
+  input: ProjectedLiveInput
+): Promise<ProjectedLiveStandings | undefined> {
+  const { pending, scoringSettings, ...seasonInput } = input;
+  if (pending.length === 0) return undefined;
+
+  const projected = await projectPendingWeeks({
+    season: seasonInput.season,
+    weeks: seasonInput.weeks.filter(({ week }) => pending.includes(week)),
+    scoringSettings,
+  }).catch(() => null);
+  if (!projected) return undefined;
+
+  const standings = computeSeasonStandings({
+    ...seasonInput,
+    weeks: seasonInput.weeks.map((entry) => {
+      const matchups = projected.byWeek.get(entry.week);
+      return matchups ? { ...entry, matchups } : entry;
+    }),
+  });
+
+  return {
+    weeks: pending,
+    teams: standings.teams.map((team) => ({
+      ...team,
+      weeklyResults: team.weeklyResults.map((result) =>
+        pending.includes(result.week)
+          ? { ...result, pending: true, projected: true }
+          : result
+      ),
+    })),
+    finalStarters: projected.finalStarters,
+    projectedStarters: projected.projectedStarters,
+    fetchedAt: new Date().toISOString(),
   };
 }

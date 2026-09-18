@@ -29,6 +29,7 @@ export default function Dashboard({ data }: Props) {
     projections,
     pendingWeeks,
     liveStatus,
+    projectedLive,
   } = data;
   const [tab, setTab] = useState<Tab>("Standings");
 
@@ -73,6 +74,7 @@ export default function Dashboard({ data }: Props) {
           season={season}
           pendingWeeks={pendingWeeks}
           liveStatus={liveStatus}
+          projectedLive={projectedLive}
         />
       )}
 

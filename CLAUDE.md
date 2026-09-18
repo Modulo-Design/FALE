@@ -28,6 +28,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/use-media-query.ts` | `matchMedia` as a hook, for the VP chart's phone layout |
 | `lib/history.ts` | Cross-season game log, head-to-head, Rivalry Week, record book |
 | `lib/projections.ts` | Seeded Monte Carlo playoff projections for the season in progress |
+| `lib/live-projections.ts` | Re-scores the week in progress on Sleeper's player projections |
 | `lib/trades.ts` | Trade log, draft-slot derivation, and multi-hop pick lineage |
 | `lib/archive.ts` | Snapshots a season into a committable JSON fixture |
 | `lib/archive-data.ts` | Loads the committed archive and re-resolves governors on read |
@@ -41,7 +42,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `app/api/debug/governors/route.ts` | Reports rosters the governor registry cannot resolve. Must be empty |
 | `app/api/debug/archive/route.ts` | Exports raw league data as JSON for offline fixtures |
 | `components/Dashboard.tsx` | Tabbed shell — takes a single `SeasonStandings` |
-| `components/StandingsTable.tsx` | Standings tab — playoff-field highlight, and the final/live toggle |
+| `components/StandingsTable.tsx` | Standings tab — playoff-field highlight, and the final/live/projected toggle |
 | `components/VPChart.tsx` | VP Breakdown tab |
 | `components/WeeklyVPGrid.tsx` | Weekly Grid tab |
 | `components/PlayoffBracket.tsx` | Playoffs tab — absolutely-positioned bracket with drawn connectors |
@@ -102,7 +103,11 @@ To refresh the player map after a season, hit `/api/debug/players` and save the 
 
 The standings table defaults to final-only and folds the live week back in on request. Folding happens client-side through `restrictTeam`, which is exact rather than approximate: every figure is per-week additive and each week's top-half cut is decided on that week alone. `lib/live.test.ts` proves it against a full recompute for every week of every archived season.
 
-Live weeks are fetched at a 60-second cache (`LIVE_REVALIDATE`); everything that cannot change again stays at an hour.
+A third option shows the live week **projected** rather than live. `lib/live-projections.ts` re-scores each pending week per starter — a finished game counts at its real score, an unplayed one at its Sleeper projection, an in-progress one at whichever is higher — and `buildProjectedLive` in `lib/season.ts` runs those matchups back through `computeSeasonStandings`, so a projected week is scored by the same VP rules, top-half cut and overrides as a real one. It arrives as `projectedLive`, a complete second `teams` array.
+
+Projections and the NFL schedule come from `api.sleeper.com`, which is undocumented and unversioned, so the whole path is best-effort: any failure drops `projectedLive` and the toggle quietly offers two options instead of three. Nothing archived, audited or historical can reach this code — it only ever runs on a pending week, which only `CURRENT_SEASON` can have.
+
+Live weeks are fetched at a 60-second cache (`LIVE_REVALIDATE`); everything that cannot change again stays at an hour. Projections sit between the two at 15 minutes — they move on injury news, not by the minute — while the NFL schedule that decides whether a starter's game is over is fetched live.
 
 ## Data sources
 
