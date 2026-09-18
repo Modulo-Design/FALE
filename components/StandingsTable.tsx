@@ -7,7 +7,7 @@ import SegmentedControl from "./SegmentedControl";
 import { PLAYOFF_FORMAT, isFinaleWeek } from "@/lib/config";
 import { seedPlayoffField } from "@/lib/seeding";
 import { restrictTeam } from "@/lib/standings-view";
-import type { LiveStatus, TeamStanding } from "@/lib/types";
+import type { LiveStatus, ProjectedLiveStandings, TeamStanding } from "@/lib/types";
 
 interface Props {
   standings: TeamStanding[];
@@ -15,10 +15,12 @@ interface Props {
   /** Included weeks that are still being played. Empty for a finished season. */
   pendingWeeks?: number[];
   liveStatus?: LiveStatus;
+  /** The same table with the live week projected, when Sleeper had projections. */
+  projectedLive?: ProjectedLiveStandings;
 }
 
 type SortKey = "totalVP" | "totalPoints";
-type View = "final" | "live";
+type View = "final" | "live" | "projected";
 
 /** A stable identity for the common case, so the memos below do not churn. */
 const NO_PENDING_WEEKS: number[] = [];
@@ -29,13 +31,25 @@ function avatarUrl(avatar: string | null): string | null {
 }
 
 /**
- * A fixed UTC clock time rather than the viewer's locale: this renders on the
- * server first, and a locale-formatted timestamp would not survive hydration.
+ * Central time, which is where the whole league lives.
+ *
+ * Both the zone and the locale are pinned rather than left to the viewer: this
+ * renders on the server first, and a timestamp formatted in the machine's own
+ * locale or zone would come back different in the browser and break hydration.
+ * `timeZoneName` rides along so the label says CDT or CST on its own, without
+ * anything here having to know when the clocks change.
  */
+const CENTRAL_CLOCK = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Chicago",
+  hour: "numeric",
+  minute: "2-digit",
+  timeZoneName: "short",
+});
+
 function asOf(iso: string): string {
   const stamp = new Date(iso);
   if (Number.isNaN(stamp.getTime())) return "";
-  return `${stamp.toISOString().slice(11, 16)} UTC`;
+  return CENTRAL_CLOCK.format(stamp);
 }
 
 export default function StandingsTable({
@@ -43,6 +57,7 @@ export default function StandingsTable({
   season,
   pendingWeeks = NO_PENDING_WEEKS,
   liveStatus,
+  projectedLive,
 }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>("totalVP");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
@@ -63,19 +78,41 @@ export default function StandingsTable({
   // On the opening Sunday of a season there is nothing settled to fall back
   // to, so an empty "Final" table would be the less useful default.
   const noSettledWeeks = hasPending && settledWeeks.length === 0;
-  const [view, setView] = useState<View>(noSettledWeeks ? "live" : "final");
-  const showingLive = !hasPending || view === "live";
+
+  // The projected table is an offer, not a promise: Sleeper's projection feed
+  // is undocumented, so a season in progress can perfectly well have none.
+  const canProject = hasPending && projectedLive != null;
+
+  const [view, setView] = useState<View>(noSettledWeeks ? "projected" : "final");
+
+  // The live week is only ever shown projected. Its raw half-played score is
+  // the one thing this table deliberately does not offer: at 1:05pm on a
+  // Sunday it reports that every governor has scored ten points.
+  //
+  // "live" survives here for two cases that are not a choice: a finished
+  // season, where every week is settled and there is nothing to fold away;
+  // and the failure case of a live week with no projections and nothing
+  // settled behind it, where the alternative is an empty table.
+  const effectiveView: View = ((): View => {
+    if (!hasPending) return "live";
+    if (view === "final") return "final";
+    if (canProject) return "projected";
+    return noSettledWeeks ? "live" : "final";
+  })();
+
+  const showingProjected = effectiveView === "projected";
+  const showingLive = effectiveView === "live" || showingProjected;
 
   // VP, points, points against and the record are all per-week additive, and
   // each week's top-half cut is decided on that week alone -- so dropping the
-  // live week and re-summing is exact, not an approximation.
-  const rows = useMemo(
-    () =>
-      showingLive
-        ? standings
-        : standings.map((team) => restrictTeam(team, (r) => !pending.has(r.week))),
-    [standings, showingLive, pending]
-  );
+  // live week and re-summing is exact, not an approximation. The projected
+  // table needs no folding at all: it is a complete second set of rows whose
+  // settled weeks are identical to these.
+  const rows = useMemo(() => {
+    if (showingProjected && projectedLive) return projectedLive.teams;
+    if (showingLive) return standings;
+    return standings.map((team) => restrictTeam(team, (r) => !pending.has(r.week)));
+  }, [standings, showingLive, showingProjected, projectedLive, pending]);
 
   // The playoff field is the real one, not the top half of the table: all but
   // the last spot go to the VP standings and the last is a points wildcard,
@@ -138,21 +175,47 @@ export default function StandingsTable({
             {finalePending && (
               <>
                 This is the finale week: top-half scoring pays 3 VP league-wide and there is
-                no head-to-head VP at all, so the live cut swings much harder than a normal
+                no head-to-head VP at all, so the cut swings much harder than in a normal
                 week.
               </>
             )}
           </p>
           <SegmentedControl
             label="Standings scope"
-            value={view}
+            value={effectiveView}
             onChange={setView}
             options={[
-              { value: "final", label: "Final" },
-              { value: "live", label: `Including week ${firstPending}` },
+              { value: "final", label: "Final", title: `Through week ${lastSettled}` },
+              canProject
+                ? {
+                    value: "projected" as const,
+                    label: `Including projections`,
+                    title: `Week ${firstPending} as it is projected to finish`,
+                  }
+                : {
+                    value: "live" as const,
+                    label: `Including week ${firstPending}`,
+                    title: `Week ${firstPending} at its live score -- Sleeper had no projections to work from`,
+                  },
             ]}
           />
-          {view === "final" && !lastSettled && (
+          {!canProject && (
+            <p className="text-[11px] text-amber-700 dark:text-amber-400">
+              Sleeper had no projections for week {firstPending}, so the only thing on
+              offer is its live score — which is worth as little as the week is young.
+            </p>
+          )}
+          {showingProjected && projectedLive && (
+            <p className="text-[11px] text-amber-700 dark:text-amber-400">
+              Week {firstPending} scored on Sleeper&apos;s projections:{" "}
+              {projectedLive.projectedStarters}{" "}
+              {projectedLive.projectedStarters === 1 ? "starter" : "starters"} still to
+              finish count at their projection, and the{" "}
+              {projectedLive.finalStarters} whose games are over count at their real
+              score. Every VP here is a forecast, including the top-half cut.
+            </p>
+          )}
+          {effectiveView === "final" && !lastSettled && (
             <p className="text-[11px] text-amber-700 dark:text-amber-400">
               No completed weeks yet — every figure below is zero until week {firstPending}{" "}
               finishes.
@@ -191,7 +254,13 @@ export default function StandingsTable({
               ? team.weeklyResults.filter((r) => r.pending)
               : [];
             const provisional = live.length > 0;
-            const yetToScore = provisional && live.every((r) => r.points === 0);
+            // A projected row has no "yet to score" state: every starter is
+            // already carrying a number, real or forecast.
+            const yetToScore =
+              provisional && !showingProjected && live.every((r) => r.points === 0);
+            const dotTitle = showingProjected
+              ? `Includes week ${firstPending}, projected`
+              : `Includes week ${firstPending}, still being played`;
             return (
               <tr
                 key={team.rosterId}
@@ -228,7 +297,7 @@ export default function StandingsTable({
                   {team.totalVP}
                   {provisional && (
                     <span
-                      title={`Includes week ${firstPending}, still being played`}
+                      title={dotTitle}
                       className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 align-super ml-0.5"
                     />
                   )}
@@ -240,7 +309,7 @@ export default function StandingsTable({
                   {team.totalPoints.toFixed(2)}
                   {provisional && (
                     <span
-                      title={`Includes week ${firstPending}, still being played`}
+                      title={dotTitle}
                       className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 align-super ml-0.5"
                     />
                   )}

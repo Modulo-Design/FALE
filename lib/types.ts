@@ -42,6 +42,11 @@ export interface WeeklyResult {
    * carry it, which is what keeps the offline audit byte-identical.
    */
   pending?: boolean;
+  /**
+   * True when these figures were computed from projected player points rather
+   * than the live scoreboard. Only ever set on a pending week.
+   */
+  projected?: boolean;
 }
 
 export interface TeamStanding {
@@ -71,6 +76,27 @@ export interface SeasonStandings {
   /** Included weeks whose results are not settled yet. Empty for a past season. */
   pendingWeeks?: number[];
   liveStatus?: LiveStatus;
+  /** The same table with the week in progress projected, when that is possible. */
+  projectedLive?: ProjectedLiveStandings;
+}
+
+/**
+ * The standings as the week in progress is projected to leave them.
+ *
+ * A complete second `teams` array rather than a diff: every figure in the table
+ * is per-week additive, so the settled weeks in here are identical to the ones
+ * in `teams`, and the client can swap one array for the other without knowing
+ * anything about how a VP is earned.
+ */
+export interface ProjectedLiveStandings {
+  /** The pending weeks these figures project. */
+  weeks: number[];
+  teams: TeamStanding[];
+  /** Starters whose game has finished, counted at their real score. */
+  finalStarters: number;
+  /** Starters still to play or mid-game, counted at their projection. */
+  projectedStarters: number;
+  fetchedAt: string;
 }
 
 /** How the live week was identified, so the UI can say how sure it is. */
