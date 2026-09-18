@@ -78,20 +78,28 @@ export default function StandingsTable({
   // On the opening Sunday of a season there is nothing settled to fall back
   // to, so an empty "Final" table would be the less useful default.
   const noSettledWeeks = hasPending && settledWeeks.length === 0;
-  const [view, setView] = useState<View>(noSettledWeeks ? "live" : "final");
 
   // The projected table is an offer, not a promise: Sleeper's projection feed
   // is undocumented, so a season in progress can perfectly well have none.
   const canProject = hasPending && projectedLive != null;
 
-  // A finished season has nothing to hide and nothing to project, and a
-  // projected view that lost its data falls back to the live one rather than
-  // to an empty table.
-  const effectiveView: View = !hasPending
-    ? "live"
-    : view === "projected" && !canProject
-    ? "live"
-    : view;
+  const [view, setView] = useState<View>(noSettledWeeks ? "projected" : "final");
+
+  // The live week is only ever shown projected. Its raw half-played score is
+  // the one thing this table deliberately does not offer: at 1:05pm on a
+  // Sunday it reports that every governor has scored ten points.
+  //
+  // "live" survives here for two cases that are not a choice: a finished
+  // season, where every week is settled and there is nothing to fold away;
+  // and the failure case of a live week with no projections and nothing
+  // settled behind it, where the alternative is an empty table.
+  const effectiveView: View = ((): View => {
+    if (!hasPending) return "live";
+    if (view === "final") return "final";
+    if (canProject) return "projected";
+    return noSettledWeeks ? "live" : "final";
+  })();
+
   const showingProjected = effectiveView === "projected";
   const showingLive = effectiveView === "live" || showingProjected;
 
@@ -167,7 +175,7 @@ export default function StandingsTable({
             {finalePending && (
               <>
                 This is the finale week: top-half scoring pays 3 VP league-wide and there is
-                no head-to-head VP at all, so the live cut swings much harder than a normal
+                no head-to-head VP at all, so the cut swings much harder than in a normal
                 week.
               </>
             )}
@@ -178,22 +186,25 @@ export default function StandingsTable({
             onChange={setView}
             options={[
               { value: "final", label: "Final", title: `Through week ${lastSettled}` },
-              {
-                value: "live",
-                label: `Including week ${firstPending}`,
-                title: `Week ${firstPending} at its live score, however little of it has been played`,
-              },
-              ...(canProject
-                ? [
-                    {
-                      value: "projected" as const,
-                      label: `Projected week ${firstPending}`,
-                      title: `Week ${firstPending} as it is projected to finish`,
-                    },
-                  ]
-                : []),
+              canProject
+                ? {
+                    value: "projected" as const,
+                    label: `Including projections`,
+                    title: `Week ${firstPending} as it is projected to finish`,
+                  }
+                : {
+                    value: "live" as const,
+                    label: `Including week ${firstPending}`,
+                    title: `Week ${firstPending} at its live score -- Sleeper had no projections to work from`,
+                  },
             ]}
           />
+          {!canProject && (
+            <p className="text-[11px] text-amber-700 dark:text-amber-400">
+              Sleeper had no projections for week {firstPending}, so the only thing on
+              offer is its live score — which is worth as little as the week is young.
+            </p>
+          )}
           {showingProjected && projectedLive && (
             <p className="text-[11px] text-amber-700 dark:text-amber-400">
               Week {firstPending} scored on Sleeper&apos;s projections:{" "}
@@ -204,7 +215,7 @@ export default function StandingsTable({
               score. Every VP here is a forecast, including the top-half cut.
             </p>
           )}
-          {view === "final" && !lastSettled && (
+          {effectiveView === "final" && !lastSettled && (
             <p className="text-[11px] text-amber-700 dark:text-amber-400">
               No completed weeks yet — every figure below is zero until week {firstPending}{" "}
               finishes.
