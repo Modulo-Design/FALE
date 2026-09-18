@@ -31,13 +31,25 @@ function avatarUrl(avatar: string | null): string | null {
 }
 
 /**
- * A fixed UTC clock time rather than the viewer's locale: this renders on the
- * server first, and a locale-formatted timestamp would not survive hydration.
+ * Central time, which is where the whole league lives.
+ *
+ * Both the zone and the locale are pinned rather than left to the viewer: this
+ * renders on the server first, and a timestamp formatted in the machine's own
+ * locale or zone would come back different in the browser and break hydration.
+ * `timeZoneName` rides along so the label says CDT or CST on its own, without
+ * anything here having to know when the clocks change.
  */
+const CENTRAL_CLOCK = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Chicago",
+  hour: "numeric",
+  minute: "2-digit",
+  timeZoneName: "short",
+});
+
 function asOf(iso: string): string {
   const stamp = new Date(iso);
   if (Number.isNaN(stamp.getTime())) return "";
-  return `${stamp.toISOString().slice(11, 16)} UTC`;
+  return CENTRAL_CLOCK.format(stamp);
 }
 
 export default function StandingsTable({
