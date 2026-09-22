@@ -32,7 +32,18 @@ export function calculateWeekVPs(
   const sorted = [...matchups].sort(
     (a, b) => b.points - a.points || a.roster_id - b.roster_id
   );
-  const topHalf = new Set(sorted.slice(0, halfCount).map((m) => m.roster_id));
+  // A tie on the cut line is shared: everyone level with the last qualifying
+  // score earns the scoring VP, so the top half can run deeper than halfCount.
+  // Nobody loses a VP to a coin flip on roster id. A cut score of zero is the
+  // one exception -- that is a week nobody has played yet, not a real tie, and
+  // sharing it would hand the whole league a VP.
+  const cutScore = sorted[halfCount - 1]?.points ?? 0;
+  const topHalf = new Set(
+    (cutScore > 0
+      ? sorted.filter((m) => m.points >= cutScore)
+      : sorted.slice(0, halfCount)
+    ).map((m) => m.roster_id)
+  );
 
   // A null matchup_id means the roster was not scheduled against anyone.
   const matchupGroups = new Map<number, SleeperMatchup[]>();

@@ -77,6 +77,44 @@ test("a bye team still scores and can still earn scoring VP", () => {
   assert.equal(bye.vpScoring, 1, "top score earns scoring VP even on a bye");
 });
 
+test("a tie on the top-half cut line pays both teams the scoring VP", () => {
+  // Rosters 2 and 3 are level on the cut line of a four-team week. Slicing the
+  // sorted list at two would have handed the VP to whichever sorted first.
+  const results = calculateWeekVPs(
+    [matchup(1, 1, 120), matchup(2, 1, 100), matchup(3, 2, 100), matchup(4, 2, 90)],
+    4,
+    1,
+    "2025"
+  );
+  const scoring = (id: number) => results.find((r) => r.rosterId === id)!.vpScoring;
+  assert.equal(scoring(2), 1);
+  assert.equal(scoring(3), 1, "a team level with the cut score is in the top half");
+  assert.equal(scoring(1), 1);
+  assert.equal(scoring(4), 0, "the tie does not drag anyone below it into the top half");
+});
+
+test("a tie on the cut line pays 3 VP each in a finale week", () => {
+  const results = calculateWeekVPs(
+    [matchup(1, 1, 120), matchup(2, 1, 100), matchup(3, 2, 100), matchup(4, 2, 90)],
+    4,
+    14,
+    "2025"
+  );
+  assert.equal(results.find((r) => r.rosterId === 2)!.vpScoring, 3);
+  assert.equal(results.find((r) => r.rosterId === 3)!.vpScoring, 3);
+});
+
+test("a week nobody has scored in does not hand the league a top-half VP", () => {
+  const results = calculateWeekVPs(
+    [matchup(1, 1, 80), matchup(2, 1, 0), matchup(3, 2, 0), matchup(4, 2, 0)],
+    4,
+    1,
+    "2025"
+  );
+  const awarded = results.filter((r) => r.vpScoring > 0);
+  assert.equal(awarded.length, 2, "a cut score of zero is not a tie to share");
+});
+
 test("the finale week trades matchup VP for triple scoring VP", () => {
   const results = calculateWeekVPs(fourTeamWeek(), 4, 14, "2025");
   const winner = results.find((r) => r.rosterId === 1)!;
