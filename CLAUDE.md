@@ -61,7 +61,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 ## VP Scoring Rules
 
 - **Matchup VP:** 2 pts for a head-to-head win; 0 for a loss.
-- **Scoring VP:** 1 pt if your score lands in the top half of all teams that week.
+- **Scoring VP:** 1 pt if your score lands in the top half of all teams that week. A **tie on the cut line is shared** — every team level with the last qualifying score earns the scoring VP, so the top half can run deeper than seven. The one exception is a cut score of 0, which means the week has not been played rather than that anyone tied.
 - **Finale week (the last regular-season week, seasons 2021+):** No H2H matchup VPs. Top-half scoring earns **3 VP** instead of 1. A finale week also awards **no win or loss**, which is why a 14-week season still shows 13 games played.
 - **Ties:** worth `TIE_VP` (1) to both sides, and counted as a tie rather than a win and a loss.
 - **Byes:** a team with no opponent still scores and can still earn scoring VP.
