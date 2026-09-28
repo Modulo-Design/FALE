@@ -3,7 +3,12 @@ import { test } from "node:test";
 import { ARCHIVED_SEASONS, CURRENT_SEASON } from "./config";
 import { archiveToSeasonInput, loadSeasonArchive } from "./archive-data";
 import { computeSeasonStandings, pendingWeeks, type SeasonInput } from "./season";
-import { restrictStandings, restrictTeam } from "./standings-view";
+import {
+  resolveLiveView,
+  restrictStandings,
+  restrictTeam,
+  teamsForView,
+} from "./standings-view";
 import type { SleeperMatchup, SleeperNflState } from "./sleeper";
 
 /**
@@ -158,4 +163,60 @@ test("restrictTeam keeps a team that played no surviving weeks", async () => {
   assert.equal(stripped.totalPoints, 0);
   assert.equal(stripped.totalPointsAgainst, 0);
   assert.equal(stripped.wins + stripped.losses + stripped.ties, 0);
+});
+
+test("the dashboard opens on Final, or on the live week when nothing is settled", () => {
+  const ctx = { hasPending: true, canProject: true, hasSettled: true };
+  assert.equal(resolveLiveView(null, ctx), "final");
+  assert.equal(resolveLiveView(null, { ...ctx, hasSettled: false }), "projected");
+  assert.equal(resolveLiveView(null, { ...ctx, hasSettled: false, canProject: false }), "live");
+});
+
+test("a remembered choice is honoured, but never shows a raw live week beside projections", () => {
+  const ctx = { hasPending: true, canProject: true, hasSettled: true };
+  assert.equal(resolveLiveView("projected", ctx), "projected");
+  assert.equal(resolveLiveView("final", ctx), "final");
+  // A choice made on a day projections were down reads as projected once they are back.
+  assert.equal(resolveLiveView("live", ctx), "projected");
+  // And a projected choice falls back to Final on a day they are not.
+  assert.equal(resolveLiveView("projected", { ...ctx, canProject: false }), "final");
+  // A finished season has no live week to choose about.
+  assert.equal(resolveLiveView("final", { ...ctx, hasPending: false }), "live");
+});
+
+test("every view reads its week-in-progress results from the same source", async () => {
+  const full = await seasonInput(ARCHIVED_SEASONS[ARCHIVED_SEASONS.length - 1]);
+  const pending = [3];
+  const input = { ...full, weeks: full.weeks.filter((w) => w.week <= 3) };
+  const live = computeSeasonStandings(input).teams;
+
+  // Projections that turn every week-3 result around, as a late Sunday can.
+  const projected = computeSeasonStandings({
+    ...input,
+    weeks: input.weeks.map((entry) =>
+      entry.week === 3
+        ? { ...entry, matchups: entry.matchups.map((m) => ({ ...m, points: 300 - m.points })) }
+        : entry
+    ),
+  }).teams;
+  const projectedLive = {
+    weeks: pending,
+    teams: projected,
+    finalStarters: 0,
+    projectedStarters: 0,
+    fetchedAt: "",
+  };
+
+  const week3 = (teams: typeof live) =>
+    new Map(teams.map((t) => [t.rosterId, t.weeklyResults.find((r) => r.week === 3)?.vp]));
+  assert.notDeepEqual(week3(live), week3(projected), "the fixture must actually differ");
+
+  // The weekly grid and the VP chart are handed these rows, so a projected
+  // standings table can no longer sit beside a live grid.
+  assert.deepEqual(week3(teamsForView("projected", live, pending, projectedLive)), week3(projected));
+  assert.equal(teamsForView("live", live, pending, projectedLive), live);
+  assert.deepEqual(
+    teamsForView("final", live, pending, projectedLive),
+    live.map((t) => restrictTeam(t, (r) => r.week !== 3))
+  );
 });

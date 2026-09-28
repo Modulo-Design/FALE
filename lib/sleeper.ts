@@ -1,8 +1,11 @@
 const BASE = "https://api.sleeper.app/v1";
 const PLAYERS_URL = `${BASE}/players/nfl`;
 
-// Projections and the NFL schedule live on the newer host, which has no /v1.
+// Projections live on the newer host, which has no /v1.
 const PROJECTIONS_BASE = "https://api.sleeper.com";
+
+// The NFL schedule sits beside /v1 on the documented host, one season at a time.
+const SCHEDULE_BASE = "https://api.sleeper.app";
 
 export class SleeperError extends Error {
   constructor(readonly path: string, readonly status: number) {
@@ -147,11 +150,15 @@ export interface SleeperProjection {
   opponent?: string | null;
   /** Keyed by scoring format: pts_ppr, pts_half_ppr, pts_std, plus raw stats. */
   stats?: Record<string, number> | null;
+  /** The player record Sleeper attaches, for his position. */
+  player?: { position?: string | null } | null;
 }
 
 /** One NFL game, used only for whether it has finished. */
 export interface SleeperScheduleGame {
   game_id?: string;
+  week?: number | null;
+  /** "pre_game", "complete", "canceled", or an in-progress value while played. */
   status?: string | null;
   home?: string | null;
   away?: string | null;
@@ -292,18 +299,25 @@ export function getWeekProjections(
 /**
  * The week's NFL games, for whether a starter's game has finished.
  *
- * Fetched at the live cadence: it is what decides whether a player counts at
+ * Sleeper publishes the schedule a season at a time -- there is no per-week
+ * path -- so this fetches the season and keeps the one week. This used to ask
+ * for a per-week path Sleeper does not serve, and with no schedule every
+ * finished starter looked unfinished.
+ *
+ * Fetched at the live cadence: it is what decides whether a starter counts at
  * his real score or his projection, so a stale answer holds a finished player
  * at his projection long after the whistle.
  */
-export function getWeekSchedule(
+export async function getWeekSchedule(
   season: string,
   week: number,
   options?: SleeperFetchOptions
 ): Promise<SleeperScheduleGame[]> {
-  const path = `/schedule/nfl/regular/${season}/${week}`;
-  return fetchJson<SleeperScheduleGame[]>(`${PROJECTIONS_BASE}${path}`, path, [], {
+  const path = `/schedule/nfl/regular/${season}`;
+  const games = await fetchJson<SleeperScheduleGame[]>(`${SCHEDULE_BASE}${path}`, path, [], {
     revalidate: LIVE_REVALIDATE,
     ...options,
   });
+  if (!Array.isArray(games)) return [];
+  return games.filter((game) => Number(game?.week) === week);
 }

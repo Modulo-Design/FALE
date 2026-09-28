@@ -1,18 +1,26 @@
 "use client";
 
 import { vpColor } from "./vp-colors";
+import type { LiveView } from "@/lib/standings-view";
 import type { TeamStanding } from "@/lib/types";
 
 interface Props {
+  /** The rows for `view`, the same ones the standings table is showing. */
   standings: TeamStanding[];
+  /** The number of week columns to draw. */
   weeksCompleted: number;
   /** Weeks still being played, marked so the grid cannot quietly contradict the standings. */
   pendingWeeks?: number[];
+  view: LiveView;
 }
 
-export default function WeeklyVPGrid({ standings, weeksCompleted, pendingWeeks }: Props) {
+export default function WeeklyVPGrid({ standings, weeksCompleted, pendingWeeks, view }: Props) {
   const weeks = Array.from({ length: weeksCompleted }, (_, i) => i + 1);
   const pending = new Set(pendingWeeks ?? []);
+  const pendingTitle = (w: number) =>
+    view === "projected"
+      ? `Week ${w} as it is projected to finish`
+      : `Week ${w} is still being played`;
 
   return (
     <div className="overflow-x-auto">
@@ -25,7 +33,7 @@ export default function WeeklyVPGrid({ standings, weeksCompleted, pendingWeeks }
             {weeks.map((w) => (
               <th
                 key={w}
-                title={pending.has(w) ? `Week ${w} is still being played` : undefined}
+                title={pending.has(w) ? pendingTitle(w) : undefined}
                 className={`px-1 py-2 text-center font-semibold w-9 ${
                   pending.has(w)
                     ? "text-gray-400 dark:text-gray-500 opacity-70"
@@ -57,7 +65,7 @@ export default function WeeklyVPGrid({ standings, weeksCompleted, pendingWeeks }
                       {result ? (
                         <span
                           className={`inline-block w-7 h-7 rounded text-xs font-bold leading-7 ${vpColor(result.vp)}`}
-                          title={`${result.points.toFixed(2)} pts | ${result.won ? "W" : "L"} | ${result.vpMatchup}+${result.vpScoring}${result.vpAdjustment !== 0 ? `${result.vpAdjustment > 0 ? "+" : ""}${result.vpAdjustment}` : ""} VP`}
+                          title={`${result.projected ? "Projected: " : ""}${result.points.toFixed(2)} pts | ${result.won ? "W" : "L"} | ${result.vpMatchup}+${result.vpScoring}${result.vpAdjustment !== 0 ? `${result.vpAdjustment > 0 ? "+" : ""}${result.vpAdjustment}` : ""} VP`}
                         >
                           {result.vp}
                         </span>
