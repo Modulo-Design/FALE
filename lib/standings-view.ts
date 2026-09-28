@@ -1,4 +1,9 @@
-import type { SeasonStandings, TeamStanding, WeeklyResult } from "./types";
+import type {
+  ProjectedLiveStandings,
+  SeasonStandings,
+  TeamStanding,
+  WeeklyResult,
+} from "./types";
 
 /**
  * Folding a set of weekly results into season totals.
@@ -88,4 +93,65 @@ export function restrictStandings(
   for (const team of teams) for (const result of team.weeklyResults) weeks.add(result.week);
 
   return { ...standings, teams, weeksCompleted: weeks.size };
+}
+
+/**
+ * Which reading of the week in progress the dashboard is showing.
+ *
+ *   - "final": settled weeks only; the live week is folded away.
+ *   - "projected": the live week as Sleeper's projections say it will finish.
+ *   - "live": the live week at its raw score. Never a choice when projections
+ *     exist -- see `resolveLiveView`.
+ */
+export type LiveView = "final" | "live" | "projected";
+
+export interface LiveViewContext {
+  /** Whether any included week is still being played. */
+  hasPending: boolean;
+  /** Whether a projected table exists to show. */
+  canProject: boolean;
+  /** Whether anything at all is settled to fall back to. */
+  hasSettled: boolean;
+}
+
+/**
+ * The view actually shown, given the one asked for (or none yet).
+ *
+ * With no choice made, a season with settled weeks opens on Final; the opening
+ * Sunday, with nothing settled, opens on the live week instead.
+ *
+ * The live week is only ever shown projected. Its raw half-played score is
+ * deliberately not on offer: at 1:05pm on a Sunday it reports that every
+ * governor has scored ten points. "live" survives for two cases that are not a
+ * choice -- a finished season, where every week is settled, and a live week
+ * with no projections and nothing settled behind it, where the alternative is
+ * an empty table.
+ */
+export function resolveLiveView(requested: LiveView | null, ctx: LiveViewContext): LiveView {
+  if (!ctx.hasPending) return "live";
+  const wanted = requested ?? (ctx.hasSettled ? "final" : "projected");
+  if (wanted === "final") return "final";
+  if (ctx.canProject) return "projected";
+  return ctx.hasSettled ? "final" : "live";
+}
+
+/**
+ * The standings rows for a view.
+ *
+ * VP, points, points against and the record are all per-week additive, and each
+ * week's top-half cut is decided on that week alone -- so dropping the live week
+ * and re-summing is exact, not an approximation. The projected rows need no
+ * folding at all: they are a complete second set whose settled weeks are
+ * identical to the live ones.
+ */
+export function teamsForView(
+  view: LiveView,
+  teams: TeamStanding[],
+  pendingWeeks: readonly number[],
+  projectedLive?: ProjectedLiveStandings
+): TeamStanding[] {
+  if (view === "projected" && projectedLive) return projectedLive.teams;
+  if (view !== "final" || pendingWeeks.length === 0) return teams;
+  const pending = new Set(pendingWeeks);
+  return teams.map((team) => restrictTeam(team, (r) => !pending.has(r.week)));
 }

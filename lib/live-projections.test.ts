@@ -3,11 +3,13 @@ import { test } from "node:test";
 import {
   indexProjections,
   indexSchedule,
+  projectPendingWeeks,
   projectWeekMatchups,
+  scoreProjection,
   scoringKey,
   type ProjectionSource,
 } from "./live-projections";
-import type { SleeperMatchup } from "./sleeper";
+import { getWeekSchedule, type SleeperMatchup } from "./sleeper";
 
 /**
  * The projected live week, checked offline.
@@ -58,6 +60,8 @@ test("game status collapses to finished or not, for both teams", () => {
     { home: "min", away: "GB", status: "in_game" },
     { home: "NYJ", away: "NE", status: "pre_game" },
     { home: "SF", away: "SEA", status: null },
+    { home: "DAL", away: "PHI", status: "in_progress" },
+    { home: "LV", away: "DEN", status: "canceled" },
   ]);
 
   assert.equal(byTeam.get("KC"), "complete");
@@ -66,6 +70,10 @@ test("game status collapses to finished or not, for both teams", () => {
   assert.equal(byTeam.get("GB"), "in_game");
   assert.equal(byTeam.get("NYJ"), "pre_game");
   assert.equal(byTeam.get("SF"), "pre_game");
+  // An unfamiliar in-progress string must not read as pre-game, which would
+  // throw away the points already on the board.
+  assert.equal(byTeam.get("DAL"), "in_game");
+  assert.equal(byTeam.get("LV"), "complete");
 });
 
 test("a finished starter keeps his real score, however his projection read", () => {
@@ -179,4 +187,97 @@ test("a whole roster projects to the sum of its starters", () => {
   assert.equal(result.matchups[0].matchup_id, 1);
   assert.equal(result.finalStarters, 1);
   assert.equal(result.projectedStarters, 2);
+});
+
+test("a projection is scored on the league's settings, not stock PPR", () => {
+  const stats = { pass_yd: 250, pass_td: 2, rec: 5, rec_yd: 60, pts_ppr: 999 };
+  // 250 * 0.04 + 2 * 6 + 5 * 1 + 60 * 0.1
+  assert.equal(scoreProjection(stats, { pass_yd: 0.04, pass_td: 6, rec: 1, rec_yd: 0.1 }), 33);
+  // A tight end's reception bonus is not in the feed, so it comes from his receptions.
+  assert.equal(scoreProjection({ rec: 4 }, { rec: 1, bonus_rec_te: 0.5 }, "TE"), 6);
+  assert.equal(scoreProjection({ rec: 4 }, { rec: 1, bonus_rec_te: 0.5 }, "WR"), 4);
+  // Nothing to score from: the caller falls back to the stock column.
+  assert.equal(scoreProjection({ pts_ppr: 12 }, { pass_td: 6 }), null);
+
+  const indexed = indexProjections(
+    [
+      { player_id: "a", stats: { rec: 3, rec_yd: 40, pts_ppr: 7 } },
+      { player_id: "b", stats: { pts_ppr: 11 } },
+    ],
+    "pts_ppr",
+    { rec: 1, rec_yd: 0.1 }
+  );
+  assert.equal(indexed.points.get("a"), 7);
+  assert.equal(indexed.points.get("b"), 11);
+});
+
+/** Serve canned Sleeper responses by URL substring for the length of `run`. */
+async function withFetch<T>(routes: Record<string, unknown>, run: () => Promise<T>): Promise<T> {
+  const original = globalThis.fetch;
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = String(input instanceof Request ? input.url : input);
+    const hit = Object.keys(routes).find((fragment) => url.includes(fragment));
+    if (!hit) return new Response("not found", { status: 404 });
+    return new Response(JSON.stringify(routes[hit]), { status: 200 });
+  }) as typeof fetch;
+  try {
+    return await run();
+  } finally {
+    globalThis.fetch = original;
+  }
+}
+
+test("the schedule is read a season at a time and cut down to the week", async () => {
+  const games = await withFetch(
+    {
+      "/schedule/nfl/regular/2026": [
+        { week: 2, home: "KC", away: "BUF", status: "complete" },
+        { week: 3, home: "KC", away: "DEN", status: "pre_game" },
+        { week: 18, home: "KC", away: "LV", status: "pre_game" },
+      ],
+    },
+    () => getWeekSchedule("2026", 3)
+  );
+  assert.deepEqual(games, [{ week: 3, home: "KC", away: "DEN", status: "pre_game" }]);
+});
+
+test("a finished bust keeps his real score in a projected week", async () => {
+  // The case that projected the wrong winner: team 1's starter played Sunday
+  // and busted, team 2's plays Monday. Scored on the schedule, team 2 wins.
+  const weeks = [
+    {
+      week: 3,
+      matchups: [
+        matchup({ roster_id: 1, starters: ["bust"], starters_points: [4], points: 4 }),
+        matchup({ roster_id: 2, starters: ["mnf"], starters_points: [0], points: 0 }),
+      ],
+    },
+  ];
+  const routes = {
+    "/projections/nfl/2026/3": [
+      { player_id: "bust", team: "KC", stats: { pts_ppr: 20 } },
+      { player_id: "mnf", team: "DAL", stats: { pts_ppr: 15 } },
+    ],
+    "/schedule/nfl/regular/2026": [
+      { week: 3, home: "KC", away: "DEN", status: "complete" },
+      { week: 3, home: "DAL", away: "NYG", status: "pre_game" },
+    ],
+  };
+
+  const projected = await withFetch(routes, () =>
+    projectPendingWeeks({ season: "2026", weeks, scoringSettings: { rec: 1 } })
+  );
+  const points = projected?.byWeek.get(3)?.map((m) => m.points);
+  assert.deepEqual(points, [4, 15]);
+});
+
+test("no schedule means no projected week, rather than a guessed one", async () => {
+  const weeks = [
+    { week: 3, matchups: [matchup({ starters: ["a"], starters_points: [4], points: 4 })] },
+  ];
+  const projected = await withFetch(
+    { "/projections/nfl/2026/3": [{ player_id: "a", team: "KC", stats: { pts_ppr: 20 } }] },
+    () => projectPendingWeeks({ season: "2026", weeks, scoringSettings: { rec: 1 } })
+  );
+  assert.equal(projected, null);
 });

@@ -48,15 +48,68 @@ export interface ProjectionSource {
   team: Map<string, string>;
 }
 
+/** Per-reception bonuses Sleeper scores by position, which projections do not carry. */
+const RECEPTION_BONUS: Record<string, string> = {
+  RB: "bonus_rec_rb",
+  WR: "bonus_rec_wr",
+  TE: "bonus_rec_te",
+};
+
+/**
+ * A projection scored on the league's own settings.
+ *
+ * Sleeper's `pts_ppr` column assumes stock PPR; this league's matchup page
+ * multiplies each projected stat by the league's scoring settings instead, and
+ * so does this, which is what keeps a projected week agreeing with the numbers
+ * the governors see on Sleeper. Returns null when no stat matched a setting, so
+ * the caller can fall back to the stock column.
+ */
+export function scoreProjection(
+  stats: Record<string, number>,
+  scoringSettings: Record<string, number>,
+  position?: string | null
+): number | null {
+  let total = 0;
+  let matched = false;
+  for (const [stat, value] of Object.entries(scoringSettings)) {
+    if (typeof value !== "number" || !Number.isFinite(value) || value === 0) continue;
+    const count = stats[stat];
+    if (typeof count !== "number" || !Number.isFinite(count)) continue;
+    total += count * value;
+    matched = true;
+  }
+  if (!matched) return null;
+
+  const bonusKey = position ? RECEPTION_BONUS[position.toUpperCase()] : undefined;
+  const bonus = bonusKey ? scoringSettings[bonusKey] : undefined;
+  const receptions = stats.rec;
+  if (
+    bonusKey &&
+    stats[bonusKey] == null &&
+    typeof bonus === "number" &&
+    Number.isFinite(bonus) &&
+    typeof receptions === "number" &&
+    Number.isFinite(receptions)
+  ) {
+    total += receptions * bonus;
+  }
+  return total;
+}
+
 export function indexProjections(
   projections: SleeperProjection[],
-  key: ScoringKey
+  key: ScoringKey,
+  scoringSettings?: Record<string, number> | null
 ): ProjectionSource {
   const points = new Map<string, number>();
   const team = new Map<string, string>();
   for (const projection of projections) {
     if (!projection?.player_id) continue;
-    const value = projection.stats?.[key];
+    const stats = projection.stats ?? {};
+    const scored = scoringSettings
+      ? scoreProjection(stats, scoringSettings, projection.player?.position)
+      : null;
+    const value = scored ?? stats[key];
     if (typeof value === "number" && Number.isFinite(value)) {
       points.set(projection.player_id, value);
     }
@@ -69,7 +122,8 @@ export function indexProjections(
  * Game status by NFL team.
  *
  * Only "finished or not" matters here, so the many strings Sleeper can put in
- * `status` collapse to three.
+ * `status` collapse to three. A cancelled game is finished: nobody in it will
+ * score again.
  */
 export function indexSchedule(games: SleeperScheduleGame[]): Map<string, GameStatus> {
   const byTeam = new Map<string, GameStatus>();
@@ -83,14 +137,22 @@ export function indexSchedule(games: SleeperScheduleGame[]): Map<string, GameSta
 }
 
 function normalizeStatus(status?: string | null): GameStatus {
-  const value = (status ?? "").toLowerCase();
-  if (value.includes("complete") || value.includes("final") || value.includes("post")) {
+  const value = (status ?? "").trim().toLowerCase();
+  if (
+    value.includes("complete") ||
+    value.includes("final") ||
+    value.includes("post") ||
+    value.includes("cancel")
+  ) {
     return "complete";
   }
-  if (value.includes("in_game") || value.includes("in progress") || value.includes("live")) {
-    return "in_game";
+  if (value === "" || value.startsWith("pre") || value.includes("scheduled")) {
+    return "pre_game";
   }
-  return "pre_game";
+  // Anything else -- "in_game", "in_progress", "halftime" -- is a game being
+  // played. Reading an unfamiliar string as in progress is the safe side: it
+  // keeps the points already scored, where "pre_game" would throw them away.
+  return "in_game";
 }
 
 export interface ProjectedWeek {
@@ -198,11 +260,14 @@ export async function projectPendingWeeks(
   let projectedStarters = 0;
 
   for (const { week, projections, schedule } of fetched) {
-    if (projections.length === 0) continue;
+    // Without the schedule there is no telling a finished starter from one
+    // still to play, and guessing credits every Sunday bust with his
+    // projection. No schedule, no projected week.
+    if (projections.length === 0 || schedule.length === 0) continue;
     const matchups = weeks.find((w) => w.week === week)?.matchups ?? [];
     const result = projectWeekMatchups(
       matchups,
-      indexProjections(projections, key),
+      indexProjections(projections, key, input.scoringSettings),
       indexSchedule(schedule)
     );
     byWeek.set(week, result.matchups);
