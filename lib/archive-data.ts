@@ -31,6 +31,12 @@ export async function loadSeasonArchive(season: string): Promise<SeasonArchive |
   return mod.default as SeasonArchive;
 }
 
+/** Every committed season, oldest first. */
+export async function committedArchives(): Promise<SeasonArchive[]> {
+  const archives = await Promise.all(archivedSeasons().map(loadSeasonArchive));
+  return archives.filter((a): a is SeasonArchive => a !== null);
+}
+
 /**
  * Governor identity is resolved when the archive is read, never stored in it.
  * A roster that could not be mapped when the snapshot was taken should start

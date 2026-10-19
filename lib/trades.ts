@@ -1,5 +1,5 @@
 import type { ArchiveTransaction, SeasonArchive } from "./archive";
-import { archivedSeasons, loadSeasonArchive, resolveArchiveRosters } from "./archive-data";
+import { committedArchives, resolveArchiveRosters } from "./archive-data";
 import type { PlayerMap } from "./history";
 
 /**
@@ -118,11 +118,11 @@ interface SeasonIndex {
 
 export type TradeIndex = Map<string, SeasonIndex>;
 
-export async function buildTradeIndex(): Promise<TradeIndex> {
+/** Defaults to the committed archive; pass `loadLiveArchives()` for a fresh one. */
+export async function buildTradeIndex(archives?: SeasonArchive[]): Promise<TradeIndex> {
   const index: TradeIndex = new Map();
-  for (const season of archivedSeasons()) {
-    const archive = await loadSeasonArchive(season);
-    if (!archive) continue;
+  for (const archive of archives ?? (await committedArchives())) {
+    const { season } = archive;
     const resolved = resolveArchiveRosters(season, archive.rosters);
     index.set(season, {
       archive,

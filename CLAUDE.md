@@ -33,6 +33,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/trades.ts` | Trade log, draft-slot derivation, and multi-hop pick lineage |
 | `lib/archive.ts` | Snapshots a season into a committable JSON fixture |
 | `lib/archive-data.ts` | Loads the committed archive and re-resolves governors on read |
+| `lib/live-archive.ts` | The committed archive with `CURRENT_SEASON` re-pulled from Sleeper, its pending week dropped — feeds trades, records and head-to-head |
 | `data/archive/*.json` | Committed Sleeper snapshot per season — the offline source of truth |
 | `data/ground-truth.json` | The league spreadsheet's figures, for the audit test |
 | `data/players.json` | Player id to name/position, trimmed to the ids this league has used |
@@ -114,6 +115,8 @@ Live weeks are fetched at a 60-second cache (`LIVE_REVALIDATE`); everything that
 ## Data sources
 
 Completed seasons are read from `data/archive/`, not from Sleeper. Only `CURRENT_SEASON` hits the network, which is what lets `npm test` reconcile six seasons against the league spreadsheet with no network at all.
+
+The trade tracker, record book and head-to-head pages read through `loadLiveArchives` in `lib/live-archive.ts`, which swaps the committed `CURRENT_SEASON` snapshot for a fresh pull and marks the week `pendingWeeks` calls live as unplayed — so new trades appear within the hour and a week's scores join the records once it is final. If Sleeper is unreachable it falls back to the committed snapshot. `buildGameLog` and `buildTradeIndex` with no argument still read only the committed archive, which is what the tests use.
 
 To refresh or add a season, hit `/api/debug/archive?season=YYYY` on a deployment that can reach Sleeper, save the JSON, and commit it. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
 
