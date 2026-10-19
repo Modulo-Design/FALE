@@ -35,6 +35,8 @@ export interface SleeperLeague {
   };
   /** Only `rec` is read, to pick the projection feed's scoring column. */
   scoring_settings?: Record<string, number> | null;
+  /** Lineup slots in order, bench and reserve included: "QB", "FLEX", "BN"... */
+  roster_positions?: string[] | null;
 }
 
 export interface SleeperRoster {

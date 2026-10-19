@@ -28,6 +28,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/use-media-query.ts` | `matchMedia` as a hook, for the VP chart's phone layout |
 | `lib/use-stored-choice.ts` | A `localStorage`-backed choice as a hook — remembers Final / Including projections across refreshes |
 | `lib/history.ts` | Cross-season game log, head-to-head, Rivalry Week, record book |
+| `lib/mvp.ts` | Season MVP ranking: VP added over each starter's own bench |
 | `lib/projections.ts` | Seeded Monte Carlo playoff projections for the season in progress |
 | `lib/live-projections.ts` | Re-scores the week in progress on Sleeper's player projections |
 | `lib/trades.ts` | Trade log, draft-slot derivation, and multi-hop pick lineage |
@@ -53,6 +54,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `components/Podium.tsx` | 1st/2nd/3rd beside a completed bracket |
 | `components/PlayoffProjections.tsx` | Odds table, seed heatmap, projected bracket |
 | `components/HeadToHead.tsx` | Two-governor series lookup incl. Rivalry Week |
+| `components/MVPTable.tsx` | MVP tab — season pills and the top-ten table |
 | `components/RecordBook.tsx` | All-time and per-position records |
 | `components/TradeTracker.tsx` | Player search over every trade |
 | `components/SegmentedControl.tsx` | The shared scope filter used by standings, head-to-head and stats |
@@ -88,6 +90,12 @@ Sleeper leaves `slot_to_roster_id` empty for this league, and a draft pick's `ro
 
 Because roster ids are scoped to one season's league, every cross-season hop (and pick trading is nothing else) goes through the governor name.
 
+## MVP
+
+`/history/mvp` ranks each season's ten most valuable players by **VP added**. For every regular-season start, the player is swapped for the best bench player his governor had that week who could legally fill the slot (`FLEX` takes RB/WR/TE, `SUPER_FLEX` adds QB, and so on, from the archive's `rosterPositions`; without them, his own position). The week is then re-scored through `calculateWeekVPs` and `applyVPOverrides`, so the head-to-head, the shared top-half cut, the finale's 3 VP and every ruling apply. What his governor would have lost is his VP added. With no eligible bench player the replacement scores 0, which is the point: a stud behind a stud is worth little, and one with nothing behind him is worth a lot. Ties break on points over bench. Bracket games are shown as playoff wins swung but never ranked.
+
+It needs bench scoring (`players` / `playersPoints`), which the 2020–2025 archives were committed without. A season without it shows a notice rather than a ranking. Re-export with `/api/debug/archive?season=YYYY&scope=deep`, then refresh `data/players.json` so bench players have positions.
+
 ## Rivalry Week
 
 The finale week is also **Rivalry Week**: the same seven pairings every season since 2021 — Ben/Peter, Brent/Knute, Chris/Mark, DanK/DanP, Eli/Sam, Jeremy/Matt, Johnathan/Josh.
@@ -118,7 +126,7 @@ Completed seasons are read from `data/archive/`, not from Sleeper. Only `CURRENT
 
 The trade tracker, record book and head-to-head pages read through `loadLiveArchives` in `lib/live-archive.ts`, which swaps the committed `CURRENT_SEASON` snapshot for a fresh pull and marks the week `pendingWeeks` calls live as unplayed — so new trades appear within the hour and a week's scores join the records once it is final. If Sleeper is unreachable it falls back to the committed snapshot. `buildGameLog` and `buildTradeIndex` with no argument still read only the committed archive, which is what the tests use.
 
-To refresh or add a season, hit `/api/debug/archive?season=YYYY` on a deployment that can reach Sleeper, save the JSON, and commit it. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
+To refresh or add a season, hit `/api/debug/archive?season=YYYY&scope=deep` (the deep scope carries the lineups, the bench and `rosterPositions`) on a deployment that can reach Sleeper, save the JSON, and commit it. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
 
 ## Configuration Guide
 
