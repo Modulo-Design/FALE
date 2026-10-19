@@ -43,7 +43,8 @@ export function eligiblePositions(slot: string | undefined, starterPosition: str
 }
 
 /**
- * The best bench player the governor could have started in this slot instead.
+ * The best bench player the governor could have started in this slot instead,
+ * for an archive without lineup slots, where the lineup cannot be reshuffled.
  *
  * Nobody eligible means the slot would have sat empty, so the replacement is
  * worth nothing -- which is exactly what makes a thin bench raise a starter's
@@ -64,6 +65,75 @@ export function benchReplacement(
     if (best.playerId == null || points > best.points) best = { playerId: id, points };
   }
   return best;
+}
+
+/**
+ * Can every player start at once, each in a different slot he is eligible for?
+ * A bipartite matching -- nine slots at most, so plain augmenting paths do.
+ */
+export function lineupFits(positions: string[], slots: string[]): boolean {
+  if (positions.length > slots.length) return false;
+  const slotOwner: (number | null)[] = slots.map(() => null);
+  const place = (player: number, seen: boolean[]): boolean => {
+    for (let s = 0; s < slots.length; s++) {
+      if (seen[s] || !(SLOT_ELIGIBILITY[slots[s]] ?? [slots[s]]).includes(positions[player])) continue;
+      seen[s] = true;
+      const owner = slotOwner[s];
+      if (owner == null || place(owner, seen)) {
+        slotOwner[s] = player;
+        return true;
+      }
+    }
+    return false;
+  };
+  return positions.every((_, p) => place(p, slots.map(() => false)));
+}
+
+/**
+ * Who takes a starter's place when he is gone: the best bench player who can
+ * join the other starters in some legal arrangement of the lineup.
+ *
+ * The rest of the lineup is free to reshuffle, so when Burrow leaves the QB
+ * slot, the QB in the superflex slides over and the superflex goes to whoever
+ * is best on the bench at any eligible position -- not to a bench QB who may
+ * not exist. Every other starter stays a starter: the governor's choices stand,
+ * and exactly one bench player comes in.
+ *
+ * A starter with no known position is held in the slot he actually played.
+ * Nobody able to come in means the slot sits empty, worth 0.
+ */
+export function lineupReplacement(
+  matchup: Pick<ArchiveMatchup, "starters" | "players" | "playersPoints">,
+  index: number,
+  slots: string[],
+  players: PlayerMap
+): { playerId: string | null; points: number } {
+  const starters = matchup.starters ?? [];
+  const open: string[] = [];
+  const rest: string[] = [];
+  starters.forEach((id, i) => {
+    if (i === index) return open.push(slots[i]);
+    const position = players[id]?.p;
+    if (id === "0") open.push(slots[i]);
+    else if (position) {
+      open.push(slots[i]);
+      rest.push(position);
+    }
+    // Otherwise pinned: neither he nor his slot is part of the reshuffle.
+  });
+
+  const onLineup = new Set(starters);
+  const bench = (matchup.players ?? [])
+    .filter((id) => id !== "0" && !onLineup.has(id) && players[id]?.p)
+    .map((id) => ({ playerId: id, points: matchup.playersPoints?.[id] ?? 0, position: players[id].p! }))
+    .sort((a, b) => b.points - a.points || a.playerId.localeCompare(b.playerId));
+
+  for (const candidate of bench) {
+    if (lineupFits([...rest, candidate.position], open)) {
+      return { playerId: candidate.playerId, points: candidate.points };
+    }
+  }
+  return { playerId: null, points: 0 };
 }
 
 /**
@@ -122,8 +192,8 @@ interface Tally {
  * The season's most valuable players: who cost his governor the most VP to
  * lose, with the bench he actually had standing in for him.
  *
- * Each week, each starter is swapped for the best bench player who could have
- * filled his slot, and the week is re-scored under the real VP rules -- the
+ * Each week, each starter is taken out and the best bench player who fits the
+ * rest of the lineup comes in (`lineupReplacement`), and the week is re-scored under the real VP rules -- the
  * head-to-head, the shared top-half cut, the finale's 3 VP, every override.
  * What his governor would have lost is his VP added. Points over the bench
  * break ties, since most weeks no single swap moves a VP at all.
@@ -163,8 +233,11 @@ export function seasonMVP(archive: SeasonArchive, players: PlayerMap, limit = 10
     (m.starters ?? []).flatMap((id, i) => {
       if (!id || id === "0") return [];
       const points = m.startersPoints?.[i] ?? 0;
-      const eligible = eligiblePositions(slots?.[i], players[id]?.p ?? null);
-      return [{ id, points, bench: benchReplacement(m, eligible, players).points }];
+      const replacement =
+        slots && slots.length === (m.starters ?? []).length
+          ? lineupReplacement(m, i, slots, players)
+          : benchReplacement(m, eligiblePositions(undefined, players[id]?.p ?? null), players);
+      return [{ id, points, bench: replacement.points }];
     });
 
   for (const week of archive.weeks) {

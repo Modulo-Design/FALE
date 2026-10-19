@@ -37,6 +37,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/live-archive.ts` | The committed archive with `CURRENT_SEASON` re-pulled from Sleeper, its pending week dropped — feeds trades, records and head-to-head |
 | `data/archive/*.json` | Committed Sleeper snapshot per season — the offline source of truth |
 | `data/ground-truth.json` | The league spreadsheet's figures, for the audit test |
+| `scripts/sync-archive.ts` | Re-snapshots completed seasons and `data/players.json` from Sleeper (`npm run sync-archive`) |
 | `data/players.json` | Player id to name/position, trimmed to the ids this league has used |
 | `app/page.tsx` | Season dashboard |
 | `app/history/*` | All-time stats, head-to-head, record book |
@@ -92,9 +93,9 @@ Because roster ids are scoped to one season's league, every cross-season hop (an
 
 ## MVP
 
-`/history/mvp` ranks each season's ten most valuable players by **VP added**. For every regular-season start, the player is swapped for the best bench player his governor had that week who could legally fill the slot (`FLEX` takes RB/WR/TE, `SUPER_FLEX` adds QB, and so on, from the archive's `rosterPositions`; without them, his own position). The week is then re-scored through `calculateWeekVPs` and `applyVPOverrides`, so the head-to-head, the shared top-half cut, the finale's 3 VP and every ruling apply. What his governor would have lost is his VP added. With no eligible bench player the replacement scores 0, which is the point: a stud behind a stud is worth little, and one with nothing behind him is worth a lot. Ties break on points over bench. Bracket games are shown as playoff wins swung but never ranked.
+`/history/mvp` ranks each season's ten most valuable players by **VP added**. For every regular-season start, the player is taken out of his lineup and `lineupReplacement` in `lib/mvp.ts` finds his stand-in: the best bench player who can join the *other* starters in some legal arrangement of the lineup's slots (a bipartite match over the archive's `rosterPositions`; `FLEX` takes RB/WR/TE, `SUPER_FLEX` adds QB). So when a QB leaves, the QB in the superflex slides over and the best bench flex player comes in, rather than a bench QB who may not exist. Every other starter stays a starter, and exactly one bench player enters. The week is then re-scored through `calculateWeekVPs` and `applyVPOverrides`, so the head-to-head, the shared top-half cut, the finale's 3 VP and every ruling apply. What his governor would have lost is his VP added. With nobody able to come in, the slot sits empty at 0. Ties break on points over bench. Bracket games are shown as playoff wins swung but never ranked.
 
-It needs bench scoring (`players` / `playersPoints`), which the 2020–2025 archives were committed without. A season without it shows a notice rather than a ranking. Re-export with `/api/debug/archive?season=YYYY&scope=deep`, then refresh `data/players.json` so bench players have positions.
+It needs bench scoring (`players` / `playersPoints`) and lineup slots. A season without bench scores shows a notice rather than a ranking; one without slots falls back to a same-position bench player. A bench player with no position in `data/players.json` can never be a stand-in, so for `CURRENT_SEASON` `withLivePlayers` in `lib/live-archive.ts` fills the gaps from the projections feed.
 
 ## Rivalry Week
 
@@ -126,7 +127,7 @@ Completed seasons are read from `data/archive/`, not from Sleeper. Only `CURRENT
 
 The trade tracker, record book and head-to-head pages read through `loadLiveArchives` in `lib/live-archive.ts`, which swaps the committed `CURRENT_SEASON` snapshot for a fresh pull and marks the week `pendingWeeks` calls live as unplayed — so new trades appear within the hour and a week's scores join the records once it is final. If Sleeper is unreachable it falls back to the committed snapshot. `buildGameLog` and `buildTradeIndex` with no argument still read only the committed archive, which is what the tests use.
 
-To refresh or add a season, hit `/api/debug/archive?season=YYYY&scope=deep` (the deep scope carries the lineups, the bench and `rosterPositions`) on a deployment that can reach Sleeper, save the JSON, and commit it. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
+To refresh completed seasons, run `npm run sync-archive [seasons...]` from anywhere that can reach Sleeper. It writes every completed season in the deep scope (lineups, bench and `rosterPositions`) plus a refreshed `data/players.json`, in the committed files' exact layout. The **Sync archive** GitHub Action runs the same script on a runner, checks it with `npm test`, and commits the result back to the branch it ran on. The one-off alternative is `/api/debug/archive?season=YYYY&scope=deep` on a deployment, saved and committed by hand. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
 
 ## Configuration Guide
 

@@ -7,6 +7,8 @@ import {
   benchReplacement,
   eligiblePositions,
   hasBenchData,
+  lineupFits,
+  lineupReplacement,
   seasonMVP,
   starterSlots,
   weekVP,
@@ -107,6 +109,59 @@ test("the bench replacement is the best eligible bench player, or nothing", () =
   assert.deepEqual(benchReplacement(matchup, ["WR"], players), { playerId: "c", points: 9 });
   assert.deepEqual(benchReplacement(matchup, ["RB", "WR", "TE"], players), { playerId: "b", points: 15 });
   assert.deepEqual(benchReplacement(matchup, ["TE"], players), { playerId: null, points: 0 });
+});
+
+test("lineupFits finds an arrangement when one exists", () => {
+  assert.equal(lineupFits(["QB", "QB", "RB"], ["QB", "RB", "SUPER_FLEX"]), true);
+  // The first QB tried takes the superflex; the matching has to move him.
+  assert.equal(lineupFits(["QB", "WR", "QB"], ["SUPER_FLEX", "WR", "QB"]), true);
+  assert.equal(lineupFits(["QB", "QB", "QB"], ["QB", "RB", "SUPER_FLEX"]), false);
+  assert.equal(lineupFits(["TE", "TE"], ["TE", "FLEX"]), true);
+  assert.equal(lineupFits(["WR"], ["QB"]), false);
+});
+
+test("a starter's replacement can come from any position the reshuffled lineup can take", () => {
+  const players: PlayerMap = {
+    burrow: { n: "Joe Burrow", p: "QB", t: null },
+    qb2: { n: "Other QB", p: "QB", t: null },
+    rb1: { n: "RB1", p: "RB", t: null },
+    wr1: { n: "WR1", p: "WR", t: null },
+    te: { n: "Bench TE", p: "TE", t: null },
+    rb: { n: "Bench RB", p: "RB", t: null },
+    k: { n: "Bench K", p: "K", t: null },
+  };
+  const slots = ["QB", "RB", "WR", "SUPER_FLEX"];
+  const matchup = {
+    starters: ["burrow", "rb1", "wr1", "qb2"],
+    players: ["burrow", "rb1", "wr1", "qb2", "te", "rb", "k"],
+    playersPoints: { burrow: 30, rb1: 10, wr1: 10, qb2: 18, te: 11, rb: 9, k: 40 },
+  };
+  // No QB on the bench: the other QB slides into the QB slot and the best
+  // bench flex player takes the superflex. The kicker fits nowhere.
+  assert.deepEqual(lineupReplacement(matchup, 0, slots, players), { playerId: "te", points: 11 });
+  assert.deepEqual(lineupReplacement(matchup, 3, slots, players), { playerId: "te", points: 11 });
+  // The RB slot only takes a running back, and nobody else can move into it.
+  assert.deepEqual(lineupReplacement(matchup, 1, slots, players), { playerId: "rb", points: 9 });
+  assert.deepEqual(
+    lineupReplacement({ ...matchup, players: matchup.starters }, 0, slots, players),
+    { playerId: null, points: 0 }
+  );
+});
+
+test("a starter of unknown position holds his own slot", () => {
+  const players: PlayerMap = {
+    q: { n: "Q", p: "QB", t: null },
+    r: { n: "R", p: "RB", t: null },
+  };
+  const slots = ["QB", "SUPER_FLEX"];
+  // "mystery" stays where he played. With him in the QB slot, the RB can cover
+  // q's superflex; with him in the superflex, q's QB slot has no taker.
+  const matchup = { starters: ["mystery", "q"], players: ["mystery", "q", "r"], playersPoints: { r: 7 } };
+  assert.deepEqual(lineupReplacement(matchup, 1, slots, players), { playerId: "r", points: 7 });
+  assert.deepEqual(
+    lineupReplacement(matchup, 1, ["SUPER_FLEX", "QB"], players),
+    { playerId: null, points: 0 }
+  );
 });
 
 test("with an empty bench, every start is worth between 0 and 3 VP", async () => {

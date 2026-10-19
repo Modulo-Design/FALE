@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { collectPlayerIds } from "@/lib/archive-data";
+import { collectPlayerIds, trimPlayers } from "@/lib/archive-data";
 import { getAllPlayers } from "@/lib/sleeper";
 
 export const dynamic = "force-dynamic";
@@ -24,25 +24,7 @@ export async function GET(req: NextRequest) {
   try {
     const [ids, players] = await Promise.all([collectPlayerIds(), getAllPlayers()]);
 
-    const trimmed: Record<string, { n: string; p: string | null; t: string | null }> = {};
-    const missing: string[] = [];
-
-    for (const id of ids) {
-      const player = players[id];
-      if (!player) {
-        missing.push(id);
-        continue;
-      }
-      const name =
-        player.full_name ??
-        [player.first_name, player.last_name].filter(Boolean).join(" ") ??
-        id;
-      trimmed[id] = {
-        n: name || id,
-        p: player.position ?? null,
-        t: player.team ?? null,
-      };
-    }
+    const { players: trimmed, missing } = trimPlayers(ids, players);
 
     return NextResponse.json(
       { count: Object.keys(trimmed).length, requested: ids.length, missing, players: trimmed },

@@ -2,7 +2,8 @@ import { buildSeasonArchive, type SeasonArchive } from "./archive";
 import { committedArchives } from "./archive-data";
 import { CURRENT_SEASON } from "./config";
 import { pendingWeeks } from "./season";
-import { getNflState, type SleeperNflState } from "./sleeper";
+import type { PlayerMap } from "./history";
+import { getNflState, getWeekProjections, type SleeperNflState } from "./sleeper";
 
 /**
  * The committed archive with the season in progress swapped for a fresh pull.
@@ -61,4 +62,39 @@ export function settledOnly(
     ...archive,
     weeks: archive.weeks.map((w) => (pending.has(w.week) ? { ...w, played: false } : w)),
   };
+}
+
+/**
+ * The committed player map, plus anyone the season in progress has rostered
+ * since it was last refreshed -- this year's waiver pickups, mostly.
+ *
+ * Without a position a bench player can never be anyone's replacement, which
+ * would quietly inflate every MVP figure. The projections feed carries a
+ * position for every skill player, so one call fills the gaps. Best-effort:
+ * on failure the committed map stands.
+ */
+export async function withLivePlayers(
+  archives: SeasonArchive[],
+  players: PlayerMap
+): Promise<PlayerMap> {
+  const current = archives.find((a) => a.season === CURRENT_SEASON);
+  const lastPlayed = current?.weeks.filter((w) => w.played).at(-1);
+  if (!current || !lastPlayed) return players;
+
+  const unknown = new Set<string>();
+  for (const week of current.weeks) {
+    for (const m of week.matchups) {
+      for (const id of m.players ?? []) if (id !== "0" && !players[id]) unknown.add(id);
+    }
+  }
+  if (unknown.size === 0) return players;
+
+  const projections = await getWeekProjections(CURRENT_SEASON, lastPlayed.week).catch(() => []);
+  const filled: PlayerMap = { ...players };
+  for (const p of projections) {
+    if (!unknown.has(p.player_id) || !p.player?.position) continue;
+    const name = [p.player.first_name, p.player.last_name].filter(Boolean).join(" ");
+    filled[p.player_id] = { n: name || `Player ${p.player_id}`, p: p.player.position, t: p.team ?? null };
+  }
+  return filled;
 }

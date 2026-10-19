@@ -152,8 +152,8 @@ export interface SleeperProjection {
   opponent?: string | null;
   /** Keyed by scoring format: pts_ppr, pts_half_ppr, pts_std, plus raw stats. */
   stats?: Record<string, number> | null;
-  /** The player record Sleeper attaches, for his position. */
-  player?: { position?: string | null } | null;
+  /** The player record Sleeper attaches, for his position (and name). */
+  player?: { position?: string | null; first_name?: string; last_name?: string } | null;
 }
 
 /** One NFL game, used only for whether it has finished. */

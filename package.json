@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "node --import tsx --test \"lib/**/*.test.ts\""
+    "test": "node --import tsx --test \"lib/**/*.test.ts\"",
+    "sync-archive": "tsx scripts/sync-archive.ts"
   },
   "dependencies": {
     "lucide-react": "^1.14.0",
