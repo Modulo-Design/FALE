@@ -71,6 +71,15 @@ async function main() {
   // A player Sleeper has since dropped keeps the name and position on file.
   const previous = (await import("../data/players.json")).default as typeof players;
   for (const id of missing) if (previous[id]) players[id] = previous[id];
+  // A position on file is the one the league played him at. Sleeper moves
+  // players later -- a two-way receiver relisted as a DB -- and taking that
+  // would rewrite his records and his MVP slot eligibility after the fact.
+  for (const [id, before] of Object.entries(previous)) {
+    const now = players[id];
+    if (!now || now.p === before.p) continue;
+    console.log(`keeping ${before.n} (${id}) at ${before.p}; Sleeper now lists ${now.p}`);
+    players[id] = { ...now, p: before.p };
+  }
   await writeFile("data/players.json", stable(players));
   console.log(`players.json: ${Object.keys(players).length} players, ${missing.length} ids Sleeper no longer knows`);
 }

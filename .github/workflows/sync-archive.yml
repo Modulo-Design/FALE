@@ -3,7 +3,7 @@
 # on, but it is from a GitHub runner.
 #
 # Run it from the Actions tab (pick a branch, optionally list seasons), or it
-# runs by itself when this file changes on a claude/ branch.
+# runs by itself when it or the sync script changes on a claude/ branch.
 name: Sync archive
 
 on:
@@ -15,7 +15,7 @@ on:
         default: ""
   push:
     branches: ["claude/**"]
-    paths: [".github/workflows/sync-archive.yml"]
+    paths: [".github/workflows/sync-archive.yml", "scripts/sync-archive.ts"]
 
 permissions:
   contents: write
