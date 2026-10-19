@@ -1,4 +1,4 @@
-import { archivedSeasons, loadSeasonArchive, resolveArchiveRosters } from "./archive-data";
+import { committedArchives, resolveArchiveRosters } from "./archive-data";
 import { CURRENT_SEASON, VP_OVERRIDES, isFinaleWeek } from "./config";
 import { placementGameLabel, playoffRoundLabel } from "./rounds";
 import { fetchSeasonStandings } from "./season";
@@ -185,11 +185,11 @@ function sortLog(games: Game[]): Game[] {
   );
 }
 
-export async function buildGameLog(): Promise<Game[]> {
+/** Defaults to the committed archive; pass `loadLiveArchives()` for a fresh one. */
+export async function buildGameLog(archives?: SeasonArchive[]): Promise<Game[]> {
   const games: Game[] = [];
-  for (const season of archivedSeasons()) {
-    const archive = await loadSeasonArchive(season);
-    if (archive) games.push(...gamesFromArchive(archive));
+  for (const archive of archives ?? (await committedArchives())) {
+    games.push(...gamesFromArchive(archive));
   }
   return sortLog(games);
 }

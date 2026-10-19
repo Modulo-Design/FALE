@@ -1,13 +1,23 @@
 import { Suspense } from "react";
 import { loadPlayers } from "@/lib/history";
+import { loadLiveArchives } from "@/lib/live-archive";
 import { buildTradeIndex, buildTradeLog, resolveTrades } from "@/lib/trades";
 import TradeTracker from "@/components/TradeTracker";
 import Spinner from "@/components/Spinner";
 
 export const metadata = { title: "Trades · FALE" };
 
+/**
+ * The season in progress is pulled from Sleeper rather than the archive, so a
+ * new trade shows up within the hour instead of waiting for a re-archive.
+ */
+export const revalidate = 3600;
+
 async function Trades() {
-  const [index, players] = await Promise.all([buildTradeIndex(), loadPlayers()]);
+  const [index, players] = await Promise.all([
+    loadLiveArchives().then(buildTradeIndex),
+    loadPlayers(),
+  ]);
   const trades = resolveTrades(index, buildTradeLog(index, players));
 
   // Picks are resolved on the server so the client never needs the archive.
