@@ -35,7 +35,8 @@ export default async function MVPPage({ searchParams }: PageProps) {
       <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">FALE MVP</h2>
       <p className="text-xs text-gray-500 dark:text-gray-400 mb-5">
         Each week, every starter is taken out of his lineup, the rest of the lineup reshuffles to cover his slot, and
-        the best bench player who fits comes in. The week is then re-scored under the VP rules. <span className="font-medium">VP added</span> is what his governor would
+        the best bench player who fits comes in — or, if nobody on the roster beats it, a waiver-level pickup (a
+        fringe starter at his position that season). The week is then re-scored under the VP rules. <span className="font-medium">VP added</span> is what his governor would
         have lost. A stud backed up by another stud adds little; one with nothing behind him adds a lot. It is hindsight:
         the bench is scored on what it actually did.
       </p>

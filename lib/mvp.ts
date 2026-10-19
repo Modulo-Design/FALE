@@ -46,9 +46,7 @@ export function eligiblePositions(slot: string | undefined, starterPosition: str
  * The best bench player the governor could have started in this slot instead,
  * for an archive without lineup slots, where the lineup cannot be reshuffled.
  *
- * Nobody eligible means the slot would have sat empty, so the replacement is
- * worth nothing -- which is exactly what makes a thin bench raise a starter's
- * value, and a stud behind a stud lower it.
+ * Nobody eligible returns no player, as `lineupReplacement` does.
  */
 export function benchReplacement(
   matchup: Pick<ArchiveMatchup, "starters" | "players" | "playersPoints">,
@@ -100,7 +98,8 @@ export function lineupFits(positions: string[], slots: string[]): boolean {
  * and exactly one bench player comes in.
  *
  * A starter with no known position is held in the slot he actually played.
- * Nobody able to come in means the slot sits empty, worth 0.
+ * Nobody able to come in returns no player. Either way `seasonMVP` floors the
+ * stand-in at the season's replacement level for his position.
  */
 export function lineupReplacement(
   matchup: Pick<ArchiveMatchup, "starters" | "players" | "playersPoints">,
@@ -134,6 +133,45 @@ export function lineupReplacement(
     }
   }
   return { playerId: null, points: 0 };
+}
+
+/** How far down the season's starts at a position a waiver-wire stand-in sits. */
+export const REPLACEMENT_PERCENTILE = 0.2;
+
+/**
+ * What a fringe starter scored at each position this season: the 20th
+ * percentile of every regular-season start there that scored, league-wide.
+ *
+ * It is the floor under every stand-in. DanK carried no second QB in 2025, so
+ * taking Drake Maye out leaves the QB slot with no legal taker; Matt's 2020
+ * bench QBs behind Tom Brady were backups who scored 0. Either way nobody would
+ * really have started that -- he would have picked a QB up -- and scoring it as
+ * 0 credited the starter with nearly every point he scored.
+ */
+export function replacementLevels(archive: SeasonArchive, players: PlayerMap): Map<string, number> {
+  const scores = new Map<string, number[]>();
+  for (const week of archive.weeks) {
+    if (!week.played || week.week > archive.regularSeasonWeeks) continue;
+    for (const m of week.matchups) {
+      (m.starters ?? []).forEach((id, i) => {
+        const position = players[id]?.p;
+        const points = m.startersPoints?.[i] ?? 0;
+        // A start that scored nothing is a player who didn't play -- a backup,
+        // a bye, an abandoned lineup -- not a fringe starter. In 2020 a fifth
+        // of all QB starts were zeros, which put the replacement level at 0.
+        if (id === "0" || !position || points === 0) return;
+        const list = scores.get(position) ?? [];
+        list.push(points);
+        scores.set(position, list);
+      });
+    }
+  }
+  const levels = new Map<string, number>();
+  for (const [position, list] of scores) {
+    list.sort((a, b) => a - b);
+    levels.set(position, list[Math.floor(REPLACEMENT_PERCENTILE * (list.length - 1))]);
+  }
+  return levels;
 }
 
 /**
@@ -207,6 +245,7 @@ export function seasonMVP(archive: SeasonArchive, players: PlayerMap, limit = 10
   const names = new Map(rosters.map((r) => [r.rosterId, r.governorName]));
   const governorToRoster = new Map(rosters.map((r) => [r.governorName, r.rosterId]));
   const slots = starterSlots(archive.rosterPositions);
+  const levels = replacementLevels(archive, players);
 
   const tallies = new Map<string, Tally>();
   const tally = (id: string): Tally => {
@@ -233,11 +272,16 @@ export function seasonMVP(archive: SeasonArchive, players: PlayerMap, limit = 10
     (m.starters ?? []).flatMap((id, i) => {
       if (!id || id === "0") return [];
       const points = m.startersPoints?.[i] ?? 0;
+      const position = players[id]?.p ?? null;
       const replacement =
         slots && slots.length === (m.starters ?? []).length
           ? lineupReplacement(m, i, slots, players)
-          : benchReplacement(m, eligiblePositions(undefined, players[id]?.p ?? null), players);
-      return [{ id, points, bench: replacement.points }];
+          : benchReplacement(m, eligiblePositions(undefined, position), players);
+      // Nobody on the roster can do better than a pickup at his position, so
+      // the stand-in never scores below one: not when the slot can't be filled,
+      // and not when the only legal stand-in is a backup QB who never plays.
+      const bench = Math.max(replacement.points, position ? levels.get(position) ?? 0 : 0);
+      return [{ id, points, bench }];
     });
 
   for (const week of archive.weeks) {

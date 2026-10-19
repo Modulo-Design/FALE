@@ -9,6 +9,7 @@ import {
   hasBenchData,
   lineupFits,
   lineupReplacement,
+  replacementLevels,
   seasonMVP,
   starterSlots,
   weekVP,
@@ -55,12 +56,30 @@ async function withBench(
   return { archive: { ...base, weeks }, players };
 }
 
-test("the committed archives carry no bench, so no MVP is invented", async () => {
+test("every completed season has a bench, lineup slots and a top ten", async () => {
   const players = await loadPlayers();
   for (const season of archivedSeasons()) {
     const a = await archive(season);
-    if (!a.weeks.some((w) => w.played) || hasBenchData(a)) continue;
-    assert.deepEqual(seasonMVP(a, players), { season, hasBench: false, entries: [] });
+    if (!a.weeks.some((w) => w.played)) continue;
+    assert.ok(hasBenchData(a), `${season} has bench scores`);
+    assert.equal(starterSlots(a.rosterPositions)?.length, 9, `${season} has nine lineup slots`);
+    const { entries } = seasonMVP(a, players);
+    assert.equal(entries.length, 10, season);
+    for (const e of entries) {
+      // Even a starter nobody could cover is measured against a fringe starter, not nothing.
+      assert.ok(e.pointsOverBench < e.points, `${season} ${e.playerName}: ${e.pointsOverBench} of ${e.points}`);
+    }
+  }
+});
+
+test("a QB with no playable backup isn't credited with every point he scored", async () => {
+  const players = await loadPlayers();
+  const find = async (season: string, name: string) =>
+    seasonMVP(await archive(season), players, Infinity).entries.find((e) => e.playerName === name);
+  // DanK rostered no other QB at all; Matt's bench QBs were backups who scored 0.
+  for (const e of [await find("2025", "Drake Maye"), await find("2020", "Tom Brady")]) {
+    assert.ok(e);
+    assert.ok(e.pointsOverBench < e.points * 0.75, `${e.playerName}: ${e.pointsOverBench} of ${e.points}`);
   }
 });
 
@@ -164,17 +183,45 @@ test("a starter of unknown position holds his own slot", () => {
   );
 });
 
-test("with an empty bench, every start is worth between 0 and 3 VP", async () => {
+test("with an empty bench, each start is measured against the season's replacement level", async () => {
   const { archive: a, players } = await withBench(() => false);
+  const levels = replacementLevels(a, players);
+  assert.ok((levels.get("QB") ?? 0) > (levels.get("TE") ?? 0), "a fringe QB outscores a fringe TE");
+
   const mvp = seasonMVP(a, players, Infinity);
   assert.equal(mvp.hasBench, true);
   for (const e of mvp.entries) {
-    assert.ok(e.vpAdded >= 0 && e.vpAdded <= 3 * e.starts, `${e.playerName}: ${e.vpAdded} VP in ${e.starts}`);
-    assert.equal(e.pointsOverBench, e.points);
+    assert.ok(Math.abs(e.vpAdded) <= 3 * e.starts, `${e.playerName}: ${e.vpAdded} VP in ${e.starts}`);
+    const level = levels.get(e.position ?? "") ?? 0;
+    // Only the 0-point bench kicker is on the bench, so every stand-in is the floor.
+    assert.ok(Math.abs(e.pointsOverBench - (e.points - level * e.starts)) < 0.01, e.playerName);
   }
-  assert.equal(mvp.entries.length > 10, true);
   assert.equal(new Set(mvp.entries.map((e) => e.playerId)).size, mvp.entries.length);
   assert.ok(mvp.entries[0].vpAdded > 0);
+});
+
+test("replacement level is the 20th percentile of the season's starts at a position", () => {
+  const archive = {
+    regularSeasonWeeks: 14,
+    weeks: [
+      {
+        week: 1,
+        played: true,
+        matchups: [
+          { rosterId: 1, matchupId: 1, points: 0, starters: ["a", "b", "c"], startersPoints: [10, 20, 30] },
+          { rosterId: 2, matchupId: 1, points: 0, starters: ["d", "e", "f"], startersPoints: [40, 50, 0] },
+        ],
+      },
+    ],
+  } as unknown as SeasonArchive;
+  const players: PlayerMap = Object.fromEntries(
+    ["a", "b", "c", "d", "e", "f"].map((id) => [id, { n: id, p: id === "e" ? "TE" : "QB", t: null }])
+  );
+  const levels = replacementLevels(archive, players);
+  // QB starts 10, 20, 30, 40 and a 0 that doesn't count: the 20th percentile
+  // lands on the lowest that scored.
+  assert.equal(levels.get("QB"), 10);
+  assert.equal(levels.get("TE"), 50);
 });
 
 test("a stud with an identical stud behind him adds nothing", async () => {
@@ -187,8 +234,10 @@ test("a stud with an identical stud behind him adds nothing", async () => {
     (e) => e.playerId === top.playerId
   );
   assert.ok(entry);
-  assert.equal(entry.vpAdded, 0);
-  assert.equal(entry.pointsOverBench, 0);
+  // Never more than nothing: the identical backup covers every week, and in a
+  // week he scores under replacement level a pickup would have done better.
+  assert.ok(entry.vpAdded <= 0, `${entry.vpAdded}`);
+  assert.ok(entry.pointsOverBench <= 0, `${entry.pointsOverBench}`);
   assert.equal(entry.playoffWinsSwung, 0);
 });
 
