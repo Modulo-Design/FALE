@@ -25,6 +25,9 @@ export interface WeeklyTotals {
   wins: number;
   losses: number;
   ties: number;
+  allPlayWins: number;
+  allPlayLosses: number;
+  allPlayTies: number;
 }
 
 export function foldWeeklyResults(results: WeeklyResult[]): WeeklyTotals {
@@ -35,11 +38,19 @@ export function foldWeeklyResults(results: WeeklyResult[]): WeeklyTotals {
     wins: 0,
     losses: 0,
     ties: 0,
+    allPlayWins: 0,
+    allPlayLosses: 0,
+    allPlayTies: 0,
   };
 
   for (const result of results) {
     totals.totalVP += result.vp;
     totals.totalPoints += result.points;
+    // All-play is decided on the scores alone, so every week counts --
+    // finale and bye weeks included.
+    totals.allPlayWins += result.allPlayWins;
+    totals.allPlayLosses += result.allPlayLosses;
+    totals.allPlayTies += result.allPlayTies;
     // A finale week pairs teams in Sleeper but is scored league-wide, so its
     // nominal opponent is not a real one and contributes no points against.
     if (!result.isFinale) totals.totalPointsAgainst += result.opponentPoints ?? 0;
@@ -73,8 +84,20 @@ export function restrictTeam(
     wins: totals.wins,
     losses: totals.losses,
     ties: totals.ties,
+    allPlayWins: totals.allPlayWins,
+    allPlayLosses: totals.allPlayLosses,
+    allPlayTies: totals.allPlayTies,
     weeklyResults,
   };
+}
+
+/**
+ * All-play winning percentage, a tie counting as half a win. Zero for a team
+ * with no games yet.
+ */
+export function allPlayPct(team: Pick<TeamStanding, "allPlayWins" | "allPlayLosses" | "allPlayTies">): number {
+  const games = team.allPlayWins + team.allPlayLosses + team.allPlayTies;
+  return games === 0 ? 0 : (team.allPlayWins + team.allPlayTies / 2) / games;
 }
 
 /**

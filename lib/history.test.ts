@@ -122,7 +122,20 @@ test("the record book ranks weeks, blowouts and nail-biters", async () => {
   assert.equal(book.highestWeek.length, 10);
   assert.ok(book.highestWeek[0].value > book.highestWeek[9].value);
   assert.ok(book.lowestWeek[0].value < book.highestWeek[0].value);
-  assert.ok(book.lowestWeek[0].value > 0, "a team that never set a lineup is not a record");
+  // Negative and zero scores are records too: Chris's -0.1 is the all-time
+  // low, then Ben's two 0.0 weeks, all in 2020.
+  assert.deepEqual(
+    book.lowestWeek.slice(0, 3).map((r) => [r.governorName, r.season, r.week, r.value]),
+    [
+      ["Chris", "2020", 6, -0.1],
+      ["Ben", "2020", 11, 0],
+      ["Ben", "2020", 13, 0],
+    ]
+  );
+  assert.ok(
+    book.lowestCombined.some((r) => r.season === "2020" && r.week === 6),
+    "a game with a negative score still has a combined total"
+  );
 
   // Blowouts are ranked from the winner's side, so every margin is positive.
   assert.ok(book.biggestBlowouts.every((r) => r.value > 0));

@@ -143,6 +143,9 @@ function seedFromTotals(
       wins: 0,
       losses: 0,
       ties: 0,
+      allPlayWins: 0,
+      allPlayLosses: 0,
+      allPlayTies: 0,
       weeklyResults: [],
     })
   );

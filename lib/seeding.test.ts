@@ -16,6 +16,9 @@ function team(governorName: string, totalVP: number, totalPoints: number, roster
     wins: 0,
     losses: 0,
     ties: 0,
+    allPlayWins: 0,
+    allPlayLosses: 0,
+    allPlayTies: 0,
     weeklyResults: [],
   };
 }
