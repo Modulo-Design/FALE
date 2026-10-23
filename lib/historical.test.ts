@@ -136,3 +136,30 @@ test("a bye means two bracket weeks that season, not three", async () => {
   );
   assert.ok([...weeksPlayed.values()].every((n) => n >= 1 && n <= 3));
 });
+
+test("the standings all-play record matches the all-time table's, season by season", async () => {
+  for (const standings of await archivedStandings()) {
+    const reference = byName(aggregateGovernorStats([standings]));
+    const teamCount = standings.teams.length;
+
+    for (const team of standings.teams) {
+      const expected = reference.get(team.governorName)!;
+      assert.equal(team.allPlayWins, expected.allPlayWins, `${standings.season} ${team.governorName} all-play wins`);
+      assert.equal(team.allPlayLosses, expected.allPlayLosses, `${standings.season} ${team.governorName} all-play losses`);
+
+      // Every week is a full slate against the rest of the league.
+      for (const r of team.weeklyResults) {
+        assert.equal(r.allPlayWins + r.allPlayLosses + r.allPlayTies, teamCount - 1);
+      }
+      assert.equal(
+        team.allPlayWins + team.allPlayLosses + team.allPlayTies,
+        team.weeklyResults.length * (teamCount - 1)
+      );
+    }
+
+    // Every all-play win is somebody else's all-play loss.
+    const wins = standings.teams.reduce((sum, t) => sum + t.allPlayWins, 0);
+    const losses = standings.teams.reduce((sum, t) => sum + t.allPlayLosses, 0);
+    assert.equal(wins, losses, `${standings.season} all-play wins and losses balance`);
+  }
+});

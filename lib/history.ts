@@ -509,15 +509,15 @@ export function recordBook(input: Game[], players?: PlayerMap): RecordBook {
   // not games anyone played for, so they are not records either.
   const log = input.filter(isCounting);
 
-  // A team that never set a lineup is not a record, so ignore zero-score weeks
-  // when ranking lows -- but keep them everywhere else.
-  const scored = log.filter((g) => g.points > 0);
+  // Every counting score is a record candidate, zeros and negatives included.
+  // A zero is usually a team tanking on purpose, and that is exactly what a
+  // lowest-weeks list is for. Filtering on `> 0` used to drop Ben's two 0.0
+  // weeks and Chris's -0.1 in 2020, the lowest week the league has had.
+  // Weeks nobody has played yet never reach here: the game log only carries
+  // played weeks, and the live archive marks the week in progress unplayed.
+  const weekly = log.map((g) => base(g, g.points));
 
-  const weekly = scored.map((g) => base(g, g.points));
-
-  const decided = log.filter(
-    (g) => g.margin != null && g.opponentPoints != null && g.points > 0 && g.opponentPoints > 0
-  );
+  const decided = log.filter((g) => g.margin != null && g.opponentPoints != null);
   const wins = decided.filter((g) => g.won);
 
   const blowouts = wins.map((g) => base(g, g.margin!));

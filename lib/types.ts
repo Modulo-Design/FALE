@@ -37,6 +37,15 @@ export interface WeeklyResult {
   vpAdjustment: number;
   vp: number;
   /**
+   * The week's all-play record: how this score compares against every other
+   * team's that week, as if the team had played the whole league. Decided on
+   * the scores alone, so finale weeks, byes and commissioner overrides do not
+   * touch it.
+   */
+  allPlayWins: number;
+  allPlayLosses: number;
+  allPlayTies: number;
+  /**
    * True while the week is still being played, so these figures can still
    * change. Only ever set for the season in progress; archived seasons never
    * carry it, which is what keeps the offline audit byte-identical.
@@ -61,6 +70,10 @@ export interface TeamStanding {
   wins: number;
   losses: number;
   ties: number;
+  /** The hypothetical record from playing every other team every week. */
+  allPlayWins: number;
+  allPlayLosses: number;
+  allPlayTies: number;
   weeklyResults: WeeklyResult[];
 }
 

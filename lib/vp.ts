@@ -57,6 +57,19 @@ export function calculateWeekVPs(
     matchupGroups.get(m.matchup_id)!.push(m);
   }
 
+  // The all-play record: this week's score against every other team's.
+  const allPlay = (points: number) => {
+    let wins = 0;
+    let losses = 0;
+    for (const other of matchups) {
+      if (other.points < points) wins++;
+      else if (other.points > points) losses++;
+    }
+    // Everyone level with this score, less the team itself.
+    const ties = matchups.length - 1 - wins - losses;
+    return { allPlayWins: wins, allPlayLosses: losses, allPlayTies: ties };
+  };
+
   const scoringVP = (rosterId: number): number => {
     if (!topHalf.has(rosterId)) return 0;
     return finale ? FINALE_SCORING_VP : SCORING_VP;
@@ -93,6 +106,7 @@ export function calculateWeekVPs(
         vpScoring,
         vpAdjustment: 0,
         vp: vpMatchup + vpScoring,
+        ...allPlay(team.points),
       });
     }
   }
@@ -116,6 +130,7 @@ export function calculateWeekVPs(
       vpScoring,
       vpAdjustment: 0,
       vp: vpScoring,
+      ...allPlay(team.points),
     });
   }
 
@@ -179,6 +194,9 @@ export type AggregatedStanding = Pick<
   | "wins"
   | "losses"
   | "ties"
+  | "allPlayWins"
+  | "allPlayLosses"
+  | "allPlayTies"
   | "weeklyResults"
 >;
 

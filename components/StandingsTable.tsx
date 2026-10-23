@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { PLAYOFF_FORMAT } from "@/lib/config";
 import { seedPlayoffField } from "@/lib/seeding";
-import type { LiveView } from "@/lib/standings-view";
+import { allPlayPct, type LiveView } from "@/lib/standings-view";
 import type { TeamStanding } from "@/lib/types";
 
 interface Props {
@@ -17,7 +17,20 @@ interface Props {
   firstPending: number;
 }
 
-type SortKey = "totalVP" | "totalPoints";
+type SortKey = "totalVP" | "totalPoints" | "totalPointsAgainst" | "allPlay";
+
+const SORT_VALUE: Record<SortKey, (team: TeamStanding) => number> = {
+  totalVP: (t) => t.totalVP,
+  totalPoints: (t) => t.totalPoints,
+  totalPointsAgainst: (t) => t.totalPointsAgainst,
+  allPlay: allPlayPct,
+};
+
+/** ".654", the way a winning percentage is written; "1.000" for a perfect one. */
+function formatPct(pct: number): string {
+  const text = pct.toFixed(3);
+  return text.startsWith("0") ? text.slice(1) : text;
+}
 
 function avatarUrl(avatar: string | null): string | null {
   if (!avatar) return null;
@@ -44,11 +57,11 @@ export default function StandingsTable({ standings: rows, season, view, firstPen
   const autoSpots = (PLAYOFF_FORMAT[season]?.teams ?? 1) - 1;
 
   const sorted = useMemo(() => {
+    const value = SORT_VALUE[sortKey];
     return [...rows].sort((a, b) => {
+      // Level on the chosen column, the standings order decides.
       const diff =
-        sortKey === "totalVP"
-          ? b.totalVP - a.totalVP || b.totalPoints - a.totalPoints
-          : b.totalPoints - a.totalPoints || b.totalVP - a.totalVP;
+        value(b) - value(a) || b.totalVP - a.totalVP || b.totalPoints - a.totalPoints;
       return sortDir === "desc" ? diff : -diff;
     });
   }, [rows, sortKey, sortDir]);
@@ -62,10 +75,15 @@ export default function StandingsTable({ standings: rows, season, view, firstPen
     }
   };
 
-  const SortIcon = ({ col }: { col: SortKey }) => {
+  // A plain function rather than a component: a component declared inside
+  // render is a new type on every render, so React would remount it each time.
+  const sortIcon = (col: SortKey) => {
     if (col !== sortKey) return <span className="text-gray-300 dark:text-gray-600 ml-1">↕</span>;
     return <span className="text-green-500 ml-1">{sortDir === "asc" ? "↑" : "↓"}</span>;
   };
+
+  const sortableHeader =
+    "px-3 py-3 font-semibold text-gray-600 dark:text-gray-300 cursor-pointer select-none hover:text-gray-900 dark:hover:text-gray-100 whitespace-nowrap";
 
   return (
     <div className="space-y-2">
@@ -76,17 +94,31 @@ export default function StandingsTable({ standings: rows, season, view, firstPen
             <th className="px-3 py-3 font-semibold text-gray-600 dark:text-gray-300 w-8">#</th>
             <th className="px-3 py-3 font-semibold text-gray-600 dark:text-gray-300 w-36">Team</th>
             <th
-              className="px-3 py-3 font-semibold text-gray-600 dark:text-gray-300 text-center cursor-pointer select-none hover:text-gray-900 dark:hover:text-gray-100 whitespace-nowrap w-20"
+              className={`${sortableHeader} text-center w-20`}
               onClick={() => handleSort("totalVP")}
             >
-              VP&apos;s<SortIcon col="totalVP" />
+              VP&apos;s{sortIcon("totalVP")}
             </th>
             <th className="px-3 py-3 font-semibold text-gray-600 dark:text-gray-300 text-center w-16">W-L</th>
             <th
-              className="px-3 py-3 font-semibold text-gray-600 dark:text-gray-300 text-right cursor-pointer select-none hover:text-gray-900 dark:hover:text-gray-100 whitespace-nowrap w-24"
+              className={`${sortableHeader} text-right w-24`}
               onClick={() => handleSort("totalPoints")}
             >
-              Points<SortIcon col="totalPoints" />
+              Points{sortIcon("totalPoints")}
+            </th>
+            <th
+              className={`${sortableHeader} text-right w-24`}
+              onClick={() => handleSort("totalPointsAgainst")}
+              title="Points scored against you in head-to-head matchups. The finale week has no real opponent, so it adds none."
+            >
+              Pts Against{sortIcon("totalPointsAgainst")}
+            </th>
+            <th
+              className={`${sortableHeader} text-right w-28`}
+              onClick={() => handleSort("allPlay")}
+              title="Hypothetical record: your score against every other team's, every week, as if you played the whole league."
+            >
+              Hypothetical{sortIcon("allPlay")}
             </th>
           </tr>
         </thead>
@@ -159,6 +191,30 @@ export default function StandingsTable({ standings: rows, season, view, firstPen
                     />
                   )}
                 </td>
+                <td className="px-3 py-3 text-right font-mono text-gray-700 dark:text-gray-300">
+                  {team.totalPointsAgainst.toFixed(2)}
+                  {provisional && (
+                    <span
+                      title={dotTitle}
+                      className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 align-super ml-0.5"
+                    />
+                  )}
+                </td>
+                <td className="px-3 py-3 text-right whitespace-nowrap text-gray-700 dark:text-gray-300">
+                  <span className="text-gray-600 dark:text-gray-400">
+                    {team.allPlayWins}-{team.allPlayLosses}
+                    {team.allPlayTies > 0 && `-${team.allPlayTies}`}
+                  </span>
+                  <span className="ml-2 font-mono font-semibold">
+                    {formatPct(allPlayPct(team))}
+                  </span>
+                  {provisional && (
+                    <span
+                      title={dotTitle}
+                      className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 align-super ml-0.5"
+                    />
+                  )}
+                </td>
               </tr>
             );
           })}
@@ -174,6 +230,11 @@ export default function StandingsTable({ standings: rows, season, view, firstPen
           Wildcard — the highest-scoring team outside the top {autoSpots}.
         </p>
       )}
+      <p className="text-[11px] text-gray-500 dark:text-gray-400">
+        Hypothetical is the record you would have if you played every other team every week: the
+        week&apos;s top score goes {rows.length > 1 ? `${rows.length - 1}-0` : "unbeaten"}, the
+        lowest the reverse. A tied score counts as half a win.
+      </p>
     </div>
   );
 }

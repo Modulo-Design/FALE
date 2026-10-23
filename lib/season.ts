@@ -155,6 +155,9 @@ export function computeSeasonStandings(input: SeasonInput): SeasonStandings {
       wins: agg?.wins ?? 0,
       losses: agg?.losses ?? 0,
       ties: agg?.ties ?? 0,
+      allPlayWins: agg?.allPlayWins ?? 0,
+      allPlayLosses: agg?.allPlayLosses ?? 0,
+      allPlayTies: agg?.allPlayTies ?? 0,
       weeklyResults: agg?.weeklyResults ?? [],
     };
   });
@@ -173,6 +176,9 @@ export function computeSeasonStandings(input: SeasonInput): SeasonStandings {
       wins: agg.wins,
       losses: agg.losses,
       ties: agg.ties,
+      allPlayWins: agg.allPlayWins,
+      allPlayLosses: agg.allPlayLosses,
+      allPlayTies: agg.allPlayTies,
       weeklyResults: agg.weeklyResults,
     });
   }

@@ -6,7 +6,7 @@ Next.js app that pulls live data from the Sleeper Fantasy Football API and displ
 
 Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && npm test && npm run lint && npm run build`.
 
-`npm run lint` reports 3 pre-existing errors (1 `react-hooks/error-boundaries` in `app/page.tsx`, 2 `react-hooks/static-components` in `components/StandingsTable.tsx`). Leave the count at 3 or fix them; do not add to it.
+`npm run lint` reports 1 pre-existing error (`react-hooks/error-boundaries` in `app/page.tsx`). Leave the count at 1 or fix it; do not add to it.
 
 ---
 
@@ -96,7 +96,9 @@ It awards no head-to-head VP and no win or loss, so it is deliberately excluded 
 
 ## Record book positions
 
-The league starts QB/RB/WR/TE (and occasionally FB) — no kickers, no defences. Positions are read from `data/players.json` rather than hardcoded, and a scoreless week never counts as a record, which also keeps stray misfiled players from each claiming a section.
+Team records count every score, zeros and negatives included — a 0.0 is usually a team tanking on purpose, and Chris's -0.1 in 2020 is the all-time low.
+
+The league starts QB/RB/WR/TE (and occasionally FB) — no kickers, no defences. Positions are read from `data/players.json` rather than hardcoded, and a scoreless player week never counts as a positional record, which also keeps stray misfiled players from each claiming a section.
 
 To refresh the player map after a season, hit `/api/debug/players` and save the `players` object to `data/players.json`.
 
