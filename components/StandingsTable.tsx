@@ -118,7 +118,7 @@ export default function StandingsTable({ standings: rows, season, view, firstPen
               onClick={() => handleSort("allPlay")}
               title="Hypothetical record: your score against every other team's, every week, as if you played the whole league."
             >
-              All-Play{sortIcon("allPlay")}
+              Hypothetical{sortIcon("allPlay")}
             </th>
           </tr>
         </thead>
@@ -231,7 +231,7 @@ export default function StandingsTable({ standings: rows, season, view, firstPen
         </p>
       )}
       <p className="text-[11px] text-gray-500 dark:text-gray-400">
-        All-Play is the record you would have if you played every other team every week: the
+        Hypothetical is the record you would have if you played every other team every week: the
         week&apos;s top score goes {rows.length > 1 ? `${rows.length - 1}-0` : "unbeaten"}, the
         lowest the reverse. A tied score counts as half a win.
       </p>
