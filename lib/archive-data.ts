@@ -1,7 +1,7 @@
 import { resolveGovernor } from "./governors";
 import type { ArchiveRoster, SeasonArchive } from "./archive";
 import type { SeasonInput, SeasonRosterInfo } from "./season";
-import type { SleeperMatchup } from "./sleeper";
+import type { SleeperMatchup, SleeperPlayer } from "./sleeper";
 
 // An explicit map rather than a template-literal dynamic import: bundlers
 // resolve these statically, so the archive is traced into the build without
@@ -103,11 +103,9 @@ export function archivePlayoffPoints(archive: SeasonArchive): Map<number, number
  * Used to trim Sleeper's 5-10 MB player dictionary down to the few thousand
  * entries this league actually needs before committing it.
  */
-export async function collectPlayerIds(): Promise<string[]> {
+export async function collectPlayerIds(archives?: SeasonArchive[]): Promise<string[]> {
   const ids = new Set<string>();
-  for (const season of archivedSeasons()) {
-    const archive = await loadSeasonArchive(season);
-    if (!archive) continue;
+  for (const archive of archives ?? (await committedArchives())) {
     for (const week of archive.weeks) {
       for (const matchup of week.matchups) {
         for (const id of matchup.starters ?? []) ids.add(id);
@@ -123,4 +121,24 @@ export async function collectPlayerIds(): Promise<string[]> {
   // Sleeper uses "0" as an empty starting slot.
   ids.delete("0");
   return [...ids].sort();
+}
+
+/** Sleeper's player dictionary cut down to `ids`, in the shape of data/players.json. */
+export function trimPlayers(
+  ids: string[],
+  players: Record<string, SleeperPlayer>
+): { players: Record<string, { n: string; p: string | null; t: string | null }>; missing: string[] } {
+  const trimmed: Record<string, { n: string; p: string | null; t: string | null }> = {};
+  const missing: string[] = [];
+  for (const id of ids) {
+    const player = players[id];
+    if (!player) {
+      missing.push(id);
+      continue;
+    }
+    const name =
+      player.full_name ?? [player.first_name, player.last_name].filter(Boolean).join(" ");
+    trimmed[id] = { n: name || id, p: player.position ?? null, t: player.team ?? null };
+  }
+  return { players: trimmed, missing };
 }

@@ -24,7 +24,10 @@ export interface ArchiveMatchup {
   rosterId: number;
   matchupId: number | null;
   points: number;
-  /** Only present in the "deep" scope: the record book needs these. */
+  /**
+   * Only present in the "deep" scope: the record book needs the starters, and
+   * the MVP needs `players` / `playersPoints` -- the whole roster, bench included.
+   */
   starters?: string[];
   startersPoints?: number[];
   players?: string[];
@@ -69,6 +72,11 @@ export interface SeasonArchive {
   playoffWeekStart: number;
   totalRosters: number;
   playoffTeams: number | null;
+  /**
+   * The league's lineup slots, bench included, as Sleeper lists them. Absent
+   * from snapshots taken before the MVP needed it to know who could fill a slot.
+   */
+  rosterPositions?: string[];
   rosters: ArchiveRoster[];
   weeks: { week: number; played: boolean; matchups: ArchiveMatchup[] }[];
   winnersBracket: SleeperBracketMatchup[];
@@ -214,6 +222,7 @@ export async function buildSeasonArchive(
     playoffWeekStart,
     totalRosters: league.total_rosters,
     playoffTeams: league.settings?.playoff_teams ?? null,
+    rosterPositions: league.roster_positions ?? undefined,
     rosters: archiveRosters,
     weeks,
     winnersBracket,

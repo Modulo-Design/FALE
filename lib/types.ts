@@ -209,3 +209,34 @@ export interface ProjectionOutput {
   teams: ProjectedTeam[];
   projectedBracket?: PlayoffBracket;
 }
+
+/**
+ * One player's season in the MVP ranking. "Over bench" always means over the
+ * best bench player his governor could have started in that slot instead.
+ */
+export interface MVPEntry {
+  rank: number;
+  playerId: string;
+  playerName: string;
+  position: string | null;
+  /** The governor who started him most often. */
+  governorName: string;
+  /** Everyone who started him, most starts first -- more than one after a trade. */
+  governors: string[];
+  starts: number;
+  points: number;
+  pointsOverBench: number;
+  /** Regular-season VP his governor would have lost with the bench in his slot. */
+  vpAdded: number;
+  playoffStarts: number;
+  playoffPointsOverBench: number;
+  /** Bracket wins that become losses with the bench in his slot. */
+  playoffWinsSwung: number;
+}
+
+export interface SeasonMVP {
+  season: string;
+  /** False when the season's lineups were archived without the bench. */
+  hasBench: boolean;
+  entries: MVPEntry[];
+}

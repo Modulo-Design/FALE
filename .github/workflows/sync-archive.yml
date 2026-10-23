@@ -1,0 +1,49 @@
+# Re-snapshots completed seasons from Sleeper and commits them back to the
+# branch it ran on. Sleeper isn't reachable from every place this repo is worked
+# on, but it is from a GitHub runner.
+#
+# Run it from the Actions tab (pick a branch, optionally list seasons), or it
+# runs by itself when it or the sync script changes on a claude/ branch.
+name: Sync archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      seasons:
+        description: "Seasons to re-snapshot, space-separated (blank = every completed season)"
+        required: false
+        default: ""
+  push:
+    branches: ["claude/**"]
+    paths: [".github/workflows/sync-archive.yml", "scripts/sync-archive.ts"]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run sync-archive -- $SEASONS
+        env:
+          SEASONS: ${{ github.event.inputs.seasons }}
+      # The audit reconciles every season against the league spreadsheet, so a
+      # re-snapshot that moved a single score fails here instead of landing.
+      - run: npm test
+      - name: Commit the snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/archive data/players.json
+          if git diff --cached --quiet; then
+            echo "Archive already up to date"
+            exit 0
+          fi
+          git commit -m "Re-snapshot archive with bench scores and lineup slots"
+          git push

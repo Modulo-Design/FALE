@@ -8,6 +8,7 @@ const HISTORY_LINKS = [
   { href: "/history", label: "Stats" },
   { href: "/history/h2h", label: "Head-to-Head" },
   { href: "/history/records", label: "Records" },
+  { href: "/history/mvp", label: "MVP" },
   { href: "/trades", label: "Trades" },
 ];
 

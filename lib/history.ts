@@ -40,6 +40,9 @@ export interface Game {
   isFinale: boolean;
   starters: string[];
   startersPoints: number[];
+  /** The whole roster that week, bench included. Empty where not archived. */
+  players: string[];
+  playersPoints: Record<string, number>;
 }
 
 /** Is a game one of the all-time figures counts? */
@@ -81,7 +84,8 @@ function bracketRounds(archive: SeasonArchive): Map<number, Map<number, number |
   return rounds;
 }
 
-function gamesFromArchive(archive: SeasonArchive): Game[] {
+/** One season's games, unsorted. */
+export function gamesFromArchive(archive: SeasonArchive): Game[] {
   const names = new Map(
     resolveArchiveRosters(archive.season, archive.rosters).map((r) => [r.rosterId, r.governorName])
   );
@@ -162,6 +166,8 @@ function gamesFromArchive(archive: SeasonArchive): Game[] {
         isFinale: finale,
         starters: m.starters ?? [],
         startersPoints: m.startersPoints ?? [],
+        players: m.players ?? [],
+        playersPoints: m.playersPoints ?? {},
       });
     };
 
@@ -236,6 +242,8 @@ export async function liveSeasonGames(season: string): Promise<Game[]> {
         // Live matchups are not archived in the "deep" scope, so no lineups.
         starters: [],
         startersPoints: [],
+        players: [],
+        playersPoints: {},
       });
     }
   }

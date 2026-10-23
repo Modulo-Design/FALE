@@ -28,6 +28,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/use-media-query.ts` | `matchMedia` as a hook, for the VP chart's phone layout |
 | `lib/use-stored-choice.ts` | A `localStorage`-backed choice as a hook — remembers Final / Including projections across refreshes |
 | `lib/history.ts` | Cross-season game log, head-to-head, Rivalry Week, record book |
+| `lib/mvp.ts` | Season MVP ranking: VP added over each starter's own bench |
 | `lib/projections.ts` | Seeded Monte Carlo playoff projections for the season in progress |
 | `lib/live-projections.ts` | Re-scores the week in progress on Sleeper's player projections |
 | `lib/trades.ts` | Trade log, draft-slot derivation, and multi-hop pick lineage |
@@ -36,6 +37,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/live-archive.ts` | The committed archive with `CURRENT_SEASON` re-pulled from Sleeper, its pending week dropped — feeds trades, records and head-to-head |
 | `data/archive/*.json` | Committed Sleeper snapshot per season — the offline source of truth |
 | `data/ground-truth.json` | The league spreadsheet's figures, for the audit test |
+| `scripts/sync-archive.ts` | Re-snapshots completed seasons and `data/players.json` from Sleeper (`npm run sync-archive`) |
 | `data/players.json` | Player id to name/position, trimmed to the ids this league has used |
 | `app/page.tsx` | Season dashboard |
 | `app/history/*` | All-time stats, head-to-head, record book |
@@ -53,6 +55,7 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `components/Podium.tsx` | 1st/2nd/3rd beside a completed bracket |
 | `components/PlayoffProjections.tsx` | Odds table, seed heatmap, projected bracket |
 | `components/HeadToHead.tsx` | Two-governor series lookup incl. Rivalry Week |
+| `components/MVPTable.tsx` | MVP tab — season pills and the top-ten table |
 | `components/RecordBook.tsx` | All-time and per-position records |
 | `components/TradeTracker.tsx` | Player search over every trade |
 | `components/SegmentedControl.tsx` | The shared scope filter used by standings, head-to-head and stats |
@@ -88,6 +91,14 @@ Sleeper leaves `slot_to_roster_id` empty for this league, and a draft pick's `ro
 
 Because roster ids are scoped to one season's league, every cross-season hop (and pick trading is nothing else) goes through the governor name.
 
+## MVP
+
+`/history/mvp` ranks each season's ten most valuable players by **VP added**. For every regular-season start, the player is taken out of his lineup and `lineupReplacement` in `lib/mvp.ts` finds his stand-in: the best bench player who can join the *other* starters in some legal arrangement of the lineup's slots (a bipartite match over the archive's `rosterPositions`; `FLEX` takes RB/WR/TE, `SUPER_FLEX` adds QB). So when a QB leaves, the QB in the superflex slides over and the best bench flex player comes in, rather than a bench QB who may not exist. Every other starter stays a starter, and exactly one bench player enters. The week is then re-scored through `calculateWeekVPs` and `applyVPOverrides`, so the head-to-head, the shared top-half cut, the finale's 3 VP and every ruling apply. What his governor would have lost is his VP added. Ties break on points over bench.
+
+The stand-in is floored at the season's **replacement level** for the missing player's position: the 20th percentile of every regular-season start there that scored (`replacementLevels`). That covers a slot nobody on the roster can legally fill (DanK carried no second QB in 2025) and a bench of backups who never play (Matt's 2020 QBs behind Brady scored 0). In both cases the governor would have picked someone up, and treating it as 0 credited the starter with nearly every point he scored. Zero-point starts are left out of the percentile, since in 2020 a fifth of QB starts were zeros and the level fell to 0. Bracket games are shown as playoff wins swung but never ranked.
+
+It needs bench scoring (`players` / `playersPoints`) and lineup slots. A season without bench scores shows a notice rather than a ranking; one without slots falls back to a same-position bench player. A bench player with no position in `data/players.json` can never be a stand-in, so for `CURRENT_SEASON` `withLivePlayers` in `lib/live-archive.ts` fills the gaps from the projections feed.
+
 ## Rivalry Week
 
 The finale week is also **Rivalry Week**: the same seven pairings every season since 2021 — Ben/Peter, Brent/Knute, Chris/Mark, DanK/DanP, Eli/Sam, Jeremy/Matt, Johnathan/Josh.
@@ -120,7 +131,7 @@ Completed seasons are read from `data/archive/`, not from Sleeper. Only `CURRENT
 
 The trade tracker, record book and head-to-head pages read through `loadLiveArchives` in `lib/live-archive.ts`, which swaps the committed `CURRENT_SEASON` snapshot for a fresh pull and marks the week `pendingWeeks` calls live as unplayed — so new trades appear within the hour and a week's scores join the records once it is final. If Sleeper is unreachable it falls back to the committed snapshot. `buildGameLog` and `buildTradeIndex` with no argument still read only the committed archive, which is what the tests use.
 
-To refresh or add a season, hit `/api/debug/archive?season=YYYY` on a deployment that can reach Sleeper, save the JSON, and commit it. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
+To refresh completed seasons, run `npm run sync-archive [seasons...]` from anywhere that can reach Sleeper. It writes every completed season in the deep scope (lineups, bench and `rosterPositions`) plus a refreshed `data/players.json`, in the committed files' exact layout. The **Sync archive** GitHub Action runs the same script on a runner, checks it with `npm test`, and commits the result back to the branch it ran on. The one-off alternative is `/api/debug/archive?season=YYYY&scope=deep` on a deployment, saved and committed by hand. Governor identity is deliberately **not** stored in the archive — it is re-resolved on every read, so adding an alias fixes history without re-fetching.
 
 ## Configuration Guide
 
