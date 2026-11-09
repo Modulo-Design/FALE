@@ -54,6 +54,16 @@ const DEFAULT_SEED = 0x5eed;
 const PRIOR_WEEKS = 4;
 /** A team can never be treated as more predictable than this. */
 const MIN_SD_RATIO = 0.6;
+/**
+ * Tanking: a team whose recent scoring is a small fraction of the league's.
+ *
+ * The window is the last few weeks rather than the whole season, so a team that
+ * starts tanking mid-year is caught and one bad week from a real team is not.
+ * At 35% of the league median the line sits far from both sides: tanking teams
+ * score in the teens, and no real team has averaged below ~80 over three weeks.
+ */
+export const TANK_WINDOW = 3;
+export const TANK_RATIO = 0.35;
 
 /** Deterministic PRNG. Same seed, same sequence, on every platform. */
 export function mulberry32(seed: number): () => number {
@@ -87,21 +97,57 @@ export interface TeamDistribution {
   rosterId: number;
   mean: number;
   sd: number;
+  /** Treated as a guaranteed head-to-head loss for whoever plays it. */
+  tanking: boolean;
+}
+
+function median(values: number[]): number {
+  if (values.length === 0) return 0;
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
+
+/**
+ * Rosters that are tanking: their average over the last `TANK_WINDOW` weeks is
+ * below `TANK_RATIO` of the median team's average over the same weeks. Needs at
+ * least two weeks of data, so the season's opening week cannot flag anyone.
+ */
+export function detectTanking(teams: ProjectionTeamInput[]): Set<number> {
+  const recent = teams.map((t) => ({
+    rosterId: t.rosterId,
+    scores: t.weeklyScores.slice(-TANK_WINDOW),
+  }));
+  if (recent.some((r) => r.scores.length < 2)) return new Set();
+  const recentMeans = recent.map((r) => ({ rosterId: r.rosterId, avg: mean(r.scores) }));
+  const line = TANK_RATIO * median(recentMeans.map((r) => r.avg));
+  return new Set(recentMeans.filter((r) => r.avg < line).map((r) => r.rosterId));
 }
 
 /**
  * Per-team scoring distribution, shrunk toward the league.
  *
- * Abandoned rosters are deliberately not filtered out: a dead team really does
- * score near zero for the rest of the year, and the archive shows that happens
- * roughly once a season.
+ * Tanking teams are kept out of the league prior: three rosters scoring in the
+ * teens drag the league mean down and more than double its spread, which would
+ * otherwise make every real team look far more random than it is. A tanking
+ * team is modelled on its own recent weeks alone, unshrunk, since it is not
+ * going to drift back toward the league.
  */
-export function estimateDistributions(teams: ProjectionTeamInput[]): TeamDistribution[] {
-  const allScores = teams.flatMap((t) => t.weeklyScores);
-  const leagueMean = mean(allScores);
-  const leagueSd = stdDev(allScores, leagueMean) || 1;
+export function estimateDistributions(
+  teams: ProjectionTeamInput[],
+  tanking: Set<number> = detectTanking(teams)
+): TeamDistribution[] {
+  const priorScores = teams.filter((t) => !tanking.has(t.rosterId)).flatMap((t) => t.weeklyScores);
+  const leagueMean = mean(priorScores);
+  const leagueSd = stdDev(priorScores, leagueMean) || 1;
 
   return teams.map((team) => {
+    if (tanking.has(team.rosterId)) {
+      const recent = team.weeklyScores.slice(-TANK_WINDOW);
+      const avg = mean(recent);
+      return { rosterId: team.rosterId, mean: avg, sd: stdDev(recent, avg), tanking: true };
+    }
+
     const n = team.weeklyScores.length;
     const teamMean = n ? mean(team.weeklyScores) : leagueMean;
     const teamSd = stdDev(team.weeklyScores, teamMean);
@@ -114,6 +160,7 @@ export function estimateDistributions(teams: ProjectionTeamInput[]): TeamDistrib
       rosterId: team.rosterId,
       mean: shrunkMean,
       sd: Math.max(Math.sqrt(shrunkVar), MIN_SD_RATIO * leagueSd),
+      tanking: false,
     };
   });
 }
@@ -200,6 +247,15 @@ export const monteCarlo: ProjectionStrategy = {
         // The finale awards no head-to-head VP at all.
         if (!finale) {
           for (const [a, b] of pairs) {
+            const tankA = distributions.get(a)?.tanking ?? false;
+            const tankB = distributions.get(b)?.tanking ?? false;
+            // A real team drawing a tanking one banks the win outright; only two
+            // tanking teams meeting each other is left to the scores.
+            if (tankA !== tankB) {
+              const winner = tankA ? b : a;
+              vp.set(winner, (vp.get(winner) ?? 0) + 2);
+              continue;
+            }
             const scoreA = scoreOf.get(a) ?? 0;
             const scoreB = scoreOf.get(b) ?? 0;
             if (scoreA === scoreB) {
@@ -238,6 +294,7 @@ export const monteCarlo: ProjectionStrategy = {
         seedProbs: seedCounts.get(team.rosterId)!.map((c) => c / sims),
         playoffOdds: (playoffCounts.get(team.rosterId) ?? 0) / sims,
         byeOdds: (byeCounts.get(team.rosterId) ?? 0) / sims,
+        tanking: distributions.get(team.rosterId)?.tanking ?? false,
       };
     });
 
