@@ -82,6 +82,12 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 - **Third place** is the **better-seeded losing semi-finalist**. Sleeper generates a third-place game, but the league treats it as an exhibition — Eli won it in 2020 and Chris in 2022, yet Sam and DanK are the recorded third-place finishers.
 - **Not every post-season game is a playoff game.** Sleeper schedules all 14 rosters every playoff week and posts one more week after the bracket ends, with scores but no pairings at all. `Game.postseason` in `lib/history.ts` sorts them into `bracket` / `consolation` / `exhibition` from the winners bracket; `isCounting` is the filter every all-time figure uses, so only real bracket games count. Round names come from `lib/rounds.ts` — never from a week number.
 
+## Playoff projections
+
+`lib/projections.ts` simulates the rest of the regular season 10,000 times (seeded, so the output is reproducible). Each team's weekly score is drawn from a normal distribution built from its own season, shrunk toward the league average while the sample is small; every simulated week is scored under the real VP rules, and the field is chosen by `seedPlayoffField` — the same function the real bracket uses. Every simulated season seeds exactly seven teams, so the odds always add up to 700%; with a bunched middle of the table, more than seven teams can be above 50%.
+
+**Tanking teams** — those averaging under 35% of the median team over their last three weeks (`detectTanking`) — are left out of the league average, modelled on their own recent scores, and lose every remaining head-to-head week outright, so each of their opponents is credited with the 2 VP.
+
 ## Draft picks
 
 Sleeper leaves `slot_to_roster_id` empty for this league, and a draft pick's `roster_id` is whoever actually *made* the selection, not whose pick it was. `deriveSlotOwners` in `lib/trades.ts` recovers the original owner by intersecting, across every round, the rosters that could have owned that slot given the traded-pick record. It resolves to a complete one-to-one mapping in all seven seasons — a test asserts that.

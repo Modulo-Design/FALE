@@ -25,6 +25,7 @@ function seedCell(probability: number): string {
 export default function PlayoffProjections({ projections }: Props) {
   const { teams, sims, weeksRemaining, projectedBracket } = projections;
   const seedCount = teams[0]?.seedProbs.length ?? 0;
+  const tanking = teams.filter((t) => t.tanking).map((t) => t.governorName);
 
   return (
     <div className="space-y-8">
@@ -32,8 +33,17 @@ export default function PlayoffProjections({ projections }: Props) {
         {weeksRemaining} {weeksRemaining === 1 ? "week" : "weeks"} left, simulated{" "}
         {sims.toLocaleString()} times. Each team&apos;s weekly scoring is drawn from its own
         season so far, pulled toward the league average while the sample is small. Every
-        simulated week is scored under the real rules, top-half scoring VP included.
+        simulated week is scored under the real rules, top-half scoring VP included, and the
+        field is the top {seedCount > 0 ? seedCount - 1 : "VP"} on VP plus the highest scorer
+        left over as the wildcard. The odds add up to {seedCount} teams, not 50% each.
       </p>
+      {tanking.length > 0 && (
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          Treated as tanking: <span className="font-medium">{tanking.join(", ")}</span>. Their
+          opponents are credited with the win in every remaining head-to-head week, and they
+          are left out of the league average the other teams are measured against.
+        </p>
+      )}
 
       <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
         <table className="w-full text-sm">
@@ -52,6 +62,11 @@ export default function PlayoffProjections({ projections }: Props) {
               <tr key={team.rosterId} className="hover:bg-gray-50 dark:hover:bg-gray-800/40">
                 <td className="px-3 py-2 font-medium text-gray-900 dark:text-gray-100">
                   {team.governorName}
+                  {team.tanking && (
+                    <span className="ml-1.5 text-[10px] uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                      tanking
+                    </span>
+                  )}
                 </td>
                 <td className="px-3 py-2 text-right tabular-nums text-gray-600 dark:text-gray-300">
                   {team.currentVP}

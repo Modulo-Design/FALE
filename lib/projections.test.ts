@@ -1,7 +1,14 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { PLAYOFF_FORMAT } from "./config";
-import { estimateDistributions, monteCarlo, mulberry32, pace, type ProjectionInput } from "./projections";
+import {
+  detectTanking,
+  estimateDistributions,
+  monteCarlo,
+  mulberry32,
+  pace,
+  type ProjectionInput,
+} from "./projections";
 
 const GOVERNORS = [
   "Ben", "Brent", "Chris", "DanK", "DanP", "Eli", "Jeremy",
@@ -159,4 +166,59 @@ test("the projected field matches the seeding rules", () => {
     bracket.rounds.filter((m) => m.round === 1).flatMap((m) => m.teams.map((t) => t.governorName))
   );
   assert.equal(inBracket.size, PLAYOFF_FORMAT["2026"].teams);
+});
+
+/** `makeInput`, with the given rosters scoring in the single digits. */
+function withTankers(played: number, tankers: number[]): ProjectionInput {
+  const input = makeInput(played);
+  return {
+    ...input,
+    teams: input.teams.map((t) =>
+      tankers.includes(t.rosterId)
+        ? { ...t, weeklyScores: t.weeklyScores.map((_, w) => (w % 3) * 4), currentPoints: 4 * played }
+        : t
+    ),
+  };
+}
+
+test("tanking is read off the last few weeks, not one bad week", () => {
+  const input = withTankers(8, [3, 11]);
+  assert.deepEqual([...detectTanking(input.teams)].sort((a, b) => a - b), [3, 11]);
+
+  // A real team's single dud is not a tank.
+  const dud = makeInput(8);
+  dud.teams[0].weeklyScores[7] = 5;
+  assert.equal(detectTanking(dud.teams).size, 0);
+
+  // One week of data is not enough to call anyone.
+  assert.equal(detectTanking(withTankers(1, [3]).teams).size, 0);
+});
+
+test("tanking teams stay out of the league prior", () => {
+  const input = withTankers(8, [3, 11, 14]);
+  const tanking = estimateDistributions(input.teams);
+  const ignored = estimateDistributions(input.teams, new Set());
+  const real = (d: typeof tanking) => d.filter((x) => ![3, 11, 14].includes(x.rosterId));
+  for (const [a, b] of real(tanking).map((d, i) => [d, real(ignored)[i]] as const)) {
+    assert.ok(a.sd < b.sd, "tankers must not inflate a real team's spread");
+    assert.ok(a.mean > b.mean, "tankers must not drag a real team's mean down");
+  }
+});
+
+test("a real team facing a tanking one always takes the 2 VP", () => {
+  // Roster 3 tanks; in a schedule where it always draws roster 4, roster 4
+  // banks 2 VP every head-to-head week, while the finale awards none.
+  const input = withTankers(8, [3]);
+  const schedule = input.remainingSchedule.map(({ week }) => ({
+    week,
+    pairs: [[3, 4], [1, 2], [5, 6], [7, 8], [9, 10], [11, 12], [13, 14]] as [number, number][],
+  }));
+  const result = monteCarlo.run({ ...input, remainingSchedule: schedule, sims: 200 });
+  const opponent = result.teams.find((t) => t.rosterId === 4)!;
+  const tanker = result.teams.find((t) => t.rosterId === 3)!;
+  const h2hWeeks = schedule.filter((w) => w.week < input.regularSeasonWeeks).length;
+  assert.ok(opponent.p10VP >= opponent.currentVP + 2 * h2hWeeks, "every head-to-head week is a win");
+  assert.equal(tanker.meanFinalVP, tanker.currentVP, "a tanking team banks nothing");
+  assert.equal(tanker.tanking, true);
+  assert.equal(opponent.tanking, false);
 });

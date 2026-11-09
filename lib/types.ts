@@ -200,6 +200,8 @@ export interface ProjectedTeam {
   playoffOdds: number;
   byeOdds: number;
   titleOdds?: number;
+  /** Judged to be tanking: every opponent is credited with the head-to-head win. */
+  tanking?: boolean;
 }
 
 export interface ProjectionOutput {
