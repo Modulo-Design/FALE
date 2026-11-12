@@ -4,7 +4,10 @@ import type {
   PlayoffBracket,
   PlayoffMatchupResult,
   ProjectedTeam,
+  ProjectionInput,
   ProjectionOutput,
+  ProjectionTeamInput,
+  ProjectionWeekPicks,
   TeamStanding,
 } from "./types";
 
@@ -16,29 +19,7 @@ import type {
  * exact numbers.
  */
 
-export interface ProjectionTeamInput {
-  rosterId: number;
-  governorName: string;
-  currentVP: number;
-  currentPoints: number;
-  /** Scores from completed weeks, used to estimate this team's distribution. */
-  weeklyScores: number[];
-}
-
-export interface ProjectionInput {
-  season: string;
-  regularSeasonWeeks: number;
-  weeksCompleted: number;
-  playoffWeekStart: number;
-  teams: ProjectionTeamInput[];
-  /** Remaining regular-season weeks and who plays whom. */
-  remainingSchedule: { week: number; pairs: [number, number][] }[];
-  playoffFormat: PlayoffFormat;
-  sims?: number;
-  seed?: number;
-  /** Scales every team's spread. `pace` uses 0 to make the run deterministic. */
-  varianceScale?: number;
-}
+export type { ProjectionInput, ProjectionTeamInput, ProjectionWeekPicks };
 
 export interface ProjectionStrategy {
   run(input: ProjectionInput): ProjectionOutput;
@@ -52,6 +33,13 @@ const DEFAULT_SEED = 0x5eed;
  * itself -- which is the honest reading of a two-game sample.
  */
 const PRIOR_WEEKS = 4;
+/**
+ * How many times a week with picks in it is redrawn looking for scores that
+ * agree with them. Picks decide the VP outright either way; this only keeps the
+ * points -- the wildcard and every tiebreak -- in step with the story the picks
+ * tell, so a team picked to win and finish top half is not also banked a dud.
+ */
+const PICK_DRAWS = 8;
 /** A team can never be treated as more predictable than this. */
 const MIN_SD_RATIO = 0.6;
 /**
@@ -199,6 +187,49 @@ function seedFromTotals(
   return seedPlayoffField(standings, format);
 }
 
+const NO_PICKS: ReadonlySet<number> = new Set();
+
+/** How many teams earn the scoring VP in a simulated week. */
+export function topHalfPlaces(input: Pick<ProjectionInput, "teams">): number {
+  return Math.ceil(input.teams.length / 2);
+}
+
+/**
+ * Picks as the simulation reads them, with anything that cannot be honoured
+ * dropped rather than half-applied: a roster that is not in the league, a
+ * winner with no game that week, both sides of one game (the first named
+ * stands), and any top-half pick past the number of places there are.
+ */
+export function normalisePicks(
+  input: ProjectionInput
+): Map<number, { winners: Set<number>; topHalf: Set<number> }> {
+  const topHalfSize = topHalfPlaces(input);
+  const known = new Set(input.teams.map((t) => t.rosterId));
+  const byWeek = new Map<number, { winners: Set<number>; topHalf: Set<number> }>();
+
+  for (const pick of input.picks ?? []) {
+    const fixture = input.remainingSchedule.find((entry) => entry.week === pick.week);
+    if (!fixture) continue;
+
+    const opponent = new Map<number, number>();
+    for (const [a, b] of fixture.pairs) {
+      opponent.set(a, b);
+      opponent.set(b, a);
+    }
+    const winners = new Set<number>();
+    for (const id of pick.winners) {
+      const other = opponent.get(id);
+      if (other != null && known.has(id) && !winners.has(other)) winners.add(id);
+    }
+    const topHalf = new Set<number>();
+    for (const id of pick.topHalf) {
+      if (known.has(id) && topHalf.size < topHalfSize) topHalf.add(id);
+    }
+    byWeek.set(pick.week, { winners, topHalf });
+  }
+  return byWeek;
+}
+
 export const monteCarlo: ProjectionStrategy = {
   run(input) {
     const sims = input.sims ?? DEFAULT_SIMS;
@@ -207,7 +238,7 @@ export const monteCarlo: ProjectionStrategy = {
     const distributions = new Map(
       estimateDistributions(input.teams).map((d) => [d.rosterId, { ...d, sd: d.sd * varianceScale }])
     );
-    const topHalfSize = Math.ceil(input.teams.length / 2);
+    const topHalfSize = topHalfPlaces(input);
 
     const finalVPs = new Map<number, number[]>(input.teams.map((t) => [t.rosterId, []]));
     const seedCounts = new Map<number, number[]>(
@@ -220,6 +251,8 @@ export const monteCarlo: ProjectionStrategy = {
       rosterId: t.rosterId,
       score: 0,
     }));
+    const drawn = new Map<number, number>();
+    const picksByWeek = normalisePicks(input);
 
     for (let sim = 0; sim < sims; sim++) {
       const vp = new Map(input.teams.map((t) => [t.rosterId, t.currentVP]));
@@ -228,25 +261,70 @@ export const monteCarlo: ProjectionStrategy = {
       for (const { week, pairs } of input.remainingSchedule) {
         const finale = week === input.regularSeasonWeeks && Number(input.season) >= 2021;
 
-        for (const slot of scratch) {
-          const dist = distributions.get(slot.rosterId)!;
-          slot.score = Math.max(0, dist.mean + dist.sd * standardNormal(rand));
+        const picks = picksByWeek.get(week);
+        // The finale has no head-to-head to pick, so a winner there binds nothing.
+        const winners = finale ? NO_PICKS : picks?.winners ?? NO_PICKS;
+        const locked = picks?.topHalf ?? NO_PICKS;
+        const picked = winners.size > 0 || locked.size > 0;
+
+        // With no picks the first draw always stands, so the unpicked run uses
+        // exactly the random sequence it always has.
+        let ranked = scratch;
+        let fewest = Infinity;
+        for (let draw = 0; draw < (picked ? PICK_DRAWS : 1) && fewest > 0; draw++) {
+          for (const slot of scratch) {
+            const dist = distributions.get(slot.rosterId)!;
+            slot.score = Math.max(0, dist.mean + dist.sd * standardNormal(rand));
+          }
+          const order = [...scratch].sort((a, b) => b.score - a.score || a.rosterId - b.rosterId);
+          let misses = 0;
+          if (picked) {
+            for (const slot of scratch) drawn.set(slot.rosterId, slot.score);
+            for (const [a, b] of pairs) {
+              const winner = winners.has(a) ? a : winners.has(b) ? b : null;
+              if (winner == null) continue;
+              const loser = winner === a ? b : a;
+              if ((drawn.get(winner) ?? 0) <= (drawn.get(loser) ?? 0)) misses++;
+            }
+            for (let i = topHalfSize; i < order.length; i++) {
+              if (locked.has(order[i].rosterId)) misses++;
+            }
+          }
+          if (misses < fewest) {
+            fewest = misses;
+            ranked = order.map((slot) => ({ ...slot }));
+          }
+        }
+
+        const scoreOf = new Map<number, number>();
+        for (const slot of ranked) {
+          scoreOf.set(slot.rosterId, slot.score);
           points.set(slot.rosterId, (points.get(slot.rosterId) ?? 0) + slot.score);
         }
-        const scoreOf = new Map(scratch.map((s) => [s.rosterId, s.score]));
 
         // Top-half scoring VP is a league-wide comparison, which is precisely
-        // what a per-team pace projection cannot model.
-        const ranked = [...scratch].sort((a, b) => b.score - a.score || a.rosterId - b.rosterId);
+        // what a per-team pace projection cannot model. Picked teams take their
+        // places first; whatever is left goes to the best of the rest.
         const scoringVP = finale ? 3 : 1;
-        for (let i = 0; i < topHalfSize; i++) {
-          const id = ranked[i].rosterId;
-          vp.set(id, (vp.get(id) ?? 0) + scoringVP);
+        let open = topHalfSize - locked.size;
+        for (const { rosterId } of ranked) {
+          if (locked.has(rosterId)) {
+            vp.set(rosterId, (vp.get(rosterId) ?? 0) + scoringVP);
+          } else if (open > 0) {
+            vp.set(rosterId, (vp.get(rosterId) ?? 0) + scoringVP);
+            open--;
+          }
         }
 
         // The finale awards no head-to-head VP at all.
         if (!finale) {
           for (const [a, b] of pairs) {
+            // A pick settles the game, whatever was drawn and whoever is tanking.
+            if (winners.has(a) || winners.has(b)) {
+              const winner = winners.has(a) ? a : b;
+              vp.set(winner, (vp.get(winner) ?? 0) + 2);
+              continue;
+            }
             const tankA = distributions.get(a)?.tanking ?? false;
             const tankB = distributions.get(b)?.tanking ?? false;
             // A real team drawing a tanking one banks the win outright; only two

@@ -19,18 +19,14 @@ function read(key: string): string | null {
 }
 
 /**
- * A small choice remembered in `localStorage`, so it survives a refresh.
+ * A string remembered in `localStorage`, so it survives a refresh.
  *
  * `useSyncExternalStore` rather than an effect, for the same reason as
  * `useMediaQuery`: the server snapshot is always `null`, so the server render
  * and the hydration pass agree, and React re-renders with the stored value
- * straight after. A value outside `allowed` -- an old build's, or a hand-edited
- * one -- reads as `null`, which callers treat as "no choice made yet".
+ * straight after.
  */
-export function useStoredChoice<T extends string>(
-  key: string,
-  allowed: readonly T[]
-): [T | null, (value: T) => void] {
+export function useStoredString(key: string): [string | null, (value: string) => void] {
   const subscribe = useCallback((onChange: () => void) => {
     window.addEventListener("storage", onChange);
     window.addEventListener(LOCAL_EVENT, onChange);
@@ -40,15 +36,14 @@ export function useStoredChoice<T extends string>(
     };
   }, []);
 
-  const raw = useSyncExternalStore(
+  const value = useSyncExternalStore(
     subscribe,
     () => read(key),
     () => null
   );
-  const value = raw != null && (allowed as readonly string[]).includes(raw) ? (raw as T) : null;
 
   const setValue = useCallback(
-    (next: T) => {
+    (next: string) => {
       memory.set(key, next);
       try {
         window.localStorage.setItem(key, next);
@@ -60,5 +55,19 @@ export function useStoredChoice<T extends string>(
     [key]
   );
 
+  return [value, setValue];
+}
+
+/**
+ * A small choice remembered the same way. A value outside `allowed` -- an old
+ * build's, or a hand-edited one -- reads as `null`, which callers treat as "no
+ * choice made yet".
+ */
+export function useStoredChoice<T extends string>(
+  key: string,
+  allowed: readonly T[]
+): [T | null, (value: T) => void] {
+  const [raw, setValue] = useStoredString(key);
+  const value = raw != null && (allowed as readonly string[]).includes(raw) ? (raw as T) : null;
   return [value, setValue];
 }

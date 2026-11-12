@@ -222,3 +222,141 @@ test("a real team facing a tanking one always takes the 2 VP", () => {
   assert.equal(tanker.tanking, true);
   assert.equal(opponent.tanking, false);
 });
+
+// ---------------------------------------------------------------------------
+// The playoff machine: picks
+// ---------------------------------------------------------------------------
+
+/** Every game and every top-half place of every remaining week, decided. */
+function fullPicks(input: ProjectionInput, winnerOf: (pair: [number, number]) => number, topHalf: number[]) {
+  return input.remainingSchedule.map(({ week, pairs }) => ({
+    week,
+    winners: pairs.map(winnerOf),
+    topHalf,
+  }));
+}
+
+test("no picks, or empty picks, is the plain projection to the last digit", () => {
+  const input = makeInput(9);
+  const plain = monteCarlo.run(input);
+  assert.deepEqual(monteCarlo.run({ ...input, picks: [] }), plain);
+  assert.deepEqual(
+    monteCarlo.run({
+      ...input,
+      picks: input.remainingSchedule.map(({ week }) => ({ week, winners: [], topHalf: [] })),
+    }),
+    plain
+  );
+});
+
+test("a fully picked season leaves no doubt about anyone's VP", () => {
+  const input = makeInput(10);
+  // The worse team of every pair wins, and the bottom seven take the top half:
+  // the opposite of what the scores say, so nothing here can come from a draw.
+  const bottomSeven = [8, 9, 10, 11, 12, 13, 14];
+  const picks = fullPicks(input, ([, b]) => b, bottomSeven);
+  const result = monteCarlo.run({ ...input, picks });
+
+  for (const team of result.teams) {
+    const start = input.teams.find((t) => t.rosterId === team.rosterId)!.currentVP;
+    const wins = team.rosterId % 2 === 0;
+    const top = bottomSeven.includes(team.rosterId);
+    // Weeks 11-13 are ordinary (2 for the win, 1 for top half); 14 is the
+    // finale (no head-to-head, 3 for top half).
+    const expected = start + 3 * ((wins ? 2 : 0) + (top ? 1 : 0)) + (top ? 3 : 0);
+    assert.equal(team.p10VP, expected, `${team.governorName} floor`);
+    assert.equal(team.p90VP, expected, `${team.governorName} ceiling`);
+    assert.equal(team.meanFinalVP, expected, `${team.governorName} mean`);
+  }
+});
+
+test("a pick only moves the game it names", () => {
+  const input = makeInput(13, { regularSeasonWeeks: 15 });
+  // One ordinary week left to pick in, then the finale.
+  const week = input.remainingSchedule[0].week;
+  const picked = monteCarlo.run({ ...input, picks: [{ week, winners: [14], topHalf: [] }] });
+  const plain = monteCarlo.run(input);
+  const meanVP = (run: typeof plain, id: number) =>
+    run.teams.find((t) => t.rosterId === id)!.meanFinalVP;
+
+  // Roster 14 is the worst team in the league and was handed a win.
+  assert.ok(meanVP(picked, 14) > meanVP(plain, 14) + 1);
+  assert.ok(meanVP(picked, 13) < meanVP(plain, 13));
+});
+
+test("picked top-half teams take their places and the rest are still played for", () => {
+  const input = makeInput(13);
+  const week = input.remainingSchedule[0].week;
+  // The finale: 3 VP to each of seven teams, two of them named.
+  const result = monteCarlo.run({ ...input, picks: [{ week, winners: [], topHalf: [13, 14] }] });
+
+  const gained = (id: number) => {
+    const team = result.teams.find((t) => t.rosterId === id)!;
+    return { low: team.p10VP - team.currentVP, mean: team.meanFinalVP - team.currentVP };
+  };
+  assert.equal(gained(13).low, 3);
+  assert.equal(gained(14).low, 3);
+  const total = result.teams.reduce((sum, t) => sum + (t.meanFinalVP - t.currentVP), 0);
+  assert.ok(Math.abs(total - 21) < 0.5, "seven places, no more and no fewer");
+});
+
+test("picks that cannot be honoured are dropped, not half-applied", () => {
+  const input = makeInput(12);
+  const week = input.remainingSchedule[0].week;
+  const plain = monteCarlo.run(input);
+
+  // An unknown roster, a week that is not on the schedule.
+  assert.deepEqual(
+    monteCarlo.run({
+      ...input,
+      picks: [
+        { week, winners: [99], topHalf: [99] },
+        { week: 3, winners: [1], topHalf: [1] },
+      ],
+    }),
+    plain
+  );
+
+  // Both sides of one game: the first named stands.
+  const both = monteCarlo.run({ ...input, picks: [{ week, winners: [2, 1], topHalf: [] }] });
+  const one = monteCarlo.run({ ...input, picks: [{ week, winners: [2], topHalf: [] }] });
+  assert.deepEqual(both, one);
+
+  // Nine teams named for seven places: only seven are paid.
+  const nine = monteCarlo.run({
+    ...input,
+    picks: [{ week, winners: [], topHalf: [6, 7, 8, 9, 10, 11, 12, 13, 14] }],
+  });
+  const seven = monteCarlo.run({
+    ...input,
+    picks: [{ week, winners: [], topHalf: [6, 7, 8, 9, 10, 11, 12] }],
+  });
+  assert.deepEqual(nine, seven);
+});
+
+test("a pick beats the tanking rule", () => {
+  const input = makeInput(9);
+  // Roster 14 scores in the single digits, so its opponent is normally handed the win.
+  const teams = input.teams.map((t) =>
+    t.rosterId === 14 ? { ...t, weeklyScores: t.weeklyScores.map(() => 5) } : t
+  );
+  const tanked = { ...input, teams };
+  assert.ok(detectTanking(teams).has(14));
+
+  const picks = tanked.remainingSchedule
+    .filter(({ week }) => week < 14)
+    .map(({ week }) => ({ week, winners: [14], topHalf: [] }));
+  const result = monteCarlo.run({ ...tanked, picks });
+  const team = result.teams.find((t) => t.rosterId === 14)!;
+  assert.ok(team.p10VP >= team.currentVP + 2 * picks.length);
+});
+
+test("picked results pull the points with them", () => {
+  const input = makeInput(9, { sims: 2000 });
+  // Roster 8 sits mid-table; pick it to win out and finish top half every week.
+  const picks = input.remainingSchedule.map(({ week }) => ({ week, winners: [8], topHalf: [8] }));
+  const plain = monteCarlo.run(input).teams.find((t) => t.rosterId === 8)!;
+  const picked = monteCarlo.run({ ...input, picks }).teams.find((t) => t.rosterId === 8)!;
+  assert.ok(picked.playoffOdds > plain.playoffOdds);
+  assert.ok(picked.meanFinalVP > plain.meanFinalVP);
+});
