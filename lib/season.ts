@@ -31,6 +31,7 @@ import { restrictStandings } from "./standings-view";
 import type {
   LiveStatus,
   ProjectedLiveStandings,
+  ProjectionInput,
   SeasonStandings,
   TeamStanding,
 } from "./types";
@@ -227,7 +228,7 @@ function projectSeason(
 
   if (remainingSchedule.length === 0) return undefined;
 
-  return monteCarlo.run({
+  const input: ProjectionInput = {
     season,
     regularSeasonWeeks: standings.regularSeasonWeeks,
     weeksCompleted: standings.weeksCompleted,
@@ -241,7 +242,8 @@ function projectSeason(
     })),
     remainingSchedule,
     playoffFormat: format,
-  });
+  };
+  return { ...monteCarlo.run(input), input };
 }
 
 /** Playoff seed by roster id, used to rank the beaten semi-finalists. */

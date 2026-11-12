@@ -8,6 +8,8 @@
 // structural copies, which meant adding one field here silently broke the build
 // somewhere else.
 
+import type { PlayoffFormat } from "./config";
+
 // ---------------------------------------------------------------------------
 // Victory Points
 // ---------------------------------------------------------------------------
@@ -204,10 +206,56 @@ export interface ProjectedTeam {
   tanking?: boolean;
 }
 
+export interface ProjectionTeamInput {
+  rosterId: number;
+  governorName: string;
+  currentVP: number;
+  currentPoints: number;
+  /** Scores from completed weeks, used to estimate this team's distribution. */
+  weeklyScores: number[];
+}
+
+/**
+ * One week of the playoff machine: results decided by hand rather than drawn.
+ *
+ * A pick settles the VP outright. Anything left unpicked -- a game with no
+ * winner named, a top-half place nobody was given -- is still simulated.
+ */
+export interface ProjectionWeekPicks {
+  week: number;
+  /** Rosters picked to win their head-to-head. Means nothing in the finale. */
+  winners: number[];
+  /** Rosters picked to finish in the top half. Never more than there are places. */
+  topHalf: number[];
+}
+
+export interface ProjectionInput {
+  season: string;
+  regularSeasonWeeks: number;
+  weeksCompleted: number;
+  playoffWeekStart: number;
+  teams: ProjectionTeamInput[];
+  /** Remaining regular-season weeks and who plays whom. */
+  remainingSchedule: { week: number; pairs: [number, number][] }[];
+  playoffFormat: PlayoffFormat;
+  sims?: number;
+  seed?: number;
+  /** Scales every team's spread. `pace` uses 0 to make the run deterministic. */
+  varianceScale?: number;
+  /** The playoff machine's picks. Absent or empty, the run is the plain projection. */
+  picks?: ProjectionWeekPicks[];
+}
+
 export interface ProjectionOutput {
   strategy: "monte-carlo" | "pace";
   sims: number;
   weeksRemaining: number;
   teams: ProjectedTeam[];
   projectedBracket?: PlayoffBracket;
+  /**
+   * What the simulation was run on, so the playoff machine can run it again in
+   * the browser with picks added. The same input and no picks reproduces these
+   * figures exactly.
+   */
+  input?: ProjectionInput;
 }

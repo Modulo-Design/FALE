@@ -26,9 +26,10 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `lib/standings-view.ts` | The week-folding rules, shared by `aggregateStandings` and the standings table |
 | `lib/rounds.ts` | Playoff round naming — the one definition every surface reads |
 | `lib/use-media-query.ts` | `matchMedia` as a hook, for the VP chart's phone layout |
-| `lib/use-stored-choice.ts` | A `localStorage`-backed choice as a hook — remembers Final / Including projections across refreshes |
+| `lib/use-stored-choice.ts` | A `localStorage`-backed choice (or raw string) as a hook — remembers Final / Including projections and the playoff machine's picks across refreshes |
 | `lib/history.ts` | Cross-season game log, head-to-head, Rivalry Week, record book |
 | `lib/projections.ts` | Seeded Monte Carlo playoff projections for the season in progress |
+| `lib/playoff-machine.ts` | The playoff machine's picks — toggling, storage, and the re-run with them applied |
 | `lib/live-projections.ts` | Re-scores the week in progress on Sleeper's player projections |
 | `lib/trades.ts` | Trade log, draft-slot derivation, and multi-hop pick lineage |
 | `lib/archive.ts` | Snapshots a season into a committable JSON fixture |
@@ -51,7 +52,8 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 | `components/PlayoffBracket.tsx` | Playoffs tab — absolutely-positioned bracket with drawn connectors |
 | `components/HistoricalStats.tsx` | All-time stats table |
 | `components/Podium.tsx` | 1st/2nd/3rd beside a completed bracket |
-| `components/PlayoffProjections.tsx` | Odds table, seed heatmap, projected bracket |
+| `components/PlayoffProjections.tsx` | Odds table, seed heatmap, projected bracket — all re-run on the playoff machine's picks |
+| `components/PlayoffMachine.tsx` | Pick each remaining week's winners and top half |
 | `components/HeadToHead.tsx` | Two-governor series lookup incl. Rivalry Week |
 | `components/RecordBook.tsx` | All-time and per-position records |
 | `components/TradeTracker.tsx` | Player search over every trade |
@@ -87,6 +89,12 @@ Run locally: `npm run dev` (port 3000). Before pushing: `npm run typecheck && np
 `lib/projections.ts` simulates the rest of the regular season 10,000 times (seeded, so the output is reproducible). Each team's weekly score is drawn from a normal distribution built from its own season, shrunk toward the league average while the sample is small; every simulated week is scored under the real VP rules, and the field is chosen by `seedPlayoffField` — the same function the real bracket uses. Every simulated season seeds exactly seven teams, so the odds always add up to 700%; with a bunched middle of the table, more than seven teams can be above 50%.
 
 **Tanking teams** — those averaging under 35% of the median team over their last three weeks (`detectTanking`) — are left out of the league average, modelled on their own recent scores, and lose every remaining head-to-head week outright, so each of their opponents is credited with the 2 VP.
+
+### Playoff machine
+
+The Playoff Projections tab lets a governor decide the remaining weeks by hand — the week in progress included, since projections already treat it as a fixture. Per week, each game takes a winner and up to seven teams can be put in the top half; the finale offers the top half only. The picks are `ProjectionInput.picks`, and `monteCarlo` treats them as settled: **a pick awards its VP outright** (beating the tanking rule), unpicked games and unclaimed top-half places are still simulated, and a week with picks is redrawn up to `PICK_DRAWS` times to find scores that agree with them, so points — the wildcard and every tiebreak — follow the picks too. With no picks the run is byte-identical to the plain projection; a test asserts that.
+
+The server ships its `ProjectionInput` as `projections.input`, and `runMachine` in `lib/playoff-machine.ts` re-runs it in the browser at `MACHINE_SIMS` (4,000) on every change. Picks are stored per season in `localStorage` and re-checked against the schedule on every read (`parsePicks`), so a week that has since been played drops out by itself. The odds table shows each team's change against the unpicked projection, hidden under 2 points because that is simulation noise.
 
 ## Draft picks
 
